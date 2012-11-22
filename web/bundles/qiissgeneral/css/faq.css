@@ -1,0 +1,79 @@
+@font-face {
+  font-family: 'PatuaOneRegular';
+  src: url("/bundles/qiissgeneral/fonts/PatuaOne-Regular-webfont.eot");
+  src: url("/bundles/qiissgeneral/fonts/PatuaOne-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("/bundles/qiissgeneral/fonts/PatuaOne-Regular-webfont.woff") format("woff"), url("/bundles/qiissgeneral/fonts/PatuaOne-Regular-webfont.ttf") format("truetype"), url("/bundles/qiissgeneral/fonts/PatuaOne-Regular-webfont.svg#PatuaOneRegular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'OxygenRegular';
+  src: url("/bundles/qiissgeneral/fonts/Oxygen-webfont.eot");
+  src: url("/bundles/qiissgeneral/fonts/Oxygen-webfont.eot?#iefix") format("embedded-opentype"), url("/bundles/qiissgeneral/fonts/Oxygen-webfont.woff") format("woff"), url("/bundles/qiissgeneral/fonts/Oxygen-webfont.ttf") format("truetype"), url("/bundles/qiissgeneral/fonts/Oxygen-webfont.svg#OxygenRegular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+body .faq_main_border {
+  width: 900px;
+  margin: 50px auto;
+  padding: 10px;
+  background: #CFD7E3;
+  border: 1px solid #aaa;
+  -moz-border-radius-topleft: 8px;
+  -webkit-border-top-left-radius: 8px;
+  -khtml-border-radius-topleft: 8px;
+  border-top-left-radius: 8px;
+  -moz-border-radius-topright: 8px;
+  -webkit-border-top-right-radius: 8px;
+  -khtml-border-radius-topright: 8px;
+  border-top-right-radius: 8px;
+  -moz-border-radius-bottomright: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+  -khtml-border-radius-bottomright: 8px;
+  border-bottom-right-radius: 8px;
+  -moz-border-radius-bottomleft: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  -khtml-border-radius-bottomleft: 8px;
+  border-bottom-left-radius: 8px; }
+  body .faq_main_border .faq_main {
+    border: 1px solid #aaa; }
+    body .faq_main_border .faq_main .header {
+      background: #eee;
+      border-bottom: 1px solid #aaa;
+      padding: 15px; }
+      body .faq_main_border .faq_main .header img {
+        display: inline-block;
+        vertical-align: middle;
+        width: 200px;
+        padding-right: 30px; }
+      body .faq_main_border .faq_main .header .seperator {
+        display: inline-block;
+        vertical-align: middle;
+        height: 90px;
+        width: 0px;
+        border-left: 1px solid #999;
+        border-right: 1px solid #fff;
+        -moz-box-shadow: 0px 0px 10px 1px #cecece;
+        -webkit-box-shadow: 0px 0px 10px 1px #cecece;
+        box-shadow: 0px 0px 10px 1px #cecece; }
+      body .faq_main_border .faq_main .header .inner {
+        display: inline-block;
+        vertical-align: middle;
+        padding-left: 30px;
+        font: 45px 'PatuaOneRegular', Arial, sans-serif;
+        color: #333; }
+    body .faq_main_border .faq_main .section {
+      font: 18px 'PatuaOneRegular', Arial, sans-serif; }
+      body .faq_main_border .faq_main .section .section_header {
+        background: #dedede;
+        color: #333;
+        border-bottom: 1px solid #aaa;
+        padding: 15px;
+        cursor: pointer; }
+        body .faq_main_border .faq_main .section .section_header:hover {
+          background: #cecece; }
+      body .faq_main_border .faq_main .section .section_body {
+        display: none;
+        background: #eee;
+        padding: 15px 20px 15px 20px;
+        font: 16px/20px "OxygenRegular", Arial, sans-serif;
+        color: #444; }

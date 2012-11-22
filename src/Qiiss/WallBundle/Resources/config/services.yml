@@ -1,0 +1,7 @@
+parameters:
+#    qiiss_wall.example.class: Qiiss\WallBundle\Example
+
+services:
+#    qiiss_wall.example:
+#        class: %qiiss_wall.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,7 @@
+qiiss_general_homepage:
+    pattern:  /home
+    defaults: { _controller: QiissGeneralBundle:General:index }
+
+qiiss_general_faq:
+    pattern:  /faq
+    defaults: { _controller: QiissGeneralBundle:General:faq }

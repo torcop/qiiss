@@ -1,0 +1,180 @@
+@import "shared", "header";
+
+html {
+  height:100%;
+
+  body {
+    margin:0;
+    padding:0;
+    height:100%;
+    background-image:url('/assets/img/Final-Homepage-background.gif');
+    background-repeat:none;
+
+    #upper_top_banner {
+
+      div, input {
+        display:inline-block;
+        font: 18px 'PatuaOneRegular', Arial, sans-serif;
+        padding: 7px 12px;
+      }
+
+      #notifications_icon {
+        margin-right:15px;
+      }
+      #header_search_bar {
+        width:300px;
+        background-color:#eee;
+        border:1px solid #888;
+        border-right:1px solid #aaa;
+        -webkit-appearance: none;
+        @include corner(6px, 0px, 0px, 6px);
+        @include shadow(inset 0px, 0px, 10px, 1px, #bbb);
+
+        &:focus {
+          outline-width: 0;
+          @include shadow(inset 0px, 0px, 10px, 1px, #999);
+        }
+      }
+      #header_search_button {
+        width:50px;
+        background-color:#ccc;
+        border-right:1px solid #888;
+        border-top:1px solid #888;
+        border-bottom:1px solid #888;
+        color:#333;
+        cursor:pointer;
+        padding: 7px 12px;
+        @include corner(0px, 6px, 6px, 0px);
+
+        &:hover {
+          background-color:#bbb;
+          color:#222;
+        }
+
+        &:active, &:focus {
+          background-color:#777;
+          color:#ccc;
+        }
+      }
+    } // #upper_top_banner
+
+    #main_container {
+      padding-bottom:40px;
+
+      #canvas_container {
+        width:1024px;
+        margin: 40px auto;
+        font-size:0;
+
+        .canvas_segment {
+          display:inline-block;
+          vertical-align:top;
+          border:1px solid #000;
+        }
+        .canvas_small {
+          width:210px;
+          margin-right:10px;
+        }
+        .canvas_large {
+          width:790px;
+          margin-left:10px;
+        }
+
+        #canvas_left {
+          font: 16px/20px 'OxygenRegular', Arial, sans-serif;
+
+          #profile_picture {
+            width:190px;
+            height:190px;
+            border:1px solid #ccc;
+            margin: 9px;
+          }
+
+          .review {
+            width:190px;
+            height:140px;
+            border:1px solid #ccc;
+            margin: 9px;
+          }
+        }
+
+        #canvas_center {
+
+          #canvas_header {
+
+            div {
+              display:inline-block;
+              font: 30px 'OxygenRegular', Arial, sans-serif;
+              padding: 10px 0px 10px 20px;
+            }
+
+            #header_name {
+              width:650px;
+            }
+            #header_age {
+              text-align:right;
+              padding-right:20px;
+              width:80px;
+            }
+
+            #header_info {
+              padding:0;
+              font-size:0;
+
+              div {
+                display:inline-block;
+                vertical-align:top;
+                font: 16px 'OxygenRegular', Arial, sans-serif;
+              }
+
+              #info_left {
+                width:450px;
+              }
+              #info_right {
+                padding:0;
+                text-align:right;
+                width:300px;
+              }
+            } // #header_info
+
+            #sample_photos {
+              .sample_photo {
+                font: 16px 'OxygenRegular', Arial, sans-serif;
+                width:130px;
+                height:130px;
+                border:1px solid #ccc;
+                padding:0px;
+              }
+            }
+          } // #canvas_header
+
+          #canvas_body {
+
+            #canvas_body_header {
+              font: 30px 'OxygenRegular', Arial, sans-serif;
+              padding: 10px 0px 0px 20px;
+              color:#777;
+            }
+
+            #canvas_top_seperator {
+              height:0px;
+              width:750px;
+              border-top:1px solid #fff;
+              border-bottom:1px solid #999;
+              margin: 5px 0px 10px 20px;
+              @include shadow(0px, 0px, 10px, 1px, #cecece);
+            }
+
+            #canvas_story_container {
+              padding: 10px 20px 20px 20px;
+              .canvas_story {
+                font: 16px 'OxygenRegular', Arial, sans-serif;
+                border:1px solid #000;
+              }
+            }
+          }
+        } // #canvas_center
+      } // #canvas_container
+    } // #main_container
+  } // body
+} // html

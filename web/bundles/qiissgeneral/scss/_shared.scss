@@ -1,0 +1,38 @@
+$medium-blue: #CFD7E3;
+$light-blue: #DCE5F2;
+
+@mixin corner($topLeft, $topRight, $bottomRight, $bottomLeft) {
+  -moz-border-radius-topleft: $topLeft;
+  -webkit-border-top-left-radius: $topLeft;
+  -khtml-border-radius-topleft: $topLeft;
+  border-top-left-radius: $topLeft;
+  -moz-border-radius-topright: $topRight;
+  -webkit-border-top-right-radius: $topRight;
+  -khtml-border-radius-topright: $topRight;
+  border-top-right-radius: $topRight;
+  -moz-border-radius-bottomright: $bottomRight;
+  -webkit-border-bottom-right-radius: $bottomRight;
+  -khtml-border-radius-bottomright: $bottomRight;
+  border-bottom-right-radius: $bottomRight;
+  -moz-border-radius-bottomleft: $bottomLeft;
+  -webkit-border-bottom-left-radius: $bottomLeft;
+  -khtml-border-radius-bottomleft: $bottomLeft;
+  border-bottom-left-radius: $bottomLeft;
+}
+
+@mixin shadow($leftOffset, $topOffset, $blur, $spread, $color) {
+  -moz-box-shadow: $leftOffset $topOffset $blur $spread $color;
+  -webkit-box-shadow: $leftOffset $topOffset $blur $spread $color;
+  box-shadow: $leftOffset $topOffset $blur $spread $color;
+}
+
+@mixin gradient($from, $to) {
+  background-color: $to;
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=" + $from + ", endColorstr=" + $to + ")";
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
+  background-image: -webkit-linear-gradient(top, $from, $to);
+  background-image:    -moz-linear-gradient(top, $from, $to);
+  background-image:     -ms-linear-gradient(top, $from, $to);
+  background-image:      -o-linear-gradient(top, $from, $to);
+}
