@@ -3,19 +3,18 @@
 <head>
 	<meta charset="utf-8">
 	<title> Qiiss Title Page </title>
-	<?php
-		Casset::css('profile.css');
-		Casset::js('jquery-1.8.1.min.js');
-		Casset::js('jquery-placeholder.min.js');
-		echo Casset::render();
-	?>
+	{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/profile.css') }}" type="text/css" media="all" />
+    {% endblock %}
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/jquery-1.8.3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/jquery-placeholder.min.js') }}"></script>
 </head>
 <body>
 	<div id="upper_top_banner">
 		<a href="/faq"><div id="faq">About Qiiss</div></a>
 	</div>
 	<div id="lower_top_banner">
-		<img src="/assets/img/qiiss-graphics/blue/Logo.png" />
+		<img src="{{ asset('bundles/qiissgeneral/images/qiiss-graphics/blue/Logo.png') }}" />
 	</div>
 	<div id="main_container">
 	</div>
