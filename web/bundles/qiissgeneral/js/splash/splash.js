@@ -61,25 +61,41 @@ END FACEBOOK SDK CODE
 ********************/
 
 var pictureIndex = 0;
-var imageLocation = "/bundles/qiissgeneral/images/home-page-images/";
-var thumbLocation = "/bundles/qiissgeneral/images/thumbs/";
 var pictureValues = jQuery.parseJSON('{ "pictures": [' +
-'{"picture" : "' + imageLocation + 'message5.jpg", "angle" : "-8", "textPosition" : "bottom", "offset" : "-50%"},' +
-'{"picture" : "' + imageLocation + 'message3.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
-'{"picture" : "' + imageLocation + 'message1.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-40%"},' +
-'{"picture" : "' + imageLocation + 'message2.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
-'{"picture" : "' + imageLocation + 'message4.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
-'{"picture" : "' + imageLocation + 'message6.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"}]}');
+'{"picture" : "/assets/img/home-page-images/message5.jpg", "angle" : "-8", "textPosition" : "bottom", "offset" : "-50%"},' +
+'{"picture" : "/assets/img/home-page-images/message3.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
+'{"picture" : "/assets/img/home-page-images/message1.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-40%"},' +
+'{"picture" : "/assets/img/home-page-images/message2.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
+'{"picture" : "/assets/img/home-page-images/message4.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
+'{"picture" : "/assets/img/home-page-images/message6.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"}]}');
 
 
 $(document).ready(function() {
 
   for (i = 1; i < 41; i++) {
-    console.log()
-    $(".stream_inner").append('<img src="' + thumbLocation + 'sample-' + i + '.jpg">');
+    $(".stream_inner").append('<img src="./thumbs/sample-' + i + '.jpg">');
   }
   $("#stream_outer").append($(".stream_inner").clone().removeClass("first"));
 
+  $(window).resize(function() {
+    var width = $(window).width();
+    var height = $(window).height();
+    if ((width / height) < 16/9) {
+      $('body').width((height * 16/9))
+    }
+    else {
+      $('body').width('100%');
+    }
+
+    if ((width / height) >= 16/9) {
+      console.log('test');
+      $('body').height((width * 9/16))
+    }
+    else {
+      console.log('test2');
+      $('body').height('100%');
+    }
+  });
 
   $('.signup_form input').not('.submit').placeholder();
 
