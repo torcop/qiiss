@@ -79,26 +79,6 @@ $(document).ready(function() {
   }
   $("#stream_outer").append($(".stream_inner").clone().removeClass("first"));
 
-  $(window).resize(function() {
-    var width = $(window).width();
-    var height = $(window).height();
-    if ((width / height) < 16/9) {
-      $('body').width((height * 16/9))
-    }
-    else {
-      $('body').width('100%');
-    }
-
-    if ((width / height) >= 16/9) {
-      console.log('test');
-      $('body').height((width * 9/16))
-    }
-    else {
-      console.log('test2');
-      $('body').height('100%');
-    }
-  });
-
   $('.signup_form input').not('.submit').placeholder();
 
   $('.remember_me').click(function() {
@@ -114,6 +94,10 @@ $(document).ready(function() {
   $(".picture_container_inner").not(".hidden").css('top', pictureValues.pictures[pictureIndex].offset);
   $(".picture_container_inner.hidden").css('top', pictureValues.pictures[pictureIndex + 1].offset);
   pictureIndex++;
+  width = $("#signup_container_body").outerWidth() + 4;
+  bindTabs('#signup_tab', 0);
+  bindTabs('#login_tab', -width);
+  bindTabs('#signup_facebook_tab', -width * 2);
   timeFade();
 });
 
@@ -147,10 +131,6 @@ function bindTabs(click, amount) {
 
 $(window).load(function() {
   animateStream();
-  width = $("#signup_container_body").outerWidth() + 4;
-  bindTabs('#signup_tab', 0);
-  bindTabs('#login_tab', -width);
-  bindTabs('#signup_facebook_tab', -width * 2);
 });
 
 function timeFade() {
