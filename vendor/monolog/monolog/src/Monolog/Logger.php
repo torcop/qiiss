@@ -106,10 +106,10 @@ class Logger
      */
     public function __construct($name)
     {
+
         $this->name = $name;
 
         if (!self::$timezone) {
-            date_default_timezone_set("UTC");
             self::$timezone = new \DateTimeZone(date_default_timezone_get() ?: 'UTC');
         }
     }
