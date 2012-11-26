@@ -61,19 +61,21 @@ END FACEBOOK SDK CODE
 ********************/
 
 var pictureIndex = 0;
+var homepageDirectory = "/bundles/qiissgeneral/images/home-page-images/";
+var thumbDirectory = "/bundles/qiissgeneral/images/thumbs/";
 var pictureValues = jQuery.parseJSON('{ "pictures": [' +
-'{"picture" : "/assets/img/home-page-images/message5.jpg", "angle" : "-8", "textPosition" : "bottom", "offset" : "-50%"},' +
-'{"picture" : "/assets/img/home-page-images/message3.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
-'{"picture" : "/assets/img/home-page-images/message1.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-40%"},' +
-'{"picture" : "/assets/img/home-page-images/message2.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
-'{"picture" : "/assets/img/home-page-images/message4.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
-'{"picture" : "/assets/img/home-page-images/message6.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"}]}');
+'{"picture" : ' + homepageDirectory + '"message5.jpg", "angle" : "-8", "textPosition" : "bottom", "offset" : "-50%"},' +
+'{"picture" : ' + homepageDirectory + '"message3.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
+'{"picture" : ' + homepageDirectory + '"message1.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-40%"},' +
+'{"picture" : ' + homepageDirectory + '"message2.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
+'{"picture" : ' + homepageDirectory + '"message4.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
+'{"picture" : ' + homepageDirectory + '"message6.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"}]}');
 
 
 $(document).ready(function() {
 
   for (i = 1; i < 41; i++) {
-    $(".stream_inner").append('<img src="./thumbs/sample-' + i + '.jpg">');
+    $(".stream_inner").append('<img src="' + thumbDirectory + 'sample-' + i + '.jpg">');
   }
   $("#stream_outer").append($(".stream_inner").clone().removeClass("first"));
 
