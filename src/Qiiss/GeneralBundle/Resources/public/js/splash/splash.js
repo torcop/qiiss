@@ -64,12 +64,12 @@ var pictureIndex = 0;
 var homepageDirectory = "/bundles/qiissgeneral/images/home-page-images/";
 var thumbDirectory = "/bundles/qiissgeneral/images/thumbs/";
 var pictureValues = jQuery.parseJSON('{ "pictures": [' +
-'{"picture" : ' + homepageDirectory + '"message5.jpg", "angle" : "-8", "textPosition" : "bottom", "offset" : "-50%"},' +
-'{"picture" : ' + homepageDirectory + '"message3.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
-'{"picture" : ' + homepageDirectory + '"message1.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-40%"},' +
-'{"picture" : ' + homepageDirectory + '"message2.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
-'{"picture" : ' + homepageDirectory + '"message4.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
-'{"picture" : ' + homepageDirectory + '"message6.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"}]}');
+'{"picture" : "' + homepageDirectory + 'message5.jpg", "angle" : "-8", "textPosition" : "bottom", "offset" : "-50%"},' +
+'{"picture" : "' + homepageDirectory + 'message3.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
+'{"picture" : "' + homepageDirectory + 'message1.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-40%"},' +
+'{"picture" : "' + homepageDirectory + 'message2.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
+'{"picture" : "' + homepageDirectory + 'message4.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
+'{"picture" : "' + homepageDirectory + 'message6.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"}]}');
 
 
 $(document).ready(function() {
