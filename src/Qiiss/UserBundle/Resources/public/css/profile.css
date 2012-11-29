@@ -48,9 +48,11 @@
       border-left: 1px solid #ddd;
       border-right: 1px solid #999;
       padding: 0; }
-    #upper_top_banner #logout_div #logout_div_button {
+    #upper_top_banner #logout_div #logout_div_button a {
+      font: 16px 'OxygenRegular', Arial, sans-serif;
       cursor: pointer;
-      color: #aaa; }
+      color: #aaa;
+      padding: 0px; }
   #upper_top_banner .popup {
     position: absolute;
     z-index: 1000;

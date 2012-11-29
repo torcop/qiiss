@@ -4,9 +4,13 @@
 	<div id="notifications_icon" class="notifications"><img src="{{ asset('bundles/qiissuser/images/Qiiss-Notification-Icon.png') }}" /></div>
 	<div><a href="/faq"><div id="faq">About</div></a></div>
 	<div id="logout_div">
-		<div id="logout_div_profile">Nic Barker</div>
+		<div id="logout_div_profile">{{ user.username }}</div>
 		<div id="logout_div_seperator"></div>
-		<div id="logout_div_button">Sign Out</div>
+		<div id="logout_div_button">
+			<a href="{{ path('fos_user_security_logout') }}">
+                {{ 'Log Out'|trans({}, 'FOSUserBundle') }}
+            </a>
+        </div>
 	</div>
 	<div id="notifications_popup" class="popup">
 		<div class="popup_header">Notifications</div>
