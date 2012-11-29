@@ -63,14 +63,24 @@
         </div>
         <div id="login_container_body" class="auth_tab">
           <div class="signup_fields">
+						<div>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+               You are logged as:  {{ app.user.username }} |
+                <a href="{{ path('fos_user_security_logout') }}">
+                    {{ 'Logout'|trans({}, 'FOSUserBundle') }}
+                </a>
+            {% else %}
+        </div>
             <form name="login_form" class="signup_form" action="{{ path('fos_user_security_check') }}" method="POST">
-              <input type="text" name="email" placeholder="{{ 'Username'|trans({}, 'FOSUserBundle') }}" />
-              <input type="password" name="email" placeholder="{{ 'Password'|trans({}, 'FOSUserBundle') }}" />
+							<input type="hidden" name="_csrf_token" value="{{ token }}" />
+							<input type="text" id="username" name="_username" placeholder="{{ 'Username'|trans({}, 'FOSUserBundle') }}" required="required" />
+							<input type="password" id="password" name="_password" placeholder="{{ 'Password'|trans({}, 'FOSUserBundle') }}" required="required" />
               <input type="submit" class="submit" value="{{ 'Login'|trans({}, 'FOSUserBundle') }}" />
-              <div class="remember_me"><div><input type="checkbox" />{{ 'Remember Me'|trans({}, 'FOSUserBundle') }}</div></div>
+              <div class="remember_me"><div><input type="checkbox" id="remember_me" name="_remember_me" value="on" />{{ 'Remember Me'|trans({}, 'FOSUserBundle') }}</div></div>
             </form>
           </div>
         </div>
+				{% endif %}
         <div id="facebook_container_body" class="auth_tab">
           <div class="signup_fields">
             <div class="facebook_login_button">

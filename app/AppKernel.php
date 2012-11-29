@@ -19,10 +19,10 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-						new Qiiss\UserBundle\QiissUserBundle(),
 						new FOS\UserBundle\FOSUserBundle(),
-            new Qiiss\GeneralBundle\QiissGeneralBundle(),
-            new Qiiss\WallBundle\QiissWallBundle(),
+						new Qiiss\GeneralBundle\QiissGeneralBundle(),
+            new Qiiss\UserBundle\QiissUserBundle(),
+            
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

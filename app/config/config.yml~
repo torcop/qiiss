@@ -4,7 +4,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      ~
+    #translator:      { fallback: "%locale%" }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -52,13 +52,65 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
+    transport: smtp
+    encryption: ssl
+    auth_mode: login
+    host:      smtp.gmail.com
+    username:  katcha
+    password:  lespaul1988
     spool:     { type: memory }
 
 fos_user:
-    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
-    firewall_name: main
-    user_class: Acme\UserBundle\Entity\User
+    db_driver:              orm
+    firewall_name:          main
+    user_class:             Qiiss\UserBundle\Entity\User
+    use_listener:           true
+    use_username_form_type: true
+    model_manager_name:     null  # change it to the name of your entity/document manager if you don't want to use the default one.
+    from_email:
+        address:        admin@qiiss.com
+        sender_name:    Admin
+    profile:
+        form:
+            type:               fos_user_profile
+            handler:            fos_user.profile.form.handler.default
+            name:               fos_user_profile_form
+            validation_groups:  [Profile]
+    change_password:
+        form:
+            type:               fos_user_change_password
+            handler:            fos_user.change_password.form.handler.default
+            name:               fos_user_change_password_form
+            validation_groups:  [ChangePassword]
+    registration:
+        confirmation:
+            from_email: # Use this node only if you don't want the global email address for the confirmation email
+                address:        admin@qiiss.com
+                sender_name:    Admin
+            enabled:    true # change to true for required email confirmation
+            template:   FOSUserBundle:Registration:email.txt.twig
+        form:
+            type:               qiiss_user_registration
+            handler:            fos_user.registration.form.handler.default
+            name:               fos_user_registration_form
+            validation_groups:  [Registration]
+    resetting:
+        token_ttl: 86400
+        email:
+            from_email: # Use this node only if you don't want the global email address for the resetting email
+                address:        ...
+                sender_name:    ...
+            template:   FOSUserBundle:Resetting:email.txt.twig
+        form:
+            type:               fos_user_resetting
+            handler:            fos_user.resetting.form.handler.default
+            name:               fos_user_resetting_form
+            validation_groups:  [ResetPassword]
+    service:
+        mailer:                 fos_user.mailer.default
+        email_canonicalizer:    fos_user.util.canonicalizer.default
+        username_canonicalizer: fos_user.util.canonicalizer.default
+        token_generator:        fos_user.util.token_generator.default
+        user_manager:           fos_user.user_manager.default
+    template:
+        engine: twig

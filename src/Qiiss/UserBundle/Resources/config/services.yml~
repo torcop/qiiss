@@ -1,0 +1,7 @@
+# src/Qiiss/UserBundle/Resources/config/services.yml
+services:
+    qiiss_user.registration.form.type:
+        class: Qiiss\UserBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: acme_user_registration }

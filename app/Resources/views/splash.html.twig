@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Welcome to Qiiss{% endblock %}</title>
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/splash.css') }}" type="text/css" media="all" />
+    {% endblock %}
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/jquery-1.8.3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/jquery-placeholder.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/splash/splash.js') }}"></script>
+</head>
+<body>
+<img src="{{ asset('bundles/qiissgeneral/images/Final-Homepage-background.gif') }}" class="background-image" />
+<div id="upper_top_banner">
+  <a href="{{ path('qiiss_general_faq') }}"><div id="faq">About Qiiss</div></a>
+</div>
+<div id="lower_top_banner">
+  <img src="{{ asset('bundles/qiissgeneral/images/qiiss-graphics/blue/Logo.png') }}" />
+</div>
+<div id="main_container">
+  <div id="main_container_inner_left" class="main_container_inner">
+    <div id="picture_container_vertical_divider"></div>
+    <div id="picture_container_outer">
+      <div id="picture_container_border">
+        <div id="picture_container">
+          <div class="picture_container_inner">
+            <img src="{{ asset('bundles/qiissgeneral/images/home-page-images/message5.JPG') }}" />
+          </div>
+          <div class="picture_container_inner hidden">
+            <img src="{{ asset('bundles/qiissgeneral/images/home-page-images/message4.JPG') }}" />
+          </div>
+        </div>
+      </div>
+      <div class="picture_container_text bottom">
+        <em></e>Experience incredible <br /> first dates</em>
+      </div>
+    </div>
+  </div>
+  <div id="main_container_inner_right" class="main_container_inner">
+    <div id="login_container_vertical_divider"></div>
+    <div id="login_container_outer">
+      <div id="login_container">
+        <div class="top_message">
+          <div id="signup_tab" class="auth_tab_button selected">Sign Up</div>
+          <div id="login_tab" class="auth_tab_button left shadow">Log In</div>
+          <div id="signup_facebook_tab" class="auth_tab_button left">Facebook</div>
+        </div>
+        <div id="signup_container_body" class="auth_tab selected">
+          <div class="signup_fields">
+            <form name="signup_form" class="signup_form" action="{{ path('fos_user_registration_register') }}" method="POST">
+              <input type="text" name="username" placeholder="Name" />
+              <input type="text" name="email" placeholder="Email" />
+              <input type="password" name="password" placeholder="Password" />
+              <input type="password" name="confirm-password" placeholder="Confirm Password" />
+              <input type="text" name="birthday_day" class="birthday" placeholder="Day"/>
+              <input type="text" name="birthday_month" class="birthday" placeholder="Month"/>
+              <input type="text" name="birthday_year" class="birthday last" placeholder="Year"/>
+              <input type="submit" class="submit" value="{{ 'Sign Up'|trans({}, 'FOSUserBundle') }}" />
+              <div class="remember_me"><div><input type="checkbox" />Remember Me</div></div>
+            </form>
+          </div>
+        </div>
+        <div id="login_container_body" class="auth_tab">
+          <div class="signup_fields">
+            <form name="login_form" class="signup_form" action="{{ path('fos_user_security_check') }}" method="POST">
+              <input type="text" name="email" placeholder="{{ 'Username'|trans({}, 'FOSUserBundle') }}" />
+              <input type="password" name="email" placeholder="{{ 'Password'|trans({}, 'FOSUserBundle') }}" />
+              <input type="submit" class="submit" value="{{ 'Login'|trans({}, 'FOSUserBundle') }}" />
+              <div class="remember_me"><div><input type="checkbox" />{{ 'Remember Me'|trans({}, 'FOSUserBundle') }}</div></div>
+            </form>
+          </div>
+        </div>
+        <div id="facebook_container_body" class="auth_tab">
+          <div class="signup_fields">
+            <div class="facebook_login_button">
+              <div class="left"><img src="https://chideo.com/assets/logo_facebook_f-3d17eb2041318519c6b8a608f4c84590.svg" width="30px";/></div>
+              <div class="right">Login With Facebook</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="disclaimer">By clicking Sign Up, you agree to our Terms and
+        that you have read and understand our Data Use Policy,
+        including our Cookie Use.
+      </div>
+    </div>
+  </div>
+</div>
+<div id="stream_outer">
+  <div class="stream_inner first">
+  </div>
+</div>
+</body>
+</html>

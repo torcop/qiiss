@@ -8,7 +8,8 @@ class GeneralController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('QiissGeneralBundle:Default:splash.html.twig');
+				$token = $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate');
+        return $this->render('QiissGeneralBundle:Default:splash.html.twig', array('token' => $token));
     }
 
 		public function getTokenAction()
