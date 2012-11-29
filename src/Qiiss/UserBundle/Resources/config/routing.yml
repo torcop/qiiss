@@ -1,3 +1,5 @@
 qiiss_user_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: QiissUserBundle:Default:index }
+    pattern: /login
+    defaults: { _controller: QiissGeneralBundle:General:index }
