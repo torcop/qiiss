@@ -1,5 +1,28 @@
+$dark-blue: #7AB2DE;
 $medium-blue: #CFD7E3;
 $light-blue: #DCE5F2;
+
+@mixin lightButtonColor() {
+  background-color:#F2F8FA;
+  cursor:pointer;
+  &:hover {
+    background-color:#C7E2EB;
+  }
+  &:active {
+    background-color:#AFD4E0;
+  }
+}
+
+@mixin tabButtonColor() {
+  background-color:#DCE5F2;
+  cursor:pointer;
+  &:hover {
+    background-color:#CFD7E3;
+  }
+  &:active {
+    background-color:#AFB5BD;
+  }
+}
 
 @mixin corner($topLeft, $topRight, $bottomRight, $bottomLeft) {
   -moz-border-radius-topleft: $topLeft;
@@ -24,6 +47,24 @@ $light-blue: #DCE5F2;
   -moz-box-shadow: $leftOffset $topOffset $blur $spread $color;
   -webkit-box-shadow: $leftOffset $topOffset $blur $spread $color;
   box-shadow: $leftOffset $topOffset $blur $spread $color;
+}
+
+@mixin opacity($opacity) {
+  /* Theoretically for IE 8 & 9 (more valid) */
+  /* ...but not required as filter works too */
+  /* should come BEFORE filter */
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=" + ($opacity * 10) + ")";
+  /* This works in IE 8 & 9 too */
+  /* ... but also 5, 6, 7 */
+  filter: alpha(opacity=($opacity * 10));
+  /* Older than Firefox 0.9 */
+  -moz-opacity:$opacity;
+  /* Safari 1.x (pre WebKit!) */
+  -khtml-opacity:$opacity;
+  /* Modern!
+  /* Firefox 0.9+, Safari 2?, Chrome any?
+  /* Opera 9+, IE 9+ */
+  opacity:$opacity;
 }
 
 @mixin gradient($from, $to) {

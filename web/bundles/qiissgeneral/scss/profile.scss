@@ -6,85 +6,18 @@ html {
   body {
     margin:0;
     padding:0;
+    font-size:0;
     height:100%;
     background-image:url('/assets/img/Final-Homepage-background.gif');
+    background-size: 100%;
     background-repeat:no-repeat;
-
-    #upper_top_banner {
-
-      div, input {
-        display:inline-block;
-        font: 18px 'PatuaOneRegular', Arial, sans-serif;
-        padding: 7px 12px;
-      }
-
-      img {
-        display:inline-block;
-        vertical-align:middle;
-        cursor:pointer;
-      }
-
-      #date_icon {
-        img {
-          height:35px;
-        }
-      }
-      #message_icon {
-        img {
-          height:20px;
-        }
-      }
-      #notifications_icon {
-        margin-right:15px;
-
-        img {
-          height:25px;
-        }
-      }
-
-      #header_search_bar {
-        width:300px;
-        background-color:#eee;
-        border:1px solid #888;
-        border-right:1px solid #aaa;
-        -webkit-appearance: none;
-        @include corner(6px, 0px, 0px, 6px);
-        @include shadow(inset 0px, 0px, 10px, 1px, #bbb);
-
-        &:focus {
-          outline-width: 0;
-          @include shadow(inset 0px, 0px, 10px, 1px, #999);
-        }
-      }
-      #header_search_button {
-        width:50px;
-        background-color:#ccc;
-        border-right:1px solid #888;
-        border-top:1px solid #888;
-        border-bottom:1px solid #888;
-        color:#333;
-        cursor:pointer;
-        padding: 7px 12px;
-        @include corner(0px, 6px, 6px, 0px);
-
-        &:hover {
-          background-color:#bbb;
-          color:#222;
-        }
-
-        &:active, &:focus {
-          background-color:#777;
-          color:#ccc;
-        }
-      }
-    } // #upper_top_banner
 
     #main_container {
       padding-bottom:40px;
 
       #canvas_container {
         width:1024px;
-        margin: 40px auto;
+        margin: 30px auto;
         font-size:0;
 
         .canvas_segment {
@@ -105,13 +38,45 @@ html {
         }
 
         #canvas_left {
-          font: 16px/20px 'OxygenRegular', Arial, sans-serif;
+          font: 16px 'OxygenRegular', Arial, sans-serif;
 
           #profile_picture {
             width:190px;
             height:190px;
             border:1px solid #ccc;
             margin: 9px;
+            cursor:pointer;
+
+            img {
+              width:190px;
+              height:190px;
+            }
+          }
+
+          #profile_picture_overlay {
+            display:none;
+            position:absolute;
+            background-color:rgba(220, 220, 220, 0.6);
+            width:190px;
+            height:190px;
+            overflow:hidden;
+            white-space:nowrap;
+
+            div {
+              margin-left:200px;
+              font: 18px 'PatuaOneRegular', Arial, sans-serif;
+              line-height:190px;
+              text-align:center;
+            }
+          }
+
+          #review_header {
+            display:block;
+            font-size:18px;
+            line-height:18px;
+            color:#666;
+            padding:15px 10px 5px 10px;
+            border-top:1px solid #ccc;
           }
 
           .review {
@@ -126,8 +91,10 @@ html {
         }
 
         #canvas_center {
+          @include corner(5px, 0px, 5px, 5px);
 
           #canvas_header {
+            position:relative;
 
             div {
               display:inline-block;
@@ -135,14 +102,44 @@ html {
               padding: 10px 0px 10px 20px;
             }
 
-            #header_name {
-              width:650px;
-            }
-            #header_age {
-              text-align:right;
-              padding-right:20px;
-              width:80px;
-            }
+            #header_top {
+              padding:0;
+              font-size:0;
+              background-color:#7AB2DE;
+              border-bottom:2px solid #ccc;
+              @include corner(3px, 0px, 0px, 0px);
+
+              #header_name_fav {
+                width:650px;
+
+                #header_fav {
+                  vertical-align: middle;
+                  font-size:16px;
+                  background-color:#F2F8FA;
+                  margin:0px 10px;
+                  border:1px solid #ddd;
+                  padding:5px;
+                  @include corner(5px, 5px, 5px, 5px);
+                  @include lightButtonColor();
+                }
+              }
+              #header_age {
+                text-align:right;
+                padding-right:20px;
+                width:80px;
+              }
+              #flag_inappropriate {
+                position:absolute;
+                top:-27px;
+                right:-1px;
+                padding:6px;
+                background-color:#F2F8FA;
+                border:1px solid #ccc;
+                font-size:12px;
+                @include corner(3px, 3px, 0px, 0px);
+                @include lightButtonColor();
+              }
+            } // #header_top
 
             #header_info {
               padding:0;
@@ -156,6 +153,34 @@ html {
 
               #info_left {
                 width:450px;
+
+                .info_section_header {
+                  display:block;
+                  width:100px;
+                  font-size:18px;
+                  color:#666;
+                  padding:5px 0px;
+                  border-bottom:1px solid #ccc;
+                }
+
+                .info_section_bubble {
+                  background-color:#F2F8FA;
+                  margin:10px 10px 10px 0px;
+                  border:1px solid #ddd;
+                  padding:10px;
+                  @include corner(5px, 5px, 5px, 5px);
+                  @include lightButtonColor();
+                }
+
+                #location, #preference, #charity {
+                  display:inline-block;
+                  padding:0;
+                  margin-right:20px;
+                }
+
+                #charity {
+                  margin-right:0px;
+                }
               }
               #info_right {
                 padding:0;
@@ -170,7 +195,16 @@ html {
             } // #header_info
 
             #sample_photos {
+              display:block;
+              text-align:center;
+              padding:10px 0px 10px 0px;
+              background-color:#f8f8f8;
+              border-top:1px solid #ccc;
+              border-bottom:1px solid #ccc;
+
               .sample_photo {
+                display:inline-block;
+                vertical-align:middle;
                 font: 16px 'OxygenRegular', Arial, sans-serif;
                 width:130px;
                 height:130px;
@@ -185,26 +219,179 @@ html {
             #canvas_body_header {
               font: 30px 'OxygenRegular', Arial, sans-serif;
               padding: 10px 0px 0px 20px;
-              color:#777;
+              color:#333;
             }
 
-            #canvas_top_seperator {
+            .canvas_center_seperator {
               height:0px;
-              width:750px;
+              width:790px;
               border-top:1px solid #fff;
-              border-bottom:1px solid #999;
-              margin: 5px 0px 10px 20px;
-              @include shadow(0px, 0px, 10px, 1px, #cecece);
+              border-bottom:1px solid #ccc;
+              margin: 10px 0px 10px 0px;
             }
+
+            #canvas_story_create {
+              margin-bottom:20px;
+              width:732px;
+              font-size:0px;
+              padding: 10px 0px 0px 20px;
+
+              textarea {
+                font: 20px 'OxygenRegular', Arial, sans-serif;
+                border:1px solid #ccc;
+                width:100%;
+                resize:none;
+                padding:8px;
+                margin:0px;
+                @include corner(5px, 5px, 0px, 0px);
+
+                &:focus {
+                  outline-width: 0;
+                  border-color:#aaa;
+                }
+              } // #textarea
+              #canvas_create_lower {
+                font: 20px 'OxygenRegular', Arial, sans-serif;
+                width:750px;
+                text-align:right;
+
+                #canvas_create_buttons {
+                  background-color:#ddd;
+                  padding:5px;
+                  height:29px;
+                  margin-top:-1px;
+                  border:1px solid #ccc;
+                  @include corner(0px, 0px, 5px, 5px);
+
+                  #left_canvas_buttons {
+                    float:left;
+                    text-align:left;
+                  }
+
+                  #right_canvas_buttons {
+                    float:right;
+                    text-align:right;
+                  }
+
+                  .canvas_lower_button {
+                    display:inline-block;
+                    vertical-align:middle;
+                    font-size:16px;
+                    background-color:#F2F8FA;
+                    padding:5px 12px;
+                    border:1px solid #ccc;
+                    @include lightButtonColor();
+
+                    &#post {
+                      background-color:#7AB2DE;
+                      padding: 5px 18px;
+                      @include corner(0px, 0px, 5px, 0px);
+
+                      &:hover {
+                        background-color:#6697BD;
+                      }
+
+                      &:active {
+                        background-color:#407BA8;
+                      }
+                    } // #post
+                  } // #canvas_lower_button
+                } // #canvas_create_buttons
+              } // #canvas_create_lower
+            } // #canvas_story_create
 
             #canvas_story_container {
-              padding: 10px 20px 20px 20px;
-              .canvas_story {
-                font: 16px 'OxygenRegular', Arial, sans-serif;
-                border:1px solid #000;
-              }
-            }
-          }
+              padding: 10px 20px;
+
+              .canvas_post {
+                //display:none;
+                font: 18px 'OxygenRegular', Arial, sans-serif;
+                border:1px solid #ccc;
+                margin-bottom:20px;
+                @include corner(5px, 5px, 5px, 5px);
+
+                .canvas_post_section {
+                  padding:10px;
+                }
+
+                .canvas_post_header {
+                  background-color:#F2F8FA;
+                  border-bottom: 1px solid #ccc;
+                  padding:5px;
+
+                  .header_dp, .header_text {
+                    display:inline-block;
+                    vertical-align:middle;
+                  }
+
+                  .header_dp {
+                    margin-right:10px;
+
+                    img {
+                      display:inline-block;
+                      vertical-align: middle;
+                    }
+                  }
+
+                  .header_text {
+                    .header_time {
+                      color:#666;
+                      font-size:14px;
+                    }
+                  }
+                }
+
+                .canvas_post_body {
+                  border-bottom:1px solid #ccc;
+                }
+
+                .canvas_post_attachment {
+                  border-bottom:1px solid #ccc;
+
+                  img {
+                    vertical-align:middle;
+                  }
+                }
+
+                .canvas_post_tags {
+                  border-bottom:1px solid #ccc;
+
+                  .post_tag_bubble {
+                    display:inline-block;
+                    background-color:#F2F8FA;
+                    margin-right:10px;
+                    border:1px solid #ddd;
+                    padding:8px;
+                    font-size:14px;
+                    @include corner(5px, 5px, 5px, 5px);
+                    @include lightButtonColor();
+                  }
+                } // .canvas_post_tags
+
+                .canvas_qool {
+
+                  div {
+                    display:inline-block;
+                    vertical-align: middle;
+                  }
+
+                  .canvas_qool_button {
+                    background-color:#F2F8FA;
+                    margin-right:10px;
+                    border:1px solid #ddd;
+                    padding:6px 10px;
+                    text-align: center;
+                    font-size:14px;
+                    @include corner(5px, 5px, 5px, 5px);
+                    @include lightButtonColor();
+                  }
+                  .canvas_qool_count {
+                    font-size:14px;
+                  }
+                }
+              } // .canvas_post
+            } // #canvas_story_container
+          } // #canvas_body
         } // #canvas_center
       } // #canvas_container
     } // #main_container
