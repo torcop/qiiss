@@ -79,20 +79,24 @@ body {
       white-space:normal;
       display:inline-block;
       vertical-align:top;
+
+      .vertical_align_fix {
+        height:100%;
+        display:inline-block;
+        vertical-align: middle;
+      }
     }
 
     #main_container_inner_left {
       height:100%;
-
-      #picture_container_vertical_divider {
-        width:100%;
-        height:5%;
-      }
+      margin-top: -70px;
 
       #picture_container_outer {
         width:100%;
         height:65%;
         margin-left:-10%;
+        display:inline-block;
+        vertical-align: middle;
         -moz-transform:rotate(-8deg);
         -webkit-transform:rotate(-8deg);
         -o-transform:rotate(-8deg);
@@ -138,11 +142,13 @@ body {
 
     #main_container_inner_right {
       height:100%;
-      margin-top:-50px;
+      text-align: center;
+      margin-top:-100px;
 
       #login_container_outer {
-        margin: 0 auto;
         max-width:400px;
+        display:inline-block;
+        vertical-align: middle;
 
         #login_container {
           border:2px solid #777;
