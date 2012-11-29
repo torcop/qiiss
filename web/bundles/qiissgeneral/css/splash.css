@@ -8,7 +8,7 @@
 @font-face {
   font-family: 'OxygenRegular';
   src: url("/bundles/qiissgeneral/fonts/Oxygen-webfont.eot");
-  src: url("/bundles/qiissgeneral/Oxygen-webfont.eot?#iefix") format("embedded-opentype"), url("/bundles/qiissgeneral/Oxygen-webfont.woff") format("woff"), url("/bundles/qiissgeneral/Oxygen-webfont.ttf") format("truetype"), url("/bundles/qiissgeneral/Oxygen-webfont.svg#OxygenRegular") format("svg");
+  src: url("/bundles/qiissgeneral/fonts/Oxygen-webfont.eot?#iefix") format("embedded-opentype"), url("/bundles/qiissgeneral/fonts/Oxygen-webfont.woff") format("woff"), url("/bundles/qiissgeneral/fonts/Oxygen-webfont.ttf") format("truetype"), url("/bundles/qiissgeneral/fonts/Oxygen-webfont.svg#OxygenRegular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
