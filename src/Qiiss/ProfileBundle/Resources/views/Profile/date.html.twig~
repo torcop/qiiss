@@ -1,0 +1,4 @@
+<form action="{{ path('qiiss_profile_propose_date') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_errors(form) }}
+    <input type="submit" />
+</form>

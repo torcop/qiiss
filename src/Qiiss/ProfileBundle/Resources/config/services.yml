@@ -1,0 +1,7 @@
+parameters:
+#    qiiss_profile.example.class: Qiiss\ProfileBundle\Example
+
+services:
+#    qiiss_profile.example:
+#        class: %qiiss_profile.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

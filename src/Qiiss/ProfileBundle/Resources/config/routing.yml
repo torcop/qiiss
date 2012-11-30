@@ -1,0 +1,3 @@
+qiiss_profile_propose_date:
+    pattern:  /new-date
+    defaults: { _controller: QiissProfileBundle:Profile:proposeDate }
