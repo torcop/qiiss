@@ -19,7 +19,7 @@ framework:
 
 # Twig Configuration
 twig:
-    debug:            "%kernel.debug%"
+    debug:            1 #"%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
 # Assetic Configuration
@@ -114,3 +114,9 @@ fos_user:
         user_manager:           fos_user.user_manager.default
     template:
         engine: twig
+
+services:
+    twig.extension.debug:
+        class:        Twig_Extension_Debug
+        tags:
+             - { name: 'twig.extension' }

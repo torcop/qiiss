@@ -91,8 +91,9 @@ $(document).ready(function() {
     }
   });
 
-  $("#login_form").submit(function() {
+  $("#login_form").submit(function(e) {
     alert("TEST")
+    e.stopPropagation();
     $.ajax({
       type: "POST",
       url: $(this).attr("action"),
