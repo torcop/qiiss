@@ -1,15 +1,16 @@
 <?php
-namespace YourVendor\UserBundle\Handler;
+namespace Qiiss\UserBundle\Handler;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface;
 
-class AuthenticationHandler
+class AjaxHandler
 implements AuthenticationSuccessHandlerInterface,
            AuthenticationFailureHandlerInterface
 {
@@ -23,7 +24,7 @@ implements AuthenticationSuccessHandlerInterface,
     public function onAuthenticationSuccess(Request $request, TokenInterface $token)
     {
         if ($request->isXmlHttpRequest()) {
-            // Handle XHR here
+            return new Response(json_encode(Array("result" => "success")));
         } else {
             // If the user tried to access a protected resource and was forces to login
             // redirect him back to that resource
@@ -31,9 +32,7 @@ implements AuthenticationSuccessHandlerInterface,
                 $url = $targetPath;
             } else {
                 // Otherwise, redirect him to wherever you want
-                $url = $this->router->generate('user_view', array(
-                    'nickname' => $token->getUser()->getNickname()
-                ));
+                $url = $this->router->generate('fos_user_profile_show');
             }
 
             return new RedirectResponse($url);
@@ -43,11 +42,12 @@ implements AuthenticationSuccessHandlerInterface,
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
         if ($request->isXmlHttpRequest()) {
-            // Handle XHR here
+            return new Response(json_encode(Array("result" => "failure",
+                                                    "error" => $exception->getMessage())));
         } else {
             // Create a flash message with the authentication error message
             $request->getSession()->setFlash('error', $exception->getMessage());
-            $url = $this->router->generate('user_login');
+            $url = $this->router->generate('qiiss_general_homepage');
 
             return new RedirectResponse($url);
         }

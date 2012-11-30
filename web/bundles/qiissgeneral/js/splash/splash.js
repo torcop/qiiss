@@ -91,6 +91,24 @@ $(document).ready(function() {
     }
   });
 
+  $("#login_form").submit(function() {
+    alert("TEST")
+    $.ajax({
+      type: "POST",
+      url: $(this).attr("action"),
+      data: $(this).serialize(),
+      datatype: "json"
+    }).done(function( msg ) {
+      parsed = jQuery.parseJSON(msg);
+      if (parsed.result == "success") {
+        window.location.href = "/profile";
+      }
+      else if (parsed.result == "failure") {
+        alert(parsed.error);
+      }
+    });
+    return false;
+  });
   $(".picture_container_inner").not(".hidden").css('top', pictureValues.pictures[pictureIndex].offset);
   $(".picture_container_inner.hidden").css('top', pictureValues.pictures[pictureIndex + 1].offset);
   pictureIndex++;
