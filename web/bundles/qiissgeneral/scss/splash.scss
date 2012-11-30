@@ -71,6 +71,7 @@ body {
   #main_container {
     width:100%;
     height:90%;
+    display:block;
     white-space:nowrap;
 
     .main_container_inner {
@@ -89,7 +90,7 @@ body {
 
     #main_container_inner_left {
       height:100%;
-      margin-top: -70px;
+      margin-top:30px;
 
       #picture_container_outer {
         width:100%;
@@ -143,7 +144,7 @@ body {
     #main_container_inner_right {
       height:100%;
       text-align: center;
-      margin-top:-100px;
+      margin-top:-30px;
 
       #login_container_outer {
         max-width:400px;

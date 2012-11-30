@@ -4,7 +4,7 @@
 	<div id="notifications_icon" class="notifications"><img src="{{ asset('bundles/qiissuser/images/Qiiss-Notification-Icon.png') }}" /></div>
 	<div><a href="/faq"><div id="faq">About</div></a></div>
 	<div id="logout_div">
-		<div id="logout_div_profile">{{ user.username }}</div>
+		<div id="logout_div_profile">{{ app.user.username }}</div>
 		<div id="logout_div_seperator"></div>
 		<div id="logout_div_button">
 			<a href="{{ path('fos_user_security_logout') }}">
