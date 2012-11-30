@@ -1,6 +1,6 @@
 # src/Qiiss/UserBundle/Resources/config/services.yml
 parameters:
-    vendor_security.authentication_handler: QiissUserBundleHandler\AuthenticationHandler
+    vendor_security.authentication_handler: Qiiss\UserBundle\Handler\AjaxHandler
 services:
     qiiss_user.registration.form.type:
         class: Qiiss\UserBundle\Form\Type\RegistrationFormType
@@ -10,5 +10,3 @@ services:
     authentication_handler:
         class:  %vendor_security.authentication_handler%
         arguments:  [@router]
-        tags:
-            - { name: 'monolog.logger' channel: 'security' }

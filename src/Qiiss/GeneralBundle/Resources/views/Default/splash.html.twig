@@ -13,14 +13,14 @@
 <body>
 <img src="{{ asset('bundles/qiissgeneral/images/Final-Homepage-background.gif') }}" class="background-image" />
 <div id="upper_top_banner">
-  <div><a href="{{ path('qiiss_general_faq') }}"><div id="faq">About</div></a></div>
+  <a href="{{ path('qiiss_general_faq') }}"><div id="faq">About Qiiss</div></a>
 </div>
 <div id="lower_top_banner">
   <img src="{{ asset('bundles/qiissgeneral/images/qiiss-graphics/blue/Logo.png') }}" />
 </div>
 <div id="main_container">
   <div id="main_container_inner_left" class="main_container_inner">
-    <span class="vertical_align_fix"></span>
+    <div id="picture_container_vertical_divider"></div>
     <div id="picture_container_outer">
       <div id="picture_container_border">
         <div id="picture_container">
@@ -38,7 +38,7 @@
     </div>
   </div>
   <div id="main_container_inner_right" class="main_container_inner">
-    <span class="vertical_align_fix"></span>
+    <div id="login_container_vertical_divider"></div>
     <div id="login_container_outer">
       <div id="login_container">
         <div class="top_message">
@@ -48,7 +48,7 @@
         </div>
         <div id="signup_container_body" class="auth_tab selected">
           <div class="signup_fields">
-            <form id="signup_form" class="signup_form" action="{{ path('fos_user_registration_register') }}" method="POST">
+            <form name="signup_form" class="signup_form" action="{{ path('fos_user_registration_register') }}" method="POST">
               <input type="text" name="username" placeholder="Name" />
               <input type="text" name="email" placeholder="Email" />
               <input type="password" name="password" placeholder="Password" />
@@ -71,7 +71,7 @@
                 </a>
             {% else %}
         </div>
-            <form id="login_form" class="signup_form" action="{{ path('fos_user_security_check') }}" method="POST">
+            <form name="login_form" class="signup_form" action="{{ path('fos_user_security_check') }}" method="POST">
 							<input type="hidden" name="_csrf_token" value="{{ token }}" />
 							<input type="text" id="username" name="_username" placeholder="{{ 'Username'|trans({}, 'FOSUserBundle') }}" required="required" />
 							<input type="password" id="password" name="_password" placeholder="{{ 'Password'|trans({}, 'FOSUserBundle') }}" required="required" />

@@ -6,7 +6,7 @@ services:
         class: Qiiss\UserBundle\Form\Type\RegistrationFormType
         arguments: [%fos_user.model.user.class%]
         tags:
-            - { name: form.type, alias: acme_user_registration }
+            - { name: form.type, alias: qiiss_user_registration }
     authentication_handler:
         class:  %vendor_security.authentication_handler%
         arguments:  [@router]
