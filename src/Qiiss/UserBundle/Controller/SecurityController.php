@@ -3,10 +3,8 @@
 namespace Qiiss\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use FOS\UserBundle\Controller\ProfileController as BaseController;
+use FOS\UserBundle\Controller\SecurityController as BaseController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use FOS\UserBundle\Model\UserInterface;
-
 use Symfony\Component\Security\Core\SecurityContext;
 
 class SecurityController extends BaseController

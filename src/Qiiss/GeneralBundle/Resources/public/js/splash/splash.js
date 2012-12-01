@@ -92,7 +92,6 @@ $(document).ready(function() {
   });
 
   $("#login_form").submit(function(e) {
-    alert("TEST")
     e.stopPropagation();
     $.ajax({
       type: "POST",
@@ -108,6 +107,41 @@ $(document).ready(function() {
         alert(parsed.error);
       }
     });
+    return false;
+  });
+  $("#signup_form").submit(function(e) {
+    $("#signup_form .invalid").removeClass("invalid");
+    $.ajax({
+      type: "POST",
+      url: $(this).attr("action"),
+      data: $(this).serialize(),
+      datatype: "json"
+    }).done(function( msg ) {
+      console.log(msg);
+      parsed = jQuery.parseJSON(msg);
+      if (parsed.result == "success") {
+        window.location.href = "/profile";
+      }
+      else if (parsed.result == "failure") {
+        if (parsed.error) {
+          alert("et");
+          if (parsed.error.indexOf("fos_user.username") != -1) {
+            $("#signup_form .username").addClass("invalid");
+          }
+          else if (parsed.error.indexOf("fos_user.email") != -1) {
+            $("#signup_form .email").addClass("invalid");
+          }
+          else if (parsed.error.indexOf("fos_user.password") != -1) {
+            $("#signup_form .password_first").addClass("invalid");
+            $("#signup_form .password_second").addClass("invalid");
+          }
+          else if (parsed.error.indexOf("date of birth") != -1) {
+            $("#signup_form .birthday").addClass("invalid");
+          }
+        }
+      }
+    });
+    e.stopPropagation();
     return false;
   });
   $(".picture_container_inner").not(".hidden").css('top', pictureValues.pictures[pictureIndex].offset);

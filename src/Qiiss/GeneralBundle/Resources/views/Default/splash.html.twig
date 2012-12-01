@@ -48,15 +48,16 @@
         </div>
         <div id="signup_container_body" class="auth_tab selected">
           <div class="signup_fields">
-            <form name="signup_form" class="signup_form" action="{{ path('fos_user_registration_register') }}" method="POST">
-              <input type="text" name="username" placeholder="Name" />
-              <input type="text" name="email" placeholder="Email" />
-              <input type="password" name="password" placeholder="Password" />
-              <input type="password" name="confirm-password" placeholder="Confirm Password" />
-              <input type="text" name="birthday_day" class="birthday" placeholder="Day"/>
-              <input type="text" name="birthday_month" class="birthday" placeholder="Month"/>
-              <input type="text" name="birthday_year" class="birthday last" placeholder="Year"/>
+            <form action="{{ path('fos_user_registration_register') }}" id="signup_form" class="signup_form" method="POST" class="fos_user_registration_register">
+              <input type="text" class="username" name="fos_user_registration_form[username]" placeholder="Name" />
+              <input type="text" class="email" name="fos_user_registration_form[email]" placeholder="Email" />
+              <input type="password" class="password_first" name="fos_user_registration_form[plainPassword][first]" placeholder="Password" />
+              <input type="password" class="password_second" name="fos_user_registration_form[plainPassword][second]" placeholder="Confirm Password" />
+              <input type="text" name="fos_user_registration_form[dob][day]" class="birthday" placeholder="Day"/>
+              <input type="text" name="fos_user_registration_form[dob][month]" class="birthday" placeholder="Month"/>
+              <input type="text" name="fos_user_registration_form[dob][year]" class="birthday last" placeholder="Year"/>
               <input type="submit" class="submit" value="{{ 'Sign Up'|trans({}, 'FOSUserBundle') }}" />
+              <input type="hidden" name="fos_user_registration_form[_token]" value="{{register_token}}" />
               <div class="remember_me"><div><input type="checkbox" />Remember Me</div></div>
             </form>
           </div>

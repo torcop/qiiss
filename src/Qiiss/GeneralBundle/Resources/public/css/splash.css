@@ -253,6 +253,10 @@ body {
                     width: 26.5%;
                     display: inline-block;
                     margin-bottom: 6%; }
+                  body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form input.invalid, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form input.invalid, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form input.invalid {
+                    -moz-box-shadow: 0px 0px 10px 1px red;
+                    -webkit-box-shadow: 0px 0px 10px 1px red;
+                    box-shadow: 0px 0px 10px 1px red; }
                   body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form input.submit, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form input.submit, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form input.submit {
                     margin: 0 10% 4% 0;
                     width: 40%;

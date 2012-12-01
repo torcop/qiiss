@@ -23,7 +23,7 @@ class User extends BaseUser
 		/**
      * @ORM\Column(type="string", length=255)
      *
-     * @Assert\NotBlank(message="Please insert your dob.", groups={"Registration", "Profile"})
+     * @Assert\NotBlank(message="Please provide a valid date of birth.", groups={"Registration", "Profile"})
      */
     protected $dob;
 
@@ -36,7 +36,7 @@ class User extends BaseUser
     public function setDob($dob)
     {
         $this->dob = $dob;
-    
+
         return $this;
     }
 
