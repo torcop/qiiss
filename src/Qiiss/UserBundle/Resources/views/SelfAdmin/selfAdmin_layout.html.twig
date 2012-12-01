@@ -9,7 +9,8 @@
 			<link rel="stylesheet" href="{{ asset('bundles/qiissuser/css/selfAdmin.css') }}" type="text/css" media="all" />
 		{% endblock %}
 			<script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/jquery-1.8.3.min.js') }}"></script>
-			<script type="text/javascript" src="{{ asset('bundles/qiissuser/js/changePassword.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('bundles/qiissuser/js/settings/selfAdmin.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('bundles/qiissuser/js/header.js') }}"></script>
 </head>
 <body>
 {% include 'QiissUserBundle:Profile:header.html.twig' %}
@@ -19,23 +20,31 @@
 			Account Settings
 		</div>
 		<div class="self_admin_main_left">
-			<div class="section_header">
+			<div class="section_header selected">
 				Change Password
 			</div>
 			<div class="section_header">
-				Forgot Password
+				Privacy
+			</div>
+			<div class="section_header">
+				Pending Date Requests
+			</div>
+			<div class="section_header">
+				Manage Blocks
 			</div>
 			<div class="section_header last">
 				Facebook Account
 			</div>
 		</div>
 		<div class="self_admin_main_right">
-			<div class="header">
-				<div class="inner">Change Password</div>
-			</div>
-			<div class="section">
-				<div class="section_body">
-					{% include 'QiissUserBundle:ChangePassword:changePassword.html.twig' %}
+			<div class="section_container">
+				<div class="header">
+					<div class="inner">Change Password</div>
+				</div>
+				<div class="section">
+					<div class="section_body">
+						{% include 'QiissUserBundle:ChangePassword:changePassword.html.twig' %}
+					</div>
 				</div>
 			</div>
 		</div>
