@@ -64,14 +64,6 @@
         </div>
         <div id="login_container_body" class="auth_tab">
           <div class="signup_fields">
-						<div>
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-               You are logged as:  {{ app.user.username }} |
-                <a href="{{ path('fos_user_security_logout') }}">
-                    {{ 'Logout'|trans({}, 'FOSUserBundle') }}
-                </a>
-            {% else %}
-        </div>
             <form name="login_form" id="login_form" class="signup_form" action="{{ path('fos_user_security_check') }}" method="POST">
 							<input type="hidden" name="_csrf_token" value="{{ token }}" />
 							<div><div class="error_message username_error_message">Error</div><input type="text" class="username" name="_username" placeholder="{{ 'Username'|trans({}, 'FOSUserBundle') }}" required="required" /></div>
@@ -83,11 +75,11 @@
             </form>
           </div>
         </div>
-				{% endif %}
         <div id="facebook_container_body" class="auth_tab">
           <div class="signup_fields">
             <div class="facebook_login_button">
               <div class="left"><img src="https://chideo.com/assets/logo_facebook_f-3d17eb2041318519c6b8a608f4c84590.svg" width="30px";/></div>
+              <div class="seperator"></div>
               <div class="right">Login With Facebook</div>
             </div>
           </div>

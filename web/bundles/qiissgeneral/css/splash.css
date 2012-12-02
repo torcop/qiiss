@@ -396,10 +396,13 @@ body {
                 vertical-align: middle; }
               body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .facebook_login_button .left, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .facebook_login_button .left, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .facebook_login_button .left {
                 padding-right: 10px;
-                border-right: 1px solid #30487A;
                 height: 30px; }
-              body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .facebook_login_button .right, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .facebook_login_button .right, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .facebook_login_button .right {
+              body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .facebook_login_button .seperator, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .facebook_login_button .seperator, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .facebook_login_button .seperator {
+                width: 0px;
+                height: 30px;
                 border-left: 1px solid #777;
+                border-right: 1px solid #30487A; }
+              body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .facebook_login_button .right, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .facebook_login_button .right, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .facebook_login_button .right {
                 padding: 0px 12px 0px 15px; }
               body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .facebook_login_button:hover, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .facebook_login_button:hover, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .facebook_login_button:hover {
                 background-color: #35518C;

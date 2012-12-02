@@ -359,11 +359,16 @@ body {
 
               .left {
                 padding-right:10px;
-                border-right:1px solid #30487A;
                 height:30px;
               }
-              .right {
+
+              .seperator {
+                width:0px;
+                height:30px;
                 border-left:1px solid #777;
+                border-right:1px solid #30487A;
+              }
+              .right {
                 padding:0px 12px 0px 15px;
               }
 
