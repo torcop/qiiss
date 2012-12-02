@@ -413,6 +413,18 @@ body {
                 box-shadow: 0px 0px 10px 1px #888888; }
           body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields {
             text-align: center; }
+          body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .seperator_bottom {
+            display: block;
+            height: 0px;
+            margin: 15px 0px;
+            border-bottom: 1px solid #fff;
+            border-top: 1px solid #aaa;
+            margin: 20px auto; }
+          body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body #facebook_disclaimer {
+            text-align: left;
+            padding: 0px 20px; }
+            body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body #facebook_disclaimer a {
+              text-decoration: underline; }
         body #main_container #main_container_inner_right #login_container_outer #disclaimer {
           font-size: 12px;
           color: #777;

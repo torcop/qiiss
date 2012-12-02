@@ -72,11 +72,15 @@
         <div id="facebook_container_body" class="auth_tab">
           <div class="signup_fields">
             <div class="facebook_login_button">
-              <div class="left"><img src="https://chideo.com/assets/logo_facebook_f-3d17eb2041318519c6b8a608f4c84590.svg" width="30px";/></div>
+              <div class="left"><img src="{{ asset('bundles/qiissgeneral/images/facebook-logo.svg') }}" width="30px";/></div>
               <div class="seperator"></div>
               <div class="right">Login With Facebook</div>
             </div>
           </div>
+          <div class="seperator_bottom"></div>
+            <div id="facebook_disclaimer">
+              Don't worry, Qiiss will never post anything to your facebook wall, or notify any of your friends that you are using it. It's simply a much easier, quicker method of signing up. <br /><br />For more information, <a href="{{ path('qiiss_general_faq') }}">see our FAQ page.</a>
+            </div>
         </div>
       </div>
       <div id="disclaimer">By clicking Sign Up, you agree to our Terms and

@@ -64,12 +64,12 @@ var pictureIndex = 0;
 var homepageDirectory = "/bundles/qiissgeneral/images/home-page-images/";
 var thumbDirectory = "/bundles/qiissgeneral/images/thumbs/";
 var pictureValues = jQuery.parseJSON('{ "pictures": [' +
-'{"picture" : "' + homepageDirectory + 'message5.jpg", "angle" : "-8", "textPosition" : "bottom", "offset" : "-35%"},' +
-'{"picture" : "' + homepageDirectory + 'message3.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
-'{"picture" : "' + homepageDirectory + 'message1.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-40%"},' +
-'{"picture" : "' + homepageDirectory + 'message2.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
-'{"picture" : "' + homepageDirectory + 'message4.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
-'{"picture" : "' + homepageDirectory + 'message6.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"}]}');
+'{"picture" : "' + homepageDirectory + 'message5.jpg", "offset" : "-35%"},' +
+'{"picture" : "' + homepageDirectory + 'message3.jpg", "offset" : "-25%"},' +
+'{"picture" : "' + homepageDirectory + 'message1.jpg", "offset" : "-40%"},' +
+'{"picture" : "' + homepageDirectory + 'message2.jpg", "offset" : "-25%"},' +
+'{"picture" : "' + homepageDirectory + 'message4.jpg", "offset" : "-25%"},' +
+'{"picture" : "' + homepageDirectory + 'message6.jpg", "offset" : "-25%"}]}');
 
 
 $(document).ready(function() {
@@ -145,6 +145,7 @@ $(document).ready(function() {
   bindTabs('#login_tab', '#login_container_body');
   bindTabs('#facebook_tab', '#facebook_container_body');
   timeFade();
+  animateStream();
 });
 
 function slideOutError(message, form) {
@@ -229,7 +230,6 @@ function bindTabs(click, show) {
 }
 
 $(window).load(function() {
-  animateStream();
 });
 
 function timeFade() {

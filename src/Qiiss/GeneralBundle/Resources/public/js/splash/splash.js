@@ -145,6 +145,7 @@ $(document).ready(function() {
   bindTabs('#login_tab', '#login_container_body');
   bindTabs('#facebook_tab', '#facebook_container_body');
   timeFade();
+  animateStream();
 });
 
 function slideOutError(message, form) {
@@ -229,7 +230,6 @@ function bindTabs(click, show) {
 }
 
 $(window).load(function() {
-  animateStream();
 });
 
 function timeFade() {

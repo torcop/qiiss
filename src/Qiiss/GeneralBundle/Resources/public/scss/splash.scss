@@ -325,6 +325,21 @@ body {
             .signup_fields {
               text-align: center;
             }
+            .seperator_bottom {
+              display:block;
+              height:0px;
+              margin: 15px 0px;
+              border-bottom:1px solid #fff;
+              border-top:1px solid #aaa;
+              margin: 20px auto;
+            }
+            #facebook_disclaimer {
+              text-align: left;
+              padding:0px 20px;
+              a {
+                text-decoration: underline;
+              }
+            }
           }
         } // #login_container
 
