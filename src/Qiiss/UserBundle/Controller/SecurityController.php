@@ -15,7 +15,7 @@ class SecurityController extends BaseController
         /* @var $request \Symfony\Component\HttpFoundation\Request */
         $session = $request->getSession();
         // Only allow login via ajax from the main page form
-        if ($request->isXmlHttpRequest()) {
+        //if ($request->isXmlHttpRequest()) {
             // get the error if any (works with forward and redirect -- see below)
             if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
                 $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
@@ -40,10 +40,10 @@ class SecurityController extends BaseController
                 'error'         => $error,
                 'csrf_token' => $csrfToken,
             ));
-        } else {
+        //} else {
         // If the /login form was accessed as a standard browser request, redirect them to the homepage
             $url = $this->container->get('router')->generate('qiiss_general_homepage');
             return new RedirectResponse($url);
-        }
+        //}
     }
 }

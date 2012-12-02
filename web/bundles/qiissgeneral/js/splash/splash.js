@@ -3,58 +3,19 @@ jQuery.fx.interval = 40;
 /**********************
 FACEBOOK SDK CODE HERE
 **********************/
-window.fbAsyncInit = function() {
-  // init the FB JS SDK
-  FB.init({
-    appId      : '281453298642270', // App ID from the App Dashboard
-    channelUrl : '', // Channel File for x-domain communication
-    status     : true, // check the login status upon init?
-    cookie     : true, // set sessions cookies to allow your server to access the session?
-    xfbml      : true  // parse XFBML tags on this page?
-  });
 
-  $(document).ready(function() {
-    FB.getLoginStatus(function(response) {
-      if (response.status === 'connected') {
-        FB.api('/me', function(response) { //If the user is already logged in via facebook, redirect them to the profile page
-          //window.location.replace("/profile");
+function goLogIn(){
+    window.location = "/login_check_fb";
+}
+
+function onFbInit() {
+    if (typeof(FB) != 'undefined' && FB != null ) {
+        FB.Event.subscribe('auth.statusChange', function(response) {
+            setTimeout(goLogIn, 500);
         });
-      }
-   });
-  });
+    }
+}
 
-  $('.facebook_login_button').bind('click', function() {
-    FB.login(function(response) {
-       if (response.authResponse) {
-         console.log('Welcome!  Fetching your information.... ');
-         FB.api('/me', function(response) {
-           console.log('Good to see you, ' + response.name + '.');
-         });
-       } else {
-         console.log('User cancelled login or did not fully authorize.');
-       }
-     }, {scope: 'email'});
-  });
-  // Additional initialization code such as adding Event Listeners goes here
-
-};
-
-// Load the SDK's source Asynchronously
-(function(d, debug){
-   var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-   if (d.getElementById(id)) {return;}
-   js = d.createElement('script'); js.id = id; js.async = true;
-   js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
-   ref.parentNode.insertBefore(js, ref);
- }(document, /*debug*/ false));
-
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=281453298642270";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
 
 /*******************
 END FACEBOOK SDK CODE
@@ -144,9 +105,25 @@ $(document).ready(function() {
   bindTabs('#signup_tab', '#signup_container_body');
   bindTabs('#login_tab', '#login_container_body');
   bindTabs('#facebook_tab', '#facebook_container_body');
+  bindFacebook();
   timeFade();
   animateStream();
 });
+
+function bindFacebook() {
+  $('.facebook_login_button').bind('click', function() {
+    FB.login(function(response) {
+       if (response.authResponse) {
+         console.log('Welcome!  Fetching your information.... ');
+         FB.api('/me', function(response) {
+           console.log('Good to see you, ' + response.name + '.');
+         });
+       } else {
+         console.log('User cancelled login or did not fully authorize.');
+       }
+     }, {scope: 'email, user_birthday'});
+  });
+}
 
 function slideOutError(message, form) {
   var $element;
@@ -228,9 +205,6 @@ function bindTabs(click, show) {
     }
   });
 }
-
-$(window).load(function() {
-});
 
 function timeFade() {
   setTimeout(function() {
