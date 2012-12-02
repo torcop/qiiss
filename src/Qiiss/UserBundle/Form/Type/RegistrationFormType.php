@@ -24,7 +24,7 @@ class RegistrationFormType extends BaseType
                 array('input' => 'string',
                     'format' => 'dd-MM-yyyy',
                     'years' => range(1945,2013),
-                    'invalid_message' => 'Please enter a valid date of birth.',
+                    'invalid_message' => 'dob.invalid',
                     'error_bubbling' => true))
         ;
     }

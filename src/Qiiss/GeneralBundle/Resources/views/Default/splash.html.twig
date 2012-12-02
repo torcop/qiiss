@@ -44,21 +44,21 @@
         <div class="top_message">
           <div id="signup_tab" class="auth_tab_button selected">Sign Up</div>
           <div id="login_tab" class="auth_tab_button left shadow">Log In</div>
-          <div id="signup_facebook_tab" class="auth_tab_button left">Facebook</div>
+          <div id="facebook_tab" class="auth_tab_button left">Facebook</div>
         </div>
         <div id="signup_container_body" class="auth_tab selected">
           <div class="signup_fields">
             <form action="{{ path('fos_user_registration_register') }}" id="signup_form" class="signup_form" method="POST" class="fos_user_registration_register">
-              <input type="text" class="username" name="fos_user_registration_form[username]" placeholder="Name" />
-              <input type="text" class="email" name="fos_user_registration_form[email]" placeholder="Email" />
-              <input type="password" class="password_first" name="fos_user_registration_form[plainPassword][first]" placeholder="Password" />
-              <input type="password" class="password_second" name="fos_user_registration_form[plainPassword][second]" placeholder="Confirm Password" />
-              <input type="text" name="fos_user_registration_form[dob][day]" class="birthday" placeholder="Day"/>
-              <input type="text" name="fos_user_registration_form[dob][month]" class="birthday" placeholder="Month"/>
-              <input type="text" name="fos_user_registration_form[dob][year]" class="birthday last" placeholder="Year"/>
-              <input type="submit" class="submit" value="{{ 'Sign Up'|trans({}, 'FOSUserBundle') }}" />
               <input type="hidden" name="fos_user_registration_form[_token]" value="{{register_token}}" />
-              <div class="remember_me"><div><input type="checkbox" />Remember Me</div></div>
+              <div><div class="error_message username_error_message">Error</div><input type="text" class="username" name="fos_user_registration_form[username]" placeholder="Name" /></div>
+              <div><div class="error_message email_error_message">Error</div><input type="text" class="email" name="fos_user_registration_form[email]" placeholder="Email" /></div>
+              <div><div class="error_message password_error_message">Error</div><input type="password" class="password_first" name="fos_user_registration_form[plainPassword][first]" placeholder="Password" /></div>
+              <div><input type="password" class="password_second" name="fos_user_registration_form[plainPassword][second]" placeholder="Confirm Password" /></div>
+              <div><div class="error_message birthday_error_message">Error</div><input type="text" name="fos_user_registration_form[dob][day]" class="birthday" placeholder="Day"/>
+              <input type="text" name="fos_user_registration_form[dob][month]" class="birthday" placeholder="Month"/>
+              <input type="text" name="fos_user_registration_form[dob][year]" class="birthday last" placeholder="Year"/></div>
+              <div><input type="submit" class="submit" value="{{ 'Sign Up'|trans({}, 'FOSUserBundle') }}" />
+              <div class="remember_me"><div><input type="checkbox" />Remember Me</div></div></div>
             </form>
           </div>
         </div>
@@ -74,10 +74,12 @@
         </div>
             <form name="login_form" id="login_form" class="signup_form" action="{{ path('fos_user_security_check') }}" method="POST">
 							<input type="hidden" name="_csrf_token" value="{{ token }}" />
-							<input type="text" id="username" name="_username" placeholder="{{ 'Username'|trans({}, 'FOSUserBundle') }}" required="required" />
-							<input type="password" id="password" name="_password" placeholder="{{ 'Password'|trans({}, 'FOSUserBundle') }}" required="required" />
-              <input type="submit" class="submit" value="{{ 'Login'|trans({}, 'FOSUserBundle') }}" />
-              <div class="remember_me"><div><input type="checkbox" id="remember_me" name="_remember_me" value="on" />{{ 'Remember Me'|trans({}, 'FOSUserBundle') }}</div></div>
+							<div><div class="error_message username_error_message">Error</div><input type="text" class="username" name="_username" placeholder="{{ 'Username'|trans({}, 'FOSUserBundle') }}" required="required" /></div>
+							<div><input type="password" class="password" name="_password" placeholder="{{ 'Password'|trans({}, 'FOSUserBundle') }}" required="required" /></div>
+              <div>
+                <input type="submit" class="submit" value="{{ 'Login'|trans({}, 'FOSUserBundle') }}" />
+                <div class="remember_me"><div><input type="checkbox" id="remember_me" name="_remember_me" value="on" />{{ 'Remember Me'|trans({}, 'FOSUserBundle') }}</div></div>
+              </div>
             </form>
           </div>
         </div>

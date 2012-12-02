@@ -104,13 +104,18 @@ $(document).ready(function() {
         window.location.href = "/profile";
       }
       else if (parsed.result == "failure") {
-        alert(parsed.error);
+        if (parsed.error) {
+          slideOutError(parsed.error, "#login_form");
+        }
       }
     });
     return false;
   });
   $("#signup_form").submit(function(e) {
-    $("#signup_form .invalid").removeClass("invalid");
+    $("#signup_form .error_message").animate({
+      "right" : "280px",
+      "width" : "0px"
+    }, 300, "linear");
     $.ajax({
       type: "POST",
       url: $(this).attr("action"),
@@ -124,20 +129,7 @@ $(document).ready(function() {
       }
       else if (parsed.result == "failure") {
         if (parsed.error) {
-          alert("et");
-          if (parsed.error.indexOf("fos_user.username") != -1) {
-            $("#signup_form .username").addClass("invalid");
-          }
-          else if (parsed.error.indexOf("fos_user.email") != -1) {
-            $("#signup_form .email").addClass("invalid");
-          }
-          else if (parsed.error.indexOf("fos_user.password") != -1) {
-            $("#signup_form .password_first").addClass("invalid");
-            $("#signup_form .password_second").addClass("invalid");
-          }
-          else if (parsed.error.indexOf("date of birth") != -1) {
-            $("#signup_form .birthday").addClass("invalid");
-          }
+          slideOutError(parsed.error, "#signup_form");
         }
       }
     });
@@ -148,33 +140,83 @@ $(document).ready(function() {
   $(".picture_container_inner.hidden").css('top', pictureValues.pictures[pictureIndex + 1].offset);
   pictureIndex++;
   width = $("#signup_container_body").outerWidth() + 4;
-  bindTabs('#signup_tab', 0);
-  bindTabs('#login_tab', -width);
-  bindTabs('#signup_facebook_tab', -width * 2);
+  bindTabs('#signup_tab', '#signup_container_body');
+  bindTabs('#login_tab', '#login_container_body');
+  bindTabs('#facebook_tab', '#facebook_container_body');
   timeFade();
 });
 
-function bindTabs(click, amount) {
+function slideOutError(message, form) {
+  var $element;
+  if (message.indexOf("fos_user.username") != -1) {
+    $element = $(form + " .username_error_message");
+    if (message == "fos_user.username.blank") {
+      $element.html("Enter a username.");
+    }
+    else if (message == "fos_user.username.already_used") {
+      $element.html("Username is in use.");
+    }
+    else if (message == "fos_user.username.Bad credentials") {
+      $element.html("Username / Password incorrect.");
+    }
+  }
+  else if (message.indexOf("fos_user.email") != -1) {
+    $element = $(form + ".email_error_message");
+    if (message == "fos_user.email.blank") {
+      $element.html("Enter an email.");
+    }
+    else if (message == "fos_user.email.invalid") {
+      $element.html("Enter a valid email.");
+    }
+    else if (message == "fos_user.email.already_used") {
+      $element.html("Email already in use.");
+    }
+  }
+  else if (message.indexOf("fos_user.password") != -1) {
+    $element = $(form + " .password_error_message");
+    if (message == "fos_user.password.badmatch") {
+      $element.html("Passwords do not match.");
+    }
+  }
+  else if (message.indexOf("dob") != -1) {
+    $element = $(form + " .birthday_error_message");
+    if (message == "dob.empty") {
+      $element.html("Enter your birthday.");
+    }
+    else if (message == "dob.invalid") {
+      $element.html("Invalid Date.");
+    }
+  }
+      /* TODO - FIX THIS ERROR MESSAGE BUG */
+  else if (message == "This value is not valid.") {
+    $element = $(form + " .birthday_error_message").html("Invalid Date.");
+  }
+  $element.css("width", "auto");
+  var width = $element.width();
+  $element.css("width", "0px");
+  $element.animate({
+    "right" : "300px",
+    "width" : width,
+  }, 300, "linear");
+}
+
+function bindTabs(click, show) {
   $(click).click(function() {
     $('.auth_tab_button.selected').removeClass("selected");
-    $('.auth_tab').css('left', amount);
+    $('.auth_tab').removeClass("selected");
+    $(show).addClass("selected");
     $(this).addClass("selected");
     if ($(this).attr("id") == "signup_tab") {
       $('.auth_tab_button').removeClass("left right shadow");
       $('#login_tab').addClass("left").addClass("shadow");
-      $('#signup_facebook_tab').addClass("left");
-      /*
-      $('#login_container').animate({
-        height: $('#signup_container_body').outerHeight() + $('.top_message').outerHeight()
-      }, 150, "linear");
-      */
+      $('#facebook_tab').addClass("left");
     }
     else if ($(this).attr("id") == "login_tab") {
       $('.auth_tab_button').removeClass("left right shadow");
       $('#signup_tab').addClass("right").addClass("shadow");
-      $('#signup_facebook_tab').addClass("left").addClass("shadow");
+      $('#facebook_tab').addClass("left").addClass("shadow");
     }
-    else if ($(this).attr("id") == "signup_facebook_tab") {
+    else if ($(this).attr("id") == "facebook_tab") {
       $('.auth_tab_button').removeClass("left right shadow");
       $('#signup_tab').addClass("right");
       $('#login_tab').addClass("right").addClass("shadow");
@@ -184,6 +226,7 @@ function bindTabs(click, amount) {
 
 $(window).load(function() {
   animateStream();
+  $('.auth_tab').height($('#signup_container_body').height());
 });
 
 function timeFade() {
@@ -219,40 +262,6 @@ function animateStream() {
       }
     });
   });
-}
-
-function changeType(x, type) {
-    if(x.prop('type') == type)
-        return x; //That was easy.
-    try {
-        return x.prop('type', type); //Stupid IE security will not allow this
-    } catch(e) {
-        //Try re-creating the element (yep... this sucks)
-        //jQuery has no html() method for the element, so we have to put into a div first
-        var html = $("<div>").append(x.clone()).html();
-        var regex = /type=(\")?([^\"\s]+)(\")?/; //matches type=text or type="text"
-        //If no match, we add the type attribute to the end; otherwise, we replace
-        var tmp = $(html.match(regex) == null ?
-            html.replace(">", ' type="' + type + '">') :
-            html.replace(regex, 'type="' + type + '"') );
-        //Copy data from old element
-        tmp.data('type', x.data('type') );
-        var events = x.data('events');
-        var cb = function(events) {
-            return function() {
-                //Bind all prior events
-                for(i in events)
-                {
-                    var y = events[i];
-                    for(j in y)
-                        tmp.bind(i, y[j].handler);
-                }
-            }
-        }(events);
-        x.replaceWith(tmp);
-        setTimeout(cb, 10); //Wait a bit to call function
-        return tmp;
-    }
 }
 
 $(function(){

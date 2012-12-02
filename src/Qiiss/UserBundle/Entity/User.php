@@ -23,7 +23,7 @@ class User extends BaseUser
 		/**
      * @ORM\Column(type="string", length=255)
      *
-     * @Assert\NotBlank(message="Please provide a valid date of birth.", groups={"Registration", "Profile"})
+     * @Assert\NotBlank(message="dob.empty", groups={"Registration", "Profile"})
      */
     protected $dob;
 
