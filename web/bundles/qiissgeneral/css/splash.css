@@ -414,15 +414,17 @@ body {
           margin-top: 2%; }
   body #stream_outer {
     position: absolute;
-    height: 8%;
+    height: 50px;
     top: 88%;
-    padding: 6px;
+    padding: 5px 0px;
     border: 1px solid #999;
     background-color: #AAA;
     overflow: hidden;
     white-space: nowrap; }
     body #stream_outer .stream_inner {
-      display: inline-block; }
+      display: inline-block;
+      vertical-align: middle; }
       body #stream_outer .stream_inner img {
         display: inline-block;
-        height: 100%; }
+        height: 50px;
+        width: 50px; }
