@@ -64,12 +64,12 @@ var pictureIndex = 0;
 var homepageDirectory = "/bundles/qiissgeneral/images/home-page-images/";
 var thumbDirectory = "/bundles/qiissgeneral/images/thumbs/";
 var pictureValues = jQuery.parseJSON('{ "pictures": [' +
-'{"picture" : "' + homepageDirectory + 'message5.jpg", "angle" : "-8", "textPosition" : "bottom", "offset" : "-35%"},' +
-'{"picture" : "' + homepageDirectory + 'message3.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
-'{"picture" : "' + homepageDirectory + 'message1.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-40%"},' +
-'{"picture" : "' + homepageDirectory + 'message2.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
-'{"picture" : "' + homepageDirectory + 'message4.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"},' +
-'{"picture" : "' + homepageDirectory + 'message6.jpg", "angle" : "5", "textPosition" : "top", "offset" : "-25%"}]}');
+'{"picture" : "' + homepageDirectory + 'message5.jpg", "offset" : "-35%"},' +
+'{"picture" : "' + homepageDirectory + 'message3.jpg", "offset" : "-25%"},' +
+'{"picture" : "' + homepageDirectory + 'message1.jpg", "offset" : "-40%"},' +
+'{"picture" : "' + homepageDirectory + 'message2.jpg", "offset" : "-25%"},' +
+'{"picture" : "' + homepageDirectory + 'message4.jpg", "offset" : "-25%"},' +
+'{"picture" : "' + homepageDirectory + 'message6.jpg", "offset" : "-25%"}]}');
 
 
 $(document).ready(function() {
@@ -157,12 +157,15 @@ function slideOutError(message, form) {
     else if (message == "fos_user.username.already_used") {
       $element.html("Username is in use.");
     }
+    else if (message == "fos_user.username.short") {
+      $element.html("Username too short.");
+    }
     else if (message == "fos_user.username.Bad credentials") {
       $element.html("Username / Password incorrect.");
     }
   }
   else if (message.indexOf("fos_user.email") != -1) {
-    $element = $(form + ".email_error_message");
+    $element = $(form + " .email_error_message");
     if (message == "fos_user.email.blank") {
       $element.html("Enter an email.");
     }

@@ -157,12 +157,15 @@ function slideOutError(message, form) {
     else if (message == "fos_user.username.already_used") {
       $element.html("Username is in use.");
     }
+    else if (message == "fos_user.username.short") {
+      $element.html("Username too short.");
+    }
     else if (message == "fos_user.username.Bad credentials") {
       $element.html("Username / Password incorrect.");
     }
   }
   else if (message.indexOf("fos_user.email") != -1) {
-    $element = $(form + ".email_error_message");
+    $element = $(form + " .email_error_message");
     if (message == "fos_user.email.blank") {
       $element.html("Enter an email.");
     }
