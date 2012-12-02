@@ -44,6 +44,7 @@ class RegistrationController extends BaseController
     public function registerAction()
     {
         $request = $this->container->get('request');
+        $logger = $this->container->get('logger');
         /* @var $request \Symfony\Component\HttpFoundation\Request */
         $session = $request->getSession();
         // Only allow login via ajax from the main page form
