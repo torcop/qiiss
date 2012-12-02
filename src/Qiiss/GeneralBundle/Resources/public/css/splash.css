@@ -215,11 +215,11 @@ body {
               display: inline-block;
               text-align: left; }
               body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form {
-                margin: 0px;
-                padding-bottom: 5px; }
+                margin: 0px; }
                 body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form div, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form div, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form div {
                   position: relative;
-                  display: inline-block; }
+                  display: inline-block;
+                  white-space: nowrap; }
                   body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form div .error_message, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form div .error_message, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form div .error_message {
                     width: 0px;
                     overflow: hidden;

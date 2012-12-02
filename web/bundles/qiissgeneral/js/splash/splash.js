@@ -81,6 +81,8 @@ $(document).ready(function() {
 
   $('.signup_form input').not('.submit').placeholder();
 
+  $('.auth_tab').height($('#signup_container_body').height());
+
   $('.remember_me').click(function() {
     $(this).disableTextSelect();
     if ($(this).find('input').prop("checked")) {
@@ -139,7 +141,6 @@ $(document).ready(function() {
   $(".picture_container_inner").not(".hidden").css('top', pictureValues.pictures[pictureIndex].offset);
   $(".picture_container_inner.hidden").css('top', pictureValues.pictures[pictureIndex + 1].offset);
   pictureIndex++;
-  width = $("#signup_container_body").outerWidth() + 4;
   bindTabs('#signup_tab', '#signup_container_body');
   bindTabs('#login_tab', '#login_container_body');
   bindTabs('#facebook_tab', '#facebook_container_body');
@@ -226,7 +227,6 @@ function bindTabs(click, show) {
 
 $(window).load(function() {
   animateStream();
-  $('.auth_tab').height($('#signup_container_body').height());
 });
 
 function timeFade() {

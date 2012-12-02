@@ -238,11 +238,11 @@ body {
 
               .signup_form {
                 margin:0px;
-                padding-bottom:5px;
 
                 div {
                   position:relative;
                   display:inline-block;
+                  white-space: nowrap;
 
                   .error_message {
                     width:0px;
