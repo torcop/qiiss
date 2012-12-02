@@ -11,7 +11,9 @@ function goLogIn(){
 function onFbInit() {
     if (typeof(FB) != 'undefined' && FB != null ) {
         FB.Event.subscribe('auth.statusChange', function(response) {
-            setTimeout(goLogIn, 500);
+          if (response.session || response.authResponse) {
+              setTimeout(goLogIn, 500);
+          }
         });
     }
 }
@@ -43,6 +45,13 @@ $(document).ready(function() {
   $('.signup_form input').not('.submit').placeholder();
 
   $('.auth_tab').height($('#signup_container_body').height());
+
+  $('#suggest_sign_up').bind("click", function() {
+    $("#signup_tab").trigger("click");
+  });
+  $('#suggest_facebook').bind("click", function() {
+    $("#facebook_tab").trigger("click");
+  });
 
   $('.remember_me').click(function() {
     $(this).disableTextSelect();

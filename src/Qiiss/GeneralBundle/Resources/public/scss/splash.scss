@@ -160,7 +160,7 @@ body {
             }
           } // .top_message
 
-          #signup_container_body, #login_container_body, #facebook_container_body {
+          .auth_tab {
             display:none;
             padding-top:15px;
             white-space:normal;
@@ -261,7 +261,7 @@ body {
                   }
 
                   .remember_me {
-                    margin-left:30px;
+                    margin-left:40px;
                     font-size:16px;
                     white-space:nowrap;
                     display:inline-block;
@@ -317,6 +317,11 @@ body {
                 background-color:#35518C;
                 @include shadow(0px, 0px, 10px, 1px, #888);
               }
+
+              &:active {
+                background-color:#304A82;
+                @include shadow(0px, 0px, 10px, 1px, #777);
+              }
             }
           } // #signup_container_body
 
@@ -330,16 +335,91 @@ body {
               margin: 15px 0px;
               border-bottom:1px solid #fff;
               border-top:1px solid #aaa;
-              margin: 20px auto;
             }
             #facebook_disclaimer {
               text-align: left;
               padding:0px 20px;
+              font: 18px 'PatuaOneRegular', Arial, sans-serif;
               a {
                 text-decoration: underline;
               }
             }
           }
+
+          #login_container_body {
+            #forgot_password {
+              font-size:12px;
+              text-align: right;
+              padding-right:10px;
+              margin-bottom:15px;
+              margin-top:-5px;
+            }
+
+            .seperator_bottom {
+              display:block;
+              height:0px;
+              margin: 15px 0px 20px 0px;
+              border-bottom:1px solid #fff;
+              border-top:1px solid #aaa;
+            }
+            #login_suggest {
+              margin:0 auto;
+
+              #suggest_top_text {
+                display:block;
+                margin-bottom:15px;
+              }
+
+              div {
+                display:inline-block;
+                vertical-align:middle;
+              }
+
+              #suggest_sign_up {
+                color:#eee;
+                border: 2px solid #999;
+                cursor:pointer;
+                padding: 8px 10px;
+                @include shadow(0px, 0px, 10px, 1px, #999);
+                @include corner(5px, 5px, 5px, 5px);
+                @include gradient(#777, #666);
+
+                &:hover {
+                  @include gradient(#595959, #595959);
+                  border: 2px solid #888;
+                }
+                &:active {
+                  @include gradient(#494949, #494949);
+                  border: 2px solid #777;
+                }
+              }
+
+              #suggest_middle {
+                padding:10px;
+              }
+
+              #suggest_facebook {
+                display:inline-block;
+                padding: 8px 10px;
+                color:#eee;
+                background-color:#3B5998;
+                cursor:pointer;
+                border: 1px solid #2F477A;
+                @include corner(5px, 5px, 5px, 5px);
+                @include shadow(0px, 0px, 10px, 1px, #999);
+
+                &:hover {
+                  background-color:#35518C;
+                  @include shadow(0px, 0px, 10px, 1px, #888);
+                }
+
+                &:active {
+                  background-color:#304A82;
+                  @include shadow(0px, 0px, 10px, 1px, #777);
+                }
+              }
+            }
+          } // #login_container_body
         } // #login_container
 
         #disclaimer {

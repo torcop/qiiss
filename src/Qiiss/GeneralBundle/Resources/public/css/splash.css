@@ -202,26 +202,26 @@ body {
               border-left: 1px solid #eee; }
             body #main_container #main_container_inner_right #login_container_outer #login_container .top_message #facebook_tab.selected {
               border-left: 1px solid #eee; }
-          body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body {
+          body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab {
             display: none;
             padding-top: 15px;
             white-space: normal;
             margin-top: 1px;
             text-align: center;
             width: 100%; }
-            body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body.selected, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body.selected, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body.selected {
+            body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab.selected {
               display: block; }
-            body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields {
+            body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields {
               width: 300px;
               display: inline-block;
               text-align: left; }
-              body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form {
+              body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form {
                 margin: 0px; }
-                body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form div, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form div, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form div {
+                body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div {
                   position: relative;
                   display: inline-block;
                   white-space: nowrap; }
-                  body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form div .error_message, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form div .error_message, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form div .error_message {
+                  body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div .error_message {
                     width: 0px;
                     overflow: hidden;
                     position: absolute;
@@ -250,7 +250,7 @@ body {
                     -webkit-border-bottom-left-radius: 3px;
                     -khtml-border-radius-bottomleft: 3px;
                     border-bottom-left-radius: 3px; }
-                  body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form div input, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form div input, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form div input {
+                  body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div input {
                     position: relative;
                     z-index: 1001;
                     width: 280px;
@@ -279,24 +279,24 @@ body {
                     -moz-box-shadow: 0px 0px 10px 1px #bbbbbb;
                     -webkit-box-shadow: 0px 0px 10px 1px #bbbbbb;
                     box-shadow: 0px 0px 10px 1px #bbbbbb; }
-                    body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form div input:focus, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form div input:focus, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form div input:focus {
+                    body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div input:focus {
                       outline-width: 0;
                       -moz-box-shadow: 0px 0px 10px 1px #888888;
                       -webkit-box-shadow: 0px 0px 10px 1px #888888;
                       box-shadow: 0px 0px 10px 1px #888888; }
-                    body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form div input.birthday, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form div input.birthday, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form div input.birthday {
+                    body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div input.birthday {
                       width: 69px;
                       margin-right: 12px;
                       display: inline-block; }
-                      body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form div input.birthday.last, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form div input.birthday.last, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form div input.birthday.last {
+                      body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div input.birthday.last {
                         margin-right: 0px; }
-                    body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form div input.invalid, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form div input.invalid, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form div input.invalid {
+                    body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div input.invalid {
                       -moz-box-shadow: 0px 0px 10px 1px red;
                       -webkit-box-shadow: 0px 0px 10px 1px red;
                       box-shadow: 0px 0px 10px 1px red; }
-                  body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form div input:-moz-placeholder, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form div input:-moz-placeholder, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form div input:-moz-placeholder {
+                  body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div input:-moz-placeholder {
                     color: #999; }
-                  body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form div .submit, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form div .submit, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form div .submit {
+                  body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div .submit {
                     width: 125px;
                     color: #eee;
                     border: 2px solid #999;
@@ -331,7 +331,7 @@ body {
                     background-image: -moz-linear-gradient(top, #777777, #666666);
                     background-image: -ms-linear-gradient(top, #777777, #666666);
                     background-image: -o-linear-gradient(top, #777777, #666666); }
-                    body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form div .submit:hover, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form div .submit:hover, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form div .submit:hover {
+                    body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div .submit:hover {
                       background-color: #595959;
                       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
                       -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#595959, endColorstr=#595959)";
@@ -341,7 +341,7 @@ body {
                       background-image: -ms-linear-gradient(top, #595959, #595959);
                       background-image: -o-linear-gradient(top, #595959, #595959);
                       border: 2px solid #888; }
-                    body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form div .submit:active, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form div .submit:active, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form div .submit:active {
+                    body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div .submit:active {
                       background-color: #494949;
                       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
                       -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#494949, endColorstr=#494949)";
@@ -351,20 +351,20 @@ body {
                       background-image: -ms-linear-gradient(top, #494949, #494949);
                       background-image: -o-linear-gradient(top, #494949, #494949);
                       border: 2px solid #777; }
-                  body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form div .remember_me, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form div .remember_me, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form div .remember_me {
-                    margin-left: 30px;
+                  body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div .remember_me {
+                    margin-left: 40px;
                     font-size: 16px;
                     white-space: nowrap;
                     display: inline-block;
                     vertical-align: middle; }
-                    body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form div .remember_me div, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form div .remember_me div, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form div .remember_me div {
+                    body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div .remember_me div {
                       cursor: pointer; }
-                      body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form div .remember_me div input, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form div .remember_me div input, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form div .remember_me div input {
+                      body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div .remember_me div input {
                         width: 12px;
                         height: 12px;
                         margin-right: 10px;
                         cursor: pointer; }
-            body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .facebook_login_button, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .facebook_login_button, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .facebook_login_button {
+            body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .facebook_login_button {
               display: inline-block;
               padding: 8px 10px;
               color: #eee;
@@ -391,25 +391,30 @@ body {
               -moz-box-shadow: 0px 0px 10px 1px #999999;
               -webkit-box-shadow: 0px 0px 10px 1px #999999;
               box-shadow: 0px 0px 10px 1px #999999; }
-              body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .facebook_login_button div, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .facebook_login_button div, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .facebook_login_button div {
+              body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .facebook_login_button div {
                 font-size: 18px;
                 display: inline-block;
                 vertical-align: middle; }
-              body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .facebook_login_button .left, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .facebook_login_button .left, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .facebook_login_button .left {
+              body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .facebook_login_button .left {
                 padding-right: 10px;
                 height: 30px; }
-              body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .facebook_login_button .seperator, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .facebook_login_button .seperator, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .facebook_login_button .seperator {
+              body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .facebook_login_button .seperator {
                 width: 0px;
                 height: 30px;
                 border-left: 1px solid #777;
                 border-right: 1px solid #30487A; }
-              body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .facebook_login_button .right, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .facebook_login_button .right, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .facebook_login_button .right {
+              body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .facebook_login_button .right {
                 padding: 0px 12px 0px 15px; }
-              body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .facebook_login_button:hover, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .facebook_login_button:hover, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .facebook_login_button:hover {
+              body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .facebook_login_button:hover {
                 background-color: #35518C;
                 -moz-box-shadow: 0px 0px 10px 1px #888888;
                 -webkit-box-shadow: 0px 0px 10px 1px #888888;
                 box-shadow: 0px 0px 10px 1px #888888; }
+              body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .facebook_login_button:active {
+                background-color: #304A82;
+                -moz-box-shadow: 0px 0px 10px 1px #777777;
+                -webkit-box-shadow: 0px 0px 10px 1px #777777;
+                box-shadow: 0px 0px 10px 1px #777777; }
           body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields {
             text-align: center; }
           body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .seperator_bottom {
@@ -417,13 +422,123 @@ body {
             height: 0px;
             margin: 15px 0px;
             border-bottom: 1px solid #fff;
-            border-top: 1px solid #aaa;
-            margin: 20px auto; }
+            border-top: 1px solid #aaa; }
           body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body #facebook_disclaimer {
             text-align: left;
-            padding: 0px 20px; }
+            padding: 0px 20px;
+            font: 18px 'PatuaOneRegular', Arial, sans-serif; }
             body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body #facebook_disclaimer a {
               text-decoration: underline; }
+          body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #forgot_password {
+            font-size: 12px;
+            text-align: right;
+            padding-right: 10px;
+            margin-bottom: 15px;
+            margin-top: -5px; }
+          body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .seperator_bottom {
+            display: block;
+            height: 0px;
+            margin: 15px 0px 20px 0px;
+            border-bottom: 1px solid #fff;
+            border-top: 1px solid #aaa; }
+          body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest {
+            margin: 0 auto; }
+            body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest #suggest_top_text {
+              display: block;
+              margin-bottom: 15px; }
+            body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest div {
+              display: inline-block;
+              vertical-align: middle; }
+            body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest #suggest_sign_up {
+              color: #eee;
+              border: 2px solid #999;
+              cursor: pointer;
+              padding: 8px 10px;
+              -moz-box-shadow: 0px 0px 10px 1px #999999;
+              -webkit-box-shadow: 0px 0px 10px 1px #999999;
+              box-shadow: 0px 0px 10px 1px #999999;
+              -moz-border-radius-topleft: 5px;
+              -webkit-border-top-left-radius: 5px;
+              -khtml-border-radius-topleft: 5px;
+              border-top-left-radius: 5px;
+              -moz-border-radius-topright: 5px;
+              -webkit-border-top-right-radius: 5px;
+              -khtml-border-radius-topright: 5px;
+              border-top-right-radius: 5px;
+              -moz-border-radius-bottomright: 5px;
+              -webkit-border-bottom-right-radius: 5px;
+              -khtml-border-radius-bottomright: 5px;
+              border-bottom-right-radius: 5px;
+              -moz-border-radius-bottomleft: 5px;
+              -webkit-border-bottom-left-radius: 5px;
+              -khtml-border-radius-bottomleft: 5px;
+              border-bottom-left-radius: 5px;
+              background-color: #666666;
+              filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
+              -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#777777, endColorstr=#666666)";
+              background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#777777), to(#666666));
+              background-image: -webkit-linear-gradient(top, #777777, #666666);
+              background-image: -moz-linear-gradient(top, #777777, #666666);
+              background-image: -ms-linear-gradient(top, #777777, #666666);
+              background-image: -o-linear-gradient(top, #777777, #666666); }
+              body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest #suggest_sign_up:hover {
+                background-color: #595959;
+                filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
+                -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#595959, endColorstr=#595959)";
+                background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#595959), to(#595959));
+                background-image: -webkit-linear-gradient(top, #595959, #595959);
+                background-image: -moz-linear-gradient(top, #595959, #595959);
+                background-image: -ms-linear-gradient(top, #595959, #595959);
+                background-image: -o-linear-gradient(top, #595959, #595959);
+                border: 2px solid #888; }
+              body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest #suggest_sign_up:active {
+                background-color: #494949;
+                filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
+                -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#494949, endColorstr=#494949)";
+                background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#494949), to(#494949));
+                background-image: -webkit-linear-gradient(top, #494949, #494949);
+                background-image: -moz-linear-gradient(top, #494949, #494949);
+                background-image: -ms-linear-gradient(top, #494949, #494949);
+                background-image: -o-linear-gradient(top, #494949, #494949);
+                border: 2px solid #777; }
+            body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest #suggest_middle {
+              padding: 10px; }
+            body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest #suggest_facebook {
+              display: inline-block;
+              padding: 8px 10px;
+              color: #eee;
+              background-color: #3B5998;
+              cursor: pointer;
+              border: 1px solid #2F477A;
+              -moz-border-radius-topleft: 5px;
+              -webkit-border-top-left-radius: 5px;
+              -khtml-border-radius-topleft: 5px;
+              border-top-left-radius: 5px;
+              -moz-border-radius-topright: 5px;
+              -webkit-border-top-right-radius: 5px;
+              -khtml-border-radius-topright: 5px;
+              border-top-right-radius: 5px;
+              -moz-border-radius-bottomright: 5px;
+              -webkit-border-bottom-right-radius: 5px;
+              -khtml-border-radius-bottomright: 5px;
+              border-bottom-right-radius: 5px;
+              -moz-border-radius-bottomleft: 5px;
+              -webkit-border-bottom-left-radius: 5px;
+              -khtml-border-radius-bottomleft: 5px;
+              border-bottom-left-radius: 5px;
+              -moz-box-shadow: 0px 0px 10px 1px #999999;
+              -webkit-box-shadow: 0px 0px 10px 1px #999999;
+              box-shadow: 0px 0px 10px 1px #999999; }
+              body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest #suggest_facebook:hover {
+                background-color: #35518C;
+                -moz-box-shadow: 0px 0px 10px 1px #888888;
+                -webkit-box-shadow: 0px 0px 10px 1px #888888;
+                box-shadow: 0px 0px 10px 1px #888888; }
+              body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest #suggest_facebook:active {
+                background-color: #304A82;
+                -moz-box-shadow: 0px 0px 10px 1px #777777;
+                -webkit-box-shadow: 0px 0px 10px 1px #777777;
+                box-shadow: 0px 0px 10px 1px #777777; }
         body #main_container #main_container_inner_right #login_container_outer #disclaimer {
           font-size: 12px;
           color: #777;
