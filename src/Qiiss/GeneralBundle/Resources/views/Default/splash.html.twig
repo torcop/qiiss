@@ -11,13 +11,7 @@
     <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/splash/splash.js') }}"></script>
 </head>
 <body>
-<img src="{{ asset('bundles/qiissgeneral/images/Final-Homepage-background.gif') }}" class="background-image" />
-<div id="upper_top_banner">
-  <div><a href="{{ path('qiiss_general_faq') }}"><div id="faq">About Qiiss</div></a></div>
-</div>
-<div id="lower_top_banner">
-  <img src="{{ asset('bundles/qiissgeneral/images/qiiss-graphics/blue/Logo.png') }}" />
-</div>
+{% include 'QiissGeneralBundle:Default:header.html.twig' %}
 <div id="main_container">
   <div id="main_container_inner_left" class="main_container_inner">
     <div id="picture_container_vertical_divider"></div>

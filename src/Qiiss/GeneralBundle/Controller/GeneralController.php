@@ -31,6 +31,11 @@ class GeneralController extends Controller
 
 		public function	faqAction()
 		{
-				return $this->render('QiissGeneralBundle:Default:faq.html.twig');
+			return $this->render('QiissGeneralBundle:Default:faq.html.twig');
+		}
+
+		public function	resetAction()
+		{
+			return $this->render('QiissGeneralBundle:Default:resetPassword.html.twig');
 		}
 }

@@ -5,3 +5,7 @@ qiiss_general_homepage:
 qiiss_general_faq:
     pattern:  /faq
     defaults: { _controller: QiissGeneralBundle:General:faq }
+
+qiiss_reset_password:
+    pattern: /reset-password
+    defaults: { _controller: QiissGeneralBundle:General:reset }
