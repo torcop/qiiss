@@ -11,8 +11,8 @@ class ProfileController extends Controller
     public function proposeDateAction()
     {
 				$date = new Date();
-				//$form = $this->createForm(new DateType, $date);
-
+				$form = $this->createForm(new DateType, $date);
+				$evm = new EventManager();
 				$request = $this->get('request');
 				if( $request->getMethod() == 'POST' )
     		{

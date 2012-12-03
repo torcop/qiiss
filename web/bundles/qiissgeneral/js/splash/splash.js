@@ -64,10 +64,6 @@ $(document).ready(function() {
   });
 
   $("#login_form").submit(function(e) {
-<<<<<<< HEAD
-    alert("TEST")
-    e.stopPropagation();
-=======
     e.stopPropagation();
     $.ajax({
       type: "POST",
@@ -92,7 +88,6 @@ $(document).ready(function() {
       "right" : "280px",
       "width" : "0px"
     }, 300, "linear");
->>>>>>> e944d878c123c8a742f22ee3554e5ce00248a2c4
     $.ajax({
       type: "POST",
       url: $(this).attr("action"),
