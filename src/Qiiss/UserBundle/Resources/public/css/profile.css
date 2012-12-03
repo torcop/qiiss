@@ -53,6 +53,10 @@
       cursor: pointer;
       color: #aaa;
       padding: 0px; }
+      #upper_top_banner #logout_div #logout_div_button a:hover {
+        color: #999; }
+      #upper_top_banner #logout_div #logout_div_button a:active {
+        color: #888; }
   #upper_top_banner .popup {
     position: absolute;
     z-index: 1002;
@@ -97,7 +101,12 @@
         text-align: left;
         padding: 5px;
         border-bottom: 1px solid #ccc;
-        font: 14px 'OxygenRegular', Arial, sans-serif; }
+        font: 14px 'OxygenRegular', Arial, sans-serif;
+        cursor: pointer; }
+        #upper_top_banner .popup .popup_content .popup_item:hover {
+          background-color: #eee; }
+        #upper_top_banner .popup .popup_content .popup_item:active {
+          background-color: #ddd; }
         #upper_top_banner .popup .popup_content .popup_item div, #upper_top_banner .popup .popup_content .popup_item img {
           padding: 0;
           display: inline-block;
