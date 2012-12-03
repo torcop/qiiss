@@ -55,7 +55,7 @@
       padding: 0px; }
   #upper_top_banner .popup {
     position: absolute;
-    z-index: 1000;
+    z-index: 1002;
     display: none;
     top: 50px;
     width: 340px;
@@ -395,7 +395,7 @@ html {
                   background-color: #F2F8FA;
                   margin: 0px 10px;
                   border: 1px solid #ddd;
-                  padding: 5px;
+                  padding: 5px 10px;
                   -moz-border-radius-topleft: 5px;
                   -webkit-border-top-left-radius: 5px;
                   -khtml-border-radius-topleft: 5px;

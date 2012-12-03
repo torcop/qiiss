@@ -55,7 +55,7 @@
       padding: 0px; }
   #upper_top_banner .popup {
     position: absolute;
-    z-index: 1000;
+    z-index: 1002;
     display: none;
     top: 50px;
     width: 340px;
@@ -364,10 +364,10 @@ html {
                   position: relative;
                   width: 260px;
                   z-index: 1001;
-                  padding: 5px;
+                  padding: 8px;
                   margin: 20px 40px;
                   border: 2px solid #bbb;
-                  font: 18px/27px "PatuaOneRegular", Arial, sans-serif;
+                  font: 18px 'PatuaOneRegular', Arial, sans-serif;
                   color: #333;
                   -moz-border-radius-topleft: 3px;
                   -webkit-border-top-left-radius: 3px;
@@ -397,6 +397,8 @@ html {
                     margin-top: 10px; }
                   html body #main_container .self_admin_main_border .self_admin_main_right .section_container .section .section_body div input#new_password_second {
                     margin-bottom: 15px; }
+                  html body #main_container .self_admin_main_border .self_admin_main_right .section_container .section .section_body div input:-moz-placeholder {
+                    color: #999; }
               html body #main_container .self_admin_main_border .self_admin_main_right .section_container .section .section_body div {
                 text-align: right; }
                 html body #main_container .self_admin_main_border .self_admin_main_right .section_container .section .section_body div .submit {

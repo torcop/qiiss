@@ -118,7 +118,7 @@ html {
                   background-color:#F2F8FA;
                   margin:0px 10px;
                   border:1px solid #ddd;
-                  padding:5px;
+                  padding:5px 10px;
                   @include corner(5px, 5px, 5px, 5px);
                   @include lightButtonColor();
                 }

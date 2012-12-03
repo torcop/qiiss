@@ -122,10 +122,10 @@ html {
                     position:relative;
                     width:260px;
                     z-index:1001;
-                    padding: 5px;
+                    padding: 8px;
                     margin:20px 40px;
                     border: 2px solid #bbb;
-                    font: 18px/27px 'PatuaOneRegular', Arial, sans-serif;
+                    font: 18px 'PatuaOneRegular', Arial, sans-serif;
                     color:#333;
                     @include corner(3px, 3px, 3px, 3px);
                     @include shadow(0px, 0px, 10px, 1px, #bbb);
@@ -141,6 +141,10 @@ html {
 
                     &#new_password_second {
                       margin-bottom:15px;
+                    }
+
+                    &:-moz-placeholder{
+                      color: #999;
                     }
                   } // input
                 }
