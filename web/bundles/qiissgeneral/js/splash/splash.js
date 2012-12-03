@@ -121,15 +121,14 @@ $(document).ready(function() {
 
 function bindFacebook() {
   $('.facebook_login_button').bind('click', function() {
+    $element = $(this).find(".right");
+    $element.html("Logging you in...");
     FB.login(function(response) {
-       if (response.authResponse) {
-         console.log('Welcome!  Fetching your information.... ');
-         FB.api('/me', function(response) {
-           console.log('Good to see you, ' + response.name + '.');
-         });
-       } else {
-         console.log('User cancelled login or did not fully authorize.');
-       }
+      if (response.authResponse) {
+        $element.html("Login Succesful!");
+      } else {
+        $element.html("Login With Facebook")
+      }
      }, {scope: 'email, user_birthday'});
   });
 }
