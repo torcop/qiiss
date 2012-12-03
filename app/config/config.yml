@@ -127,6 +127,8 @@ services:
             userManager: "@fos_user.user_manager"
             validator: "@validator"
             container: "@service_container"
+    general.helper.error:
+        class: Qiiss\GeneralBundle\Helper\ErrorHelper
 
 fos_facebook:
     file:   %kernel.root_dir%/../vendor/facebook/php-sdk/src/base_facebook.php

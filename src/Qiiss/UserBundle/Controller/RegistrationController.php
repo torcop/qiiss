@@ -26,21 +26,6 @@ use Symfony\Component\HttpFoundation\Response;
 class RegistrationController extends BaseController
 {
 
-    static function getErrorMessages(\Symfony\Component\Form\Form $form) {
-        $errors = array();
-        foreach ($form->getErrors() as $key => $error) {
-            $errors[$key] = $error->getMessage();
-        }
-        if ($form->hasChildren()) {
-            foreach ($form->getChildren() as $child) {
-                if (!$child->isValid()) {
-                    $errors[$child->getName()] = RegistrationController::getErrorMessages($child);
-                }
-            }
-        }
-        return $errors;
-    }
-
     public function registerAction()
     {
         $request = $this->container->get('request');
@@ -73,7 +58,8 @@ class RegistrationController extends BaseController
             return $response;
         }
         // If the request failed, get all error messages
-        $errors = RegistrationController::getErrorMessages($form);
+        $errorHelper = $this->container->get('general.helper.error');
+        $errors = $errorHelper-> getErrorMessages($form);
         $array['result'] = 'failure';
         if (sizeof($errors) > 0) {
             $shift = array_shift($errors);
