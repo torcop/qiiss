@@ -22,7 +22,7 @@ class ProfileController extends Controller
 						$em = $this->getDoctrine()->getEntityManager();
             $em->persist($date);
             $em->flush();
-            return $this->redirect( $this->generateUrl('qiiss_general_faq') );
+            return $this->redirect( $this->generateUrl('qiiss_general_homepage') );
         }
     }
         return $this->render('QiissProfileBundle:Profile:date.html.twig', array("form" => $form->createView()));
