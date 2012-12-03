@@ -98,30 +98,52 @@ html {
                   border-bottom:1px solid #aaa;
                 }
 
-                input {
-                  display:block;
-                  padding: 5px;
-                  margin:20px 40px;
-                  border: 2px solid #bbb;
-                  font: 18px/27px 'PatuaOneRegular', Arial, sans-serif;
-                  color:#333;
-                  width:250px;
-                  @include corner(3px, 3px, 3px, 3px);
-                  @include shadow(0px, 0px, 10px, 1px, #bbb);
+                div {
+                  position:relative;
 
-                  &:focus {
-                     outline-width: 0;
-                     @include shadow(0px, 0px, 10px, 1px, #888);
+                  .error_message {
+                    width:0px;
+                    overflow:hidden;
+                    position:absolute;
+                    white-space: nowrap;
+                    right:240px;
+                    z-index:1000;
+                    background-color:#bf3030;
+                    font: 18px 'PatuaOneRegular', Arial, sans-serif;
+                    border:2px solid #bbb;
+                    border-right:none;
+                    padding: 8px;
+                    color:#fff;
+                    @include corner(3px, 0px, 0px, 3px);
                   }
 
-                  &#current_password {
-                    margin-top:10px;
-                  }
+                  input {
+                    display:block;
+                    position:relative;
+                    width:260px;
+                    z-index:1001;
+                    padding: 5px;
+                    margin:20px 40px;
+                    border: 2px solid #bbb;
+                    font: 18px/27px 'PatuaOneRegular', Arial, sans-serif;
+                    color:#333;
+                    @include corner(3px, 3px, 3px, 3px);
+                    @include shadow(0px, 0px, 10px, 1px, #bbb);
 
-                  &#new_password_second {
-                    margin-bottom:15px;
-                  }
-                } // input
+                    &:focus {
+                       outline-width: 0;
+                       @include shadow(0px, 0px, 10px, 1px, #888);
+                    }
+
+                    &#current_password {
+                      margin-top:10px;
+                    }
+
+                    &#new_password_second {
+                      margin-bottom:15px;
+                    }
+                  } // input
+                }
 
                 div {
                   text-align:right;
