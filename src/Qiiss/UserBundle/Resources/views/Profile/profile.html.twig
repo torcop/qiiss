@@ -5,9 +5,13 @@
   <title>{% block title %}Qiiss - Profile{% endblock %}</title>
     {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('bundles/qiissuser/css/profile.css') }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/globalFunctions.css') }}" type="text/css" media="all" />
     {% endblock %}
     <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/jquery-1.8.3.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/jquery-placeholder.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/modernizr.2.6.2-min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/yepnope.1.5.4-min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/polyfiller.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/globalFunctions.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/qiissuser/js/profile/profile.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/qiissuser/js/header.js') }}"></script>
 </head>
