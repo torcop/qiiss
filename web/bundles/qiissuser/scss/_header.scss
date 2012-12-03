@@ -169,36 +169,45 @@
   text-align:center;
   @include corner(0px, 0px, 10px, 0px);
 
-  div {
-    font: 16px 'OxygenRegular', Arial, sans-serif;
-    display:inline-block;
-    padding: 10px;
-    text-align:center;
-    cursor:pointer;
-    border:none;
-    @include tabButtonColor();
+  a {
+    color:#333;
 
-    &#nav_global_canvas {
-      @include corner(0px, 0px, 10px, 0px);
+    &:visited {
+      text-decoration: none;
+      color:#333;
     }
 
-    &.selected {
-      @include lightButtonColor();
-    }
+    div {
+      font: 16px 'OxygenRegular', Arial, sans-serif;
+      display:inline-block;
+      padding: 10px;
+      text-align:center;
+      cursor:pointer;
+      border:none;
+      @include tabButtonColor();
 
-    &.left {
-      border-left:1px solid #999;
-      &.shadow {
-        @include shadow(inset 5px, 0px, 15px, -5px, #bbb);
+      &#nav_settings {
+        @include corner(0px, 0px, 10px, 0px);
       }
-    }
-    &.right {
-      border-right:1px solid #999;
-      &.shadow {
+
+      &.selected {
+        @include lightButtonColor();
+      }
+
+      &.left {
+        border-left:1px solid #999;
+      }
+      &.left-shadow {
+       @include shadow(inset 5px, 0px, 15px, -5px, #bbb);
+      }
+      &.right {
+        border-right:1px solid #999;
+      }
+      &.right-shadow {
         @include shadow(inset -5px, 0px, 15px, -5px, #bbb);
       }
-    }
-  }
+    } // div
+  } // a
 } // #lower_top_nav
 
 #lower_top_banner {

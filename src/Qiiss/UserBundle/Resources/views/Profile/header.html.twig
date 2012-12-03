@@ -4,7 +4,7 @@
 	<div id="notifications_icon" class="notifications"><img src="{{ asset('bundles/qiissuser/images/Qiiss-Notification-Icon.png') }}" /></div>
 	<div><a href="/faq"><div id="faq">About</div></a></div>
 	<div id="logout_div">
-		<div id="logout_div_profile">{{ user.username }}</div>
+		<div id="logout_div_profile">{{ app.user.username }}</div>
 		<div id="logout_div_seperator"></div>
 		<div id="logout_div_button">
 			<a href="{{ path('fos_user_security_logout') }}">
@@ -74,10 +74,32 @@
 	</div>
 </div>
 <div id="lower_top_banner">
-	<a href="/"><img src="{{ asset('bundles/qiissgeneral/images/qiiss-graphics/blue/Logo.png') }}" /></a>
+	<a href="/home"><img src="{{ asset('bundles/qiissgeneral/images/qiiss-graphics/blue/Logo.png') }}" /></a>
 </div>
 <div id="lower_top_nav">
-	<div id="nav_profile" class="selected left">Profile</div>
-	<div id="nav_find_dates" class="left shadow">Search People</div>
-	<div id="nav_global_canvas" class="left">Global Canvas</div>
+	<a href="/profile"><div id="nav_profile" class="
+		{% if navSelection == "profile" %} selected left
+		{% else %} left
+		{% endif %}">Profile
+	</div></a>
+	<a href="/search"><div id="nav_find_dates" class="
+		{% if navSelection == "findDates" %} selected left right
+		{% elseif navSelection == "profile" %} left left-shadow
+		{% elseif navSelection == "searchPeople" %} right right-shadow
+		{% else %} left
+		{% endif %}">Search People
+	</div></a>
+	<a href="/global-canvas"><div id="nav_global_canvas" class="
+		{% if navSelection == "globalCanvas" %} selected left right
+		{% elseif navSelection == "findDates" %} left left-shadow
+		{% elseif navSelection == "settings" %} left right right-shadow
+		{% else %} left
+		{% endif %}">Global Canvas
+	</div></a>
+	<a href="/settings"><div id="nav_settings" class="
+		{% if navSelection == "settings" %} selected
+		{% elseif navSelection == "findDates" %} left left-shadow
+		{% else %} left
+		{% endif %}">Settings
+	</div></a>
 </div>

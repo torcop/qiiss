@@ -9,11 +9,24 @@ class RegistrationFormType extends BaseType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        parent::buildForm($builder, $options);
-
-        $builder->add('dob', 'date', array('input' => 'string',
-																					 'format' => 'dd-MM-yyyy',
-																					 'years' => range(1945,2013)));
+        $builder
+            ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle', "error_bubbling" => true))
+            ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle', "error_bubbling" => true))
+            ->add('plainPassword', 'repeated', array(
+                'type' => 'password',
+                'options' => array('translation_domain' => 'FOSUserBundle'),
+                'first_options' => array('label' => 'form.password'),
+                'second_options' => array('label' => 'form.password_confirmation'),
+                'required' => true,
+                'invalid_message' => 'fos_user.password.badmatch',
+                'error_bubbling' => true))
+            ->add('dob', 'date',
+                array('input' => 'string',
+                    'format' => 'dd-MM-yyyy',
+                    'years' => range(1945,2013),
+                    'invalid_message' => 'dob.invalid',
+                    'error_bubbling' => true))
+        ;
     }
 
     public function getName()

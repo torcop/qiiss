@@ -18,7 +18,8 @@ class GeneralController extends Controller
 		}
 		else {
 			$token = $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate');
-        	return $this->render('QiissGeneralBundle:Default:splash.html.twig', array('token' => $token));
+			$register = $this->container->get('fos_user.registration.form');
+        	return $this->render('QiissGeneralBundle:Default:splash.html.twig', array('token' => $token, 'register_token' => $register->createView()["_token"]->vars["value"]));
     	}
     }
 
@@ -30,6 +31,11 @@ class GeneralController extends Controller
 
 		public function	faqAction()
 		{
-				return $this->render('QiissGeneralBundle:Default:faq.html.twig');
+			return $this->render('QiissGeneralBundle:Default:faq.html.twig');
+		}
+
+		public function	resetAction()
+		{
+			return $this->render('QiissGeneralBundle:Default:resetPassword.html.twig');
 		}
 }

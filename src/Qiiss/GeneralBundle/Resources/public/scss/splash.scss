@@ -1,4 +1,4 @@
-@import "shared", "fonts";
+@import "shared", "header", "fonts";
 
 html {
   height:100%;
@@ -7,70 +7,13 @@ html {
 }
 
 body {
-  margin:0;
-  padding:0;
   overflow-x:hidden;
   overflow-y:hidden;
-  height:100%;
-
-  #upper_top_banner {
-    width:100%;
-    height:50px;
-    position:relative;
-    background-color:#ddd;
-    border-bottom: 2px solid #666;
-    text-align:right;
-    font-size:0;
-
-    div {
-      display:inline-block;
-      vertical-align:middle;
-      padding: 7px 7px;
-      a {
-        font: 18px 'PatuaOneRegular', Arial, sans-serif;
-        color:#444;
-        text-decoration:none;
-        padding:0px 10px;
-
-        &:hover {
-          color:#666;
-        }
-
-        &:active, &:focus {
-          color:#888;
-        }
-      }
-    }
-  }
-
-  #lower_top_banner {
-    width:225px;
-    height:70px;
-    position:relative;
-    display:inline-block;
-    margin-left:50px;
-    margin-top:-2px;
-    background-color:#ddd;
-    border:2px solid #666;
-    border-top:none;
-    text-align:center;
-    @include corner(0px, 0px, 30px, 30px);
-
-    img {
-      width:90%;
-      margin-top:-15%;
-    }
-  } // #lower_top_banner
-
-  .background-image {
-    position:absolute;
-    z-index:-1000;
-    width:100%;
-  }
 
   #main_container {
     width:100%;
     height:90%;
+    display:block;
     white-space:nowrap;
 
     .main_container_inner {
@@ -89,7 +32,7 @@ body {
 
     #main_container_inner_left {
       height:100%;
-      margin-top: -70px;
+      margin-top:30px;
 
       #picture_container_outer {
         width:100%;
@@ -132,10 +75,9 @@ body {
         } // #picture_container_border
         .picture_container_text {
           width:100%;
-          height:20%;
           text-align:right;
-          font-size:2em;
           color:#333;
+          font: 30px 'OxygenRegular', Arial, sans-serif;
         }
       } // #picture_container_outer
     } // .main_container_inner_left
@@ -143,7 +85,7 @@ body {
     #main_container_inner_right {
       height:100%;
       text-align: center;
-      margin-top:-100px;
+      margin-top:-30px;
 
       #login_container_outer {
         max-width:400px;
@@ -153,10 +95,8 @@ body {
         #login_container {
           border:2px solid #777;
           background-color:$medium-blue;
-          overflow:hidden;
-          font: 18px/27px 'PatuaOneRegular', Arial, sans-serif;
+          font: 18px 'PatuaOneRegular', Arial, sans-serif;
           color:#333;
-          position:relative;
           white-space:nowrap;
           @include corner(5px, 5px, 5px, 5px);
           @include shadow(0px, 0px, 15px, 2px, #aaa);
@@ -213,57 +153,98 @@ body {
                 border-left:1px solid #eee;
               }
             }
-            #signup_facebook_tab {
+            #facebook_tab {
               &.selected {
                 border-left:1px solid #eee;
               }
             }
           } // .top_message
 
-          #signup_container_body, #login_container_body, #facebook_container_body {
-            padding-top:4%;
-            display:inline-block;
-            position:relative;
+          .auth_tab {
+            display:none;
+            padding-top:15px;
             white-space:normal;
             margin-top:1px;
-            vertical-align:top;
+            text-align:center;
             width:100%;
 
+            &.selected {
+              display:block;
+            }
+
             .signup_fields {
-              width:80%;
-              margin: 0 auto;
-              text-align:center;
+              width:300px;
+              display:inline-block;
+              text-align:left;
 
               .signup_form {
-                width:100%;
                 margin:0px;
 
-                input {
-                  width:90%;
-                  margin:0% 0.5% 6% 0%;
-                  padding: 4px 0px 4px 7px;
-                  border: 2px solid #bbb;
-                  font: 18px/27px 'PatuaOneRegular', Arial, sans-serif;
-                  color:#333;
-                  @include corner(3px, 3px, 3px, 3px);
-                  @include shadow(0px, 0px, 10px, 1px, #bbb);
+                div {
+                  position:relative;
+                  display:inline-block;
+                  white-space: nowrap;
 
-                  &:focus {
-                     outline-width: 0;
-                     @include shadow(0px, 0px, 10px, 1px, #888);
+                  .error_message {
+                    width:0px;
+                    overflow:hidden;
+                    position:absolute;
+                    white-space: nowrap;
+                    right:280px;
+                    z-index:1000;
+                    background-color:#bf3030;
+                    font: 18px 'PatuaOneRegular', Arial, sans-serif;
+                    border:2px solid #bbb;
+                    border-right:none;
+                    padding: 8px;
+                    color:#fff;
+                    @include corner(3px, 0px, 0px, 3px);
                   }
 
-                  &.birthday {
-                    width:26.5%;
-                    display:inline-block;
-                    margin-bottom:6%;
+                  input {
+                    position:relative;
+                    z-index:1001;
+                    width:280px;
+                    margin:0px 0 15px 0px;
+                    padding: 8px;
+                    border: 2px solid #bbb;
+                    background-color:#fff;
+                    font: 18px 'PatuaOneRegular', Arial, sans-serif;
+                    color:#333;
+                    @include corner(3px, 3px, 3px, 3px);
+                    @include shadow(0px, 0px, 10px, 1px, #bbb);
+
+                    &:focus {
+                       outline-width: 0;
+                       @include shadow(0px, 0px, 10px, 1px, #888);
+                    }
+
+                    &.birthday {
+                      width:69px;
+                      margin-right:12px;
+                      display:inline-block;
+
+                      &.last {
+                        margin-right:0px;
+                      }
+                    }
+
+                    &.invalid {
+                      @include shadow(0px, 0px, 10px, 1px, #f00);
+                    }
+                  }
+                  // Fix for firefox placeholder color
+                  input:-moz-placeholder{
+                    color: #999;
                   }
 
-                  &.submit {
-                    margin:0 10% 4% 0;
-                    width:40%;
+                  .submit {
+                    width:125px;
                     color:#eee;
                     border: 2px solid #999;
+                    font: 18px 'PatuaOneRegular', Arial, sans-serif;
+                    display:inline-block;
+                    vertical-align: middle;
                     cursor:pointer;
                     @include shadow(0px, 0px, 10px, 1px, #999);
                     @include corner(5px, 5px, 5px, 5px);
@@ -278,30 +259,25 @@ body {
                       border: 2px solid #777;
                     }
                   }
-                }
 
-                .remember_me {
-                  float:right;
-                  text-align:right;
-                  font-size:16px;
-                  white-space:nowrap;
+                  .remember_me {
+                    margin-left:40px;
+                    font-size:16px;
+                    white-space:nowrap;
+                    display:inline-block;
+                    vertical-align: middle;
 
-                  div {
-                    cursor:pointer;
-                    width:70%;
-                    margin-right:10px;
-                    input {
-                      width:12px;
-                      height:12px;
-                      margin-right:10px;
+                    div {
                       cursor:pointer;
+                      input {
+                        width:12px;
+                        height:12px;
+                        margin-right:10px;
+                        cursor:pointer;
+                      }
                     }
                   }
-                }
-
-                .last {
-                  margin-right:0px;
-                }
+                } // div
               } // .signup_form
             } // .signup_fields
 
@@ -324,11 +300,16 @@ body {
 
               .left {
                 padding-right:10px;
-                border-right:1px solid #30487A;
                 height:30px;
               }
-              .right {
+
+              .seperator {
+                width:0px;
+                height:30px;
                 border-left:1px solid #777;
+                border-right:1px solid #30487A;
+              }
+              .right {
                 padding:0px 12px 0px 15px;
               }
 
@@ -336,13 +317,109 @@ body {
                 background-color:#35518C;
                 @include shadow(0px, 0px, 10px, 1px, #888);
               }
+
+              &:active {
+                background-color:#304A82;
+                @include shadow(0px, 0px, 10px, 1px, #777);
+              }
             }
           } // #signup_container_body
 
-          #login_container_body {
-            vertical-align:top;
-            margin-top:0px;
+          #facebook_container_body {
+            .signup_fields {
+              text-align: center;
+            }
+            .seperator_bottom {
+              display:block;
+              height:0px;
+              margin: 15px 0px;
+              border-bottom:1px solid #fff;
+              border-top:1px solid #aaa;
+            }
+            #facebook_disclaimer {
+              text-align: left;
+              padding:0px 20px;
+              font: 18px 'PatuaOneRegular', Arial, sans-serif;
+              a {
+                text-decoration: underline;
+              }
+            }
           }
+
+          #login_container_body {
+            #forgot_password {
+              font-size:12px;
+              text-align: right;
+              padding-right:10px;
+              margin-bottom:15px;
+              margin-top:-5px;
+            }
+
+            .seperator_bottom {
+              display:block;
+              height:0px;
+              margin: 15px 0px 20px 0px;
+              border-bottom:1px solid #fff;
+              border-top:1px solid #aaa;
+            }
+            #login_suggest {
+              margin:0 auto;
+
+              #suggest_top_text {
+                display:block;
+                margin-bottom:15px;
+              }
+
+              div {
+                display:inline-block;
+                vertical-align:middle;
+              }
+
+              #suggest_sign_up {
+                color:#eee;
+                border: 2px solid #999;
+                cursor:pointer;
+                padding: 8px 10px;
+                @include shadow(0px, 0px, 10px, 1px, #999);
+                @include corner(5px, 5px, 5px, 5px);
+                @include gradient(#777, #666);
+
+                &:hover {
+                  @include gradient(#595959, #595959);
+                  border: 2px solid #888;
+                }
+                &:active {
+                  @include gradient(#494949, #494949);
+                  border: 2px solid #777;
+                }
+              }
+
+              #suggest_middle {
+                padding:10px;
+              }
+
+              #suggest_facebook {
+                display:inline-block;
+                padding: 8px 10px;
+                color:#eee;
+                background-color:#3B5998;
+                cursor:pointer;
+                border: 1px solid #2F477A;
+                @include corner(5px, 5px, 5px, 5px);
+                @include shadow(0px, 0px, 10px, 1px, #999);
+
+                &:hover {
+                  background-color:#35518C;
+                  @include shadow(0px, 0px, 10px, 1px, #888);
+                }
+
+                &:active {
+                  background-color:#304A82;
+                  @include shadow(0px, 0px, 10px, 1px, #777);
+                }
+              }
+            }
+          } // #login_container_body
         } // #login_container
 
         #disclaimer {
@@ -356,9 +433,9 @@ body {
 
   #stream_outer {
     position:absolute;
-    height:8%;
+    height:50px;
     top:88%;
-    padding:6px;
+    padding:5px 0px;
     border:1px solid #999;
     background-color:#AAA;
     overflow:hidden;
@@ -366,10 +443,12 @@ body {
 
     .stream_inner {
       display:inline-block;
+      vertical-align: middle;
 
       img {
         display:inline-block;
-        height:100%;
+        height:50px;
+        width:50px;
       }
     }
   }

@@ -3,20 +3,34 @@ security:
     providers:
         fos_userbundle:
             id: fos_user.user_provider.username
+        facebook_provider:
+            id: facebook.user
 
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
 
     firewalls:
-        main:
-            pattern: ^/
+        public:
+            pattern: ^/.*
             form_login:
                 provider: fos_userbundle
                 csrf_provider: form.csrf_provider
                 success_handler: authentication_handler
                 failure_handler: authentication_handler
-            logout:       true
+            logout:
+                path: /logout
+                target: /home
             anonymous:    true
+            fos_facebook:
+                app_url: "https://developers.facebook.com/apps/281453298642270"
+                server_url: "127.0.0.1:9200"
+                login_path: /login
+                check_path: /login_check_fb
+                default_target_path: /profile
+                provider: facebook_provider
+            logout:
+                handlers: ["fos_facebook.logout_handler"]
+
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }

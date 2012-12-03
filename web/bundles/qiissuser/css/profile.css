@@ -143,52 +143,57 @@
   -webkit-border-bottom-left-radius: 0px;
   -khtml-border-radius-bottomleft: 0px;
   border-bottom-left-radius: 0px; }
-  #lower_top_nav div {
-    font: 16px 'OxygenRegular', Arial, sans-serif;
-    display: inline-block;
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
-    border: none;
-    background-color: #DCE5F2;
-    cursor: pointer; }
-    #lower_top_nav div:hover {
-      background-color: #CFD7E3; }
-    #lower_top_nav div:active {
-      background-color: #AFB5BD; }
-    #lower_top_nav div#nav_global_canvas {
-      -moz-border-radius-topleft: 0px;
-      -webkit-border-top-left-radius: 0px;
-      -khtml-border-radius-topleft: 0px;
-      border-top-left-radius: 0px;
-      -moz-border-radius-topright: 0px;
-      -webkit-border-top-right-radius: 0px;
-      -khtml-border-radius-topright: 0px;
-      border-top-right-radius: 0px;
-      -moz-border-radius-bottomright: 10px;
-      -webkit-border-bottom-right-radius: 10px;
-      -khtml-border-radius-bottomright: 10px;
-      border-bottom-right-radius: 10px;
-      -moz-border-radius-bottomleft: 0px;
-      -webkit-border-bottom-left-radius: 0px;
-      -khtml-border-radius-bottomleft: 0px;
-      border-bottom-left-radius: 0px; }
-    #lower_top_nav div.selected {
-      background-color: #F2F8FA;
+  #lower_top_nav a {
+    color: #333; }
+    #lower_top_nav a:visited {
+      text-decoration: none;
+      color: #333; }
+    #lower_top_nav a div {
+      font: 16px 'OxygenRegular', Arial, sans-serif;
+      display: inline-block;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      background-color: #DCE5F2;
       cursor: pointer; }
-      #lower_top_nav div.selected:hover {
-        background-color: #C7E2EB; }
-      #lower_top_nav div.selected:active {
-        background-color: #AFD4E0; }
-    #lower_top_nav div.left {
-      border-left: 1px solid #999; }
-      #lower_top_nav div.left.shadow {
+      #lower_top_nav a div:hover {
+        background-color: #CFD7E3; }
+      #lower_top_nav a div:active {
+        background-color: #AFB5BD; }
+      #lower_top_nav a div#nav_settings {
+        -moz-border-radius-topleft: 0px;
+        -webkit-border-top-left-radius: 0px;
+        -khtml-border-radius-topleft: 0px;
+        border-top-left-radius: 0px;
+        -moz-border-radius-topright: 0px;
+        -webkit-border-top-right-radius: 0px;
+        -khtml-border-radius-topright: 0px;
+        border-top-right-radius: 0px;
+        -moz-border-radius-bottomright: 10px;
+        -webkit-border-bottom-right-radius: 10px;
+        -khtml-border-radius-bottomright: 10px;
+        border-bottom-right-radius: 10px;
+        -moz-border-radius-bottomleft: 0px;
+        -webkit-border-bottom-left-radius: 0px;
+        -khtml-border-radius-bottomleft: 0px;
+        border-bottom-left-radius: 0px; }
+      #lower_top_nav a div.selected {
+        background-color: #F2F8FA;
+        cursor: pointer; }
+        #lower_top_nav a div.selected:hover {
+          background-color: #C7E2EB; }
+        #lower_top_nav a div.selected:active {
+          background-color: #AFD4E0; }
+      #lower_top_nav a div.left {
+        border-left: 1px solid #999; }
+      #lower_top_nav a div.left-shadow {
         -moz-box-shadow: inset 5px 0px 15px -5px #bbbbbb;
         -webkit-box-shadow: inset 5px 0px 15px -5px #bbbbbb;
         box-shadow: inset 5px 0px 15px -5px #bbbbbb; }
-    #lower_top_nav div.right {
-      border-right: 1px solid #999; }
-      #lower_top_nav div.right.shadow {
+      #lower_top_nav a div.right {
+        border-right: 1px solid #999; }
+      #lower_top_nav a div.right-shadow {
         -moz-box-shadow: inset -5px 0px 15px -5px #bbbbbb;
         -webkit-box-shadow: inset -5px 0px 15px -5px #bbbbbb;
         box-shadow: inset -5px 0px 15px -5px #bbbbbb; }

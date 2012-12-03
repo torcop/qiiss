@@ -59,22 +59,6 @@ END FACEBOOK SDK CODE
 ********************/
 
 $(document).ready(function() {
-  $(".notifications").bind("click", function() {
-    var popup = $("#" + $(this).attr('id').split("_")[0] + "_popup");
-    if (popup.css("display") != "none") {
-      popup.slideUp(300);
-      return;
-    }
-    $(".popup").each(function() {
-      if ($(this).css("display") != "none") {
-        $(this).css("display", "none");
-        popup.toggle();
-        return;
-      }
-    });
-    popup.slideDown(300);
-  });
-
   $("#profile_picture").bind("mouseenter", function() {
     $("#profile_picture_overlay").stop().fadeIn(200);
     $("#profile_picture_overlay div").stop().animate({

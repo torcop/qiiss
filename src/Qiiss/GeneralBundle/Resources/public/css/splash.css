@@ -1,28 +1,11 @@
-@font-face {
-  font-family: 'PatuaOneRegular';
-  src: url("/bundles/qiissgeneral/fonts/PatuaOne-Regular-webfont.eot");
-  src: url("/bundles/qiissgeneral/fonts/PatuaOne-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("/bundles/qiissgeneral/fonts/PatuaOne-Regular-webfont.woff") format("woff"), url("/bundles/qiissgeneral/fonts/PatuaOne-Regular-webfont.ttf") format("truetype"), url("/bundles/qiissgeneral/fonts/PatuaOne-Regular-webfont.svg#PatuaOneRegular") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'OxygenRegular';
-  src: url("/bundles/qiissgeneral/fonts/Oxygen-webfont.eot");
-  src: url("/bundles/qiissgeneral/fonts/Oxygen-webfont.eot?#iefix") format("embedded-opentype"), url("/bundles/qiissgeneral/fonts/Oxygen-webfont.woff") format("woff"), url("/bundles/qiissgeneral/fonts/Oxygen-webfont.ttf") format("truetype"), url("/bundles/qiissgeneral/fonts/Oxygen-webfont.svg#OxygenRegular") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-html {
-  height: 100%;
-  min-width: 1000px;
-  min-height: 600px; }
-
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  height: 100%; }
+  height: 100%;
+  font-size: 0;
+  background-image: url("/bundles/qiissgeneral/images/Final-Homepage-background.gif");
+  background-size: 100%;
+  background-repeat: no-repeat; }
   body #upper_top_banner {
     width: 100%;
     height: 50px;
@@ -74,13 +57,33 @@ body {
     body #lower_top_banner img {
       width: 90%;
       margin-top: -15%; }
-  body .background-image {
-    position: absolute;
-    z-index: -1000;
-    width: 100%; }
+
+@font-face {
+  font-family: 'PatuaOneRegular';
+  src: url("/bundles/qiissgeneral/fonts/PatuaOne-Regular-webfont.eot");
+  src: url("/bundles/qiissgeneral/fonts/PatuaOne-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("/bundles/qiissgeneral/fonts/PatuaOne-Regular-webfont.woff") format("woff"), url("/bundles/qiissgeneral/fonts/PatuaOne-Regular-webfont.ttf") format("truetype"), url("/bundles/qiissgeneral/fonts/PatuaOne-Regular-webfont.svg#PatuaOneRegular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'OxygenRegular';
+  src: url("/bundles/qiissgeneral/fonts/Oxygen-webfont.eot");
+  src: url("/bundles/qiissgeneral/fonts/Oxygen-webfont.eot?#iefix") format("embedded-opentype"), url("/bundles/qiissgeneral/fonts/Oxygen-webfont.woff") format("woff"), url("/bundles/qiissgeneral/fonts/Oxygen-webfont.ttf") format("truetype"), url("/bundles/qiissgeneral/fonts/Oxygen-webfont.svg#OxygenRegular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+html {
+  height: 100%;
+  min-width: 1000px;
+  min-height: 600px; }
+
+body {
+  overflow-x: hidden;
+  overflow-y: hidden; }
   body #main_container {
     width: 100%;
     height: 90%;
+    display: block;
     white-space: nowrap; }
     body #main_container .main_container_inner {
       width: 50%;
@@ -94,7 +97,7 @@ body {
         vertical-align: middle; }
     body #main_container #main_container_inner_left {
       height: 100%;
-      margin-top: -70px; }
+      margin-top: 30px; }
       body #main_container #main_container_inner_left #picture_container_outer {
         width: 100%;
         height: 65%;
@@ -126,14 +129,13 @@ body {
                 display: none; }
         body #main_container #main_container_inner_left #picture_container_outer .picture_container_text {
           width: 100%;
-          height: 20%;
           text-align: right;
-          font-size: 2em;
-          color: #333; }
+          color: #333;
+          font: 30px 'OxygenRegular', Arial, sans-serif; }
     body #main_container #main_container_inner_right {
       height: 100%;
       text-align: center;
-      margin-top: -100px; }
+      margin-top: -30px; }
       body #main_container #main_container_inner_right #login_container_outer {
         max-width: 400px;
         display: inline-block;
@@ -141,10 +143,8 @@ body {
         body #main_container #main_container_inner_right #login_container_outer #login_container {
           border: 2px solid #777;
           background-color: #cfd7e3;
-          overflow: hidden;
-          font: 18px/27px "PatuaOneRegular", Arial, sans-serif;
+          font: 18px 'PatuaOneRegular', Arial, sans-serif;
           color: #333;
-          position: relative;
           white-space: nowrap;
           -moz-border-radius-topleft: 5px;
           -webkit-border-top-left-radius: 5px;
@@ -200,63 +200,109 @@ body {
             body #main_container #main_container_inner_right #login_container_outer #login_container .top_message #login_tab.selected {
               border-right: 1px solid #eee;
               border-left: 1px solid #eee; }
-            body #main_container #main_container_inner_right #login_container_outer #login_container .top_message #signup_facebook_tab.selected {
+            body #main_container #main_container_inner_right #login_container_outer #login_container .top_message #facebook_tab.selected {
               border-left: 1px solid #eee; }
-          body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body {
-            padding-top: 4%;
-            display: inline-block;
-            position: relative;
+          body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab {
+            display: none;
+            padding-top: 15px;
             white-space: normal;
             margin-top: 1px;
-            vertical-align: top;
+            text-align: center;
             width: 100%; }
-            body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields {
-              width: 80%;
-              margin: 0 auto;
-              text-align: center; }
-              body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form {
-                width: 100%;
+            body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab.selected {
+              display: block; }
+            body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields {
+              width: 300px;
+              display: inline-block;
+              text-align: left; }
+              body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form {
                 margin: 0px; }
-                body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form input, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form input, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form input {
-                  width: 90%;
-                  margin: 0% 0.5% 6% 0%;
-                  padding: 4px 0px 4px 7px;
-                  border: 2px solid #bbb;
-                  font: 18px/27px "PatuaOneRegular", Arial, sans-serif;
-                  color: #333;
-                  -moz-border-radius-topleft: 3px;
-                  -webkit-border-top-left-radius: 3px;
-                  -khtml-border-radius-topleft: 3px;
-                  border-top-left-radius: 3px;
-                  -moz-border-radius-topright: 3px;
-                  -webkit-border-top-right-radius: 3px;
-                  -khtml-border-radius-topright: 3px;
-                  border-top-right-radius: 3px;
-                  -moz-border-radius-bottomright: 3px;
-                  -webkit-border-bottom-right-radius: 3px;
-                  -khtml-border-radius-bottomright: 3px;
-                  border-bottom-right-radius: 3px;
-                  -moz-border-radius-bottomleft: 3px;
-                  -webkit-border-bottom-left-radius: 3px;
-                  -khtml-border-radius-bottomleft: 3px;
-                  border-bottom-left-radius: 3px;
-                  -moz-box-shadow: 0px 0px 10px 1px #bbbbbb;
-                  -webkit-box-shadow: 0px 0px 10px 1px #bbbbbb;
-                  box-shadow: 0px 0px 10px 1px #bbbbbb; }
-                  body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form input:focus, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form input:focus, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form input:focus {
-                    outline-width: 0;
-                    -moz-box-shadow: 0px 0px 10px 1px #888888;
-                    -webkit-box-shadow: 0px 0px 10px 1px #888888;
-                    box-shadow: 0px 0px 10px 1px #888888; }
-                  body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form input.birthday, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form input.birthday, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form input.birthday {
-                    width: 26.5%;
-                    display: inline-block;
-                    margin-bottom: 6%; }
-                  body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form input.submit, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form input.submit, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form input.submit {
-                    margin: 0 10% 4% 0;
-                    width: 40%;
+                body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div {
+                  position: relative;
+                  display: inline-block;
+                  white-space: nowrap; }
+                  body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div .error_message {
+                    width: 0px;
+                    overflow: hidden;
+                    position: absolute;
+                    white-space: nowrap;
+                    right: 280px;
+                    z-index: 1000;
+                    background-color: #bf3030;
+                    font: 18px 'PatuaOneRegular', Arial, sans-serif;
+                    border: 2px solid #bbb;
+                    border-right: none;
+                    padding: 8px;
+                    color: #fff;
+                    -moz-border-radius-topleft: 3px;
+                    -webkit-border-top-left-radius: 3px;
+                    -khtml-border-radius-topleft: 3px;
+                    border-top-left-radius: 3px;
+                    -moz-border-radius-topright: 0px;
+                    -webkit-border-top-right-radius: 0px;
+                    -khtml-border-radius-topright: 0px;
+                    border-top-right-radius: 0px;
+                    -moz-border-radius-bottomright: 0px;
+                    -webkit-border-bottom-right-radius: 0px;
+                    -khtml-border-radius-bottomright: 0px;
+                    border-bottom-right-radius: 0px;
+                    -moz-border-radius-bottomleft: 3px;
+                    -webkit-border-bottom-left-radius: 3px;
+                    -khtml-border-radius-bottomleft: 3px;
+                    border-bottom-left-radius: 3px; }
+                  body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div input {
+                    position: relative;
+                    z-index: 1001;
+                    width: 280px;
+                    margin: 0px 0 15px 0px;
+                    padding: 8px;
+                    border: 2px solid #bbb;
+                    background-color: #fff;
+                    font: 18px 'PatuaOneRegular', Arial, sans-serif;
+                    color: #333;
+                    -moz-border-radius-topleft: 3px;
+                    -webkit-border-top-left-radius: 3px;
+                    -khtml-border-radius-topleft: 3px;
+                    border-top-left-radius: 3px;
+                    -moz-border-radius-topright: 3px;
+                    -webkit-border-top-right-radius: 3px;
+                    -khtml-border-radius-topright: 3px;
+                    border-top-right-radius: 3px;
+                    -moz-border-radius-bottomright: 3px;
+                    -webkit-border-bottom-right-radius: 3px;
+                    -khtml-border-radius-bottomright: 3px;
+                    border-bottom-right-radius: 3px;
+                    -moz-border-radius-bottomleft: 3px;
+                    -webkit-border-bottom-left-radius: 3px;
+                    -khtml-border-radius-bottomleft: 3px;
+                    border-bottom-left-radius: 3px;
+                    -moz-box-shadow: 0px 0px 10px 1px #bbbbbb;
+                    -webkit-box-shadow: 0px 0px 10px 1px #bbbbbb;
+                    box-shadow: 0px 0px 10px 1px #bbbbbb; }
+                    body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div input:focus {
+                      outline-width: 0;
+                      -moz-box-shadow: 0px 0px 10px 1px #888888;
+                      -webkit-box-shadow: 0px 0px 10px 1px #888888;
+                      box-shadow: 0px 0px 10px 1px #888888; }
+                    body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div input.birthday {
+                      width: 69px;
+                      margin-right: 12px;
+                      display: inline-block; }
+                      body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div input.birthday.last {
+                        margin-right: 0px; }
+                    body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div input.invalid {
+                      -moz-box-shadow: 0px 0px 10px 1px red;
+                      -webkit-box-shadow: 0px 0px 10px 1px red;
+                      box-shadow: 0px 0px 10px 1px red; }
+                  body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div input:-moz-placeholder {
+                    color: #999; }
+                  body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div .submit {
+                    width: 125px;
                     color: #eee;
                     border: 2px solid #999;
+                    font: 18px 'PatuaOneRegular', Arial, sans-serif;
+                    display: inline-block;
+                    vertical-align: middle;
                     cursor: pointer;
                     -moz-box-shadow: 0px 0px 10px 1px #999999;
                     -webkit-box-shadow: 0px 0px 10px 1px #999999;
@@ -285,7 +331,7 @@ body {
                     background-image: -moz-linear-gradient(top, #777777, #666666);
                     background-image: -ms-linear-gradient(top, #777777, #666666);
                     background-image: -o-linear-gradient(top, #777777, #666666); }
-                    body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form input.submit:hover, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form input.submit:hover, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form input.submit:hover {
+                    body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div .submit:hover {
                       background-color: #595959;
                       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
                       -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#595959, endColorstr=#595959)";
@@ -295,7 +341,7 @@ body {
                       background-image: -ms-linear-gradient(top, #595959, #595959);
                       background-image: -o-linear-gradient(top, #595959, #595959);
                       border: 2px solid #888; }
-                    body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form input.submit:active, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form input.submit:active, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form input.submit:active {
+                    body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div .submit:active {
                       background-color: #494949;
                       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
                       -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#494949, endColorstr=#494949)";
@@ -305,23 +351,20 @@ body {
                       background-image: -ms-linear-gradient(top, #494949, #494949);
                       background-image: -o-linear-gradient(top, #494949, #494949);
                       border: 2px solid #777; }
-                body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form .remember_me, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form .remember_me, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form .remember_me {
-                  float: right;
-                  text-align: right;
-                  font-size: 16px;
-                  white-space: nowrap; }
-                  body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form .remember_me div, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form .remember_me div, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form .remember_me div {
-                    cursor: pointer;
-                    width: 70%;
-                    margin-right: 10px; }
-                    body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form .remember_me div input, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form .remember_me div input, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form .remember_me div input {
-                      width: 12px;
-                      height: 12px;
-                      margin-right: 10px;
+                  body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div .remember_me {
+                    margin-left: 40px;
+                    font-size: 16px;
+                    white-space: nowrap;
+                    display: inline-block;
+                    vertical-align: middle; }
+                    body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div .remember_me div {
                       cursor: pointer; }
-                body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .signup_fields .signup_form .last, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .signup_fields .signup_form .last, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields .signup_form .last {
-                  margin-right: 0px; }
-            body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .facebook_login_button, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .facebook_login_button, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .facebook_login_button {
+                      body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div .remember_me div input {
+                        width: 12px;
+                        height: 12px;
+                        margin-right: 10px;
+                        cursor: pointer; }
+            body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .facebook_login_button {
               display: inline-block;
               padding: 8px 10px;
               color: #eee;
@@ -348,40 +391,171 @@ body {
               -moz-box-shadow: 0px 0px 10px 1px #999999;
               -webkit-box-shadow: 0px 0px 10px 1px #999999;
               box-shadow: 0px 0px 10px 1px #999999; }
-              body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .facebook_login_button div, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .facebook_login_button div, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .facebook_login_button div {
+              body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .facebook_login_button div {
                 font-size: 18px;
                 display: inline-block;
                 vertical-align: middle; }
-              body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .facebook_login_button .left, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .facebook_login_button .left, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .facebook_login_button .left {
+              body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .facebook_login_button .left {
                 padding-right: 10px;
-                border-right: 1px solid #30487A;
                 height: 30px; }
-              body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .facebook_login_button .right, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .facebook_login_button .right, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .facebook_login_button .right {
+              body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .facebook_login_button .seperator {
+                width: 0px;
+                height: 30px;
                 border-left: 1px solid #777;
+                border-right: 1px solid #30487A; }
+              body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .facebook_login_button .right {
                 padding: 0px 12px 0px 15px; }
-              body #main_container #main_container_inner_right #login_container_outer #login_container #signup_container_body .facebook_login_button:hover, body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .facebook_login_button:hover, body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .facebook_login_button:hover {
+              body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .facebook_login_button:hover {
                 background-color: #35518C;
                 -moz-box-shadow: 0px 0px 10px 1px #888888;
                 -webkit-box-shadow: 0px 0px 10px 1px #888888;
                 box-shadow: 0px 0px 10px 1px #888888; }
-          body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body {
-            vertical-align: top;
-            margin-top: 0px; }
+              body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .facebook_login_button:active {
+                background-color: #304A82;
+                -moz-box-shadow: 0px 0px 10px 1px #777777;
+                -webkit-box-shadow: 0px 0px 10px 1px #777777;
+                box-shadow: 0px 0px 10px 1px #777777; }
+          body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .signup_fields {
+            text-align: center; }
+          body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body .seperator_bottom {
+            display: block;
+            height: 0px;
+            margin: 15px 0px;
+            border-bottom: 1px solid #fff;
+            border-top: 1px solid #aaa; }
+          body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body #facebook_disclaimer {
+            text-align: left;
+            padding: 0px 20px;
+            font: 18px 'PatuaOneRegular', Arial, sans-serif; }
+            body #main_container #main_container_inner_right #login_container_outer #login_container #facebook_container_body #facebook_disclaimer a {
+              text-decoration: underline; }
+          body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #forgot_password {
+            font-size: 12px;
+            text-align: right;
+            padding-right: 10px;
+            margin-bottom: 15px;
+            margin-top: -5px; }
+          body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body .seperator_bottom {
+            display: block;
+            height: 0px;
+            margin: 15px 0px 20px 0px;
+            border-bottom: 1px solid #fff;
+            border-top: 1px solid #aaa; }
+          body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest {
+            margin: 0 auto; }
+            body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest #suggest_top_text {
+              display: block;
+              margin-bottom: 15px; }
+            body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest div {
+              display: inline-block;
+              vertical-align: middle; }
+            body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest #suggest_sign_up {
+              color: #eee;
+              border: 2px solid #999;
+              cursor: pointer;
+              padding: 8px 10px;
+              -moz-box-shadow: 0px 0px 10px 1px #999999;
+              -webkit-box-shadow: 0px 0px 10px 1px #999999;
+              box-shadow: 0px 0px 10px 1px #999999;
+              -moz-border-radius-topleft: 5px;
+              -webkit-border-top-left-radius: 5px;
+              -khtml-border-radius-topleft: 5px;
+              border-top-left-radius: 5px;
+              -moz-border-radius-topright: 5px;
+              -webkit-border-top-right-radius: 5px;
+              -khtml-border-radius-topright: 5px;
+              border-top-right-radius: 5px;
+              -moz-border-radius-bottomright: 5px;
+              -webkit-border-bottom-right-radius: 5px;
+              -khtml-border-radius-bottomright: 5px;
+              border-bottom-right-radius: 5px;
+              -moz-border-radius-bottomleft: 5px;
+              -webkit-border-bottom-left-radius: 5px;
+              -khtml-border-radius-bottomleft: 5px;
+              border-bottom-left-radius: 5px;
+              background-color: #666666;
+              filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
+              -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#777777, endColorstr=#666666)";
+              background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#777777), to(#666666));
+              background-image: -webkit-linear-gradient(top, #777777, #666666);
+              background-image: -moz-linear-gradient(top, #777777, #666666);
+              background-image: -ms-linear-gradient(top, #777777, #666666);
+              background-image: -o-linear-gradient(top, #777777, #666666); }
+              body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest #suggest_sign_up:hover {
+                background-color: #595959;
+                filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
+                -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#595959, endColorstr=#595959)";
+                background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#595959), to(#595959));
+                background-image: -webkit-linear-gradient(top, #595959, #595959);
+                background-image: -moz-linear-gradient(top, #595959, #595959);
+                background-image: -ms-linear-gradient(top, #595959, #595959);
+                background-image: -o-linear-gradient(top, #595959, #595959);
+                border: 2px solid #888; }
+              body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest #suggest_sign_up:active {
+                background-color: #494949;
+                filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
+                -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#494949, endColorstr=#494949)";
+                background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#494949), to(#494949));
+                background-image: -webkit-linear-gradient(top, #494949, #494949);
+                background-image: -moz-linear-gradient(top, #494949, #494949);
+                background-image: -ms-linear-gradient(top, #494949, #494949);
+                background-image: -o-linear-gradient(top, #494949, #494949);
+                border: 2px solid #777; }
+            body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest #suggest_middle {
+              padding: 10px; }
+            body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest #suggest_facebook {
+              display: inline-block;
+              padding: 8px 10px;
+              color: #eee;
+              background-color: #3B5998;
+              cursor: pointer;
+              border: 1px solid #2F477A;
+              -moz-border-radius-topleft: 5px;
+              -webkit-border-top-left-radius: 5px;
+              -khtml-border-radius-topleft: 5px;
+              border-top-left-radius: 5px;
+              -moz-border-radius-topright: 5px;
+              -webkit-border-top-right-radius: 5px;
+              -khtml-border-radius-topright: 5px;
+              border-top-right-radius: 5px;
+              -moz-border-radius-bottomright: 5px;
+              -webkit-border-bottom-right-radius: 5px;
+              -khtml-border-radius-bottomright: 5px;
+              border-bottom-right-radius: 5px;
+              -moz-border-radius-bottomleft: 5px;
+              -webkit-border-bottom-left-radius: 5px;
+              -khtml-border-radius-bottomleft: 5px;
+              border-bottom-left-radius: 5px;
+              -moz-box-shadow: 0px 0px 10px 1px #999999;
+              -webkit-box-shadow: 0px 0px 10px 1px #999999;
+              box-shadow: 0px 0px 10px 1px #999999; }
+              body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest #suggest_facebook:hover {
+                background-color: #35518C;
+                -moz-box-shadow: 0px 0px 10px 1px #888888;
+                -webkit-box-shadow: 0px 0px 10px 1px #888888;
+                box-shadow: 0px 0px 10px 1px #888888; }
+              body #main_container #main_container_inner_right #login_container_outer #login_container #login_container_body #login_suggest #suggest_facebook:active {
+                background-color: #304A82;
+                -moz-box-shadow: 0px 0px 10px 1px #777777;
+                -webkit-box-shadow: 0px 0px 10px 1px #777777;
+                box-shadow: 0px 0px 10px 1px #777777; }
         body #main_container #main_container_inner_right #login_container_outer #disclaimer {
           font-size: 12px;
           color: #777;
           margin-top: 2%; }
   body #stream_outer {
     position: absolute;
-    height: 8%;
+    height: 50px;
     top: 88%;
-    padding: 6px;
+    padding: 5px 0px;
     border: 1px solid #999;
     background-color: #AAA;
     overflow: hidden;
     white-space: nowrap; }
     body #stream_outer .stream_inner {
-      display: inline-block; }
+      display: inline-block;
+      vertical-align: middle; }
       body #stream_outer .stream_inner img {
         display: inline-block;
-        height: 100%; }
+        height: 50px;
+        width: 50px; }

@@ -26,8 +26,8 @@ implements AuthenticationSuccessHandlerInterface,
         if ($request->isXmlHttpRequest()) {
             return new Response(json_encode(Array("result" => "success")));
         } else {
-            // If the user tried to access a protected resource and was forces to login
-            // redirect him back to that resource
+            // If the user tried to access a protected resource and was forced to login
+            // redirect them back to that resource
             if ($targetPath = $request->getSession()->get('_security.target_path')) {
                 $url = $targetPath;
             } else {
@@ -43,7 +43,7 @@ implements AuthenticationSuccessHandlerInterface,
     {
         if ($request->isXmlHttpRequest()) {
             return new Response(json_encode(Array("result" => "failure",
-                                                    "error" => $exception->getMessage())));
+                                                    "error" => "fos_user.username." . $exception->getMessage())));
         } else {
             // Create a flash message with the authentication error message
             $request->getSession()->setFlash('error', $exception->getMessage());

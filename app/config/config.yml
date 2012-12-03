@@ -19,7 +19,7 @@ framework:
 
 # Twig Configuration
 twig:
-    debug:            "%kernel.debug%"
+    debug:            1 #"%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
 # Assetic Configuration
@@ -114,3 +114,26 @@ fos_user:
         user_manager:           fos_user.user_manager.default
     template:
         engine: twig
+
+services:
+    twig.extension.debug:
+        class:        Twig_Extension_Debug
+        tags:
+             - { name: 'twig.extension' }
+    facebook.user:
+        class: Qiiss\UserBundle\Security\User\Provider\FacebookProvider
+        arguments:
+            facebook: "@fos_facebook.api"
+            userManager: "@fos_user.user_manager"
+            validator: "@validator"
+            container: "@service_container"
+    general.helper.error:
+        class: Qiiss\GeneralBundle\Helper\ErrorHelper
+
+fos_facebook:
+    file:   %kernel.root_dir%/../vendor/facebook/php-sdk/src/base_facebook.php
+    alias:  facebook
+    app_id: 281453298642270
+    secret: 1626a167ab9e1ed4cc5e41e897beeebc
+    cookie: true
+    permissions: [email, birthday]
