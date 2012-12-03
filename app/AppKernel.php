@@ -23,6 +23,7 @@ class AppKernel extends Kernel
 						new Qiiss\GeneralBundle\QiissGeneralBundle(),
             new Qiiss\UserBundle\QiissUserBundle(),
             new Qiiss\ProfileBundle\QiissProfileBundle(),
+            new Qiiss\NotyBundle\QiissNotyBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

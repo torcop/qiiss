@@ -1,0 +1,7 @@
+parameters:
+#    qiiss_noty.example.class: Qiiss\NotyBundle\Example
+
+services:
+#    qiiss_noty.example:
+#        class: %qiiss_noty.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

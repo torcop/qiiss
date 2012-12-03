@@ -1,3 +1,7 @@
+qiiss_noty:
+    resource: "@QiissNotyBundle/Resources/config/routing.yml"
+    prefix:   /
+
 qiiss_profile:
     resource: "@QiissProfileBundle/Resources/config/routing.yml"
     prefix:   /
