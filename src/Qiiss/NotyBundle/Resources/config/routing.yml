@@ -1,0 +1,3 @@
+qiiss_noty_homepage:
+    pattern:  /noty
+    defaults: { _controller: QiissNotyBundle:Noty:notySend }
