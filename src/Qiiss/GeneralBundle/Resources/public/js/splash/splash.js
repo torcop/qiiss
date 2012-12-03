@@ -167,6 +167,9 @@ function slideOutError(message, form) {
     if (message == "fos_user.password.badmatch") {
       $element.html("Passwords do not match.");
     }
+    else if (message == "fos_user.password.blank") {
+      $element.html("Please enter a password.");
+    }
   }
   else if (message.indexOf("dob") != -1) {
     $element = $(form + " .birthday_error_message");
