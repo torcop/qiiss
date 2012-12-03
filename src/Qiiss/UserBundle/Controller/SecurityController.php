@@ -41,7 +41,7 @@ class SecurityController extends BaseController
                 'csrf_token' => $csrfToken,
             ));
         } else {
-         If the /login form was accessed as a standard browser request, redirect them to the homepage
+            //If the /login form was accessed as a standard browser request, redirect them to the homepage
             $url = $this->container->get('router')->generate('qiiss_general_homepage');
             return new RedirectResponse($url);
         }
