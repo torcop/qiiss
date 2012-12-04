@@ -16,21 +16,12 @@ class ProfileController extends Controller
 		$request = $this->get('request');
 		if( $request->getMethod() == 'POST' ) {
         	$form->bind($request);
-<<<<<<< HEAD
-        	if($form->isValid())
-        	{
-						$em = $this->getDoctrine()->getEntityManager();
-            $em->persist($date);
-            $em->flush();
-            return $this->redirect( $this->generateUrl('qiiss_general_homepage') );
-=======
         	if($form->isValid()) {
 				$em = $this->getDoctrine()->getEntityManager();
                 $em->persist($date);
                 $em->flush();
-                return $this->redirect( $this->generateUrl('qiiss_general_faq') );
+                return $this->redirect( $this->generateUrl('qiiss_general_homepage') );
             }
->>>>>>> 06538d0dfaf831e298906573486c89705409ee56
         }
         return $this->render('QiissProfileBundle:Profile:date.html.twig', array("form" => $form->createView()));
     }
