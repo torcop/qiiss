@@ -20,10 +20,37 @@
 <body>
 {% include 'QiissUserBundle:Profile:header.html.twig' %}
 <div id="main_container">
-	<form action="{{ path('qiiss_profile_propose_date') }}" method="post" {{ form_enctype(form) }}>
-	    {{ form_widget(form) }}
-	    <input type="submit" />
-	</form>
+	<div id="propose_date_main_border">
+		<div id="propose_date_main_header">
+			Propose A Date
+		</div>
+		<div id="propose_date_main_left">
+			<div class="section_header">Your Date</div>
+			<div id="propose_date_profile_picture">
+			</div>
+		</div>
+		<div class="propose_date_main_right">
+			<div class="section_container">
+				<div class="header">
+					<div class="inner">The Details</div>
+				</div>
+				<div class="section">
+					<div class="section_body">
+						<form action="{{ path('qiiss_profile_propose_date') }}" method="post" {{ form_enctype(form) }}>
+						    <div>{{ form_widget(form.event_description) }}</div>
+						    <div>{{ form_widget(form.event_date) }}</div>
+						    <div>{{ form_widget(form.event_place) }}</div>
+						    <div>{{ form_widget(form.event_media) }}</div>
+						    <div>{{ form_widget(form.event_link) }}</div>
+						    <div>{{ form_widget(form.event_price) }}</div>
+						    {{form_widget(form._token)}}
+						    <div><input type="submit" /></div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 </body>
 </html>
