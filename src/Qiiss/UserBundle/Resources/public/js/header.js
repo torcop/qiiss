@@ -18,6 +18,8 @@ $(document).ready(function() {
     });
   });
 
+  $("#")
+
   $("#body").bind("click", function() {
     $(".popup").each(function() {
       if ($(this).css("display") != "none" && !$(this).hasClass("animating")) {
