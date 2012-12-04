@@ -76,7 +76,7 @@
 <div id="lower_top_banner">
 	<a href="/home"><img src="{{ asset('bundles/qiissgeneral/images/qiiss-graphics/blue/Logo.png') }}" /></a>
 </div>
-{% if navSelection %}
+{% if navSelection is defined %}
 <div id="lower_top_nav">
 	<a href="/profile"><div id="nav_profile" class="
 		{% if navSelection == "profile" %} selected left
