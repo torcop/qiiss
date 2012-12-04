@@ -325,11 +325,15 @@ html {
             padding: 15px;
             font: 18px 'PatuaOneRegular', Arial, sans-serif; }
         html body #main_container #propose_date_main_border .propose_date_main_right {
-          display: inline-block;
-          border: 1px solid #aaa; }
+          display: inline-block; }
           html body #main_container #propose_date_main_border .propose_date_main_right .section_container .header {
             background: #eee;
-            border-bottom: 1px solid #aaa; }
+            border: 1px solid #aaa;
+            cursor: pointer; }
+            html body #main_container #propose_date_main_border .propose_date_main_right .section_container .header:hover {
+              background-color: #cecece; }
+            html body #main_container #propose_date_main_border .propose_date_main_right .section_container .header:active {
+              background-color: #bbb; }
             html body #main_container #propose_date_main_border .propose_date_main_right .section_container .header .inner {
               display: inline-block;
               vertical-align: middle;
@@ -340,142 +344,206 @@ html {
           html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section {
             font: 18px 'PatuaOneRegular', Arial, sans-serif; }
             html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body {
-              background: #fff;
-              padding: 10px;
-              font: 16px/20px "OxygenRegular", Arial, sans-serif;
-              color: #444; }
-              html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body .seperator {
-                display: block;
-                height: 0px;
-                border-top: 1px solid #fff;
-                border-bottom: 1px solid #aaa; }
-              html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body div {
-                position: relative; }
-                html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body div .error_message {
-                  width: 0px;
-                  overflow: hidden;
-                  position: absolute;
-                  white-space: nowrap;
-                  right: 240px;
-                  z-index: 1000;
-                  background-color: #bf3030;
-                  font: 18px 'PatuaOneRegular', Arial, sans-serif;
-                  border: 2px solid #bbb;
-                  border-right: none;
-                  padding: 8px;
-                  color: #fff;
-                  -moz-border-radius-topleft: 3px;
-                  -webkit-border-top-left-radius: 3px;
-                  -khtml-border-radius-topleft: 3px;
-                  border-top-left-radius: 3px;
-                  -moz-border-radius-topright: 0px;
-                  -webkit-border-top-right-radius: 0px;
-                  -khtml-border-radius-topright: 0px;
-                  border-top-right-radius: 0px;
-                  -moz-border-radius-bottomright: 0px;
-                  -webkit-border-bottom-right-radius: 0px;
-                  -khtml-border-radius-bottomright: 0px;
-                  border-bottom-right-radius: 0px;
-                  -moz-border-radius-bottomleft: 3px;
-                  -webkit-border-bottom-left-radius: 3px;
-                  -khtml-border-radius-bottomleft: 3px;
-                  border-bottom-left-radius: 3px; }
-                html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body div input {
+              font: 16px 'OxygenRegular', Arial, sans-serif;
+              color: #444;
+              text-align: right; }
+              html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content {
+                width: 350px; }
+                html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .seperator {
                   display: block;
+                  height: 0px;
+                  border-top: 1px solid #fff;
+                  border-bottom: 1px solid #aaa; }
+                html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_header {
+                  background: #f5f5f5;
+                  border: 1px solid #aaa;
+                  border-top: none;
+                  text-align: center;
+                  padding: 10px;
+                  font: 18px 'PatuaOneRegular', Arial, sans-serif;
+                  color: #333;
+                  cursor: pointer; }
+                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_header:hover {
+                    background-color: #cecece; }
+                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_header:active {
+                    background-color: #bbb; }
+                html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block {
                   position: relative;
-                  width: 260px;
-                  z-index: 1001;
-                  padding: 8px;
-                  margin: 20px 40px;
-                  border: 2px solid #bbb;
-                  font: 18px 'PatuaOneRegular', Arial, sans-serif;
-                  color: #333;
-                  -moz-border-radius-topleft: 3px;
-                  -webkit-border-top-left-radius: 3px;
-                  -khtml-border-radius-topleft: 3px;
-                  border-top-left-radius: 3px;
-                  -moz-border-radius-topright: 3px;
-                  -webkit-border-top-right-radius: 3px;
-                  -khtml-border-radius-topright: 3px;
-                  border-top-right-radius: 3px;
-                  -moz-border-radius-bottomright: 3px;
-                  -webkit-border-bottom-right-radius: 3px;
-                  -khtml-border-radius-bottomright: 3px;
-                  border-bottom-right-radius: 3px;
-                  -moz-border-radius-bottomleft: 3px;
-                  -webkit-border-bottom-left-radius: 3px;
-                  -khtml-border-radius-bottomleft: 3px;
-                  border-bottom-left-radius: 3px;
-                  -moz-box-shadow: 0px 0px 10px 1px #bbbbbb;
-                  -webkit-box-shadow: 0px 0px 10px 1px #bbbbbb;
-                  box-shadow: 0px 0px 10px 1px #bbbbbb; }
-                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body div input:focus {
-                    outline-width: 0;
-                    -moz-box-shadow: 0px 0px 10px 1px #888888;
-                    -webkit-box-shadow: 0px 0px 10px 1px #888888;
-                    box-shadow: 0px 0px 10px 1px #888888; }
-                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body div input#current_password {
-                    margin-top: 10px; }
-                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body div input#new_password_second {
-                    margin-bottom: 15px; }
-                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body div input:-moz-placeholder {
-                    color: #999; }
-                html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body div textarea {
-                  width: 260px;
-                  padding: 8px;
-                  resize: none;
-                  overflow-y: auto;
-                  margin: 20px 40px;
-                  border: 2px solid #bbb;
-                  font: 18px 'PatuaOneRegular', Arial, sans-serif;
-                  color: #333;
-                  -moz-border-radius-topleft: 3px;
-                  -webkit-border-top-left-radius: 3px;
-                  -khtml-border-radius-topleft: 3px;
-                  border-top-left-radius: 3px;
-                  -moz-border-radius-topright: 3px;
-                  -webkit-border-top-right-radius: 3px;
-                  -khtml-border-radius-topright: 3px;
-                  border-top-right-radius: 3px;
-                  -moz-border-radius-bottomright: 3px;
-                  -webkit-border-bottom-right-radius: 3px;
-                  -khtml-border-radius-bottomright: 3px;
-                  border-bottom-right-radius: 3px;
-                  -moz-border-radius-bottomleft: 3px;
-                  -webkit-border-bottom-left-radius: 3px;
-                  -khtml-border-radius-bottomleft: 3px;
-                  border-bottom-left-radius: 3px;
-                  -moz-box-shadow: 0px 0px 10px 1px #bbbbbb;
-                  -webkit-box-shadow: 0px 0px 10px 1px #bbbbbb;
-                  box-shadow: 0px 0px 10px 1px #bbbbbb; }
-                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body div textarea:focus {
-                    outline-width: 0;
-                    -moz-box-shadow: 0px 0px 10px 1px #888888;
-                    -webkit-box-shadow: 0px 0px 10px 1px #888888;
-                    box-shadow: 0px 0px 10px 1px #888888; }
-              html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body div {
-                text-align: right; }
-                html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body div .submit {
+                  background-color: #fff;
+                  border: 1px solid #aaa;
+                  border-top: none;
+                  text-align: center;
+                  padding: 20px; }
+                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .error_message {
+                    width: 0px;
+                    overflow: hidden;
+                    position: absolute;
+                    white-space: nowrap;
+                    right: 240px;
+                    z-index: 1000;
+                    background-color: #bf3030;
+                    font: 18px 'PatuaOneRegular', Arial, sans-serif;
+                    border: 2px solid #bbb;
+                    border-right: none;
+                    padding: 8px;
+                    color: #fff;
+                    -moz-border-radius-topleft: 3px;
+                    -webkit-border-top-left-radius: 3px;
+                    -khtml-border-radius-topleft: 3px;
+                    border-top-left-radius: 3px;
+                    -moz-border-radius-topright: 0px;
+                    -webkit-border-top-right-radius: 0px;
+                    -khtml-border-radius-topright: 0px;
+                    border-top-right-radius: 0px;
+                    -moz-border-radius-bottomright: 0px;
+                    -webkit-border-bottom-right-radius: 0px;
+                    -khtml-border-radius-bottomright: 0px;
+                    border-bottom-right-radius: 0px;
+                    -moz-border-radius-bottomleft: 3px;
+                    -webkit-border-bottom-left-radius: 3px;
+                    -khtml-border-radius-bottomleft: 3px;
+                    border-bottom-left-radius: 3px; }
+                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block input {
+                    position: relative;
+                    width: 260px;
+                    z-index: 1001;
+                    padding: 8px;
+                    border: 2px solid #bbb;
+                    font: 18px 'PatuaOneRegular', Arial, sans-serif;
+                    color: #333;
+                    -moz-border-radius-topleft: 3px;
+                    -webkit-border-top-left-radius: 3px;
+                    -khtml-border-radius-topleft: 3px;
+                    border-top-left-radius: 3px;
+                    -moz-border-radius-topright: 3px;
+                    -webkit-border-top-right-radius: 3px;
+                    -khtml-border-radius-topright: 3px;
+                    border-top-right-radius: 3px;
+                    -moz-border-radius-bottomright: 3px;
+                    -webkit-border-bottom-right-radius: 3px;
+                    -khtml-border-radius-bottomright: 3px;
+                    border-bottom-right-radius: 3px;
+                    -moz-border-radius-bottomleft: 3px;
+                    -webkit-border-bottom-left-radius: 3px;
+                    -khtml-border-radius-bottomleft: 3px;
+                    border-bottom-left-radius: 3px;
+                    -moz-box-shadow: 0px 0px 10px 1px #bbbbbb;
+                    -webkit-box-shadow: 0px 0px 10px 1px #bbbbbb;
+                    box-shadow: 0px 0px 10px 1px #bbbbbb; }
+                    html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block input:focus {
+                      outline-width: 0;
+                      -moz-box-shadow: 0px 0px 10px 1px #888888;
+                      -webkit-box-shadow: 0px 0px 10px 1px #888888;
+                      box-shadow: 0px 0px 10px 1px #888888; }
+                    html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block input:-moz-placeholder {
+                      color: #999; }
+                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block textarea {
+                    width: 260px;
+                    padding: 8px;
+                    resize: none;
+                    overflow-y: auto;
+                    border: 2px solid #bbb;
+                    font: 18px 'PatuaOneRegular', Arial, sans-serif;
+                    color: #333;
+                    -moz-border-radius-topleft: 3px;
+                    -webkit-border-top-left-radius: 3px;
+                    -khtml-border-radius-topleft: 3px;
+                    border-top-left-radius: 3px;
+                    -moz-border-radius-topright: 3px;
+                    -webkit-border-top-right-radius: 3px;
+                    -khtml-border-radius-topright: 3px;
+                    border-top-right-radius: 3px;
+                    -moz-border-radius-bottomright: 3px;
+                    -webkit-border-bottom-right-radius: 3px;
+                    -khtml-border-radius-bottomright: 3px;
+                    border-bottom-right-radius: 3px;
+                    -moz-border-radius-bottomleft: 3px;
+                    -webkit-border-bottom-left-radius: 3px;
+                    -khtml-border-radius-bottomleft: 3px;
+                    border-bottom-left-radius: 3px;
+                    -moz-box-shadow: 0px 0px 10px 1px #bbbbbb;
+                    -webkit-box-shadow: 0px 0px 10px 1px #bbbbbb;
+                    box-shadow: 0px 0px 10px 1px #bbbbbb; }
+                    html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block textarea:focus {
+                      outline-width: 0;
+                      -moz-box-shadow: 0px 0px 10px 1px #888888;
+                      -webkit-box-shadow: 0px 0px 10px 1px #888888;
+                      box-shadow: 0px 0px 10px 1px #888888; }
+                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .date_time select, html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .date_date select {
+                    -webkit-appearance: none;
+                    padding: 8px 10px;
+                    border-color: #aaa;
+                    -moz-border-radius-topleft: 5px;
+                    -webkit-border-top-left-radius: 5px;
+                    -khtml-border-radius-topleft: 5px;
+                    border-top-left-radius: 5px;
+                    -moz-border-radius-topright: 5px;
+                    -webkit-border-top-right-radius: 5px;
+                    -khtml-border-radius-topright: 5px;
+                    border-top-right-radius: 5px;
+                    -moz-border-radius-bottomright: 5px;
+                    -webkit-border-bottom-right-radius: 5px;
+                    -khtml-border-radius-bottomright: 5px;
+                    border-bottom-right-radius: 5px;
+                    -moz-border-radius-bottomleft: 5px;
+                    -webkit-border-bottom-left-radius: 5px;
+                    -khtml-border-radius-bottomleft: 5px;
+                    border-bottom-left-radius: 5px;
+                    background-color: #cccccc;
+                    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
+                    -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#eeeeee, endColorstr=#cccccc)";
+                    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eeeeee), to(#cccccc));
+                    background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+                    background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+                    background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
+                    background-image: -o-linear-gradient(top, #eeeeee, #cccccc); }
+                    html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .date_time select:hover, html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .date_date select:hover {
+                      background-color: #bbbbbb;
+                      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
+                      -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#dddddd, endColorstr=#bbbbbb)";
+                      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#dddddd), to(#bbbbbb));
+                      background-image: -webkit-linear-gradient(top, #dddddd, #bbbbbb);
+                      background-image: -moz-linear-gradient(top, #dddddd, #bbbbbb);
+                      background-image: -ms-linear-gradient(top, #dddddd, #bbbbbb);
+                      background-image: -o-linear-gradient(top, #dddddd, #bbbbbb);
+                      border-color: #888; }
+                    html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .date_time select:active, html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .date_date select:active {
+                      background-color: #aaaaaa;
+                      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
+                      -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#cccccc, endColorstr=#aaaaaa)";
+                      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cccccc), to(#aaaaaa));
+                      background-image: -webkit-linear-gradient(top, #cccccc, #aaaaaa);
+                      background-image: -moz-linear-gradient(top, #cccccc, #aaaaaa);
+                      background-image: -ms-linear-gradient(top, #cccccc, #aaaaaa);
+                      background-image: -o-linear-gradient(top, #cccccc, #aaaaaa);
+                      border-color: #777; }
+                    html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .date_time select:focus, html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .date_date select:focus {
+                      outline-width: 0; }
+              html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content_submit {
+                display: inline-block;
+                padding: 0px; }
+                html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content_submit .submit {
                   width: auto;
                   display: inline-block;
                   vertical-align: top;
                   color: #eee;
                   padding: 5px 10px;
-                  border: 2px solid #999;
+                  border: 1px solid #999;
+                  border-top: none;
                   cursor: pointer;
-                  margin: 0px;
-                  margin-right: 40px;
+                  padding: 6px 15px;
+                  font: 18px 'PatuaOneRegular', Arial, sans-serif;
                   -moz-box-shadow: 0px 0px 10px 1px #999999;
                   -webkit-box-shadow: 0px 0px 10px 1px #999999;
                   box-shadow: 0px 0px 10px 1px #999999;
-                  -moz-border-radius-topleft: 5px;
-                  -webkit-border-top-left-radius: 5px;
-                  -khtml-border-radius-topleft: 5px;
-                  border-top-left-radius: 5px;
-                  -moz-border-radius-topright: 5px;
-                  -webkit-border-top-right-radius: 5px;
-                  -khtml-border-radius-topright: 5px;
-                  border-top-right-radius: 5px;
+                  -moz-border-radius-topleft: 0px;
+                  -webkit-border-top-left-radius: 0px;
+                  -khtml-border-radius-topleft: 0px;
+                  border-top-left-radius: 0px;
+                  -moz-border-radius-topright: 0px;
+                  -webkit-border-top-right-radius: 0px;
+                  -khtml-border-radius-topright: 0px;
+                  border-top-right-radius: 0px;
                   -moz-border-radius-bottomright: 5px;
                   -webkit-border-bottom-right-radius: 5px;
                   -khtml-border-radius-bottomright: 5px;
@@ -492,7 +560,7 @@ html {
                   background-image: -moz-linear-gradient(top, #777777, #666666);
                   background-image: -ms-linear-gradient(top, #777777, #666666);
                   background-image: -o-linear-gradient(top, #777777, #666666); }
-                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body div .submit:hover {
+                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content_submit .submit:hover {
                     background-color: #595959;
                     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
                     -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#595959, endColorstr=#595959)";
@@ -501,8 +569,8 @@ html {
                     background-image: -moz-linear-gradient(top, #595959, #595959);
                     background-image: -ms-linear-gradient(top, #595959, #595959);
                     background-image: -o-linear-gradient(top, #595959, #595959);
-                    border: 2px solid #888; }
-                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body div .submit:active {
+                    border-color: #888; }
+                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content_submit .submit:active {
                     background-color: #494949;
                     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
                     -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#494949, endColorstr=#494949)";
@@ -511,4 +579,4 @@ html {
                     background-image: -moz-linear-gradient(top, #494949, #494949);
                     background-image: -ms-linear-gradient(top, #494949, #494949);
                     background-image: -o-linear-gradient(top, #494949, #494949);
-                    border: 2px solid #777; }
+                    border-color: #777; }

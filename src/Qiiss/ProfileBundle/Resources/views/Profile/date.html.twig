@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html class="yui3-cssreset">
 <pre>
 </pre>
 <head>
 	<meta charset="utf-8">
 	<title>{% block title %}Qiiss - Settings{% endblock %}</title>
 	{% block stylesheets %}
-		<link rel="stylesheet" href="{{ asset('bundles/qiissprofile/css/date.css') }}" type="text/css" media="all" />
+		<link rel="stylesheet" href="{{ asset('bundles/qiissprofile/css/proposeDate.css') }}" type="text/css" media="all" />
 	    <link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/globalFunctions.css') }}" type="text/css" media="all" />
+		<link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/cssreset-context-min.css') }}" type="text/css" media="all" />
 	{% endblock %}
 	<script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/jquery-1.8.3.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/modernizr.2.6.2-min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/yepnope.1.5.4-min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/polyfiller.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/globalFunctions.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('bundles/qiissuser/js/settings/proposeDate.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('bundles/qiissprofile/js/proposeDate.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('bundles/qiissuser/js/header.js') }}"></script>
 </head>
 <body>
@@ -32,19 +33,59 @@
 		<div class="propose_date_main_right">
 			<div class="section_container">
 				<div class="header">
-					<div class="inner">The Details</div>
+					<div class="inner">The Details (Click to contract)</div>
 				</div>
 				<div class="section">
 					<div class="section_body">
 						<form action="{{ path('qiiss_profile_propose_date') }}" method="post" {{ form_enctype(form) }}>
-						    <div>{{ form_widget(form.event_description) }}</div>
-						    <div>{{ form_widget(form.event_date) }}</div>
-						    <div>{{ form_widget(form.event_place) }}</div>
-						    <div>{{ form_widget(form.event_media) }}</div>
-						    <div>{{ form_widget(form.event_link) }}</div>
-						    <div>{{ form_widget(form.event_price) }}</div>
+							<div class="content">
+								<div class="content_header">Date Overview</div>
+							    <div class="content_block">
+							    	{{ form_widget(form.event_description, { 'attr': {'placeholder': 'Date Overview', 'rows' : 7} }) }}
+							    </div>
+							</div>
+							<div class="content">
+						    	<div class="content_header">Date / Time</div>
+							    <div class="content_block">
+							    	<div class="date_date">
+							    		{{ form_widget(form.event_date.date.day) }}
+							    		{{ form_widget(form.event_date.date.month) }}
+								    	{{ form_widget(form.event_date.date.year) }}
+							    	</div>
+							    	<div class="date_time">
+							    		{{ form_widget(form.event_date.time.hour) }}
+							    		{{ form_widget(form.event_date.time.minute) }}
+							    	</div>
+							    </div>
+						    </div>
+						    <div class="content">
+							    <div class="content_header">Location</div>
+							    <div class="content_block">
+							    	{{ form_widget(form.event_place, { 'attr': {'placeholder': 'Event Location'} }) }}
+							    </div>
+							</div>
+						    <div class="content">
+							    <div class="content_header">Media</div>
+							    <div class="content_block">
+							    	{{ form_widget(form.event_media, { 'attr': {'placeholder': 'Event Media'} }) }}
+							    </div>
+						    </div>
+						    <div class="content">
+							    <div class="content_header">Links</div>
+							    <div class="content_block">
+							    	{{ form_widget(form.event_link, { 'attr': {'placeholder': 'Event Links'} }) }}
+							    </div>
+						    </div>
+						    <div class="content">
+							    <div class="content_header">Price (Optional)</div>
+							    <div class="content_block">
+							    	{{ form_widget(form.event_price, { 'attr': {'placeholder': 'Price'} }) }}
+							    </div>
+						    </div>
 						    {{form_widget(form._token)}}
-						    <div><input type="submit" /></div>
+						    <div class="content_submit">
+						    	<input type="submit" class="submit"/>
+						    </div>
 						</form>
 					</div>
 				</div>
