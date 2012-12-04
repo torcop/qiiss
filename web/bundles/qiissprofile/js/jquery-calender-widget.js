@@ -3,6 +3,7 @@
 	function calendarWidget(el, params) { 
 		
 		var now   = new Date();
+		var today = now.getDay();
 		var thismonth = now.getMonth();
 		var thisyear  = now.getYear() + 1900;
 		
@@ -14,7 +15,7 @@
 		$.extend(opts, params);
 		
 		var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-		var dayNames = ['Sund', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
+		var dayNames = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
 		month = i = parseInt(opts.month);
 		year = parseInt(opts.year);
 		var m = 0;

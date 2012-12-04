@@ -169,7 +169,7 @@ html {
                       } // input
 
                       textarea {
-                        width:260px;
+                        width:438px;
                         padding:8px;
                         resize:none;
                         overflow-y:auto;
@@ -216,6 +216,7 @@ html {
 
                       #calendar {
                         table {
+                          margin:10px 0px 15px 0px;
                           table-layout:fixed;
                           border-collapse:collapse;
                           border-right:1px solid #999;
@@ -234,12 +235,29 @@ html {
                               }
 
                               th {
-                                background:#666;
-                                color:#fff;
+                                background:#7AB2DE;;
+                                color:#333;
+                                font: 16px 'PatuaOneRegular', Arial, sans-serif;
+                              }
+
+                              td {
+                                cursor:pointer;
+                                &:hover {
+                                  background:#eee;
+                                }
+                                &:active {
+                                  background:#ddd;
+                                }
                               }
 
                               .other-month {
                                 background:#eee;
+                                &:hover {
+                                  background:#ddd;
+                                }
+                                &:active {
+                                  background:#ccc;
+                                }
                               }
                             } // th
                           } // tbody
@@ -247,6 +265,30 @@ html {
                       } // #calender
                     } // .content_block
                   } // .content
+                  .content_submit {
+                    .submit {
+                      color:#eee;
+                      border: 1px solid #999;
+                      border-top:none;
+                      padding:7px 15px;
+                      font: 18px 'PatuaOneRegular', Arial, sans-serif;
+                      display:inline-block;
+                      vertical-align: middle;
+                      cursor:pointer;
+                      @include shadow(0px, 0px, 10px, 1px, #999);
+                      @include corner(0px, 0px, 5px, 5px);
+                      @include gradient(#777, #666);
+
+                      &:hover {
+                        @include gradient(#595959, #595959);
+                        border-color: #888;
+                      }
+                      &:active {
+                        @include gradient(#494949, #494949);
+                        border-color: #777;
+                      }
+                    } // .submit
+                  } // .content_submit
                 } // form
               } // .section_body
             } // .section
