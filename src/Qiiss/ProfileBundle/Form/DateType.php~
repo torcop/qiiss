@@ -11,6 +11,7 @@ class DateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('event_title')
             ->add('event_description')
             ->add('event_date')
             ->add('event_place')
