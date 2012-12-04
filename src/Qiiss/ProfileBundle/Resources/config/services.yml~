@@ -6,7 +6,7 @@ services:
 #        class: %qiiss_profile.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
 
-     qiiss_noty.listener:
+     qiiss_notyDate.listener:
         class: Qiiss\ProfileBundle\EventListener\NotyIndexer
         tags:
             - { name: doctrine.event_listener, event: postPersist }
