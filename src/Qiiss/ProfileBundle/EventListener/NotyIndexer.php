@@ -13,17 +13,15 @@ class NotyIndexer
         $em = $args->getEntityManager();
 				$userManager = $container->get('fos_user.user_manager');
 
-        if ($entity instanceof Date)
-				{
-					$noty = new Noty();
-			    $noty->setDate(new \Datetime());
-    			$noty->setSender(7);
-					$noty->setTarget(3);
-					$noty->setType('New date');
-					$noty->setContent('Nizar request a new date for you!');
-
-			    $em->persist($noty);
-    			$em->flush();
+        if ($entity instanceof Date) {
+			$noty = new Noty();
+		    $noty->setDate(new \Datetime());
+			$noty->setSender(7);
+			$noty->setTarget(3);
+			$noty->setType('New date');
+			$noty->setContent('Nizar ask you as friend!');
+		    $em->persist($noty);
+			$em->flush();
         }
     }
 }

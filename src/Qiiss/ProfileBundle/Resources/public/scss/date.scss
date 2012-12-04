@@ -1,0 +1,21 @@
+@import "shared", "fonts", "header";
+
+html {
+  height:100%;
+
+  body {
+    margin:0;
+    padding:0;
+    font-size:0;
+    height:100%;
+    background-image:url('/bundles/qiissgeneral/images/Final-Homepage-background.gif');
+    background-size: 100%;
+    background-repeat:no-repeat;
+
+      #main_container {
+        padding-bottom:40px;
+        font: 16px 'OxygenRegular', Arial, sans-serif;
+        text-align:center;
+      }
+    } // body
+} // html
