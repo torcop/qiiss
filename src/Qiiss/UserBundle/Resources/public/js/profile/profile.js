@@ -1,5 +1,3 @@
-var popupXValues = jQuery.parseJSON('{"notifications" : 235, "messages" : 270, "dates" : 265}');
-
 /**********************
 FACEBOOK SDK CODE HERE
 **********************/
@@ -17,15 +15,11 @@ window.fbAsyncInit = function() {
     FB.getLoginStatus(function(response) {
       if (response.status === 'connected') {
         FB.api('/me', function(response) { //If the user is already logged in via facebook, redirect them to the profile page
-          //window.location.replace("/profile");
-          console.log(response);
-          console.log(response.id + '?fields=picture.type(large)');
           FB.api(response.id + '?fields=picture.type(large)', function(data) {
             $("#profile_picture img").attr("src", data.picture.data.url);
             $(".canvas_post_attachment img").attr("src", data.picture.data.url);
           });
           FB.api(response.id + '?fields=picture.type(small)', function(data) {
-            console.log("test");
             $(".canvas_post_header .header_dp img").attr("src", data.picture.data.url);
             $(".popup_item_dp img").attr("src", data.picture.data.url);
           });

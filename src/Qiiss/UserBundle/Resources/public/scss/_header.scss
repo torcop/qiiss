@@ -80,13 +80,20 @@
         cursor:pointer;
         color:#aaa;
         padding:0px;
+
+        &:hover {
+          color:#999;
+        }
+        &:active {
+          color:#888;
+        }
       }
     }
   } // #logout_div
 
   .popup {
     position:absolute;
-    z-index:1000;
+    z-index:1002;
     display:none;
     top:50px;
     width:340px;
@@ -118,6 +125,15 @@
         padding:5px;
         border-bottom:1px solid #ccc;
         font: 14px 'OxygenRegular', Arial, sans-serif;
+        cursor:pointer;
+
+        &:hover {
+          background-color:#eee;
+        }
+
+        &:active {
+          background-color:#ddd;
+        }
 
         div, img {
           padding:0;

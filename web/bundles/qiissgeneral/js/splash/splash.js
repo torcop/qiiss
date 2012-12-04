@@ -34,15 +34,12 @@ var pictureValues = jQuery.parseJSON('{ "pictures": [' +
 '{"picture" : "' + homepageDirectory + 'message4.jpg", "offset" : "-25%"},' +
 '{"picture" : "' + homepageDirectory + 'message6.jpg", "offset" : "-25%"}]}');
 
-
 $(document).ready(function() {
 
   for (i = 1; i < 41; i++) {
     $(".stream_inner").append('<img src="' + thumbDirectory + 'sample-' + i + '.jpg">');
   }
   $("#stream_outer").append($(".stream_inner").clone().removeClass("first"));
-
-  $('.signup_form input').not('.submit').placeholder();
 
   $('.auth_tab').height($('#signup_container_body').height());
 
@@ -166,6 +163,9 @@ function slideOutError(message, form) {
     $element = $(form + " .password_error_message");
     if (message == "fos_user.password.badmatch") {
       $element.html("Passwords do not match.");
+    }
+    else if (message == "fos_user.password.blank") {
+      $element.html("Please enter a password.");
     }
   }
   else if (message.indexOf("dob") != -1) {

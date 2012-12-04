@@ -53,9 +53,13 @@
       cursor: pointer;
       color: #aaa;
       padding: 0px; }
+      #upper_top_banner #logout_div #logout_div_button a:hover {
+        color: #999; }
+      #upper_top_banner #logout_div #logout_div_button a:active {
+        color: #888; }
   #upper_top_banner .popup {
     position: absolute;
-    z-index: 1000;
+    z-index: 1002;
     display: none;
     top: 50px;
     width: 340px;
@@ -97,7 +101,12 @@
         text-align: left;
         padding: 5px;
         border-bottom: 1px solid #ccc;
-        font: 14px 'OxygenRegular', Arial, sans-serif; }
+        font: 14px 'OxygenRegular', Arial, sans-serif;
+        cursor: pointer; }
+        #upper_top_banner .popup .popup_content .popup_item:hover {
+          background-color: #eee; }
+        #upper_top_banner .popup .popup_content .popup_item:active {
+          background-color: #ddd; }
         #upper_top_banner .popup .popup_content .popup_item div, #upper_top_banner .popup .popup_content .popup_item img {
           padding: 0;
           display: inline-block;
@@ -395,7 +404,7 @@ html {
                   background-color: #F2F8FA;
                   margin: 0px 10px;
                   border: 1px solid #ddd;
-                  padding: 5px;
+                  padding: 5px 10px;
                   -moz-border-radius-topleft: 5px;
                   -webkit-border-top-left-radius: 5px;
                   -khtml-border-radius-topleft: 5px;
