@@ -8,7 +8,7 @@ class NotyController extends Controller
 {
     public function notySendAction()
     {
-				$evm = new EventManager();
+		$evm = new EventManager();
         return $this->render('QiissNotyBundle:default:noty.html.twig');
     }
 }

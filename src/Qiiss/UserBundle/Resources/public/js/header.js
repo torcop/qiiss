@@ -18,7 +18,7 @@ $(document).ready(function() {
     });
   });
 
-  $("#main_container").bind("click", function() {
+  $("#body").bind("click", function() {
     $(".popup").each(function() {
       if ($(this).css("display") != "none" && !$(this).hasClass("animating")) {
         $(this).slideUp(300);
