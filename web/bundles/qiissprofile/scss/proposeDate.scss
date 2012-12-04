@@ -4,13 +4,13 @@ html {
   height:100%;
 
   body {
-    margin:0;
-    padding:0;
-    font-size:0;
-    height:100%;
-    background-image:url('/bundles/qiissgeneral/images/Final-Homepage-background.gif');
-    background-size: 100%;
-    background-repeat:no-repeat;
+  margin:0;
+  padding:0;
+  font-size:0;
+  height:100%;
+  background-image:url('/bundles/qiissgeneral/images/Final-Homepage-background.gif');
+  background-size: 100%;
+  background-repeat:no-repeat;
 
     #main_container {
       display:block;
@@ -32,6 +32,7 @@ html {
           border:1px solid #aaa;
           border-bottom:none;
           padding:10px;
+
         }
 
         #propose_date_main_left {
@@ -52,7 +53,7 @@ html {
               width:190px;
               height:190px;
             }
-          }
+          } // #propose_date_profile_picture
 
           .section_header {
             background-color:#eee;
@@ -60,9 +61,8 @@ html {
             border-bottom:1px solid #aaa;
             padding:15px;
             font: 18px 'PatuaOneRegular', Arial, sans-serif;
-
           }
-        }
+        } // #propose_date_main_left
 
         .propose_date_main_right {
           display:inline-block;
@@ -90,7 +90,7 @@ html {
                 font: 18px 'PatuaOneRegular', Arial, sans-serif;
                 color:#333;
               }
-            }
+            } // .header
 
             .section {
               font: 18px 'PatuaOneRegular', Arial, sans-serif;
@@ -103,14 +103,7 @@ html {
                 form {
 
                   .content {
-                    width:350px;
-
-                    .seperator {
-                      display:block;
-                      height:0px;
-                      border-top:1px solid #fff;
-                      border-bottom:1px solid #aaa;
-                    }
+                    width:500px;
 
                     .content_header {
                       background:#f5f5f5;
@@ -129,8 +122,7 @@ html {
                       &:active {
                         background-color:#bbb;
                       }
-                    }
-
+                    } // .content_header
                     .content_block {
                       position:relative;
                       background-color:#fff;
@@ -193,11 +185,14 @@ html {
                         }
                       } // textarea
 
-                      .date_time, .date_date {
+                      .date_time {
+
                         select {
                           -webkit-appearance: none;
                           padding:8px 10px;
                           border-color:#aaa;
+                          cursor:pointer;
+                          text-align: center;
                           @include corner(5px, 5px, 5px, 5px);
                           @include gradient(#eee, #ccc);
 
@@ -212,45 +207,52 @@ html {
                           &:focus {
                            outline-width: 0;
                           }
-                        }
+                        } // select
+                      } // .date_time
+
+                      .date_date {
+                        display:none;
                       }
+
+                      #calendar {
+                        table {
+                          table-layout:fixed;
+                          border-collapse:collapse;
+                          border-right:1px solid #999;
+                          border-top:1px solid #999;
+
+                          tbody {
+
+                            tr {
+
+                              td, th {
+                                width:60px;
+                                border-left:1px solid #999;
+                                border-bottom:1px solid #999;
+                                text-align:center;
+                                padding:8px 12px;
+                              }
+
+                              th {
+                                background:#666;
+                                color:#fff;
+                              }
+
+                              .other-month {
+                                background:#eee;
+                              }
+                            } // th
+                          } // tbody
+                        } // table
+                      } // #calender
                     } // .content_block
-                  } // content
-
-                  .content_submit {
-                    display:inline-block;
-                    padding:0px;
-                    .submit {
-                      width:auto;
-                      display:inline-block;
-                      vertical-align: top;
-                      color:#eee;
-                      padding:5px 10px;
-                      border: 1px solid #999;
-                      border-top:none;
-                      cursor:pointer;
-                      padding:6px 15px;
-                      font: 18px 'PatuaOneRegular', Arial, sans-serif;
-                      @include shadow(0px, 0px, 10px, 1px, #999);
-                      @include corner(0px, 0px, 5px, 5px);
-                      @include gradient(#777, #666);
-
-                      &:hover {
-                        @include gradient(#595959, #595959);
-                        border-color: #888;
-                      }
-                      &:active {
-                        @include gradient(#494949, #494949);
-                        border-color: #777;
-                      }
-                    }
-                  } // .content_submit
+                  } // .content
                 } // form
               } // .section_body
             } // .section
           } // .section_container
         } // .propose_date_main_right
-      } // .propose_date_main_border
+      } // #propose_date_main_border
     } // #main_container
   } // body
 } // html

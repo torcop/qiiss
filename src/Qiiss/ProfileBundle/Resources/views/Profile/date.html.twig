@@ -15,6 +15,7 @@
 	<script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/yepnope.1.5.4-min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/polyfiller.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/globalFunctions.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissprofile/js/jquery-calender-widget.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('bundles/qiissprofile/js/proposeDate.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('bundles/qiissuser/js/header.js') }}"></script>
 </head>
@@ -47,6 +48,7 @@
 							<div class="content">
 						    	<div class="content_header">Date / Time</div>
 							    <div class="content_block">
+							    	<div id="calendar"></div>
 							    	<div class="date_date">
 							    		{{ form_widget(form.event_date.date.day) }}
 							    		{{ form_widget(form.event_date.date.month) }}

@@ -18,4 +18,9 @@ $(document).ready(function() {
 			body.slideUp(280);
 		}
 	});
+
+	$("#calendar").calendarWidget({
+		month: 11,
+		year: 2012
+	 });
 });
