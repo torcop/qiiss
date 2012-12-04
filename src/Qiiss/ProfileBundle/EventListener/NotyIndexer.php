@@ -1,5 +1,5 @@
 <?php
-namespace Qiiss\ProfileBundle\EventListener;
+/*namespace Qiiss\ProfileBundle\EventListener;
 
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Qiiss\ProfileBundle\Entity\Date;
