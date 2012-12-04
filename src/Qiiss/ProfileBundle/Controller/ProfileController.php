@@ -13,13 +13,6 @@ class ProfileController extends Controller
 	{
     $date = new Date();
     $form = $this->createForm(new DateType, $date);
-    $noty = new Noty();
-    $noty->setDate(new \Datetime());
-    $noty->setSender(7);
-    $noty->setTarget(3);
-    $noty->setType('New date');
-    $noty->setContent('Nizar request a new date for you!');
-    $noty->setLink('yeah.com.au');
 
     $request = $this->get('request');
     if($request->getMethod() == 'POST')
@@ -29,6 +22,14 @@ class ProfileController extends Controller
 			{
 				$em = $this->getDoctrine()->getEntityManager();
         $em->persist($date);
+				$noty = new Noty();
+		    $noty->setDate(new \Datetime());
+		    $noty->setSender(7);
+		    $noty->setTarget(3);
+		    $noty->setType('New date');
+		    $noty->setContent('Nizar request a new date for you!');
+		    $noty->setLink('yeah.com.au');
+
         $em->persist($noty);
         $em->flush();
         return $this->redirect( $this->generateUrl('qiiss_general_homepage') );

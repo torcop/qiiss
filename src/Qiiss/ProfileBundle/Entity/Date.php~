@@ -21,15 +21,6 @@ class Date
      */
     private $id;
 
-		private $title;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="event_title", type="string", length=200)
-     */
-    private $event_title;
-
     /**
      * @var string
      *

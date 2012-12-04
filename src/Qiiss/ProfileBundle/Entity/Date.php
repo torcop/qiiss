@@ -24,13 +24,6 @@ class Date
     /**
      * @var string
      *
-     * @ORM\Column(name="event_title", type="string", length=200)
-     */
-    private $event_title;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="event_description", type="text", length=500)
      */
     private $event_description;
@@ -87,22 +80,6 @@ class Date
      * @param string $eventTitle
      * @return Date
      */
-    public function setEventTitle($eventTitle)
-    {
-        $this->event_title = $eventTitle;
-    
-        return $this;
-    }
-
-    /**
-     * Get event_title
-     *
-     * @return string 
-     */
-    public function getEventTitle()
-    {
-        return $this->event_title;
-    }
 
     /**
      * Set event_description
