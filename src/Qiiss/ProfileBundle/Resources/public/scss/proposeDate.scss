@@ -216,6 +216,7 @@ html {
 
                       #calendar {
                         table {
+                          width:400px;
                           margin:10px 0px 15px 0px;
                           table-layout:fixed;
                           border-collapse:collapse;
@@ -227,7 +228,7 @@ html {
                             tr {
 
                               td, th {
-                                width:60px;
+                                width:40px;
                                 border-left:1px solid #999;
                                 border-bottom:1px solid #999;
                                 text-align:center;

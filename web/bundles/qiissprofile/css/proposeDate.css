@@ -519,13 +519,14 @@ html {
                   html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .date_date {
                     display: none; }
                   html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table {
+                    width: 400px;
                     margin: 10px 0px 15px 0px;
                     table-layout: fixed;
                     border-collapse: collapse;
                     border-right: 1px solid #999;
                     border-top: 1px solid #999; }
                     html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr td, html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr th {
-                      width: 60px;
+                      width: 40px;
                       border-left: 1px solid #999;
                       border-bottom: 1px solid #999;
                       text-align: center;
