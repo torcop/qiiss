@@ -24,7 +24,8 @@ $(document).ready(function() {
 	console.log(jQuery.parseJSON('{"left": "' + thismonth + '", "right" : "' + ((thismonth + 1) % 11)  + '"}'));
 	$("#calendar").calendarWidget({
 		month: thismonth,
-		year: thisyear
+		year: thisyear,
+		nav: jQuery.parseJSON('{"right": "' + (thismonth % 11) + '", "left" : ""}')
 	 });
 	$("#calendar_one_month").calendarWidget({
 		month: thismonth % 11,
@@ -34,13 +35,30 @@ $(document).ready(function() {
 	$("#calendar_two_month").calendarWidget({
 		month: (thismonth + 1) % 11,
 		year: (thismonth + 1) % 11 < thismonth ? thisyear + 1 : thisyear,
-		nav: jQuery.parseJSON('{"left": "#calender_one_month"}')
+		nav: jQuery.parseJSON('{"left": "' + (thismonth % 11) + '", "right" : ""}')
 	 });
 
-	$("#calendar td").bind("click", function() {
+	$(".calendar td").bind("click", function() {
 		if (!$(this).hasClass("selected")) {
-			$("#calendar").find(".selected").removeClass("selected");
+			$(".calendar").find(".selected").removeClass("selected");
 			$(this).addClass("selected");
 		}
 	 });
+	$("#calendar").find(".calendar_header_right").bind("click", function() {
+		console.log("TEST");
+		$("#calendar").css("display", "none");
+		$("#calendar_one_month").css("display", "block");
+	});
+	$("#calendar_one_month").find(".calendar_header_left").bind("click", function() {
+		$("#calendar_one_month").css("display", "none");
+		$("#calendar").css("display", "block");
+	});
+	$("#calendar_one_month").find(".calendar_header_right").bind("click", function() {
+		$("#calendar_one_month").css("display", "none");
+		$("#calendar_two_month").css("display", "block");
+	});
+	$("#calendar_two_month").find(".calendar_header_left").bind("click", function() {
+		$("#calendar_two_month").css("display", "none");
+		$("#calendar_one_month").css("display", "block");
+	});
 });

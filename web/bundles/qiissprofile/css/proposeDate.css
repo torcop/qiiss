@@ -591,7 +591,7 @@ html {
                           background: #ddd; }
                         html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar table tbody tr .other-month:active {
                           background: #ccc; }
-                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar, html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar_two_month {
+                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar_one_month, html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar_two_month {
                     display: none; }
                   html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .content_upper_text {
                     margin-bottom: 20px; }
