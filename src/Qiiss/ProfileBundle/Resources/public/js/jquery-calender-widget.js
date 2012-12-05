@@ -38,6 +38,8 @@
 			}
 
 			table += ('<div class="calendar_header">');
+				table += ('<div class="hidden_header_month">' + month + '</div>');
+				table += ('<div class="hidden_header_year">' + year + '</div>');
 				table += ('<div class="calendar_header_left">');
 				if (opts.nav.left != "") {
 					table += (monthNames[parseInt(opts.nav.left)]);

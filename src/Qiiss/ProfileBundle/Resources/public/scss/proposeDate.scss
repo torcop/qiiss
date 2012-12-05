@@ -232,6 +232,10 @@ html {
                             vertical-align: middle;
                           }
 
+                          .hidden_header_month, .hidden_header_year {
+                            display:none;
+                          }
+
                           .calendar_header_left {
                             width:20%;
                             font: 14px 'PatuaOneRegular', Arial, sans-serif;

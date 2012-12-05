@@ -38,9 +38,21 @@ $(document).ready(function() {
 	 });
 
 	$(".calendar td").bind("click", function() {
+		// When you click a day in our fancy calender, select the corresponding hidden element form to send back to symfony
 		if (!$(this).hasClass("selected")) {
+			var $calendar = $(this).closest(".calendar");
+			var day = $(this).find("span").html();
 			$(".calendar").find(".selected").removeClass("selected");
 			$(this).addClass("selected");
+			$("#date_date #qiiss_profilebundle_datetype_event_date_date_day option").filter(function() {
+			    return $(this).val() == day;
+			}).attr('selected', true);
+			$("#date_date #qiiss_profilebundle_datetype_event_date_date_month option").filter(function() {
+			    return $(this).val() == parseInt($calendar.find(".hidden_header_month").html()) + 1;
+			}).attr('selected', true);
+			$("#date_date #qiiss_profilebundle_datetype_event_date_date_year option").filter(function() {
+			    return $(this).val() == $calendar.find(".hidden_header_year").html();
+			}).attr('selected', true);
 		}
 	 });
 

@@ -548,6 +548,8 @@ html {
                       html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar .calendar_header div {
                         display: inline-block;
                         vertical-align: middle; }
+                      html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar .calendar_header .hidden_header_month, html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar .calendar_header .hidden_header_year {
+                        display: none; }
                       html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar .calendar_header .calendar_header_left {
                         width: 20%;
                         font: 14px 'PatuaOneRegular', Arial, sans-serif;
