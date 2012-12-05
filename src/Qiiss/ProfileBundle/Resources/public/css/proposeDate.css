@@ -548,11 +548,13 @@ html {
                       html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar .calendar_header div {
                         display: inline-block; }
                       html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar .calendar_header .calendar_header_left {
+                        width: 20%;
                         font: 14px 'PatuaOneRegular', Arial, sans-serif;
                         color: #888; }
                       html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar .calendar_header .current_month {
-                        width: 60%; }
+                        width: 50%; }
                       html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar .calendar_header .calendar_header_right {
+                        width: 20%;
                         font: 14px 'PatuaOneRegular', Arial, sans-serif;
                         color: #888; }
                     html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar table {
