@@ -24,7 +24,7 @@ $(document).ready(function() {
 
   $("body").bind("click", function(event) {
     $(".popup").each(function() {
-      if ($(this).css("display") != "none" && !$(this).hasClass("animating") && $(event.target).context.className.indexOf("popup") == -1) {
+      if ($(this).css("display") != "none" && !$(this).hasClass("animating") && !isDescendant($("#upper_top_banner")[0], event.target)) {
         console.log($(event.target).context.className);
         $(this).slideUp(300);
       return;
@@ -32,3 +32,15 @@ $(document).ready(function() {
     })
   });
 });
+
+function isDescendant(parent, child) {
+     var node = child.parentNode;
+     while (node != null) {
+      console.log("test");
+         if (node == parent) {
+             return true;
+         }
+         node = node.parentNode;
+     }
+     return false;
+}
