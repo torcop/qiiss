@@ -79,7 +79,7 @@
 			var i = 0;
             for (j=0;j<42;j++){
               if (month == thismonth && (j-firstDay+1) == today) {
-				table += ('<td class="current-month day'+(j-firstDay+1)+' selected today"><span class="day">'+(j-firstDay+1)+'</span></td>');
+				table += ('<td class="current-month day'+(j-firstDay+1)+' today"><span class="day">'+(j-firstDay+1)+'</span></td>');
               }
               else if ((j<firstDay)){
                 table += ('<td class="other-month"><span class="day">'+ (prev_days-firstDay+j+1) +'</span></td>');
