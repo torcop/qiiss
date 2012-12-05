@@ -243,6 +243,16 @@ html {
 
                               td {
                                 cursor:pointer;
+
+                                &.today {
+                                  background-color:#FCDEC0;
+                                  &:hover {
+                                  background:#FFD1A3;
+                                  }
+                                  &:active {
+                                    background:#FFC285;
+                                  }
+                                } // .today
                                 &:hover {
                                   background:#eee;
                                 }
@@ -264,6 +274,13 @@ html {
                           } // tbody
                         } // table
                       } // #calender
+
+                      .content_upper_text {
+                        margin-bottom:20px;
+                      }
+                      .content_lower_text {
+                        margin-top:20px;
+                      }
                     } // .content_block
                   } // .content
                   .content_submit {

@@ -537,6 +537,12 @@ html {
                       font: 16px 'PatuaOneRegular', Arial, sans-serif; }
                     html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr td {
                       cursor: pointer; }
+                      html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr td.today {
+                        background-color: #FCDEC0; }
+                        html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr td.today:hover {
+                          background: #FFD1A3; }
+                        html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr td.today:active {
+                          background: #FFC285; }
                       html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr td:hover {
                         background: #eee; }
                       html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr td:active {
@@ -547,6 +553,10 @@ html {
                         background: #ddd; }
                       html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr .other-month:active {
                         background: #ccc; }
+                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .content_upper_text {
+                    margin-bottom: 20px; }
+                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .content_lower_text {
+                    margin-top: 20px; }
               html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content_submit .submit {
                 color: #eee;
                 border: 1px solid #999;
