@@ -185,7 +185,7 @@ html {
                         }
                       } // textarea
 
-                      .date_time {
+                      #date_time {
                         display:none;
 
                         select {
@@ -211,7 +211,7 @@ html {
                         } // select
                       } // .date_time
 
-                      .date_date {
+                      #date_date {
                         display:none;
                       }
 
@@ -229,19 +229,36 @@ html {
 
                           div {
                             display:inline-block;
+                            vertical-align: middle;
                           }
 
                           .calendar_header_left {
+                            width:20%;
                             font: 14px 'PatuaOneRegular', Arial, sans-serif;
                             color:#888;
+
+                            &:hover {
+                              color:#666;
+                            }
+                            &:active {
+                              color:#444;
+                            }
                           }
 
                           .current_month {
-                            width:60%;
+                            width:50%;
                           }
                           .calendar_header_right {
+                            width:20%;
                             font: 14px 'PatuaOneRegular', Arial, sans-serif;
                             color:#888;
+
+                            &:hover {
+                              color:#666;
+                            }
+                            &:active {
+                              color:#444;
+                            }
                           }
                         }
                         table {
@@ -311,10 +328,34 @@ html {
                         display:none;
                       }
 
+                      #calendar {
+                        .calendar_header_right {
+                          cursor:pointer;
+                        }
+                      }
+
+                      #calendar_one_month {
+                        .calendar_header_right {
+                          cursor:pointer;
+                        }
+                        .calendar_header_left {
+                          cursor:pointer;
+                        }
+                      }
+
+                      #calendar_two_month {
+                        .calendar_header_left {
+                          cursor:pointer;
+                        }
+                      }
                       .content_upper_text {
                         margin-bottom:20px;
                       }
                       .content_lower_text {
+                        margin-top:20px;
+                      }
+
+                      #time_picker_container {
                         margin-top:20px;
                       }
                     } // .content_block

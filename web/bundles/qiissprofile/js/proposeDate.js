@@ -21,7 +21,6 @@ $(document).ready(function() {
 	var now = new Date();
 	var thismonth = now.getMonth();
 	var thisyear  = now.getYear() + 1900;
-	console.log(jQuery.parseJSON('{"left": "' + thismonth + '", "right" : "' + ((thismonth + 1) % 11)  + '"}'));
 	$("#calendar").calendarWidget({
 		month: thismonth,
 		year: thisyear,
@@ -44,6 +43,8 @@ $(document).ready(function() {
 			$(this).addClass("selected");
 		}
 	 });
+
+	$('.calendar_header').disableTextSelect();
 	$("#calendar").find(".calendar_header_right").bind("click", function() {
 		console.log("TEST");
 		$("#calendar").css("display", "none");
@@ -60,5 +61,24 @@ $(document).ready(function() {
 	$("#calendar_two_month").find(".calendar_header_left").bind("click", function() {
 		$("#calendar_two_month").css("display", "none");
 		$("#calendar_one_month").css("display", "block");
+	});
+
+	$("#time_picker").timePicker({
+	  show24Hours: false,
+	  step: 15
+	});
+
+	// Update the hidden real form field with the value of this fancy one
+	$("#time_picker").change(function() {
+	    // Calculate hours / minutes
+	    var hour = $.timePicker("#time_picker").getTime().getHours();
+	    var minutes = $.timePicker("#time_picker").getTime().getMinutes();
+
+		$("#date_time #qiiss_profilebundle_datetype_event_date_time_hour option").filter(function() {
+		    return $(this).val() == hour;
+		}).attr('selected', true);
+		$("#date_time #qiiss_profilebundle_datetype_event_date_time_minute option").filter(function() {
+		    return $(this).val() == minutes;
+		}).attr('selected', true);
 	});
 });
