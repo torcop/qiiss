@@ -464,95 +464,135 @@ html {
                       -moz-box-shadow: 0px 0px 10px 1px #888888;
                       -webkit-box-shadow: 0px 0px 10px 1px #888888;
                       box-shadow: 0px 0px 10px 1px #888888; }
-                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .date_time select {
-                    -webkit-appearance: none;
-                    padding: 8px 10px;
-                    border-color: #aaa;
-                    cursor: pointer;
-                    text-align: center;
-                    -moz-border-radius-topleft: 5px;
-                    -webkit-border-top-left-radius: 5px;
-                    -khtml-border-radius-topleft: 5px;
-                    border-top-left-radius: 5px;
-                    -moz-border-radius-topright: 5px;
-                    -webkit-border-top-right-radius: 5px;
-                    -khtml-border-radius-topright: 5px;
-                    border-top-right-radius: 5px;
-                    -moz-border-radius-bottomright: 5px;
-                    -webkit-border-bottom-right-radius: 5px;
-                    -khtml-border-radius-bottomright: 5px;
-                    border-bottom-right-radius: 5px;
-                    -moz-border-radius-bottomleft: 5px;
-                    -webkit-border-bottom-left-radius: 5px;
-                    -khtml-border-radius-bottomleft: 5px;
-                    border-bottom-left-radius: 5px;
-                    background-color: #cccccc;
-                    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
-                    -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#eeeeee, endColorstr=#cccccc)";
-                    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eeeeee), to(#cccccc));
-                    background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
-                    background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
-                    background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
-                    background-image: -o-linear-gradient(top, #eeeeee, #cccccc); }
-                    html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .date_time select:hover {
-                      background-color: #bbbbbb;
+                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .date_time {
+                    display: none; }
+                    html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .date_time select {
+                      -webkit-appearance: none;
+                      padding: 8px 10px;
+                      border-color: #aaa;
+                      cursor: pointer;
+                      text-align: center;
+                      -moz-border-radius-topleft: 5px;
+                      -webkit-border-top-left-radius: 5px;
+                      -khtml-border-radius-topleft: 5px;
+                      border-top-left-radius: 5px;
+                      -moz-border-radius-topright: 5px;
+                      -webkit-border-top-right-radius: 5px;
+                      -khtml-border-radius-topright: 5px;
+                      border-top-right-radius: 5px;
+                      -moz-border-radius-bottomright: 5px;
+                      -webkit-border-bottom-right-radius: 5px;
+                      -khtml-border-radius-bottomright: 5px;
+                      border-bottom-right-radius: 5px;
+                      -moz-border-radius-bottomleft: 5px;
+                      -webkit-border-bottom-left-radius: 5px;
+                      -khtml-border-radius-bottomleft: 5px;
+                      border-bottom-left-radius: 5px;
+                      background-color: #cccccc;
                       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
-                      -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#dddddd, endColorstr=#bbbbbb)";
-                      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#dddddd), to(#bbbbbb));
-                      background-image: -webkit-linear-gradient(top, #dddddd, #bbbbbb);
-                      background-image: -moz-linear-gradient(top, #dddddd, #bbbbbb);
-                      background-image: -ms-linear-gradient(top, #dddddd, #bbbbbb);
-                      background-image: -o-linear-gradient(top, #dddddd, #bbbbbb);
-                      border-color: #888; }
-                    html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .date_time select:active {
-                      background-color: #aaaaaa;
-                      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
-                      -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#cccccc, endColorstr=#aaaaaa)";
-                      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cccccc), to(#aaaaaa));
-                      background-image: -webkit-linear-gradient(top, #cccccc, #aaaaaa);
-                      background-image: -moz-linear-gradient(top, #cccccc, #aaaaaa);
-                      background-image: -ms-linear-gradient(top, #cccccc, #aaaaaa);
-                      background-image: -o-linear-gradient(top, #cccccc, #aaaaaa);
-                      border-color: #777; }
-                    html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .date_time select:focus {
-                      outline-width: 0; }
+                      -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#eeeeee, endColorstr=#cccccc)";
+                      background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eeeeee), to(#cccccc));
+                      background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+                      background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+                      background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
+                      background-image: -o-linear-gradient(top, #eeeeee, #cccccc); }
+                      html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .date_time select:hover {
+                        background-color: #bbbbbb;
+                        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
+                        -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#dddddd, endColorstr=#bbbbbb)";
+                        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#dddddd), to(#bbbbbb));
+                        background-image: -webkit-linear-gradient(top, #dddddd, #bbbbbb);
+                        background-image: -moz-linear-gradient(top, #dddddd, #bbbbbb);
+                        background-image: -ms-linear-gradient(top, #dddddd, #bbbbbb);
+                        background-image: -o-linear-gradient(top, #dddddd, #bbbbbb);
+                        border-color: #888; }
+                      html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .date_time select:active {
+                        background-color: #aaaaaa;
+                        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
+                        -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#cccccc, endColorstr=#aaaaaa)";
+                        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cccccc), to(#aaaaaa));
+                        background-image: -webkit-linear-gradient(top, #cccccc, #aaaaaa);
+                        background-image: -moz-linear-gradient(top, #cccccc, #aaaaaa);
+                        background-image: -ms-linear-gradient(top, #cccccc, #aaaaaa);
+                        background-image: -o-linear-gradient(top, #cccccc, #aaaaaa);
+                        border-color: #777; }
+                      html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .date_time select:focus {
+                        outline-width: 0; }
                   html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .date_date {
                     display: none; }
-                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table {
-                    width: 400px;
-                    margin: 10px 0px 15px 0px;
-                    table-layout: fixed;
-                    border-collapse: collapse;
-                    border-right: 1px solid #999;
-                    border-top: 1px solid #999; }
-                    html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr td, html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr th {
-                      width: 40px;
-                      border-left: 1px solid #999;
-                      border-bottom: 1px solid #999;
-                      text-align: center;
-                      padding: 8px 12px; }
-                    html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr th {
-                      background: #7AB2DE;
-                      color: #333;
-                      font: 16px 'PatuaOneRegular', Arial, sans-serif; }
-                    html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr td {
-                      cursor: pointer; }
-                      html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr td.today {
-                        background-color: #FCDEC0; }
-                        html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr td.today:hover {
-                          background: #FFD1A3; }
-                        html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr td.today:active {
-                          background: #FFC285; }
-                      html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr td:hover {
+                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar {
+                    margin-bottom: 15px 0px; }
+                    html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar .calendar_header {
+                      font: 17px 'PatuaOneRegular', Arial, sans-serif;
+                      width: 454px;
+                      background: #ddd;
+                      padding: 10px 0px;
+                      border: 1px solid #999;
+                      border-bottom: none;
+                      -moz-border-radius-topleft: 10px;
+                      -webkit-border-top-left-radius: 10px;
+                      -khtml-border-radius-topleft: 10px;
+                      border-top-left-radius: 10px;
+                      -moz-border-radius-topright: 10px;
+                      -webkit-border-top-right-radius: 10px;
+                      -khtml-border-radius-topright: 10px;
+                      border-top-right-radius: 10px;
+                      -moz-border-radius-bottomright: 0px;
+                      -webkit-border-bottom-right-radius: 0px;
+                      -khtml-border-radius-bottomright: 0px;
+                      border-bottom-right-radius: 0px;
+                      -moz-border-radius-bottomleft: 0px;
+                      -webkit-border-bottom-left-radius: 0px;
+                      -khtml-border-radius-bottomleft: 0px;
+                      border-bottom-left-radius: 0px; }
+                      html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar .calendar_header div {
+                        display: inline-block; }
+                      html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar .calendar_header .calendar_header_left {
+                        font: 14px 'PatuaOneRegular', Arial, sans-serif;
+                        color: #888; }
+                      html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar .calendar_header .current_month {
+                        width: 60%; }
+                      html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar .calendar_header .calendar_header_right {
+                        font: 14px 'PatuaOneRegular', Arial, sans-serif;
+                        color: #888; }
+                    html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar table {
+                      width: 400px;
+                      table-layout: fixed;
+                      border-collapse: collapse;
+                      border-right: 1px solid #999;
+                      border-top: 1px solid #999; }
+                      html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar table tbody tr td, html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar table tbody tr th {
+                        width: 40px;
+                        border-left: 1px solid #999;
+                        border-bottom: 1px solid #999;
+                        text-align: center;
+                        padding: 8px 12px; }
+                      html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar table tbody tr th {
+                        background: #7AB2DE;
+                        color: #333;
+                        font: 16px 'PatuaOneRegular', Arial, sans-serif; }
+                      html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar table tbody tr td {
+                        cursor: pointer; }
+                        html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar table tbody tr td.today {
+                          color: #FF0000; }
+                        html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar table tbody tr td.selected {
+                          background-color: #7AB2DE; }
+                          html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar table tbody tr td.selected:hover {
+                            background: #66A3D4; }
+                          html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar table tbody tr td.selected:active {
+                            background: #5998C9; }
+                        html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar table tbody tr td:hover {
+                          background: #eee; }
+                        html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar table tbody tr td:active {
+                          background: #ddd; }
+                      html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar table tbody tr .other-month {
                         background: #eee; }
-                      html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr td:active {
-                        background: #ddd; }
-                    html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr .other-month {
-                      background: #eee; }
-                      html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr .other-month:hover {
-                        background: #ddd; }
-                      html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar table tbody tr .other-month:active {
-                        background: #ccc; }
+                        html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar table tbody tr .other-month:hover {
+                          background: #ddd; }
+                        html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .calendar table tbody tr .other-month:active {
+                          background: #ccc; }
+                  html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar, html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block #calendar_two_month {
+                    display: none; }
                   html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .content_upper_text {
                     margin-bottom: 20px; }
                   html body #main_container #propose_date_main_border .propose_date_main_right .section_container .section .section_body form .content .content_block .content_lower_text {

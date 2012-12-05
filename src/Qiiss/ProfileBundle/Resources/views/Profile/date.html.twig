@@ -54,7 +54,9 @@
 							<div class="content">
 						    	<div class="content_header">Date / Time</div>
 							    <div class="content_block">
-							    	<div id="calendar"></div>
+							    	<div id="calendar" class="calendar"></div>
+							    	<div id="calendar_one_month" class="calendar"></div>
+							    	<div id="calendar_two_month" class="calendar"></div>
 							    	<div class="date_date">
 							    		{{ form_widget(form.event_date.date.day) }}
 							    		{{ form_widget(form.event_date.date.month) }}
@@ -63,6 +65,8 @@
 							    	<div class="date_time">
 							    		{{ form_widget(form.event_date.time.hour) }}
 							    		{{ form_widget(form.event_date.time.minute) }}
+							    	</div>
+							    	<div id="time_picker">
 							    	</div>
 							    </div>
 						    </div>

@@ -186,6 +186,7 @@ html {
                       } // textarea
 
                       .date_time {
+                        display:none;
 
                         select {
                           -webkit-appearance: none;
@@ -214,10 +215,37 @@ html {
                         display:none;
                       }
 
-                      #calendar {
+                      .calendar {
+                        margin-bottom:15px 0px;
+
+                        .calendar_header {
+                            font: 17px 'PatuaOneRegular', Arial, sans-serif;
+                            width:454px;
+                            background:#ddd;
+                            padding:10px 0px;
+                            border:1px solid #999;
+                            border-bottom:none;
+                            @include corner(10px, 10px, 0px, 0px);
+
+                          div {
+                            display:inline-block;
+                          }
+
+                          .calendar_header_left {
+                            font: 14px 'PatuaOneRegular', Arial, sans-serif;
+                            color:#888;
+                          }
+
+                          .current_month {
+                            width:60%;
+                          }
+                          .calendar_header_right {
+                            font: 14px 'PatuaOneRegular', Arial, sans-serif;
+                            color:#888;
+                          }
+                        }
                         table {
                           width:400px;
-                          margin:10px 0px 15px 0px;
                           table-layout:fixed;
                           border-collapse:collapse;
                           border-right:1px solid #999;
@@ -236,7 +264,7 @@ html {
                               }
 
                               th {
-                                background:#7AB2DE;;
+                                background:#7AB2DE;
                                 color:#333;
                                 font: 16px 'PatuaOneRegular', Arial, sans-serif;
                               }
@@ -245,12 +273,16 @@ html {
                                 cursor:pointer;
 
                                 &.today {
-                                  background-color:#FCDEC0;
+                                  color:#FF0000;
+                                }
+
+                                &.selected {
+                                  background-color:#7AB2DE;
                                   &:hover {
-                                  background:#FFD1A3;
+                                  background:#66A3D4;
                                   }
                                   &:active {
-                                    background:#FFC285;
+                                    background:#5998C9;
                                   }
                                 } // .today
                                 &:hover {
@@ -274,6 +306,10 @@ html {
                           } // tbody
                         } // table
                       } // #calender
+
+                      #calendar, #calendar_two_month {
+                        display:none;
+                      }
 
                       .content_upper_text {
                         margin-bottom:20px;

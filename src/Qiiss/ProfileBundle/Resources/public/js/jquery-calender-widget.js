@@ -4,13 +4,14 @@
 
 		var now   = new Date();
 		var today = now.getDate();
-		console.log(today);
 		var thismonth = now.getMonth();
 		var thisyear  = now.getYear() + 1900;
+		var nav = jQuery.parseJSON('{"left": "", "right" : ""}')
 
 		var opts = {
 			month: thismonth,
-			year: thisyear
+			year: thisyear,
+			nav: nav
 		};
 
 		$.extend(opts, params);
@@ -36,7 +37,19 @@
 				var prev_month = '<a href="?month=' + (month) + '&amp;year=' + (year) + '" title="' + monthNames[month - 1] + ' ' + (year) + '">' + monthNames[month - 1] + ' ' + (year) + '</a>';
 			}
 
-			table += ('<h3 id="current-month">'+monthNames[month]+' '+year+'</h3>');
+			table += ('<div class="calendar_header">');
+				table += ('<div class="calendar_header_left">');
+				if (opts.nav.left != "") {
+					table += (monthNames[parseInt(opts.nav.left)]);
+				}
+				table += ('</div>');
+				table += ('<div class="current_month">'+monthNames[month]+' '+year+'</div>');
+				table += ('<div class="calendar_header_right">');
+				if (opts.nav.right != "") {
+					table += (monthNames[parseInt(opts.nav.right)]);
+				}
+				table += ('</div>');
+			table += ('</div>');
 			// uncomment the following lines if you'd like to display calendar month based on 'month' and 'view' paramaters from the URL
 			//table += ('<div class="nav-prev">'+ prev_month +'</div>');
 			//table += ('<div class="nav-next">'+ next_month +'</div>');
@@ -64,8 +77,7 @@
 			var i = 0;
             for (j=0;j<42;j++){
               if (month == thismonth && (j-firstDay+1) == today) {
-              	console.log("MATCH");
-				table += ('<td class="current-month day'+(j-firstDay+1)+' today"><span class="day">'+(j-firstDay+1)+'</span></td>');
+				table += ('<td class="current-month day'+(j-firstDay+1)+' selected today"><span class="day">'+(j-firstDay+1)+'</span></td>');
               }
               else if ((j<firstDay)){
                 table += ('<td class="other-month"><span class="day">'+ (prev_days-firstDay+j+1) +'</span></td>');
