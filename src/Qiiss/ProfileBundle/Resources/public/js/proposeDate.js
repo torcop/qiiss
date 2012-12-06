@@ -75,6 +75,13 @@ $(document).ready(function() {
 		$("#calendar_one_month").css("display", "block");
 	});
 
+	$("#qiiss_profilebundle_datetype_event_price").change(function() {
+		console.log("test");
+		if ($(this).val().indexOf("$") != 0) {
+			$(this).val("$" + $(this).val());
+		}
+	});
+
 	$("#time_picker").timePicker({
 	  show24Hours: false,
 	  step: 15
