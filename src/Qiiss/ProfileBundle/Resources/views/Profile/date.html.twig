@@ -36,7 +36,7 @@
 				</div>
 				<div class="section">
 					<div class="section_body">
-						<form action="{{ path('qiiss_profile_propose_date') }}" method="post" {{ form_enctype(form) }}>
+						<form action="{{ path('qiiss_profile_propose_date', { 'profileId' : profileId }) }}" method="post" {{ form_enctype(form) }}>
 						    <div>{{ form_widget(form.event_description) }}</div>
 						    <div>{{ form_widget(form.event_date) }}</div>
 						    <div>{{ form_widget(form.event_place) }}</div>
