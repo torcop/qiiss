@@ -40,15 +40,6 @@
 				</div>
 				<div class="section">
 					<div class="section_body">
-<<<<<<< HEAD
-						<form action="{{ path('qiiss_profile_propose_date', { 'profileId' : profileId }) }}" method="post" {{ form_enctype(form) }}>
-						    <div>{{ form_widget(form.event_description) }}</div>
-						    <div>{{ form_widget(form.event_date) }}</div>
-						    <div>{{ form_widget(form.event_place) }}</div>
-						    <div>{{ form_widget(form.event_media) }}</div>
-						    <div>{{ form_widget(form.event_link) }}</div>
-						    <div>{{ form_widget(form.event_price) }}</div>
-=======
 						<form action="{{ path('qiiss_profile_propose_date') }}" method="post" {{ form_enctype(form) }}>
 							<div class="content">
 								<div class="content_header">Date Overview</div>
@@ -106,7 +97,6 @@
 							    	{{ form_widget(form.event_price, { 'attr': {'placeholder': 'Price'} }) }}
 							    </div>
 						    </div>
->>>>>>> a24a69c4f7290e3b93ecca144121faadb94bc498
 						    {{form_widget(form._token)}}
 						    <div class="content_submit">
 						    	<input type="submit" class="submit" value="Submit" />

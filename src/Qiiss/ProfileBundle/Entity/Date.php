@@ -57,9 +57,9 @@ class Date
     private $event_link;
 
     /**
-     * @var float
+     * @var string
      *
-     * @ORM\Column(name="event_price", type="float")
+     * @ORM\Column(name="event_price", type="string")
      */
     private $event_price;
 
@@ -199,7 +199,7 @@ class Date
     /**
      * Set event_price
      *
-     * @param float $eventPrice
+     * @param string $eventPrice
      * @return Date
      */
     public function setEventPrice($eventPrice)
@@ -212,7 +212,7 @@ class Date
     /**
      * Get event_price
      *
-     * @return float 
+     * @return string
      */
     public function getEventPrice()
     {

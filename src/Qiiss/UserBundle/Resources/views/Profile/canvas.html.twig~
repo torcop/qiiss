@@ -45,7 +45,7 @@
         </div>
         <div id="info_right">
           <div id="info_propose">
-            <a href="{{ path('qiiss_profile_propose_date', { 'profileId' : app.user.username }) }}"><img src="{{ asset('bundles/qiissuser/images/Qiiss-Propose-Date.png') }}" /></a>
+            <a href="{{ path('qiiss_profile_propose_date', { 'profileId' : app.user.id }) }}"><img src="{{ asset('bundles/qiissuser/images/Qiiss-Propose-Date.png') }}" /></a>
           </div>
         </div>
       </div>

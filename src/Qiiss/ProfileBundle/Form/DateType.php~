@@ -11,14 +11,12 @@ class DateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('event_title')
             ->add('event_description')
             ->add('event_date')
             ->add('event_place')
             ->add('event_media')
             ->add('event_link')
-            ->add('event_price')
-        ;
+            ->add('event_price');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

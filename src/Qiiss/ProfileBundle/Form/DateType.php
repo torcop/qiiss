@@ -12,12 +12,11 @@ class DateType extends AbstractType
     {
         $builder
             ->add('event_description')
-            ->add('event_date')
+            ->add('event_date', 'datetime')
             ->add('event_place')
             ->add('event_media')
             ->add('event_link')
-            ->add('event_price')
-        ;
+            ->add('event_price');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

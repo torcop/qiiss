@@ -1,4 +1,46 @@
+qiiss_noty:
+    resource: "@QiissNotyBundle/Resources/config/routing.yml"
+    prefix:   /
+
+qiiss_profile:
+    resource: "@QiissProfileBundle/Resources/config/routing.yml"
+    prefix:   /
+
+qiiss_general:
+    resource: "@QiissGeneralBundle/Resources/config/routing.yml"
+    prefix:   /
+
+qiiss_user:
+    resource: "@QiissUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+_fb_security_check:
+  pattern: /login_check_fb
+
+_security_logout:
+    pattern:  /logout
+
 # Internal routing configuration to handle ESI
 #_internal:
 #    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
 #    prefix:   /_internal
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile/{profileId}
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /reset
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+

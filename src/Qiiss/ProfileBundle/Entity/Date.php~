@@ -57,9 +57,9 @@ class Date
     private $event_link;
 
     /**
-     * @var float
+     * @var string
      *
-     * @ORM\Column(name="event_price", type="float")
+     * @ORM\Column(name="event_price", type="string")
      */
     private $event_price;
 
@@ -80,22 +80,6 @@ class Date
      * @param string $eventTitle
      * @return Date
      */
-    public function setEventTitle($eventTitle)
-    {
-        $this->event_title = $eventTitle;
-    
-        return $this;
-    }
-
-    /**
-     * Get event_title
-     *
-     * @return string 
-     */
-    public function getEventTitle()
-    {
-        return $this->event_title;
-    }
 
     /**
      * Set event_description
@@ -215,7 +199,7 @@ class Date
     /**
      * Set event_price
      *
-     * @param float $eventPrice
+     * @param string $eventPrice
      * @return Date
      */
     public function setEventPrice($eventPrice)
@@ -228,7 +212,7 @@ class Date
     /**
      * Get event_price
      *
-     * @return float 
+     * @return string
      */
     public function getEventPrice()
     {
