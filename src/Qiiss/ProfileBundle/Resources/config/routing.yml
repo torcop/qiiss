@@ -1,3 +1,8 @@
 qiiss_profile_propose_date:
+<<<<<<< HEAD
     pattern:  /date/{profileId}
     defaults: { _controller: QiissProfileBundle:Profile:proposeDate }
+=======
+    pattern:  /new-date
+    defaults: { _controller: QiissProfileBundle:Profile:proposeDate }
+>>>>>>> a24a69c4f7290e3b93ecca144121faadb94bc498

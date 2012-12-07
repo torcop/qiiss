@@ -1,0 +1,32 @@
+@import "shared", "fonts";
+
+.time-picker {
+  position: absolute;
+  height: 191px;
+  width:276px;
+  overflow: auto;
+  background: #fff;
+  border: 2px solid #bbb;
+  border-top:none;
+  font: 16px 'PatuaOneRegular', Arial, sans-serif;
+  z-index: 1003;
+  margin: 0;
+  @include corner(0px, 0px, 5px, 5px);
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      cursor: pointer;
+      padding: 8px;
+      border-bottom:1px solid #bbb;
+
+      &.selected {
+        background: #7AB2DE;
+        color: #333;
+      }
+    }
+  }
+}
