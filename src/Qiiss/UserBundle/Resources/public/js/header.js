@@ -1,6 +1,12 @@
 $(document).ready(function() {
+  // Set notification "opened" data
+  $("#notification_popup").data("notyIndex", 0);
+  $("#message_popup").data("notyIndex", 0);
+  $("#date_popup").data("notyIndex", 0);
+
   $(".notifications").bind("click", function() {
-    var popup = $("#" + $(this).attr('id').split("_")[0] + "_popup");
+    var which = $(this).attr('id').split("_")[0];
+    var popup = $("#" + which + "_popup");
     if (popup.css("display") != "none") {
       popup.slideUp(300);
       return;
@@ -15,6 +21,30 @@ $(document).ready(function() {
     popup.addClass("animating");
     popup.slideDown(300, function() {
       popup.removeClass("animating");
+    });
+    $.ajax({
+      url: '/get-notifications/' + which + "/" + popup.data("notyIndex"),
+      success: function(data) {
+        parsed = jQuery.parseJSON(data);
+        console.log(parsed.notifications)
+        $.each(parsed.notifications, function(key, val) {
+          // Find a way to parametize this out, it's ugly
+          popup.find(".popup_content").append(
+            '<a href="' + val.link +  '">' +
+            '<div class="popup_item">' +
+              '<div class="popup_item_dp"><img src="#" class="popup_item_dp_img"></div>' +
+              '<div class="popup_item_content">' +
+                '<div class="popup_item_text">' + val.content + '</div>' +
+                '<div class="popup_item_time">' + val.date + '</div>' +
+              '</div>' +
+            '</div>' +
+            '</a>'
+          );
+          console.log(parsed.numResults);
+          popup.data("notyIndex", popup.data("notyIndex") + parsed.numResults);
+          console.log(popup.data("notyIndex"));
+        });
+      }
     });
   });
 

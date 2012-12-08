@@ -35,17 +35,17 @@
     padding:0px 4px;
   }
 
-  #dates_icon {
+  #date_icon {
     img {
       height:35px;
     }
   }
-  #messages_icon {
+  #message_icon {
     img {
       height:20px;
     }
   }
-  #notifications_icon {
+  #notification_icon {
     margin-right:5px;
 
     img {
@@ -118,57 +118,67 @@
       overflow-y:scroll;
       padding:0px;
       display:block;
+      font-size:0;
 
-      .popup_item {
-        display:block;
-        text-align:left;
-        padding:5px;
-        border-bottom:1px solid #ccc;
-        font: 14px 'OxygenRegular', Arial, sans-serif;
-        cursor:pointer;
+      a {
+        padding:0;
 
-        &:hover {
-          background-color:#eee;
-        }
+        .popup_item {
+          display:block;
+          text-align:left;
+          padding:5px;
+          border-bottom:1px solid #ccc;
+          font: 14px 'OxygenRegular', Arial, sans-serif;
+          cursor:pointer;
 
-        &:active {
-          background-color:#ddd;
-        }
-
-        div, img {
-          padding:0;
-          display:inline-block;
-          vertical-align:middle;
-        }
-
-        .popup_item_dp {
-          margin-right:10px;
-        }
-
-        .popup_item_content {
-
-          div {
-            display:block;
+          &:hover {
+            background-color:#eee;
           }
 
-          .popup_item_time {
-            margin-top:5px;
-            color:#666;
-            font-size:12px;
+          &:active {
+            background-color:#ddd;
           }
-        }
-      }
-    }
+
+          div, img {
+            padding:0;
+            display:inline-block;
+            vertical-align:middle;
+          }
+
+          .popup_item_dp {
+            margin-right:10px;
+
+            img {
+              width:50;
+              height:50px;
+            }
+          }
+
+          .popup_item_content {
+
+            div {
+              display:block;
+            }
+
+            .popup_item_time {
+              margin-top:5px;
+              color:#666;
+              font-size:12px;
+            }
+          }
+        } // .popup_item
+      } // a
+    } // .popup_content
   } // .popup
-  #notifications_popup {
+  #notification_popup {
     right:100px;
   }
 
-  #messages_popup {
+  #message_popup {
     right:150px;
   }
 
-  #dates_popup {
+  #date_popup {
     right:200px;
   }
 } // #upper_top_banner

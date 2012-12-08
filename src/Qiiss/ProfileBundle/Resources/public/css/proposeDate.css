@@ -45,13 +45,13 @@
     vertical-align: middle;
     cursor: pointer;
     padding: 0px 4px; }
-  #upper_top_banner #dates_icon img {
+  #upper_top_banner #date_icon img {
     height: 35px; }
-  #upper_top_banner #messages_icon img {
+  #upper_top_banner #message_icon img {
     height: 20px; }
-  #upper_top_banner #notifications_icon {
+  #upper_top_banner #notification_icon {
     margin-right: 5px; }
-    #upper_top_banner #notifications_icon img {
+    #upper_top_banner #notification_icon img {
       height: 25px; }
   #upper_top_banner #logout_div {
     position: absolute;
@@ -116,35 +116,41 @@
       height: 300px;
       overflow-y: scroll;
       padding: 0px;
-      display: block; }
-      #upper_top_banner .popup .popup_content .popup_item {
-        display: block;
-        text-align: left;
-        padding: 5px;
-        border-bottom: 1px solid #ccc;
-        font: 14px 'OxygenRegular', Arial, sans-serif;
-        cursor: pointer; }
-        #upper_top_banner .popup .popup_content .popup_item:hover {
-          background-color: #eee; }
-        #upper_top_banner .popup .popup_content .popup_item:active {
-          background-color: #ddd; }
-        #upper_top_banner .popup .popup_content .popup_item div, #upper_top_banner .popup .popup_content .popup_item img {
-          padding: 0;
-          display: inline-block;
-          vertical-align: middle; }
-        #upper_top_banner .popup .popup_content .popup_item .popup_item_dp {
-          margin-right: 10px; }
-        #upper_top_banner .popup .popup_content .popup_item .popup_item_content div {
-          display: block; }
-        #upper_top_banner .popup .popup_content .popup_item .popup_item_content .popup_item_time {
-          margin-top: 5px;
-          color: #666;
-          font-size: 12px; }
-  #upper_top_banner #notifications_popup {
+      display: block;
+      font-size: 0; }
+      #upper_top_banner .popup .popup_content a {
+        padding: 0; }
+        #upper_top_banner .popup .popup_content a .popup_item {
+          display: block;
+          text-align: left;
+          padding: 5px;
+          border-bottom: 1px solid #ccc;
+          font: 14px 'OxygenRegular', Arial, sans-serif;
+          cursor: pointer; }
+          #upper_top_banner .popup .popup_content a .popup_item:hover {
+            background-color: #eee; }
+          #upper_top_banner .popup .popup_content a .popup_item:active {
+            background-color: #ddd; }
+          #upper_top_banner .popup .popup_content a .popup_item div, #upper_top_banner .popup .popup_content a .popup_item img {
+            padding: 0;
+            display: inline-block;
+            vertical-align: middle; }
+          #upper_top_banner .popup .popup_content a .popup_item .popup_item_dp {
+            margin-right: 10px; }
+            #upper_top_banner .popup .popup_content a .popup_item .popup_item_dp img {
+              width: 50;
+              height: 50px; }
+          #upper_top_banner .popup .popup_content a .popup_item .popup_item_content div {
+            display: block; }
+          #upper_top_banner .popup .popup_content a .popup_item .popup_item_content .popup_item_time {
+            margin-top: 5px;
+            color: #666;
+            font-size: 12px; }
+  #upper_top_banner #notification_popup {
     right: 100px; }
-  #upper_top_banner #messages_popup {
+  #upper_top_banner #message_popup {
     right: 150px; }
-  #upper_top_banner #dates_popup {
+  #upper_top_banner #date_popup {
     right: 200px; }
 
 #lower_top_nav {

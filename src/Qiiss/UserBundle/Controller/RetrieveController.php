@@ -19,6 +19,11 @@ class RetrieveController extends Controller
         ->getRepository('QiissUserBundle:User')
         ->find($profileid);
 
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Profile:show.html.'.$this->container->getParameter('fos_user.template.engine'), array('username' => $username->getUsername(), 'profileid' => $username->getId(), 'navSelection' => 'profile'));
+        return $this->container->get('templating')->renderResponse('FOSUserBundle:Profile:show.html.'.$this->container->getParameter('fos_user.template.engine'), 
+            array(
+                'username' => $username->getUsername(),
+                'profileid' => $username->getId(),
+                'navSelection' => 'profile')
+            );
     }
 }
