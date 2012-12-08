@@ -4,7 +4,7 @@
 	<div id="notification_icon" class="notifications"><img src="{{ asset('bundles/qiissuser/images/Qiiss-Notification-Icon.png') }}" /></div>
 	<div><a href="/faq"><div id="faq">About</div></a></div>
 	<div id="logout_div">
-		<div id="logout_div_profile">{{ username }}</div>
+		<div id="logout_div_profile">{{ app.user.username }}</div>
 		<div id="logout_div_seperator"></div>
 		<div id="logout_div_button">
 			<a href="{{ path('fos_user_security_logout') }}">
@@ -29,7 +29,7 @@
 	<a href="/home"><img src="{{ asset('bundles/qiissgeneral/images/qiiss-graphics/blue/Logo.png') }}" /></a>
 </div>
 <div id="lower_top_nav">
-	<a href="/profile"><div id="nav_profile" class="
+	<a href="{{ path('fos_user_profile_show') }}"><div id="nav_profile" class="
 		{% if (navSelection is defined) and (navSelection == "profile") %} selected left
 		{% else %} left
 		{% endif %}">Profile
@@ -54,7 +54,7 @@
 		{% else %} left
 		{% endif %}">Global Canvas
 	</div></a>
-	<a href="/settings"><div id="nav_settings" class="
+	<a href="{{ path('qiiss_self_admin') }}"><div id="nav_settings" class="
 		{% if navSelection is defined %}
 			{% if navSelection == "settings" %} selected
 			{% elseif navSelection == "findDates" %} left left-shadow
