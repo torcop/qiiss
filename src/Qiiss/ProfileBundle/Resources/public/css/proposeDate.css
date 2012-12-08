@@ -318,6 +318,8 @@ html {
             html body #main_container #propose_date_main_border #propose_date_main_left #propose_date_profile_picture img {
               width: 190px;
               height: 190px; }
+          html body #main_container #propose_date_main_border #propose_date_main_left #date_target_name {
+            font: 18px 'PatuaOneRegular', Arial, sans-serif; }
           html body #main_container #propose_date_main_border #propose_date_main_left .section_header {
             background-color: #eee;
             color: #333;

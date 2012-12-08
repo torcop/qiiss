@@ -16,7 +16,7 @@
     <div id="canvas_header">
       <div id="header_top">
         <div id="header_name_fav">
-          {{ user.username }}
+          {{ username }}
           <div id="header_fav">+ Favourite</div>
         </div>
         <div id="header_age">
@@ -45,7 +45,7 @@
         </div>
         <div id="info_right">
           <div id="info_propose">
-            <a href="{{ path('qiiss_profile_propose_date') }}"><img src="{{ asset('bundles/qiissuser/images/Qiiss-Propose-Date.png') }}" /></a>
+            <a href="{{ path('qiiss_profile_propose_date', { 'profileid' : profileid }) }}"><img src="{{ asset('bundles/qiissuser/images/Qiiss-Propose-Date.png') }}" /></a>
           </div>
         </div>
       </div>

@@ -2,9 +2,9 @@ parameters:
     database_driver: pdo_mysql
     database_host: 127.0.0.1
     database_port: null
-    database_name: qiissData
+    database_name: qiiss
     database_user: root
-    database_password: Lespaul1988
+    database_password: bicnarker
     mailer_transport: smtp
     mailer_host: localhost
     mailer_user: null

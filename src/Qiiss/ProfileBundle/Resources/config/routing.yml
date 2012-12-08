@@ -1,3 +1,6 @@
 qiiss_profile_propose_date:
-    pattern:  /date
+    pattern:  /date/{profileid}
     defaults: { _controller: QiissProfileBundle:Profile:proposeDate }
+qiiss_profile:
+    pattern:  /profile/{profileid}
+    defaults: { _controller: QiissUserBundle:Retrieve:getProfile }

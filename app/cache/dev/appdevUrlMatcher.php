@@ -168,8 +168,13 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // qiiss_profile_propose_date
-        if ($pathinfo === '/date') {
-            return array (  '_controller' => 'Qiiss\\ProfileBundle\\Controller\\ProfileController::proposeDateAction',  '_route' => 'qiiss_profile_propose_date',);
+        if (0 === strpos($pathinfo, '/date') && preg_match('#^/date/(?P<profileid>[^/]+)$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Qiiss\\ProfileBundle\\Controller\\ProfileController::proposeDateAction',)), array('_route' => 'qiiss_profile_propose_date'));
+        }
+
+        // qiiss_profile
+        if (0 === strpos($pathinfo, '/profile') && preg_match('#^/profile/(?P<profileid>[^/]+)$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Qiiss\\UserBundle\\Controller\\RetrieveController::getProfileAction',)), array('_route' => 'qiiss_profile'));
         }
 
         // qiiss_general_homepage

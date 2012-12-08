@@ -30,8 +30,8 @@
 		</div>
 		<div id="propose_date_main_left">
 			<div class="section_header">Your Date</div>
-			<div id="propose_date_profile_picture">
-			</div>
+			<div id="propose_date_profile_picture"></div>
+			<div id="date_target_name">{{ username }}</div>
 		</div>
 		<div class="propose_date_main_right">
 			<div class="section_container">
@@ -40,7 +40,7 @@
 				</div>
 				<div class="section">
 					<div class="section_body">
-						<form action="{{ path('qiiss_profile_propose_date') }}" method="post" {{ form_enctype(form) }}>
+						<form action="{{ path('qiiss_profile_propose_date', { 'profileid' : profileid}) }}" method="post" {{ form_enctype(form) }}>
 							<div class="content">
 								<div class="content_header">Date Overview</div>
 							    <div class="content_block">
