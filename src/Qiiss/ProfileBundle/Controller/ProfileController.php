@@ -40,6 +40,7 @@ class ProfileController extends Controller
 				$noty->setType("date");
 				$noty->setContent("You have a new date request!");
         $noty->setLink($this->container->get('router')->getContext()->getBaseUrl() . "/date/" . $date->getId());
+        $noty->setNotyRead(false);
 				$em->persist($noty);
         $em->flush();
 

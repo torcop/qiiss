@@ -63,6 +63,13 @@ class Noty
      */
     private $link;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="notyRead", type="boolean")
+     */
+    private $notyRead;
+
 
     /**
      * Get id
@@ -204,5 +211,22 @@ class Noty
     public function getLink()
     {
         return $this->link;
+    }
+
+    /**
+     * Get notyRead
+     *
+     * @return boolean
+     */
+    public function getnotyRead()
+    {
+        return $this->notyRead;
+    }
+
+    public function setnotyRead($notyRead)
+    {
+        $this->notyRead = $notyRead;
+
+        return $this;
     }
 }

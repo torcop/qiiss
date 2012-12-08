@@ -36,6 +36,7 @@ class NotyController extends Controller
 		    $notyArray["notifications"][$post->getId()]["link"] = $post->getLink();
 		    $notyArray["notifications"][$post->getId()]["type"] = $post->getType();
 		    $notyArray["notifications"][$post->getId()]["content"] = $post->getContent();
+		    $notyArray["notifications"][$post->getId()]["notyRead"] = $post->getNotyRead();
 		    // Save the id of the last retrieved noty in case we need to get more later
 		    $notyArray["numResults"]++;
 		}
