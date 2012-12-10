@@ -30,21 +30,20 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="integer", length=10)
      *
-     * @Assert\NotBlank(message="dob.empty", groups={"Registration", "Profile"})
      */
-    protected $numDateNoty;
+    protected $numDateNoty = 0;
 
     /**
      * @ORM\Column(type="integer", length=10)
      *
      */
-    protected $numMessageNoty;
+    protected $numMessageNoty = 0;
 
     /**
      * @ORM\Column(type="integer", length=10)
      *
      */
-    protected $numNotificationNoty;
+    protected $numNotificationNoty = 0;
 
     /**
      * Set dob
