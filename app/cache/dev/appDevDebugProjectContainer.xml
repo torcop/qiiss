@@ -394,8 +394,8 @@
     <parameter key="assetic.variables" type="collection"/>
     <parameter key="assetic.java.bin">/usr/bin/java</parameter>
     <parameter key="assetic.node.bin">/usr/bin/node</parameter>
-    <parameter key="assetic.ruby.bin">/Users/bicnarker/.rvm/rubies/ruby-1.9.3-p194/bin/ruby</parameter>
-    <parameter key="assetic.sass.bin">/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/bin/sass</parameter>
+    <parameter key="assetic.ruby.bin">/usr/bin/ruby</parameter>
+    <parameter key="assetic.sass.bin">/usr/bin/sass</parameter>
     <parameter key="assetic.filter.cssrewrite.class">Assetic\Filter\CssRewriteFilter</parameter>
     <parameter key="assetic.twig_extension.functions" type="collection"/>
     <parameter key="assetic.controller.class">Symfony\Bundle\AsseticBundle\Controller\AsseticController</parameter>
@@ -484,8 +484,8 @@
     <parameter key="jms_di_extra.directories" type="collection"/>
     <parameter key="jms_di_extra.cache_dir">/Users/bicnarker/Sites/Qiiss/app/cache/dev/jms_diextra</parameter>
     <parameter key="jms_di_extra.doctrine_integration">true</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">/Users/bicnarker/Sites/Qiiss/app/cache/dev/jms_diextra/doctrine/EntityManager_50c579cded406.php</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager50c579cded406_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">/Users/bicnarker/Sites/Qiiss/app/cache/dev/jms_diextra/doctrine/EntityManager_50c59045b5eb7.php</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager50c59045b5eb7_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
     <parameter key="security.secured_services" type="collection"/>
     <parameter key="security.access.method_interceptor.class">JMS\SecurityExtraBundle\Security\Authorization\Interception\MethodSecurityInterceptor</parameter>
     <parameter key="security.access.method_access_control" type="collection"/>
@@ -1620,7 +1620,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>50c579cdd1455</argument>
+            <argument>50c59045a2bca</argument>
           </service>
         </argument>
       </argument>
@@ -1913,7 +1913,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>50c579cdd1455</argument>
+            <argument>50c59045a2bca</argument>
             <argument type="service" id="monolog.logger.security"/>
           </service>
         </argument>
@@ -2127,6 +2127,10 @@
       <call method="addExtension">
         <argument type="service" id="twig.extension.acme.demo"/>
       </call>
+      <call method="addGlobal">
+        <argument>app</argument>
+        <argument type="service" id="templating.globals"/>
+      </call>
     </service>
     <service id="twig.loader" class="Symfony\Bundle\TwigBundle\Loader\FilesystemLoader">
       <argument type="service" id="templating.locator"/>
@@ -2325,8 +2329,8 @@
     <service id="doctrine.orm.default_manager_configurator" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator">
       <argument type="collection"/>
     </service>
-    <service id="doctrine.orm.default_entity_manager" class="EntityManager50c579cded406_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
-      <file>/Users/bicnarker/Sites/Qiiss/app/cache/dev/jms_diextra/doctrine/EntityManager_50c579cded406.php</file>
+    <service id="doctrine.orm.default_entity_manager" class="EntityManager50c59045b5eb7_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
+      <file>/Users/bicnarker/Sites/Qiiss/app/cache/dev/jms_diextra/doctrine/EntityManager_50c59045b5eb7.php</file>
       <argument type="service">
         <service class="Doctrine\ORM\EntityManager" factory-method="create" public="false">
           <argument type="service" id="doctrine.dbal.default_connection"/>
