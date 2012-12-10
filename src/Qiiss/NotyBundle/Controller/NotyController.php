@@ -43,7 +43,20 @@ class NotyController extends Controller
 		    	$post->setNotyRead(true);
 		    	$em->flush();
 		    }
-		    // Save the id of the last retrieved noty in case we need to get more later
+		    // Return the amount of results, and subtract the new notifications returned from the total number of unread the user has
+		    $userObject = $this->getDoctrine()
+          		->getRepository('QiissUserBundle:User')
+          		->find($user->getId());
+          	if ($notyType == "date") {
+          		$userObject->setNumDateNoty($userObject->getNumDateNoty() - $notyArray["numNew"]);
+          	}
+          	else if ($notyType == "message") {
+          		$userObject->setNumMessageNoty($userObject->getNumMessageNoty() - $notyArray["numNew"]);
+          	}
+          	else if ($notyType == "notification") {
+          		$userObject->setNumNotificationNoty($userObject->getNumNotificationNoty() - $notyArray["numNew"]);
+          	}
+		    $em->flush();
 		    $notyArray["numResults"]++;
 		}
 
@@ -51,19 +64,19 @@ class NotyController extends Controller
     }
     public function getNotificationsNumberAction($notyType) {
     	$user = $this->container->get('security.context')->getToken()->getUser();
-    	$maxResults = 10;
-    	$em = $this->getDoctrine()->getEntityManager();
-    	$dql = "SELECT n FROM Qiiss\NotyBundle\Entity\Noty n WHERE n.target = " . $user->getId() . " AND n.type = '" . $notyType . "'";
-		$result = $em->createQuery($dql)
-			->getResult();
-		$notyArray = array(
-			"numNew" => 0
-		);
-		foreach ($result as $post) {
-		    if (!$post->getNotyRead()) {
-		    	$notyArray["numNew"]++;
-		    }
-		}
+		$userObject = $this->getDoctrine()
+          ->getRepository('QiissUserBundle:User')
+          ->find($user->getId());
+      	$notyArray = array();
+        if ($notyType == "date") {
+			$notyArray["numNew"] = $userObject->getNumDateNoty();
+      	}
+      	else if ($notyType == "message") {
+			$notyArray["numNew"] = $userObject->getNumMessageNoty();
+      	}
+      	else if ($notyType == "notification") {
+      		$notyArray["numNew"] = $userObject->getNumNotificationNoty();
+      	}
 
 		return new Response(json_encode($notyArray));
     }
