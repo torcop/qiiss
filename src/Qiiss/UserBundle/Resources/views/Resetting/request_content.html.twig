@@ -1,0 +1,13 @@
+<form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
+    <div>
+        <div><div class="error_message username_error_message">Error</div>
+        <input type="text" id="username" name="username" placeholder="{{ 'Username'|trans({}, 'FOSUserBundle') }}" required="required" />
+    </div>
+    <div>
+        <input type="submit" class="submit" value="{{ 'Submit'|trans({}, 'FOSUserBundle') }}" />
+    </div>
+</form>
+<div class="seperator"></div>
+<div id="tooltip">
+    {{ 'Simply type your username and we\'ll email you a password reset link.'|trans({}, 'FOSUserBundle') }}
+</div>

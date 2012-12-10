@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %}Welcome to Qiiss{% endblock %}</title>
+		{% block stylesheets %}
+				<link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/faq.css') }}" type="text/css" media="all" />
+		{% endblock %}
+			<script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/jquery-1.8.3.min.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/splash/faq.js') }}"></script>
+</head>
+<body>
+<div class="faq_main_border">
+	<div class="faq_main">
+		<div class="header">
+			<a href="{{ path('qiiss_general_homepage') }}"><img src="{{ asset('bundles/qiissgeneral/images/qiiss-graphics/blue/Logo.png') }}" /></a>
+			<div class="seperator"></div>
+			<div class="inner">Frequently Asked Questions</div>
+		</div>
+		<div class="section">
+			<div class="section_header">
+				How is Qiiss different from other dating sites?
+			</div>
+			<div class="section_body">
+				Qiiss is a free, fun and simple way to meet new people.<br />
+				By highlighting shared interests, passions and goals, Qiiss brings people together around the important things in life. It's not about money, appearance or material possessions.
+				<br /><br />
+				Your Qiiss Profile lets you display photos and status updates. You can link with your Facebook account for manual or automatic updates, or keep your Qiiss Profile entirely separate. It's up to you. 
+				<br /><br />
+				Best of all, Qiiss is interactive. You can check out other Qiiss Profiles, admire or remark on them, and discover other people's personalities and interests. With Qiiss you can express yourself more fully than with static profiles on other dating sites. Members have more opportunity to discover the real you – and vice versa!
+				<br /><br />
+				Dream Dates are also unique to Qiiss. By encouraging members to propose thoughtful and creative date ideas, Qiiss promotes amazing first impressions – and incredible first dates! 
+			</div>
+		</div>
+		<div class="section">
+			<div class="section_header">
+				Will my Facebook friends see that I’m on Qiiss?
+			</div>
+			<div class="section_body">
+				No. Facebook photos can be manually or automatically linked with your Qiiss Profile, or you can keep Facebook entirely separate. You retain complete control over your information, and Facebook itself does not access, store or display any information from your Qiiss account or profile.
+			</div>
+		</div>
+		<div class="section">
+			<div class="section_header">
+				Does it cost money?
+			</div>
+			<div class="section_body">
+				No. Like the best things in life, Qiiss is free.
+			</div>
+		</div>
+		<div class="section">
+			<div class="section_header">
+				How does Qiiss work?
+			</div>
+			<div class="section_body">
+				First, create your free Qiiss Profile. Fill in your details and passions. It's important to be honest - people will view your passions to see if you might be a good personality match. Next, discover people with similar interests to you using the simple search fields, or our automatic matching tool.
+				<br /><br />
+				Once you’ve seen someone you wish to contact, suggest a creative Dream Date! This is your chance to showcase your thoughtfulness, so think of an idea that will appeal to your date specifically. It doesn’t have to be expensive or grand in scale. The idea is to enjoy an experience together based on shared interests.
+				<br /><br />
+				After your date, you can provide feedback on how the date went. This is shared with the Qiiss community to assist everyone in finding the most suitable partners.
+			</div>
+		</div>
+		<div class="section">
+			<div class="section_header">
+				Do I have to go on the date?
+			</div>
+			<div class="section_body">
+				No, not if you don't want to. But you're likely to be bombarded with lots of interesting date ideas, so you can pick and choose! Most people love to share their interests and meet like-minded people in a fun, interesting way.
+			</div>
+		</div>
+		<div class="section">
+			<div class="section_header">
+				What's the charity button about?
+			</div>
+			<div class="section_body">
+				As well as making the world a better place, you can really impress your prospective date by contributing to their favourite charity. They receive instant notification of your contribution. Is it compulsory? No. Does it benefit you? Yes. People are more inclined to date secret admirers who have contributed to their favourite cause!
+			</div>
+		</div>
+		<div class="section">
+			<div class="section_header">
+				Does 100% of the donation go to the charity?
+			</div>
+			<div class="section_body">
+				Qiiss is a free service and charity donations are not compulsory. However we do retain a small percentage of charity donations - 10% to be precise - purely to help cover our costs. Qiiss does not feature any advertising and this is the way Qiiss continues to provide such a great service in bringing people together.
+			</div>
+		</div>
+		<div class="section">
+			<div class="section_header">
+				What about privacy?
+			</div>
+			<div class="section_body">
+				You have total control over your profile and everything on it. You can block photos and information fields, depending on how many details you wish to make public. All your private information is encrypted on secure servers and nobody else can access your account.
+			</div>
+		</div>
+		<div class="section">
+			<div class="section_header">
+				Do I have to use my real name?
+			</div>
+			<div class="section_body">
+				Your Qiiss profile only displays your first name, to protect your privacy. During registration we do require your real name for security reasons, however this is kept in strict confidence and is not revealed to the Qiiss community or to third parties.
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+qiiss_noty_homepage:
+    pattern:  /noty
+    defaults: { _controller: QiissNotyBundle:Noty:notySend }
+qiiss_get_notifications:
+    pattern: /get-notifications/{notyType}/{firstResult}
+    defaults: { _controller: QiissNotyBundle:Noty:getNotifications }

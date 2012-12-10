@@ -1,0 +1,3 @@
+qiiss_self_admin:
+    pattern:  /settings
+    defaults: { _controller: QiissUserBundle:General:selfAdmin }

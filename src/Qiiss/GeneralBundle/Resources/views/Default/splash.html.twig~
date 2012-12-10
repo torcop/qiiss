@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html class="yui3-cssreset">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Welcome to Qiiss{% endblock %}</title>
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/splash.css') }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/globalFunctions.css') }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/cssreset-context-min.css') }}" type="text/css" media="all" />
+    {% endblock %}
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/jquery-1.8.3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/modernizr.2.6.2-min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/yepnope.1.5.4-min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/polyfiller.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/globalFunctions.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/splash/splash.js') }}"></script>
+</head>
+<body>
+{{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
+{% include 'QiissGeneralBundle:Default:header.html.twig' %}
+<div id="main_container">
+  <div id="main_container_inner_left" class="main_container_inner">
+    <div id="picture_container_vertical_divider"></div>
+    <div id="picture_container_outer">
+      <div id="picture_container_border">
+        <div id="picture_container">
+          <div class="picture_container_inner">
+            <img src="{{ asset('bundles/qiissgeneral/images/home-page-images/message5.JPG') }}" />
+          </div>
+          <div class="picture_container_inner hidden">
+            <img src="{{ asset('bundles/qiissgeneral/images/home-page-images/message4.JPG') }}" />
+          </div>
+        </div>
+      </div>
+      <div class="picture_container_text bottom">
+        <em></e>Experience incredible <br /> first dates</em>
+      </div>
+    </div>
+  </div>
+  <div id="main_container_inner_right" class="main_container_inner">
+    <div id="login_container_vertical_divider"></div>
+    <div id="login_container_outer">
+      <div id="login_container">
+        <div class="top_message">
+          <div id="signup_tab" class="auth_tab_button right shadow">Sign Up</div>
+          <div id="login_tab" class="auth_tab_button selected">Log In</div>
+          <div id="facebook_tab" class="auth_tab_button left shadow">Facebook</div>
+        </div>
+        <div id="signup_container_body" class="auth_tab">
+          <div class="signup_fields">
+            <form action="{{ path('fos_user_registration_register') }}" id="signup_form" class="signup_form" method="POST" class="fos_user_registration_register">
+              <input type="hidden" id="_csrf_token" name="fos_user_registration_form[_token]" value="{{register_token}}" />
+              <div><div class="error_message username_error_message">Error</div><input type="text" class="username" name="fos_user_registration_form[username]" placeholder="Name" /></div>
+              <div><div class="error_message email_error_message">Error</div><input type="text" class="email" name="fos_user_registration_form[email]" placeholder="Email" /></div>
+              <div><div class="error_message password_error_message">Error</div><input type="password" class="password_first" name="fos_user_registration_form[plainPassword][first]" placeholder="Password" /></div>
+              <div><input type="password" class="password_second" name="fos_user_registration_form[plainPassword][second]" placeholder="Confirm Password" /></div>
+              <div><div class="error_message birthday_error_message">Error</div><input type="text" name="fos_user_registration_form[dob][day]" class="birthday" placeholder="Day"/>
+              <input type="text" name="fos_user_registration_form[dob][month]" class="birthday" placeholder="Month"/>
+              <input type="text" name="fos_user_registration_form[dob][year]" class="birthday last" placeholder="Year"/></div>
+              <div><input type="submit" class="submit" value="{{ 'Sign Up'|trans({}, 'FOSUserBundle') }}" />
+              <div class="remember_me"><div><input type="checkbox" />Remember Me</div></div></div>
+            </form>
+          </div>
+        </div>
+        <div id="login_container_body" class="auth_tab selected">
+          <div id="forgot_password">
+            <a href="/reset-password">Forgot your password?</a>
+          </div>
+          <div class="signup_fields">
+            <form name="login_form" id="login_form" class="signup_form" action="{{ path('fos_user_security_check') }}" method="POST">
+							<input type="hidden" name="_csrf_token" value="{{ token }}" />
+							<div><div class="error_message username_error_message">Error</div><input type="text" class="username" name="_username" placeholder="{{ 'Username'|trans({}, 'FOSUserBundle') }}" required="required" /></div>
+							<div><input type="password" class="password" name="_password" placeholder="{{ 'Password'|trans({}, 'FOSUserBundle') }}" required="required" /></div>
+              <div>
+                <input type="submit" class="submit" value="{{ 'Login'|trans({}, 'FOSUserBundle') }}" />
+                <div class="remember_me"><div><input type="checkbox" id="remember_me" name="_remember_me" value="on" />{{ 'Remember Me'|trans({}, 'FOSUserBundle') }}</div></div>
+              </div>
+            </form>
+          </div>
+          <div class="seperator_bottom"></div>
+          <div id="login_suggest">
+            <div id="suggest_top_text">Don't have an account?</div>
+            <div id="suggest_sign_up">Sign up</div>
+            <div id="suggest_middle">or</div>
+            <div id="suggest_facebook">Log in with facebook</div>
+          </div>
+        </div>
+        <div id="facebook_container_body" class="auth_tab">
+          <div class="signup_fields">
+            <div class="facebook_login_button">
+              <div class="left"><img src="{{ asset('bundles/qiissgeneral/images/facebook-logo.svg') }}" width="30px";/></div>
+              <div class="seperator"></div>
+              <div class="right">Login With Facebook</div>
+            </div>
+          </div>
+          <div class="seperator_bottom"></div>
+          <div id="facebook_disclaimer">
+            Don't worry, Qiiss will never post anything to your facebook wall, or notify any of your friends that you are using it. It's simply a much easier, quicker method of signing up. <br /><br />For more information, <a href="{{ path('qiiss_general_faq') }}">see our FAQ page.</a>
+          </div>
+        </div>
+      </div>
+      <div id="disclaimer">By clicking Sign Up, you agree to our Terms and
+        that you have read and understand our Data Use Policy,
+        including our Cookie Use.
+      </div>
+    </div>
+  </div>
+</div>
+<div id="stream_outer">
+  <div class="stream_inner first">
+  </div>
+</div>
+</body>
+</html>

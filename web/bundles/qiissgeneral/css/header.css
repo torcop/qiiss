@@ -1,0 +1,64 @@
+/*
+Syntax error: Undefined mixin 'corner'.
+        on line 36 of scss/header.scss, in `corner'
+        from line 36 of scss/header.scss
+
+31:   margin-top:-2px;
+32:   background-color:#999;
+33:   border:2px solid #666;
+34:   border-top:1px solid #999;
+35:   text-align:center;
+36:   @include corner(0px, 0px, 45px, 45px);
+37: 
+38:   img {
+39:     width:90%;
+40:     margin-top:-7%;
+41:   }
+
+Backtrace:
+scss/header.scss:36:in `corner'
+scss/header.scss:36
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:249:in `visit_mixin'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:316:in `visit_rule'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:126:in `visit_root'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/tree/root_node.rb:20:in `render'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/engine.rb:315:in `_render'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/engine.rb:262:in `render'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/plugin/compiler.rb:340:in `update_stylesheet'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/plugin/compiler.rb:202:in `block in update_stylesheets'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/plugin/compiler.rb:200:in `each'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/plugin/compiler.rb:200:in `update_stylesheets'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/sass-3.2.1/lib/sass/plugin/compiler.rb:298:in `block in watch'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/listen-0.5.2/lib/listen/multi_listener.rb:86:in `call'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/listen-0.5.2/lib/listen/multi_listener.rb:86:in `on_change'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/listen-0.5.2/lib/listen/multi_listener.rb:95:in `block in initialize_adapter'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/listen-0.5.2/lib/listen/adapter.rb:196:in `call'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/listen-0.5.2/lib/listen/adapter.rb:196:in `report_changes'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/listen-0.5.2/lib/listen/adapter.rb:208:in `poll_changed_dirs'
+/Users/bicnarker/.rvm/gems/ruby-1.9.3-p194/gems/listen-0.5.2/lib/listen/adapters/darwin.rb:38:in `block in start'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined mixin 'corner'.\A         on line 36 of scss/header.scss, in `corner'\A         from line 36 of scss/header.scss\A \A 31:   margin-top:-2px;\A 32:   background-color:#999;\A 33:   border:2px solid #666;\A 34:   border-top:1px solid #999;\A 35:   text-align:center;\A 36:   @include corner(0px, 0px, 45px, 45px);\A 37: \A 38:   img {\A 39:     width:90%;\A 40:     margin-top:-7%;\A 41:   }"; }

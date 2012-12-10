@@ -1,0 +1,171 @@
+<?php
+// src/Qiiss/UserBundle/Entity/User.php
+
+namespace Qiiss\UserBundle\Entity;
+
+use FOS\UserBundle\Entity\User as BaseUser;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="fos_user")
+ */
+class User extends BaseUser
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+		/**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank(message="dob.empty", groups={"Registration", "Profile"})
+     */
+    protected $dob;
+
+    /**
+     * Set dob
+     *
+     * @param \string $dob
+     * @return User
+     */
+    public function setDob($dob)
+    {
+        $this->dob = $dob;
+
+        return $this;
+    }
+
+    /**
+     * Get dob
+     *
+     * @return \string
+     */
+    public function getDob()
+    {
+        return $this->dob;
+    }
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="facebookId", type="string", length=255, nullable=true)
+     */
+    protected $facebookId;
+
+    public function serialize()
+    {
+        return serialize(array($this->facebookId, parent::serialize()));
+    }
+
+    public function unserialize($data)
+    {
+        list($this->facebookId, $parentData) = unserialize($data);
+        parent::unserialize($parentData);
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * @param string $firstname
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * @param string $lastname
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+    }
+
+    /**
+     * Get the full name of the user (first + last name)
+     * @return string
+     */
+    public function getFullName()
+    {
+        return $this->getFirstName() . ' ' . $this->getLastname();
+    }
+
+    /**
+     * @return string
+     */
+    public function getFacebookId()
+    {
+        return $this->facebookId;
+    }
+
+   /**
+     * @param string $facebookId
+     *
+     * @return User
+     */
+    public function setFacebookId($facebookId)
+    {
+        $this->facebookId = $facebookId;
+
+        if (!$this->username) {
+            $this->setUsername($facebookId);
+            $this->salt = '';
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param array $fbdata
+     */
+    public function setFBData($fbdata)
+    {
+        if (isset($fbdata['id'])) {
+            $this->setFacebookId($fbdata['id']);
+            $this->addRole('ROLE_FACEBOOK');
+        }
+        if (isset($fbdata['first_name'])) {
+            $this->setFirstname($fbdata['first_name']);
+        }
+        if (isset($fbdata['first_name'])) {
+            $this->setUsername($fbdata['first_name']);
+        }
+        if (isset($fbdata['first_name'])) {
+            $this->setUsernameCanonical($fbdata['first_name']);
+        }
+        if (isset($fbdata['last_name'])) {
+            $this->setLastname($fbdata['last_name']);
+        }
+        if (isset($fbdata['email'])) {
+            $this->setEmail($fbdata['email']);
+        }
+        if (isset($fbdata['birthday'])) {
+            $this->setdob($fbdata['birthday']);
+        }
+    }
+
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+    }
+}
