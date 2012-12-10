@@ -258,6 +258,11 @@ body {
                     -webkit-border-bottom-left-radius: 3px;
                     -khtml-border-radius-bottomleft: 3px;
                     border-bottom-left-radius: 3px; }
+                    body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div .error_message.birthday_error_message {
+                      right: 230px; }
+                  body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div .label {
+                    color: #555;
+                    margin-right: 6px; }
                   body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div input {
                     position: relative;
                     z-index: 1001;
@@ -293,8 +298,8 @@ body {
                       -webkit-box-shadow: 0px 0px 10px 1px #888888;
                       box-shadow: 0px 0px 10px 1px #888888; }
                     body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div input.birthday {
-                      width: 69px;
-                      margin-right: 12px;
+                      width: 55px;
+                      margin-right: 6px;
                       display: inline-block; }
                       body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div input.birthday.last {
                         margin-right: 0px; }
@@ -372,6 +377,8 @@ body {
                         height: 12px;
                         margin-right: 10px;
                         cursor: pointer; }
+                  body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div #signup_birthday {
+                    display: none; }
             body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .facebook_login_button {
               display: inline-block;
               padding: 8px 10px;
