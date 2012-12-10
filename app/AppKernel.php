@@ -19,12 +19,13 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-			new FOS\UserBundle\FOSUserBundle(),
-            new FOS\FacebookBundle\FOSFacebookBundle(),
-			new Qiiss\GeneralBundle\QiissGeneralBundle(),
+						new FOS\UserBundle\FOSUserBundle(),
+						new FOS\FacebookBundle\FOSFacebookBundle(),
+						new Qiiss\GeneralBundle\QiissGeneralBundle(),
             new Qiiss\UserBundle\QiissUserBundle(),
             new Qiiss\ProfileBundle\QiissProfileBundle(),
             new Qiiss\NotyBundle\QiissNotyBundle(),
+						new Qiiss\WallBundle\QiissWallBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

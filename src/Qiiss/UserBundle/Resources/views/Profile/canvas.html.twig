@@ -64,7 +64,8 @@
       </div>
       <div class="canvas_center_seperator"></div>
       <div id="canvas_story_create">
-        <textarea rows="3" placeholder="Express Yourself!"></textarea>
+			<form action="{{ path('qiiss_wall_post') }}" method="POST">
+        <textarea name="wall_content" rows="3" placeholder="Express Yourself!"></textarea>
         <div id="canvas_create_lower">
           <div id="canvas_create_buttons">
             <div id="left_canvas_buttons">
@@ -73,11 +74,13 @@
               <div class="canvas_lower_button">Check In</div>
             </div>
             <div id="right_canvas_buttons">
-              <div class="canvas_lower_button" id="post">Post</div>
+							<input type="submit" class="canvas_lower_button" id="post" value="Post"/>
             </div>
           </div>
         </div>
       </div>
+			</form>
+
       <div class="canvas_center_seperator"></div>
       <div id="canvas_story_container">
         {% include 'QiissUserBundle:Profile:canvas_post.html.twig' %}

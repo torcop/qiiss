@@ -1,0 +1,7 @@
+qiiss_self_admin:
+    pattern:  /settings
+    defaults: { _controller: QiissUserBundle:General:selfAdmin }
+
+qiiss_wall_post:
+    pattern:  /settings
+    defaults: { _controller: QiissWallBundle:Wall:post

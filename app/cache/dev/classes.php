@@ -3263,18 +3263,20 @@ class Request
         if (self::$trustProxy && self::$trustedHeaders[self::HEADER_CLIENT_HOST] && $host = $this->headers->get(self::$trustedHeaders[self::HEADER_CLIENT_HOST])) {
             $elements = explode(',', $host);
 
-            $host = trim($elements[count($elements) - 1]);
-        } else {
-            if (!$host = $this->headers->get('HOST')) {
-                if (!$host = $this->server->get('SERVER_NAME')) {
-                    $host = $this->server->get('SERVER_ADDR', '');
-                }
+            $host = $elements[count($elements) - 1];
+        } elseif (!$host = $this->headers->get('HOST')) {
+            if (!$host = $this->server->get('SERVER_NAME')) {
+                $host = $this->server->get('SERVER_ADDR', '');
             }
         }
 
-                $host = preg_replace('/:\d+$/', '', $host);
+                        $host = strtolower(trim(preg_replace('/:\d+$/', '', $host)));
 
-                return trim(strtolower($host));
+                        if ($host && !preg_match('/^\[?(?:[a-zA-Z0-9-:\]_]+\.?)+$/', $host)) {
+            throw new \UnexpectedValueException('Invalid Host');
+        }
+
+        return $host;
     }
 
     

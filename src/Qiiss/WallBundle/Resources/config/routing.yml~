@@ -1,0 +1,3 @@
+qiiss_wall_post:
+    pattern: /wall-post
+    defaults: { _controller: QiissWallBundle:General:res
