@@ -16,7 +16,7 @@
     <div id="canvas_header">
       <div id="header_top">
         <div id="header_name_fav">
-          {{ user.username }}
+          {{ username }}
           <div id="header_fav">+ Favourite</div>
         </div>
         <div id="header_age">
@@ -45,7 +45,7 @@
         </div>
         <div id="info_right">
           <div id="info_propose">
-            <a href="{{ path('qiiss_profile_propose_date', { 'profileId' : app.user.id }) }}"><img src="{{ asset('bundles/qiissuser/images/Qiiss-Propose-Date.png') }}" /></a>
+            <a href="{{ path('qiiss_profile_propose_date', { 'profileid' : profileid }) }}"><img src="{{ asset('bundles/qiissuser/images/Qiiss-Propose-Date.png') }}" /></a>
           </div>
         </div>
       </div>
@@ -64,7 +64,8 @@
       </div>
       <div class="canvas_center_seperator"></div>
       <div id="canvas_story_create">
-        <textarea rows="3" placeholder="Express Yourself!"></textarea>
+			<form action="{{ path('qiiss_wall_post') }}" method="POST">
+        <textarea name="wall_content" rows="3" placeholder="Express Yourself!"></textarea>
         <div id="canvas_create_lower">
           <div id="canvas_create_buttons">
             <div id="left_canvas_buttons">
@@ -73,7 +74,8 @@
               <div class="canvas_lower_button">Check In</div>
             </div>
             <div id="right_canvas_buttons">
-              <div class="canvas_lower_button" id="post">Post</div>
+							<input type="submit" class="canvas_lower_button" id="post" value="Post"/>
+			</form>
             </div>
           </div>
         </div>

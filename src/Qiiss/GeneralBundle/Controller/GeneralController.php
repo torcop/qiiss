@@ -18,8 +18,10 @@ class GeneralController extends Controller
 		}
 		else {
 			$token = $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate');
+			$register_token = $this->container->get('security.context')->getToken();
 			$register = $this->container->get('fos_user.registration.form');
-      return $this->render('QiissGeneralBundle:Default:splash.html.twig', array('token' => $token, 'register_token' => $register->createView()["_token"]->vars["value"]));
+      return $this->render('QiissGeneralBundle:Default:splash.html.twig', array('token' => $token,
+																															'register_token' => $register_token));
     	}
     }
 

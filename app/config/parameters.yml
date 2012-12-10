@@ -1,0 +1,14 @@
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: qiissData
+    database_user: root
+    database_password: Lespaul1988
+    mailer_transport: smtp
+    mailer_host: localhost
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: 5752285f725644bdc2a4a70b0cb90068a400778b
+    database_path: null
