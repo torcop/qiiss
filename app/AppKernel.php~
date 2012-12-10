@@ -20,6 +20,8 @@ class AppKernel extends Kernel
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
 						new FOS\UserBundle\FOSUserBundle(),
+						new FOS\FacebookBundle\FOSFacebookBundle(),
+						//new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
 						new Qiiss\GeneralBundle\QiissGeneralBundle(),
             new Qiiss\UserBundle\QiissUserBundle(),
             new Qiiss\ProfileBundle\QiissProfileBundle(),
