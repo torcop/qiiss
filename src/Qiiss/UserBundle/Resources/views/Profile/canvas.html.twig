@@ -64,7 +64,7 @@
       </div>
       <div class="canvas_center_seperator"></div>
       <div id="canvas_story_create">
-			<form action="{{ path('qiiss_wall_post') }}" method="POST">
+			<form action="{{ path('qiiss_wall_post', {'author':app.user.username}) }}" method="POST">
         <textarea name="wall_content" rows="3" placeholder="Express Yourself!"></textarea>
         <div id="canvas_create_lower">
           <div id="canvas_create_buttons">

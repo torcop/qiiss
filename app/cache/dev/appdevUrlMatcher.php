@@ -172,6 +172,11 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Qiiss\\NotyBundle\\Controller\\NotyController::getNotificationsAction',)), array('_route' => 'qiiss_get_notifications'));
         }
 
+        // qiiss_get_notifications_number
+        if (0 === strpos($pathinfo, '/get-notifications-number') && preg_match('#^/get\\-notifications\\-number/(?P<notyType>[^/]+)$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Qiiss\\NotyBundle\\Controller\\NotyController::getNotificationsNumberAction',)), array('_route' => 'qiiss_get_notifications_number'));
+        }
+
         // qiiss_profile_propose_date
         if (0 === strpos($pathinfo, '/propose-date') && preg_match('#^/propose\\-date/(?P<profileid>[^/]+)$#s', $pathinfo, $matches)) {
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Qiiss\\ProfileBundle\\Controller\\ProfileController::proposeDateAction',)), array('_route' => 'qiiss_profile_propose_date'));
@@ -353,7 +358,7 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // fos_user_change_password
-        if ($pathinfo === '/profile/change-password') {
+        if ($pathinfo === '/change-password') {
             if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
                 $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
                 goto not_fos_user_change_password;

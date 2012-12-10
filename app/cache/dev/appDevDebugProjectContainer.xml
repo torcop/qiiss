@@ -485,8 +485,8 @@
     <parameter key="jms_di_extra.directories" type="collection"/>
     <parameter key="jms_di_extra.cache_dir">/opt/lampp/htdocs/Qiiss/app/cache/dev/jms_diextra</parameter>
     <parameter key="jms_di_extra.doctrine_integration">true</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">/opt/lampp/htdocs/Qiiss/app/cache/dev/jms_diextra/doctrine/EntityManager_50c57bb1282da.php</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager50c57bb1282da_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">/opt/lampp/htdocs/Qiiss/app/cache/dev/jms_diextra/doctrine/EntityManager_50c584cc42c3c.php</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager50c584cc42c3c_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
     <parameter key="security.secured_services" type="collection"/>
     <parameter key="security.access.method_interceptor.class">JMS\SecurityExtraBundle\Security\Authorization\Interception\MethodSecurityInterceptor</parameter>
     <parameter key="security.access.method_access_control" type="collection"/>
@@ -1665,7 +1665,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>50c57bb116d36</argument>
+            <argument>50c584cc2b3e0</argument>
           </service>
         </argument>
       </argument>
@@ -1958,7 +1958,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>50c57bb116d36</argument>
+            <argument>50c584cc2b3e0</argument>
             <argument type="service" id="monolog.logger.security"/>
           </service>
         </argument>
@@ -2374,8 +2374,8 @@
     <service id="doctrine.orm.default_manager_configurator" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator">
       <argument type="collection"/>
     </service>
-    <service id="doctrine.orm.default_entity_manager" class="EntityManager50c57bb1282da_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
-      <file>/opt/lampp/htdocs/Qiiss/app/cache/dev/jms_diextra/doctrine/EntityManager_50c57bb1282da.php</file>
+    <service id="doctrine.orm.default_entity_manager" class="EntityManager50c584cc42c3c_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
+      <file>/opt/lampp/htdocs/Qiiss/app/cache/dev/jms_diextra/doctrine/EntityManager_50c584cc42c3c.php</file>
       <argument type="service">
         <service class="Doctrine\ORM\EntityManager" factory-method="create" public="false">
           <argument type="service" id="doctrine.dbal.default_connection"/>
@@ -2387,6 +2387,7 @@
                   <argument key="QiissUserBundle">Qiiss\UserBundle\Entity</argument>
                   <argument key="QiissProfileBundle">Qiiss\ProfileBundle\Entity</argument>
                   <argument key="QiissNotyBundle">Qiiss\NotyBundle\Entity</argument>
+                  <argument key="QiissWallBundle">Qiiss\WallBundle\Entity</argument>
                 </argument>
               </call>
               <call method="setMetadataCacheImpl">
@@ -2440,6 +2441,7 @@
                             <argument>/opt/lampp/htdocs/Qiiss/src/Qiiss/UserBundle/Entity</argument>
                             <argument>/opt/lampp/htdocs/Qiiss/src/Qiiss/ProfileBundle/Entity</argument>
                             <argument>/opt/lampp/htdocs/Qiiss/src/Qiiss/NotyBundle/Entity</argument>
+                            <argument>/opt/lampp/htdocs/Qiiss/src/Qiiss/WallBundle/Entity</argument>
                           </argument>
                         </service>
                       </argument>
@@ -2453,6 +2455,7 @@
                             <argument>/opt/lampp/htdocs/Qiiss/src/Qiiss/UserBundle/Entity</argument>
                             <argument>/opt/lampp/htdocs/Qiiss/src/Qiiss/ProfileBundle/Entity</argument>
                             <argument>/opt/lampp/htdocs/Qiiss/src/Qiiss/NotyBundle/Entity</argument>
+                            <argument>/opt/lampp/htdocs/Qiiss/src/Qiiss/WallBundle/Entity</argument>
                           </argument>
                         </service>
                       </argument>
@@ -2466,10 +2469,25 @@
                             <argument>/opt/lampp/htdocs/Qiiss/src/Qiiss/UserBundle/Entity</argument>
                             <argument>/opt/lampp/htdocs/Qiiss/src/Qiiss/ProfileBundle/Entity</argument>
                             <argument>/opt/lampp/htdocs/Qiiss/src/Qiiss/NotyBundle/Entity</argument>
+                            <argument>/opt/lampp/htdocs/Qiiss/src/Qiiss/WallBundle/Entity</argument>
                           </argument>
                         </service>
                       </argument>
                       <argument>Qiiss\NotyBundle\Entity</argument>
+                    </call>
+                    <call method="addDriver">
+                      <argument type="service">
+                        <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                          <argument type="service" id="annotation_reader"/>
+                          <argument type="collection">
+                            <argument>/opt/lampp/htdocs/Qiiss/src/Qiiss/UserBundle/Entity</argument>
+                            <argument>/opt/lampp/htdocs/Qiiss/src/Qiiss/ProfileBundle/Entity</argument>
+                            <argument>/opt/lampp/htdocs/Qiiss/src/Qiiss/NotyBundle/Entity</argument>
+                            <argument>/opt/lampp/htdocs/Qiiss/src/Qiiss/WallBundle/Entity</argument>
+                          </argument>
+                        </service>
+                      </argument>
+                      <argument>Qiiss\WallBundle\Entity</argument>
                     </call>
                   </service>
                 </argument>

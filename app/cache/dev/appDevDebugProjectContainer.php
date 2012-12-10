@@ -282,11 +282,11 @@ class appDevDebugProjectContainer extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return EntityManager50c57bb1282da_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager50c57bb1282da_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
+     * @return EntityManager50c584cc42c3c_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager50c584cc42c3c_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
      */
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
-        require_once '/opt/lampp/htdocs/Qiiss/app/cache/dev/jms_diextra/doctrine/EntityManager_50c57bb1282da.php';
+        require_once '/opt/lampp/htdocs/Qiiss/app/cache/dev/jms_diextra/doctrine/EntityManager_50c584cc42c3c.php';
 
         $a = $this->get('annotation_reader');
 
@@ -302,16 +302,17 @@ class appDevDebugProjectContainer extends Container
         $e = new \Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver(array('/opt/lampp/htdocs/Qiiss/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/doctrine' => 'FOS\\UserBundle\\Entity'));
         $e->setGlobalBasename('mapping');
 
-        $f = new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($a, array(0 => '/opt/lampp/htdocs/Qiiss/src/Qiiss/UserBundle/Entity', 1 => '/opt/lampp/htdocs/Qiiss/src/Qiiss/ProfileBundle/Entity', 2 => '/opt/lampp/htdocs/Qiiss/src/Qiiss/NotyBundle/Entity'));
+        $f = new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($a, array(0 => '/opt/lampp/htdocs/Qiiss/src/Qiiss/UserBundle/Entity', 1 => '/opt/lampp/htdocs/Qiiss/src/Qiiss/ProfileBundle/Entity', 2 => '/opt/lampp/htdocs/Qiiss/src/Qiiss/NotyBundle/Entity', 3 => '/opt/lampp/htdocs/Qiiss/src/Qiiss/WallBundle/Entity'));
 
         $g = new \Doctrine\ORM\Mapping\Driver\DriverChain();
         $g->addDriver($e, 'FOS\\UserBundle\\Entity');
         $g->addDriver($f, 'Qiiss\\UserBundle\\Entity');
         $g->addDriver($f, 'Qiiss\\ProfileBundle\\Entity');
         $g->addDriver($f, 'Qiiss\\NotyBundle\\Entity');
+        $g->addDriver($f, 'Qiiss\\WallBundle\\Entity');
 
         $h = new \Doctrine\ORM\Configuration();
-        $h->setEntityNamespaces(array('FOSUserBundle' => 'FOS\\UserBundle\\Entity', 'QiissUserBundle' => 'Qiiss\\UserBundle\\Entity', 'QiissProfileBundle' => 'Qiiss\\ProfileBundle\\Entity', 'QiissNotyBundle' => 'Qiiss\\NotyBundle\\Entity'));
+        $h->setEntityNamespaces(array('FOSUserBundle' => 'FOS\\UserBundle\\Entity', 'QiissUserBundle' => 'Qiiss\\UserBundle\\Entity', 'QiissProfileBundle' => 'Qiiss\\ProfileBundle\\Entity', 'QiissNotyBundle' => 'Qiiss\\NotyBundle\\Entity', 'QiissWallBundle' => 'Qiiss\\WallBundle\\Entity'));
         $h->setMetadataCacheImpl($b);
         $h->setQueryCacheImpl($c);
         $h->setResultCacheImpl($d);
@@ -326,7 +327,7 @@ class appDevDebugProjectContainer extends Container
         $i = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $h);
         $this->get('doctrine.orm.default_manager_configurator')->configure($i);
 
-        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager50c57bb1282da_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($i, $this);
+        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager50c584cc42c3c_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($i, $this);
     }
 
     /**
@@ -1937,7 +1938,7 @@ class appDevDebugProjectContainer extends Container
         $p = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($n, array('default_target_path' => '/profile', 'login_path' => '/login', 'always_use_default_target_path' => false, 'target_path_parameter' => '_target_path', 'use_referer' => false));
         $p->setProviderKey('public');
 
-        return $this->services['security.firewall.map.context.public'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($m, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('fos_user.user_provider.username'), 1 => $this->get('facebook.user')), 'public', $a, $c), 2 => $o, 3 => new \FOS\FacebookBundle\Security\Firewall\FacebookListener($b, $f, $g, $n, 'public', $p, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $n, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false), $a), array('check_path' => '/login_check_fb', 'app_url' => 'https://developers.facebook.com/apps/281453298642270', 'server_url' => '127.0.0.1:9200', 'use_forward' => false, 'display' => 'page', 'create_user_if_not_exists' => false), $a, $c), 4 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, $g, $n, 'public', $h, $h, array('check_path' => '/login_check', 'use_forward' => false, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c, $this->get('form.csrf_provider')), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '50c57bb116d36', $a), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $m, $f, $a)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $n, 'public', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $n, '/login', false), NULL, NULL, $a));
+        return $this->services['security.firewall.map.context.public'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($m, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('fos_user.user_provider.username'), 1 => $this->get('facebook.user')), 'public', $a, $c), 2 => $o, 3 => new \FOS\FacebookBundle\Security\Firewall\FacebookListener($b, $f, $g, $n, 'public', $p, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $n, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false), $a), array('check_path' => '/login_check_fb', 'app_url' => 'https://developers.facebook.com/apps/281453298642270', 'server_url' => '127.0.0.1:9200', 'use_forward' => false, 'display' => 'page', 'create_user_if_not_exists' => false), $a, $c), 4 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, $g, $n, 'public', $h, $h, array('check_path' => '/login_check', 'use_forward' => false, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c, $this->get('form.csrf_provider')), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '50c584cc2b3e0', $a), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $m, $f, $a)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $n, 'public', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $n, '/login', false), NULL, NULL, $a));
     }
 
     /**
@@ -3013,7 +3014,7 @@ class appDevDebugProjectContainer extends Container
     /**
      * Gets the doctrine.orm.entity_manager service alias.
      *
-     * @return EntityManager50c57bb1282da_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
+     * @return EntityManager50c584cc42c3c_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
      */
     protected function getDoctrine_Orm_EntityManagerService()
     {
@@ -3216,7 +3217,7 @@ class appDevDebugProjectContainer extends Container
     {
         $a = $this->get('security.user_checker');
 
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \FOS\FacebookBundle\Security\Authentication\Provider\FacebookProvider('public', $this->get('fos_facebook.api'), $this->get('facebook.user'), $a, false), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username'), $a, 'public', $this->get('security.encoder_factory'), true), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('50c57bb116d36')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \FOS\FacebookBundle\Security\Authentication\Provider\FacebookProvider('public', $this->get('fos_facebook.api'), $this->get('facebook.user'), $a, false), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username'), $a, 'public', $this->get('security.encoder_factory'), true), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('50c584cc2b3e0')), true);
 
         $instance->setEventDispatcher($this->get('event_dispatcher'));
 
@@ -3935,8 +3936,8 @@ class appDevDebugProjectContainer extends Container
             ),
             'jms_di_extra.cache_dir' => '/opt/lampp/htdocs/Qiiss/app/cache/dev/jms_diextra',
             'jms_di_extra.doctrine_integration' => true,
-            'jms_di_extra.doctrine_integration.entity_manager.file' => '/opt/lampp/htdocs/Qiiss/app/cache/dev/jms_diextra/doctrine/EntityManager_50c57bb1282da.php',
-            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager50c57bb1282da_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
+            'jms_di_extra.doctrine_integration.entity_manager.file' => '/opt/lampp/htdocs/Qiiss/app/cache/dev/jms_diextra/doctrine/EntityManager_50c584cc42c3c.php',
+            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager50c584cc42c3c_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
             'security.secured_services' => array(
 
             ),
