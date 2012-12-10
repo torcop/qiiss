@@ -1,4 +1,5 @@
 [2012-12-07 06:06:07] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /" (uncaught exception) at /opt/lampp/htdocs/Qiiss/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/RouterListener.php line 92 [] []
+<<<<<<< HEAD
 [2012-12-10 02:05:02] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /bundles/qiissgeneral/js/modernizr.2.6.2-min.js" (uncaught exception) at /opt/lampp/htdocs/Qiiss/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/RouterListener.php line 92 [] []
 [2012-12-10 02:05:02] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /bundles/qiissgeneral/css/splash.css" (uncaught exception) at /opt/lampp/htdocs/Qiiss/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/RouterListener.php line 92 [] []
 [2012-12-10 02:05:02] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /bundles/qiissgeneral/js/yepnope.1.5.4-min.js" (uncaught exception) at /opt/lampp/htdocs/Qiiss/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/EventListener/RouterListener.php line 92 [] []
@@ -20,3 +21,5 @@
 [2012-12-10 02:05:04] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /bundles/qiissgeneral/images/facebook-logo.svg" (uncaught exception) at /opt/lampp/htdocs/Qiiss/app/cache/prod/classes.php line 5110 [] []
 [2012-12-10 02:05:04] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /bundles/qiissgeneral/images/home-page-images/message5.JPG" (uncaught exception) at /opt/lampp/htdocs/Qiiss/app/cache/prod/classes.php line 5110 [] []
 [2012-12-10 02:05:04] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /bundles/qiissgeneral/images/qiiss-graphics/blue/Logo.png" (uncaught exception) at /opt/lampp/htdocs/Qiiss/app/cache/prod/classes.php line 5110 [] []
+=======
+>>>>>>> 9e717439fc891521da26b204dbf253fd7f04baf9

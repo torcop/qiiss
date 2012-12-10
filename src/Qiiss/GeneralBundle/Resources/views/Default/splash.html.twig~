@@ -1,10 +1,15 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html class="yui3-cssreset">
+=======
+<html>
+>>>>>>> 9e717439fc891521da26b204dbf253fd7f04baf9
 <head>
   <meta charset="utf-8">
   <title>{% block title %}Welcome to Qiiss{% endblock %}</title>
     {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/splash.css') }}" type="text/css" media="all" />
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/globalFunctions.css') }}" type="text/css" media="all" />
     <link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/cssreset-context-min.css') }}" type="text/css" media="all" />
     {% endblock %}
@@ -18,6 +23,21 @@
 <body>
 {{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
 {% include 'QiissGeneralBundle:Default:header.html.twig' %}
+=======
+    {% endblock %}
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/jquery-1.8.3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/jquery-placeholder.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/splash/splash.js') }}"></script>
+</head>
+<body>
+<img src="{{ asset('bundles/qiissgeneral/images/Final-Homepage-background.gif') }}" class="background-image" />
+<div id="upper_top_banner">
+  <a href="{{ path('qiiss_general_faq') }}"><div id="faq">About Qiiss</div></a>
+</div>
+<div id="lower_top_banner">
+  <img src="{{ asset('bundles/qiissgeneral/images/qiiss-graphics/blue/Logo.png') }}" />
+</div>
+>>>>>>> 9e717439fc891521da26b204dbf253fd7f04baf9
 <div id="main_container">
   <div id="main_container_inner_left" class="main_container_inner">
     <div id="picture_container_vertical_divider"></div>
@@ -42,6 +62,7 @@
     <div id="login_container_outer">
       <div id="login_container">
         <div class="top_message">
+<<<<<<< HEAD
           <div id="signup_tab" class="auth_tab_button right shadow">Sign Up</div>
           <div id="login_tab" class="auth_tab_button selected">Log In</div>
           <div id="facebook_tab" class="auth_tab_button left shadow">Facebook</div>
@@ -97,6 +118,55 @@
           <div id="facebook_disclaimer">
             Don't worry, Qiiss will never post anything to your facebook wall, or notify any of your friends that you are using it. It's simply a much easier, quicker method of signing up. <br /><br />For more information, <a href="{{ path('qiiss_general_faq') }}">see our FAQ page.</a>
           </div>
+=======
+          <div id="signup_tab" class="auth_tab_button selected">Sign Up</div>
+          <div id="login_tab" class="auth_tab_button left shadow">Log In</div>
+          <div id="signup_facebook_tab" class="auth_tab_button left">Facebook</div>
+        </div>
+        <div id="signup_container_body" class="auth_tab selected">
+          <div class="signup_fields">
+            <form name="signup_form" class="signup_form" action="{{ path('fos_user_registration_register') }}" method="POST">
+							<input type="hidden" name="_csrf_token" value="{{ token }}" />
+              <input type="text" id="username" name="_username" placeholder="{{ 'Username'|trans({}, 'FOSUserBundle') }}" required="required" />
+              <input type="email" id="email" name="_email" placeholder="{{ 'Email'|trans({}, 'FOSUserBundle') }}" required="required" />
+              <input type="password" id="password" name="_password" placeholder="{{ 'Password'|trans({}, 'FOSUserBundle') }}" required="required" />
+              <input type="password" name="confirm-password" placeholder="Confirm Password" />
+              <input type="text" name="birthday_day" class="birthday" placeholder="Day"/>
+              <input type="text" name="birthday_month" class="birthday" placeholder="Month"/>
+              <input type="text" name="birthday_year" class="birthday last" placeholder="Year"/>
+              <input type="submit" class="submit" value="{{ 'Sign Up'|trans({}, 'FOSUserBundle') }}" />
+              <div class="remember_me"><div><input type="checkbox" />Remember Me</div></div>
+            </form>
+          </div>
+        </div>
+        <div id="login_container_body" class="auth_tab">
+          <div class="signup_fields">
+						<div>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+               You are logged as:  {{ app.user.username }} |
+                <a href="{{ path('fos_user_security_logout') }}">
+                    {{ 'Logout'|trans({}, 'FOSUserBundle') }}
+                </a>
+            {% else %}
+        </div>
+            <form name="login_form" class="signup_form" action="{{ path('fos_user_security_check') }}" method="POST">
+							<input type="hidden" name="_csrf_token" value="{{ token }}" />
+							<input type="text" id="username" name="_username" placeholder="{{ 'Username'|trans({}, 'FOSUserBundle') }}" required="required" />
+							<input type="password" id="password" name="_password" placeholder="{{ 'Password'|trans({}, 'FOSUserBundle') }}" required="required" />
+              <input type="submit" class="submit" value="{{ 'Login'|trans({}, 'FOSUserBundle') }}" />
+              <div class="remember_me"><div><input type="checkbox" id="remember_me" name="_remember_me" value="on" />{{ 'Remember Me'|trans({}, 'FOSUserBundle') }}</div></div>
+            </form>
+          </div>
+        </div>
+				{% endif %}
+        <div id="facebook_container_body" class="auth_tab">
+          <div class="signup_fields">
+            <div class="facebook_login_button">
+              <div class="left"><img src="https://chideo.com/assets/logo_facebook_f-3d17eb2041318519c6b8a608f4c84590.svg" width="30px";/></div>
+              <div class="right">Login With Facebook</div>
+            </div>
+          </div>
+>>>>>>> 9e717439fc891521da26b204dbf253fd7f04baf9
         </div>
       </div>
       <div id="disclaimer">By clicking Sign Up, you agree to our Terms and

@@ -50,8 +50,11 @@ class ProfileController extends Controller
     $username = $this->getDoctrine()
         ->getRepository('QiissUserBundle:User')
         ->find($profileid);
-		var_dump($username);exit();
+<<<<<<< HEAD
 		return $this->render('QiissProfileBundle:Profile:date.html.twig', array("form" => $form->createView(),
 																				"username" => $username->getUsername(), "profileid" => $profileid));
+=======
+		return $this->render('QiissProfileBundle:Profile:date.html.twig', array("form" => $form->createView(), "username" => $username->getUsername(), "profileid" => $profileid));
+>>>>>>> 9e717439fc891521da26b204dbf253fd7f04baf9
 	}
 }
