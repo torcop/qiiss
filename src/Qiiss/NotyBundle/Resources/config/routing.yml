@@ -4,3 +4,6 @@ qiiss_noty_homepage:
 qiiss_get_notifications:
     pattern: /get-notifications/{notyType}/{firstResult}
     defaults: { _controller: QiissNotyBundle:Noty:getNotifications }
+qiiss_get_notifications_number:
+    pattern: /get-notifications-number/{notyType}
+    defaults: { _controller: QiissNotyBundle:Noty:getNotificationsNumber }

@@ -1,10 +1,24 @@
 $(document).ready(function() {
+  $(".notifications").each(function() {
+    var which = $(this).attr('id').split("_")[0];
+    var $this = $(this);
+    $.ajax({
+      url: '/get-notifications-number/' + which,
+      success: function(data) {
+        parsed = jQuery.parseJSON(data);
+        if (parseInt(parsed.numNew) > 0) {
+          $this.find(".noty_new").html(parsed.numNew).css("display", "block");
+        }
+      }
+    });
+  });
   // Set notification "opened" data
   $("#notification_popup").data("notyIndex", 0);
   $("#message_popup").data("notyIndex", 0);
   $("#date_popup").data("notyIndex", 0);
 
   $(".notifications").bind("click", function() {
+    var $this = $(this);
     var which = $(this).attr('id').split("_")[0];
     var popup = $("#" + which + "_popup");
     if (popup.css("display") != "none") {
@@ -26,7 +40,6 @@ $(document).ready(function() {
       url: '/get-notifications/' + which + "/" + popup.data("notyIndex"),
       success: function(data) {
         parsed = jQuery.parseJSON(data);
-        console.log(parsed.notifications)
         $.each(parsed.notifications, function(key, val) {
           // Find a way to parametize this out, it's ugly
           popup.find(".popup_content").append(
@@ -40,9 +53,8 @@ $(document).ready(function() {
             '</div>' +
             '</a>'
           );
-          console.log(parsed.numResults);
           popup.data("notyIndex", popup.data("notyIndex") + parsed.numResults);
-          console.log(popup.data("notyIndex"));
+          $this.find(".noty_new").html("").css("display", "none");
         });
       }
     });
