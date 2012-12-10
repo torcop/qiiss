@@ -20,12 +20,31 @@ class User extends BaseUser
      */
     protected $id;
 
-		/**
+	/**
      * @ORM\Column(type="string", length=255)
      *
      * @Assert\NotBlank(message="dob.empty", groups={"Registration", "Profile"})
      */
     protected $dob;
+
+    /**
+     * @ORM\Column(type="integer", length=10)
+     *
+     * @Assert\NotBlank(message="dob.empty", groups={"Registration", "Profile"})
+     */
+    protected $numDateNoty;
+
+    /**
+     * @ORM\Column(type="integer", length=10)
+     *
+     */
+    protected $numMessageNoty;
+
+    /**
+     * @ORM\Column(type="integer", length=10)
+     *
+     */
+    protected $numNotificationNoty;
 
     /**
      * Set dob
@@ -167,5 +186,84 @@ class User extends BaseUser
     {
         parent::__construct();
         // your own logic
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set numDateNoty
+     *
+     * @param integer $numDateNoty
+     * @return User
+     */
+    public function setNumDateNoty($numDateNoty)
+    {
+        $this->numDateNoty = $numDateNoty;
+
+        return $this;
+    }
+
+    /**
+     * Get numDateNoty
+     *
+     * @return integer
+     */
+    public function getNumDateNoty()
+    {
+        return $this->numDateNoty;
+    }
+
+    /**
+     * Set numMessageNoty
+     *
+     * @param integer $numMessageNoty
+     * @return User
+     */
+    public function setNumMessageNoty($numMessageNoty)
+    {
+        $this->numMessageNoty = $numMessageNoty;
+
+        return $this;
+    }
+
+    /**
+     * Get numMessageNoty
+     *
+     * @return integer
+     */
+    public function getNumMessageNoty()
+    {
+        return $this->numMessageNoty;
+    }
+
+    /**
+     * Set numNotificationNoty
+     *
+     * @param integer $numNotificationNoty
+     * @return User
+     */
+    public function setNumNotificationNoty($numNotificationNoty)
+    {
+        $this->numNotificationNoty = $numNotificationNoty;
+
+        return $this;
+    }
+
+    /**
+     * Get numNotificationNoty
+     *
+     * @return integer
+     */
+    public function getNumNotificationNoty()
+    {
+        return $this->numNotificationNoty;
     }
 }
