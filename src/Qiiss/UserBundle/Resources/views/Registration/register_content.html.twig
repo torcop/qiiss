@@ -1,10 +1,41 @@
-
 {% block body %}
-
-<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
-    {{ form_widget(form) }}
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(registration) }} method="POST" class="signup_form" id="signup_form">
+	<div>
+		<div class="error_message username_error_message">Error</div>
+		{{form_widget(registration.username, { 'attr': {'placeholder': 'Full Name'} })}}
+	</div>
     <div>
-        <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
+		<div class="error_message email_error_message">Error</div>
+		{{form_widget(registration.email, { 'attr': {'placeholder': 'Email Address'} })}}
+	</div>
+    <div>
+		<div class="error_message password_error_message">Error</div>
+		{{form_widget(registration.plainPassword.first, { 'attr': {'placeholder': 'Password'} })}}
+	</div>
+	<div>
+		{{form_widget(registration.plainPassword.second, { 'attr': {'placeholder': 'Confirm Password'} })}}
+	</div>
+	<div>
+		<div class="error_message birthday_error_message">Error</div>
+		<div class="label">Birth: </div>
+		<input type="text" class="birthday" id="birthday_day" placeholder="Day" />
+		<input type="text" class="birthday" id="birthday_month" placeholder="Month" />
+		<input type="text" class="birthday" id="birthday_year" placeholder="Year"/>
+		<div id="signup_birthday">
+			{{form_widget(registration.dob.day, { 'attr': {'class': 'birthday'} })}}
+			{{form_widget(registration.dob.month, { 'attr': {'class': 'birthday'} })}}
+			{{form_widget(registration.dob.year, { 'attr': {'class': 'birthday last'} })}}
+		</div>
+	</div>
+    {{form_widget(registration._token)}}
+    <div>
+        <input type="submit" value="{{ 'Sign Up'|trans({}, 'FOSUserBundle') }}" class="submit" />
+        <div class="remember_me">
+        	<div>
+        		<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+        		{{ 'Remember Me'|trans({}, 'FOSUserBundle') }}
+        	</div>
+        </div>
     </div>
 </form>
 {% endblock %}

@@ -30,7 +30,6 @@
                 "lib"
             ]
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "LGPL"
         ],
@@ -79,7 +78,6 @@
                 "Doctrine\\Common": "lib/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -151,7 +149,6 @@
                 "Doctrine\\DBAL": "lib/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -228,7 +225,6 @@
                 "Doctrine\\Bundle\\DoctrineBundle": ""
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -296,7 +292,6 @@
                 "Doctrine\\ORM": "lib/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -358,7 +353,6 @@
                 "FOS\\FacebookBundle": ""
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -426,7 +420,6 @@
                 "FOS\\UserBundle": ""
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -477,7 +470,6 @@
                 "CG\\": "src/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "Apache"
         ],
@@ -520,7 +512,6 @@
                 "Metadata\\": "src/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "Apache"
         ],
@@ -568,7 +559,6 @@
                 "JMS\\AopBundle": ""
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "Apache"
         ],
@@ -630,7 +620,6 @@
                 "JMS\\DiExtraBundle": ""
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "Apache"
         ],
@@ -694,7 +683,6 @@
                 "JMS\\SecurityExtraBundle": ""
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "Apache2"
         ],
@@ -765,7 +753,6 @@
                 "src/functions.php"
             ]
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -823,7 +810,6 @@
                 "Monolog": "src/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -874,7 +860,6 @@
                 "Sensio\\Bundle\\DistributionBundle": ""
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -923,7 +908,6 @@
                 "Sensio\\Bundle\\FrameworkExtraBundle": ""
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -977,7 +961,6 @@
                 "Sensio\\Bundle\\GeneratorBundle": ""
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -1035,7 +1018,6 @@
                 "Symfony\\Bundle\\AsseticBundle": ""
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -1094,7 +1076,6 @@
                 "Symfony\\Bundle\\MonologBundle": ""
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -1142,7 +1123,6 @@
                 "lib/swift_required.php"
             ]
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "LGPL"
         ],
@@ -1202,7 +1182,6 @@
                 "Symfony\\Bundle\\SwiftmailerBundle": ""
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -1250,7 +1229,6 @@
                 "Twig_Extensions_": "lib/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -1299,7 +1277,6 @@
                 "Twig_": "lib/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "BSD-3"
         ],
@@ -1389,7 +1366,6 @@
                 "SessionHandlerInterface": "src/Symfony/Component/HttpFoundation/Resources/stubs"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -1437,7 +1413,6 @@
                 "src"
             ]
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "Apache2"
         ],
@@ -1485,7 +1460,6 @@
                 "Knp\\Component": "src/"
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -1539,7 +1513,6 @@
                 "Knp\\Bundle\\PaginatorBundle": ""
             }
         },
-        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
