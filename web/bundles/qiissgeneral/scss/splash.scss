@@ -199,6 +199,15 @@ body {
                     padding: 8px;
                     color:#fff;
                     @include corner(3px, 0px, 0px, 3px);
+
+                    &.birthday_error_message {
+                      right:230px;
+                    }
+                  }
+
+                  .label {
+                    color:#555;
+                    margin-right:6px;
                   }
 
                   input {
@@ -220,8 +229,8 @@ body {
                     }
 
                     &.birthday {
-                      width:69px;
-                      margin-right:12px;
+                      width:55px;
+                      margin-right:6px;
                       display:inline-block;
 
                       &.last {
@@ -276,6 +285,10 @@ body {
                         cursor:pointer;
                       }
                     }
+                  }
+
+                  #signup_birthday {
+                    display:none;
                   }
                 } // div
               } // .signup_form
