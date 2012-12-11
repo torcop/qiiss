@@ -45,14 +45,14 @@ class Wall
     /**
      * @var integer
      *
-     * @ORM\Column(name="nb_Qiiss", type="integer")
+     * @ORM\Column(name="nb_Qiiss", type="integer", nullable=true)
      */
     private $nb_Qiiss;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="media_link", type="string", length=800)
+     * @ORM\Column(name="media_link", type="string", length=800, nullable=true)
      */
     private $media_link;
 

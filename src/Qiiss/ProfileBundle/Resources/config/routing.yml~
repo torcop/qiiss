@@ -10,6 +10,6 @@ qiiss_profile_view_date:
     pattern:  /date/{dateid}
     defaults: { _controller: QiissProfileBundle:Profile:proposeDate }
 
-qiss_wall_post:
-    pattern: /wall-post
-    defaults: { _controller: QiissWallBundle:Wall:post }
+qiiss_profile_post:
+    pattern:  /wall
+    defaults: { _controller: QiissProfileBundle:Profile:proposeDate }

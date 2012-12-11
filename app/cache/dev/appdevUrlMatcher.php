@@ -192,9 +192,9 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Qiiss\\ProfileBundle\\Controller\\ProfileController::proposeDateAction',)), array('_route' => 'qiiss_profile_view_date'));
         }
 
-        // qiiss_wall_post
-        if ($pathinfo === '/wall-post') {
-            return array (  '_controller' => 'Qiiss\\WallBundle\\Controller\\WallController::postAction',  '_route' => 'qiiss_wall_post',);
+        // qiiss_profile_post
+        if ($pathinfo === '/wall') {
+            return array (  '_controller' => 'Qiiss\\WallBundle\\Controller\\WallController::postAction',  '_route' => 'qiiss_profile_post',);
         }
 
         // qiiss_general_homepage
