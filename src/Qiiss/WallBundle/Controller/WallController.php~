@@ -47,16 +47,11 @@ class WallController extends Controller
 
 		public function	showPostAction()
 		{
-			$profileid = 16;
-			$user = $this->getDoctrine()
-        						->getRepository('QiissUserBundle:User')
-        						->find($profileid);
-
-    	if (!$profileid)
-			{
-				throw $this->createNotFoundException('No user found for id '. $profileid);
-    	}
-				$comments = 
-				return $this->render('QiissUserBundle:Profile:canvas_post.html.twig', array('comments', $comments));
+			
+   	 $id = 16; // ID du bureau de test que l'on a enregistré précédemment
+    
+    	$user = $this->getDoctrine()->getRepository('QiissUserBundle:User')->find($id);
+			
+			return $this->render('QiissUserBundle:Profile:wall_post.html.twig', array('user' => $user));
 		}
 }

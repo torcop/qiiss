@@ -56,6 +56,7 @@ class WallController extends Controller
 			{
 				throw $this->createNotFoundException('No user found for id '. $profileid);
     	}
-				return $this->render('QiissUserBundle:Profile:canvas_post.html.twig', array('comments', $comments));
+			
+			return $this->render('QiissUserBundle:Profile:wall_post.html.twig', array('user' => $user));
 		}
 }

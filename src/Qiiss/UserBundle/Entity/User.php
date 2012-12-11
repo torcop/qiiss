@@ -271,7 +271,18 @@ class User extends BaseUser
         return $this->numNotificationNoty;
     }
 
-    /**
+		/**
+ 		 * Set comments
+ 		 *
+     * @param \Doctrine\Common\Collections\Collection $comments
+     */
+		public function setUserComment(\Doctrine\Common\Collections\Collection $comments)
+		{
+    	$this->comments = $comments;
+		} 
+
+
+   /**
      * Add comments
      *
      * @param \Qiiss\UserBundle\Entity\Wall $comments
