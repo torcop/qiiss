@@ -70,11 +70,10 @@ class Noty
      */
     private $notyRead;
 
-
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
@@ -90,14 +89,14 @@ class Noty
     public function setDate($date)
     {
         $this->date = $date;
-
+    
         return $this;
     }
 
     /**
      * Get date
      *
-     * @return \DateTime
+     * @return \DateTime 
      */
     public function getDate()
     {
@@ -113,14 +112,14 @@ class Noty
     public function setSender($sender)
     {
         $this->sender = $sender;
-
+    
         return $this;
     }
 
     /**
      * Get sender
      *
-     * @return integer
+     * @return integer 
      */
     public function getSender()
     {
@@ -136,14 +135,14 @@ class Noty
     public function setTarget($target)
     {
         $this->target = $target;
-
+    
         return $this;
     }
 
     /**
      * Get target
      *
-     * @return integer
+     * @return integer 
      */
     public function getTarget()
     {
@@ -159,14 +158,14 @@ class Noty
     public function setType($type)
     {
         $this->type = $type;
-
+    
         return $this;
     }
 
     /**
      * Get type
      *
-     * @return string
+     * @return string 
      */
     public function getType()
     {
@@ -182,31 +181,37 @@ class Noty
     public function setContent($content)
     {
         $this->content = $content;
-
+    
         return $this;
     }
 
     /**
      * Get content
      *
-     * @return string
+     * @return string 
      */
     public function getContent()
     {
         return $this->content;
     }
 
+    /**
+     * Set link
+     *
+     * @param string $link
+     * @return Noty
+     */
     public function setLink($link)
     {
         $this->link = $link;
-
+    
         return $this;
     }
 
     /**
-     * Get content
+     * Get link
      *
-     * @return string
+     * @return string 
      */
     public function getLink()
     {
@@ -214,19 +219,25 @@ class Noty
     }
 
     /**
-     * Get notyRead
+     * Set notyRead
      *
-     * @return boolean
+     * @param boolean $notyRead
+     * @return Noty
      */
-    public function getnotyRead()
-    {
-        return $this->notyRead;
-    }
-
-    public function setnotyRead($notyRead)
+    public function setNotyRead($notyRead)
     {
         $this->notyRead = $notyRead;
-
+    
         return $this;
+    }
+
+    /**
+     * Get notyRead
+     *
+     * @return boolean 
+     */
+    public function getNotyRead()
+    {
+        return $this->notyRead;
     }
 }

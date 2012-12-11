@@ -37,7 +37,25 @@ class WallController extends Controller
 	    $em->persist($wall);
 	    $em->flush();
 
-			return $this->render('QiissUserBundle:Profile:profile.html.twig');
+			return $this->render('QiissUserBundle:Profile:canvas_post.html.twig');
 		}
 	}
+
+	/*
+	 * This function fetch all the Qiis wall comment of a specific user.
+	 */
+
+		public function	showPostAction()
+		{
+			$profileid = 16;
+			$user = $this->getDoctrine()
+        						->getRepository('QiissUserBundle:User')
+        						->find($profileid);
+
+    	if (!$profileid)
+			{
+				throw $this->createNotFoundException('No user found for id '. $profileid);
+    	}
+				return $this->render('QiissUserBundle:Profile:canvas_post.html.twig', array('comments', $comments));
+		}
 }

@@ -21,6 +21,12 @@ class Wall
      */
     private $id;
 
+		/**
+     * @ORM\ManyToOne(targetEntity="Qiiss\UserBundle\Entity\User", inversedBy="comments")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    protected $user;
+
     /**
      * @var string
      *
@@ -180,5 +186,28 @@ class Wall
     public function getMediaLink()
     {
         return $this->media_link;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Qiiss\WallBundle\Entity\User $user
+     * @return Wall
+     */
+    public function setUser(\Qiiss\WallBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Qiiss\WallBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
