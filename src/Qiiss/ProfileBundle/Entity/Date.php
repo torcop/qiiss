@@ -24,14 +24,14 @@ class Date
     /**
      * @var integer
      *
-     * @ORM\OneToOne(targetEntity="Qiiss\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Qiiss\UserBundle\Entity\User")
      */
     private $sender;
 
     /**
      * @var integer
      *
-     * @ORM\OneToOne(targetEntity="Qiiss\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Qiiss\UserBundle\Entity\User")
      */
     private $target;
 

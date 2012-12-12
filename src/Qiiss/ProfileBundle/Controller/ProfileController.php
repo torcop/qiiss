@@ -74,7 +74,7 @@ class ProfileController extends Controller {
       ->find($dateid);
     if ($user == $date->getSender() || $user == $date->getTarget()) { // Make sure that only the "sender" and "target" are allowed to view this date, otherwise, redirect back to the profile
       return $this->render('QiissProfileBundle:Profile:viewDate.html.twig', array(
-        "username" => $user->getUsername()
+        "date" => $date
       ));
     }
     else {

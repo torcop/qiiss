@@ -25,6 +25,70 @@
 <body>
 {% include 'QiissUserBundle:Profile:header.html.twig' %}
 <div id="main_container">
+	<div id="propose_date_main_border">
+		<div id="propose_date_main_header">
+			Date Proposal
+		</div>
+		<div id="propose_date_main_left">
+			<div class="section_header">Your Date</div>
+			<div id="propose_date_profile_picture"></div>
+			<div id="date_target_name">{{ date.target.username }}</div>
+		</div>
+		<div class="propose_date_main_right">
+			<div class="section_container">
+				<div class="header">
+					<div class="inner">The Details (Click to contract)</div>
+				</div>
+				<div class="section">
+					<div class="section_body">
+						<div class="content">
+							<div class="content_header">Date Overview</div>
+						    <div class="content_block">
+						    	<div class="input_solid">
+						    		{{ date.eventDescription }}
+						    	</div>
+						    </div>
+						</div>
+						<div class="content">
+					    	<div class="content_header">Date / Time</div>
+						    <div class="content_block">
+						    	<div id="calendar" class="calendar"></div>
+						    	<div id="calendar_one_month" class="calendar"></div>
+						    	<div id="calendar_two_month" class="calendar"></div>
+						    	<div id="time_picker_container">
+						    		<input type="text" id="time_picker" placeholder="Time" required="required"/>
+						    	</div>
+						    </div>
+					    </div>
+					    <div class="content">
+						    <div class="content_header">Location</div>
+						    <div class="content_block">
+						    	{{ date.eventPlace }}
+						    </div>
+						</div>
+					    <div class="content">
+						    <div class="content_header">Media</div>
+						    <div class="content_block">
+						    	{{ date.eventMedia }}
+						    </div>
+					    </div>
+					    <div class="content">
+						    <div class="content_header">Links</div>
+						    <div class="content_block">
+						    	{{ date.eventPrice }}
+						    </div>
+					    </div>
+					    <div class="content">
+						    <div class="content_header">Price (Optional)</div>
+						    <div class="content_block">
+						    	{{ date.eventPrice }}
+						    </div>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 </body>
 </html>
