@@ -4,8 +4,7 @@ namespace Qiiss\WallBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use Qiiss\WallBundle\Entity\Wall;
-use Qiiss\WallBundle\Form\WallType;
+use Qiiss\WallBundle\Entity\Comment;
 
 class WallController extends Controller
 {
@@ -14,7 +13,7 @@ class WallController extends Controller
 	 */
 	public function	postAction()
 	{
-		$wall = new Wall();
+		$comment = new Comment();
 		$request = $this->get('request');
 		
 		if ($request->isMethod('POST'))
@@ -23,40 +22,28 @@ class WallController extends Controller
 												->get('profileid');
 
 			$repository = $this->getDoctrine()
-													->getRepository('QiissUserBundle:User');
+											 ->getRepository('QiissUserBundle:User');
 
 			$user = $repository->findOneById($profileid);
-
+	
 			$username = $user->getUsername();
-			$wall->setAuthor($username);
-			$wall->setDate(new \DateTime());
-			$wall_content = $this->get('request')->request->get('wall_content');
-			$wall->setComment($wall_content);
+			$comment->setAuthor($username);
+			$comment->setDate(new \DateTime());
+			$comment_content = $this->get('request')->request->get('wall_content');
+			$comment->setComment($comment_content);
+			$comment->setUser($user);
 			
 			$em = $this->getDoctrine()->getManager();
-	    $em->persist($wall);
-	    $em->flush();
-
-			return $this->render('QiissUserBundle:Profile:canvas_post.html.twig');
-		}
-	}
-
-	/*
-	 * This function fetch all the Qiis wall comment of a specific user.
-	 */
-
-		public function	showPostAction()
-		{
-			$profileid = 16;
-			$user = $this->getDoctrine()
-        						->getRepository('QiissUserBundle:User')
-        						->find($profileid);
-
-    	if (!$profileid)
-			{
-				throw $this->createNotFoundException('No user found for id '. $profileid);
-    	}
+			$em->persist($user);
+	 		$em->persist($comment);
+	 		$em->flush();
 			
-			return $this->render('QiissUserBundle:Profile:wall_post.html.twig', array('user' => $user));
+			$query = $em->createQuery('SELECT c FROM QiissWallBundle:Comment c WHERE c.user = :id')
+								->setParameter('id', $profileid);
+			$comments = $query->getResult();
+
+			return $this->render('QiissUserBundle:Profile:wall_post.html.twig', array('profileid' => $profileid, 'comments' => $comments));
 		}
+			return new Response();
+	}
 }

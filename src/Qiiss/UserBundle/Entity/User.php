@@ -5,7 +5,6 @@ namespace Qiiss\UserBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -21,17 +20,12 @@ class User extends BaseUser
      */
     protected $id;
 
-	/**
-     * @ORM\OneToMany(targetEntity="Qiiss\WallBundle\Entity\Wall", mappedBy="User")
-     */
-    protected $comments;
-
-	public function __construct() {
-		parent::__construct();
-        $this->comments = new ArrayCollection();
+		public function __construct()
+		{
+			parent::__construct();
     }
 
-	/**
+		/**
      * @ORM\Column(type="string", length=255)
      *
      * @Assert\NotBlank(message="dob.empty", groups={"Registration", "Profile"})
@@ -269,48 +263,5 @@ class User extends BaseUser
     public function getNumNotificationNoty()
     {
         return $this->numNotificationNoty;
-    }
-
-		/**
- 		 * Set comments
- 		 *
-     * @param \Doctrine\Common\Collections\Collection $comments
-     */
-		public function setUserComment(\Doctrine\Common\Collections\Collection $comments) {
-    	$this->comments = $comments;
-		}
-
-
-   /**
-     * Add comments
-     *
-     * @param \Qiiss\WallBundle\Entity\Wall $comments
-     * @return User
-     */
-    public function addComment(\Qiiss\WallBundle\Entity\Wall $comments)
-    {
-        $this->comments[] = $comments;
-    
-        return $this;
-    }
-
-    /**
-     * Remove comments
-     *
-     * @param \Qiiss\WallBundle\Entity\Wall $comments
-     */
-    public function removeComment(\Qiiss\WallBundle\Entity\Wall $comments)
-    {
-        $this->comments->removeElement($comments);
-    }
-
-    /**
-     * Get comments
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getComments()
-    {
-        return $this->comments;
     }
 }
