@@ -276,19 +276,18 @@ class User extends BaseUser
  		 *
      * @param \Doctrine\Common\Collections\Collection $comments
      */
-		public function setUserComment(\Doctrine\Common\Collections\Collection $comments)
-		{
+		public function setUserComment(\Doctrine\Common\Collections\Collection $comments) {
     	$this->comments = $comments;
-		} 
+		}
 
 
    /**
      * Add comments
      *
-     * @param \Qiiss\UserBundle\Entity\Wall $comments
+     * @param \Qiiss\WallBundle\Entity\Wall $comments
      * @return User
      */
-    public function addComment(\Qiiss\UserBundle\Entity\Wall $comments)
+    public function addComment(\Qiiss\WallBundle\Entity\Wall $comments)
     {
         $this->comments[] = $comments;
     
@@ -298,9 +297,9 @@ class User extends BaseUser
     /**
      * Remove comments
      *
-     * @param \Qiiss\UserBundle\Entity\Wall $comments
+     * @param \Qiiss\WallBundle\Entity\Wall $comments
      */
-    public function removeComment(\Qiiss\UserBundle\Entity\Wall $comments)
+    public function removeComment(\Qiiss\WallBundle\Entity\Wall $comments)
     {
         $this->comments->removeElement($comments);
     }

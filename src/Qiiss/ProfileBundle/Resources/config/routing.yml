@@ -8,7 +8,7 @@ qiiss_profile:
 
 qiiss_profile_view_date:
     pattern:  /date/{dateid}
-    defaults: { _controller: QiissProfileBundle:Profile:proposeDate }
+    defaults: { _controller: QiissProfileBundle:Profile:viewDate }
 
 qiiss_profile_post:
     pattern:  /wall
