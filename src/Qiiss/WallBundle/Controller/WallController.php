@@ -32,17 +32,18 @@ class WallController extends Controller
 			$comment_content = $this->get('request')->request->get('wall_content');
 			$comment->setComment($comment_content);
 			$comment->setUser($user);
-		}
 			
-		$em = $this->getDoctrine()->getManager();
-		$em->persist($user);
-	  $em->persist($comment);
-	  $em->flush();
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($user);
+	 		$em->persist($comment);
+	 		$em->flush();
 			
-		$query = $em->createQuery('SELECT c FROM QiissWallBundle:Comment c WHERE c.user = :id')
+			$query = $em->createQuery('SELECT c FROM QiissWallBundle:Comment c WHERE c.user = :id')
 								->setParameter('id', $profileid);
-		$comments = $query->getResult();
+			$comments = $query->getResult();
 
-		return $this->render('QiissUserBundle:Profile:wall_post.html.twig', array('profileid' => $profileid, 'comments' => $comments));
+			return $this->render('QiissUserBundle:Profile:wall_post.html.twig', array('profileid' => $profileid, 'comments' => $comments));
+		}
+			return new Response();
 	}
 }
