@@ -5,6 +5,7 @@ namespace Qiiss\UserBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -20,14 +21,13 @@ class User extends BaseUser
      */
     protected $id;
 
-		/**
+	/**
      * @ORM\OneToMany(targetEntity="Qiiss\WallBundle\Entity\Wall", mappedBy="User")
      */
     protected $comments;
 
-		public function __construct()
-    {
-				parent::__construct();
+	public function __construct() {
+		parent::__construct();
         $this->comments = new ArrayCollection();
     }
 

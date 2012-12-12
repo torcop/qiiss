@@ -7,14 +7,14 @@ jQuery.fn.selectDropdown = function() {
     if (!$this.is("select")) { // Check if the input is a select box
     	return;
     }
-    $insert = $('<input type="text" placeholder="' + placeHolder + '" id="select_' + placeHolder + '"/>');
+    var $insert = $('<input type="text" placeholder="' + placeHolder + '" id="select_' + placeHolder + '"/>');
     $insert.attr("class", $this.attr("class")); // Copy the classes across
     $insert.insertAfter($this); // Replace the select with an input type text
     $this.css("display", "none"); // Make the old select invisible
 
-    $dropdown = $('<div class="dropdown" id="dropdown_' + placeHolder + '"></div>'); // Create the dropdowns
+    var $dropdown = $('<div class="dropdown" id="dropdown_' + placeHolder + '"></div>'); // Create the dropdowns
     $dropdown.css({"display" : "none", "position" : "absolute"}); // Set them up to be invisible and positioned at the end of the body
-    $ul = $("<ul></ul>");
+    var $ul = $("<ul></ul>");
     $dropdown.append($ul);
     $this.find('option').each(function() {
     	$ul.append('<li>' + $(this).html() + '</li>'); // Add all the previous select options to the new menu
@@ -23,8 +23,8 @@ jQuery.fn.selectDropdown = function() {
 
     // Select our exact elements
     $insert.bind("focus", function() {
-    	$dropdownMatch = $('#dropdown_' + placeHolder);
-		$selectMatch = $('#select_' + placeHolder);
+    	var $dropdownMatch = $('#dropdown_' + placeHolder);
+		var $selectMatch = $('#select_' + placeHolder);
     	$dropdownMatch.css({
     		'display' : 'block',
     		'left' : $selectMatch.offset().left,
@@ -33,7 +33,7 @@ jQuery.fn.selectDropdown = function() {
     	});
     });
     $insert.bind("blur", function() {
-    	$dropdownMatch = $('#dropdown_' + placeHolder);
+    	var $dropdownMatch = $('#dropdown_' + placeHolder);
     	$dropdownMatch.css({'display' : 'none'});
     });
     $dropdown.find('li').bind("mouseenter", function() {
@@ -43,8 +43,11 @@ jQuery.fn.selectDropdown = function() {
     	$(this).removeClass("selected");
     });
     $dropdown.find('li').bind('mousedown', function() {
-		$selectMatch = $('#select_' + placeHolder);
-		console.log($(this).html());
-    	$selectMatch.val($(this).html());
+		var $selectMatch = $('#select_' + placeHolder);
+		var inner = $(this).html();
+    	$selectMatch.val(inner);
+		$this.find("option").filter(function() { // Select the corresponding element in our secret select so our form still works
+		    return $(this).html() == inner;
+		}).attr('selected', true);
     });
 };
