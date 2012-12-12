@@ -91,6 +91,7 @@ body {
     width: 100%;
     height: 90%;
     display: block;
+    margin-top: -65px;
     white-space: nowrap; }
     body #main_container .main_container_inner {
       width: 50%;
@@ -216,7 +217,8 @@ body {
             white-space: normal;
             margin-top: 1px;
             text-align: center;
-            width: 100%; }
+            width: 100%;
+            height: 336px; }
             body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab.selected {
               display: block; }
             body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields {
@@ -259,7 +261,7 @@ body {
                     -khtml-border-radius-bottomleft: 3px;
                     border-bottom-left-radius: 3px; }
                     body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div .error_message.birthday_error_message {
-                      right: 230px; }
+                      right: 220px; }
                   body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div .label {
                     color: #555;
                     margin-right: 6px; }
@@ -377,8 +379,6 @@ body {
                         height: 12px;
                         margin-right: 10px;
                         cursor: pointer; }
-                  body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .signup_fields .signup_form div #signup_birthday {
-                    display: none; }
             body #main_container #main_container_inner_right #login_container_outer #login_container .auth_tab .facebook_login_button {
               display: inline-block;
               padding: 8px 10px;
@@ -561,7 +561,7 @@ body {
   body #stream_outer {
     position: absolute;
     height: 50px;
-    top: 88%;
+    bottom: 10px;
     padding: 5px 0px;
     border: 1px solid #999;
     background-color: #AAA;

@@ -14,6 +14,7 @@ body {
     width:100%;
     height:90%;
     display:block;
+    margin-top:-65px;
     white-space:nowrap;
 
     .main_container_inner {
@@ -167,6 +168,7 @@ body {
             margin-top:1px;
             text-align:center;
             width:100%;
+            height:336px;
 
             &.selected {
               display:block;
@@ -201,7 +203,7 @@ body {
                     @include corner(3px, 0px, 0px, 3px);
 
                     &.birthday_error_message {
-                      right:230px;
+                      right:220px;
                     }
                   }
 
@@ -285,10 +287,6 @@ body {
                         cursor:pointer;
                       }
                     }
-                  }
-
-                  #signup_birthday {
-                    display:none;
                   }
                 } // div
               } // .signup_form
@@ -447,7 +445,7 @@ body {
   #stream_outer {
     position:absolute;
     height:50px;
-    top:88%;
+    bottom:10px;
     padding:5px 0px;
     border:1px solid #999;
     background-color:#AAA;

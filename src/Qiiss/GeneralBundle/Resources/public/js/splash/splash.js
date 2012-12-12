@@ -36,12 +36,24 @@ var pictureValues = jQuery.parseJSON('{ "pictures": [' +
 
 $(document).ready(function() {
 
+  $(".birthday").each(function() {
+    var placeHolderVar;
+    if ($(this).hasClass("day")) {
+      placeHolderVar = "Day";
+    }
+    if ($(this).hasClass("month")) {
+      placeHolderVar = "Month";
+    }
+    if ($(this).hasClass("year")) {
+      placeHolderVar = "Year";
+    }
+    $(this).selectDropdown({placeholder : placeHolderVar});
+  });
+
   for (i = 1; i < 41; i++) {
     $(".stream_inner").append('<img src="' + thumbDirectory + 'sample-' + i + '.jpg">');
   }
   $("#stream_outer").append($(".stream_inner").clone().removeClass("first"));
-
-  $('.auth_tab').height($('#signup_container_body').height());
 
   $('#suggest_sign_up').bind("click", function() {
     $("#signup_tab").trigger("click");
