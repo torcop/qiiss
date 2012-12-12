@@ -20,15 +20,9 @@ class User extends BaseUser
      */
     protected $id;
 
-		/**
-     * @ORM\OneToMany(targetEntity="Qiiss\WallBundle\Entity\Wall", mappedBy="User")
-     */
-    protected $comments;
-
 		public function __construct()
     {
 				parent::__construct();
-        $this->comments = new ArrayCollection();
     }
 
 	/**
@@ -269,49 +263,5 @@ class User extends BaseUser
     public function getNumNotificationNoty()
     {
         return $this->numNotificationNoty;
-    }
-
-		/**
- 		 * Set comments
- 		 *
-     * @param \Doctrine\Common\Collections\Collection $comments
-     */
-		public function setUserComment(\Doctrine\Common\Collections\Collection $comments)
-		{
-    	$this->comments = $comments;
-		} 
-
-
-   /**
-     * Add comments
-     *
-     * @param \Qiiss\UserBundle\Entity\Wall $comments
-     * @return User
-     */
-    public function addComment(\Qiiss\UserBundle\Entity\Wall $comments)
-    {
-        $this->comments[] = $comments;
-    
-        return $this;
-    }
-
-    /**
-     * Remove comments
-     *
-     * @param \Qiiss\UserBundle\Entity\Wall $comments
-     */
-    public function removeComment(\Qiiss\UserBundle\Entity\Wall $comments)
-    {
-        $this->comments->removeElement($comments);
-    }
-
-    /**
-     * Get comments
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getComments()
-    {
-        return $this->comments;
     }
 }

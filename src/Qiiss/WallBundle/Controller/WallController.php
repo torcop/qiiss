@@ -4,8 +4,7 @@ namespace Qiiss\WallBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use Qiiss\WallBundle\Entity\Wall;
-use Qiiss\WallBundle\Form\WallType;
+use Qiiss\WallBundle\Entity\Comment;
 
 class WallController extends Controller
 {
@@ -14,7 +13,7 @@ class WallController extends Controller
 	 */
 	public function	postAction()
 	{
-		$wall = new Wall();
+		$comment = new Comment();
 		$request = $this->get('request');
 		
 		if ($request->isMethod('POST'))
@@ -28,35 +27,22 @@ class WallController extends Controller
 			$user = $repository->findOneById($profileid);
 
 			$username = $user->getUsername();
-			$wall->setAuthor($username);
-			$wall->setDate(new \DateTime());
-			$wall_content = $this->get('request')->request->get('wall_content');
-			$wall->setComment($wall_content);
+			$comment->setAuthor($username);
+			$comment->setDate(new \DateTime());
+			$comment_content = $this->get('request')->request->get('wall_content');
+			$comment->setComment($comment_content);
+
+			$comment->setUser($user);
 			
 			$em = $this->getDoctrine()->getManager();
-	    $em->persist($wall);
+			$em->persist($user);
+	    $em->persist($comment);
 	    $em->flush();
+			
+			$comments = $em->getRepository('QiissWallBundle:Comment')
+                     ->findAll();
 
-			return $this->render('QiissUserBundle:Profile:canvas_post.html.twig');
+			return $this->render('QiissUserBundle:Profile:wall_post.html.twig', array('profileid' => $profileid, 'comments' => $comments));
 		}
 	}
-
-	/*
-	 * This function fetch all the Qiis wall comment of a specific user.
-	 */
-
-		public function	showPostAction()
-		{
-			$profileid = 16;
-			$user = $this->getDoctrine()
-        						->getRepository('QiissUserBundle:User')
-        						->find($profileid);
-
-    	if (!$profileid)
-			{
-				throw $this->createNotFoundException('No user found for id '. $profileid);
-    	}
-			
-			return $this->render('QiissUserBundle:Profile:wall_post.html.twig', array('user' => $user));
-		}
 }
