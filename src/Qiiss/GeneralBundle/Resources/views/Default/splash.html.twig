@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/splash.css') }}" type="text/css" media="all" />
     <link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/globalFunctions.css') }}" type="text/css" media="all" />
     <link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/cssreset-context-min.css') }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/select-dropdown.css') }}" type="text/css" media="all" />
     {% endblock %}
     <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/jquery-1.8.3.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/modernizr.2.6.2-min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/yepnope.1.5.4-min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/polyfiller.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/globalFunctions.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/select-dropdown.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/splash/splash.js') }}"></script>
 </head>
 <body>
@@ -20,7 +22,7 @@
 {% include 'QiissGeneralBundle:Default:header.html.twig' %}
 <div id="main_container">
   <div id="main_container_inner_left" class="main_container_inner">
-    <div id="picture_container_vertical_divider"></div>
+    <div class="vertical_align_fix"></div>
     <div id="picture_container_outer">
       <div id="picture_container_border">
         <div id="picture_container">
@@ -38,7 +40,7 @@
     </div>
   </div>
   <div id="main_container_inner_right" class="main_container_inner">
-    <div id="login_container_vertical_divider"></div>
+    <div class="vertical_align_fix"></div>
     <div id="login_container_outer">
       <div id="login_container">
         <div class="top_message">

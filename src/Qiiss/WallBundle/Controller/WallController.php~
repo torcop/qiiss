@@ -40,7 +40,7 @@ class WallController extends Controller
 	    $em->flush();
 			
 			$comments = $em->getRepository('QiissWallBundle:Comment')
-                       ->findAll();
+                     ->findAll();
 
 			return $this->render('QiissUserBundle:Profile:wall_post.html.twig', array('profileid' => $profileid, 'comments' => $comments));
 		}
