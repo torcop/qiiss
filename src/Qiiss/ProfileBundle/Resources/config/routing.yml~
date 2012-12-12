@@ -16,4 +16,4 @@ qiiss_profile_post:
 
 qiiss_profile_post_show:
     pattern:  /wall-show
-    defaults: { _controller: QiissWallBundle:Wall:post }
+    defaults: { _controller: QiissWallBundle:Wall:showPost }

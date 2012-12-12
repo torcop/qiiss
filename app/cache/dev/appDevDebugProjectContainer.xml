@@ -485,8 +485,8 @@
     <parameter key="jms_di_extra.directories" type="collection"/>
     <parameter key="jms_di_extra.cache_dir">/opt/lampp/htdocs/Qiiss/app/cache/dev/jms_diextra</parameter>
     <parameter key="jms_di_extra.doctrine_integration">true</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">/opt/lampp/htdocs/Qiiss/app/cache/dev/jms_diextra/doctrine/EntityManager_50c7fffe47496.php</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager50c7fffe47496_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">/opt/lampp/htdocs/Qiiss/app/cache/dev/jms_diextra/doctrine/EntityManager_50c802b6af8fc.php</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager50c802b6af8fc_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
     <parameter key="security.secured_services" type="collection"/>
     <parameter key="security.access.method_interceptor.class">JMS\SecurityExtraBundle\Security\Authorization\Interception\MethodSecurityInterceptor</parameter>
     <parameter key="security.access.method_access_control" type="collection"/>
@@ -1665,7 +1665,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>50c7fffe305a2</argument>
+            <argument>50c802b69dd0e</argument>
           </service>
         </argument>
       </argument>
@@ -1958,7 +1958,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>50c7fffe305a2</argument>
+            <argument>50c802b69dd0e</argument>
             <argument type="service" id="monolog.logger.security"/>
           </service>
         </argument>
@@ -2374,8 +2374,8 @@
     <service id="doctrine.orm.default_manager_configurator" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator">
       <argument type="collection"/>
     </service>
-    <service id="doctrine.orm.default_entity_manager" class="EntityManager50c7fffe47496_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
-      <file>/opt/lampp/htdocs/Qiiss/app/cache/dev/jms_diextra/doctrine/EntityManager_50c7fffe47496.php</file>
+    <service id="doctrine.orm.default_entity_manager" class="EntityManager50c802b6af8fc_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
+      <file>/opt/lampp/htdocs/Qiiss/app/cache/dev/jms_diextra/doctrine/EntityManager_50c802b6af8fc.php</file>
       <argument type="service">
         <service class="Doctrine\ORM\EntityManager" factory-method="create" public="false">
           <argument type="service" id="doctrine.dbal.default_connection"/>
