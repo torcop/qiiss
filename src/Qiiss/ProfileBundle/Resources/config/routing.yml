@@ -13,3 +13,7 @@ qiiss_profile_view_date:
 qiiss_profile_post:
     pattern:  /wall
     defaults: { _controller: QiissWallBundle:Wall:post }
+
+qiiss_profile_upload:
+    pattern:  /upload
+    defaults: { _controller: QiissWallBundle:Wall:upload }

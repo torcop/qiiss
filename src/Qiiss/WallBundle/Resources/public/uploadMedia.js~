@@ -1,0 +1,7 @@
+/**********************
+UPLOAD A FILE
+**********************/
+function	uploadMedia()
+{
+	alert('OKOK');
+}

@@ -5,6 +5,7 @@ namespace Qiiss\WallBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Qiiss\WallBundle\Entity\Comment;
+use Qiiss\WallBundle\Entity\Photo;
 
 class WallController extends Controller
 {
@@ -45,5 +46,34 @@ class WallController extends Controller
 			return $this->render('QiissUserBundle:Profile:wall_post.html.twig', array('profileid' => $profileid, 'comments' => $comments));
 		}
 			return new Response();
+	}
+
+	/*
+	 * This function allows to a user to upload a photo inside the Qiiss Wall.
+	 */
+	public function uploadAction()
+	{
+		$photo = new Photo();
+
+		$form = $this->createFormBuilder($photo)
+									->add('name')
+        					->add('file')
+        					->getForm();
+
+		$path = $this->get('request')->request->get('file');
+
+		$photo->setPath($path);
+		if ($this->getRequest()->getMethod() === 'POST')
+		{
+			$form->bindRequest($this->getRequest());
+			if ($form->isValid())
+			{
+				$em = $this->getDoctrine()->getEntityManager();
+				$photo->upload();
+				$em->persist($photo);
+				$em->flush();
+      }
+	  }
+		return $this->render('QiissWallBundle::upload_photo.html.twig', array('form' => $form->createView()));
 	}
 }
