@@ -72,8 +72,6 @@ class WallController extends Controller
 			{
 				$em = $this->getDoctrine()->getEntityManager();
 				$photo->upload();
-				//$form->getData()->move($dir, $form['file']->getClientOriginalName());
-
 				$em->persist($photo);
 				$em->flush();
       }
