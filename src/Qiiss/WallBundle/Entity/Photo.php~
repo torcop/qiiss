@@ -4,6 +4,8 @@ namespace Qiiss\WallBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 /**
  * @ORM\Entity
@@ -59,19 +61,28 @@ class Photo
 
 		public function upload()
 		{
-    // the file property can be empty if the field is not required
-    	if (null === $this->file)
-        return;
-    	$this->file->move($this->getUploadRootDir(),
-      $this->file->getClientOriginalName());
+			if (null === $this->file)
+				return;
 
-    // set the path property to the filename where you've saved the file
-    $this->path = $this->file->getClientOriginalName();
+			$extension = $this->file->guessExtension();
 
-    // clean up the file property as you won't need it anymore
-    $this->file = null;
-}
-
+			if ($extension === "jpeg" || $extension === "jpg"
+																|| $extension === "png"
+																|| $extension === "gif"
+																|| $extension === "bmp")
+			{
+				$_safePath = rand(1, 99999) . '.' . $extension;
+				$this->file->move($this->getUploadRootDir(), $_safePath);
+				$this->path = $_safePath;
+				$this->file = null;
+			}
+			
+			else
+				{
+					//Throw an error here!
+					echo 'UNAUTHORIZED TYPE OF FILE! : ' . $extension;			
+				}
+		}
 
     /**
      * Get id

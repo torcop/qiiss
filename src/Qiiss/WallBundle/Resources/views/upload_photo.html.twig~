@@ -1,6 +1,7 @@
 <h1>Upload Photo</h1>
 
-<form action="{{ path() }}" method="POST" {{ form_enctype(form) }}>
+<form action="{{ path('qiiss_profile_upload') }}" method="POST" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <input type="submit" value="Upload" />
+		{{ form_rest(form)}}
 </form>
