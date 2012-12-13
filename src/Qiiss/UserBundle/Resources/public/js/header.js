@@ -41,6 +41,7 @@ $(document).ready(function() {
         url: '/get-notifications/' + which + "/" + popup.data("notyIndex"),
         success: function(data) {
           parsed = jQuery.parseJSON(data);
+          console.log(parsed);
           popup.data("initialPull", true);
           if (parsed.hasOwnProperty("notifications")) {
             $.each(parsed.notifications, function(key, val) {

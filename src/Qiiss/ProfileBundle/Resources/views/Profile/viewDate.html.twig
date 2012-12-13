@@ -27,42 +27,25 @@
 <div id="main_container">
 	<div id="propose_date_main_border">
 		<div id="propose_date_main_header">
-			Date Proposal
+			<div id="header_picture_sender" class="header_picture_image"></div>
+			<div id="center_text">Date Proposal</div>
+			<div id="header_picture_target" class="header_picture_image"></div>
 		</div>
 		<div id="propose_date_main_left">
-			<div class="section_header">Your Date</div>
-			<div id="propose_date_profile_picture"></div>
-			<div id="date_target_name">{{ date.target.username }}</div>
-		</div>
-		<div class="propose_date_main_right">
 			<div class="section_container">
-				<div class="header">
-					<div class="inner">The Details (Click to contract)</div>
-				</div>
 				<div class="section">
 					<div class="section_body">
 						<div class="content">
 							<div class="content_header">Date Overview</div>
 						    <div class="content_block">
-						    	<div class="input_solid">
+						    	<div id="date_description">
 						    		{{ date.eventDescription }}
 						    	</div>
 						    </div>
 						</div>
-						<div class="content">
-					    	<div class="content_header">Date / Time</div>
-						    <div class="content_block">
-						    	<div id="calendar" class="calendar"></div>
-						    	<div id="calendar_one_month" class="calendar"></div>
-						    	<div id="calendar_two_month" class="calendar"></div>
-						    	<div id="time_picker_container">
-						    		<input type="text" id="time_picker" placeholder="Time" required="required"/>
-						    	</div>
-						    </div>
-					    </div>
 					    <div class="content">
 						    <div class="content_header">Location</div>
-						    <div class="content_block">
+						    <div class="content_block" id="date_location">
 						    	{{ date.eventPlace }}
 						    </div>
 						</div>
@@ -75,7 +58,7 @@
 					    <div class="content">
 						    <div class="content_header">Links</div>
 						    <div class="content_block">
-						    	{{ date.eventPrice }}
+						    	{{ date.eventLink }}
 						    </div>
 					    </div>
 					    <div class="content">
@@ -84,6 +67,33 @@
 						    	{{ date.eventPrice }}
 						    </div>
 					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="propose_date_main_right">
+			<div class="section_container">
+				<div class="section">
+					<div class="section_body">
+						<div class="content">
+					    	<div class="content_header">Date / Time</div>
+						    <div class="content_block calender_block">
+						    	<div id="calendar" class="calendar"></div>
+						    	<div id="calendar_one_month" class="calendar"></div>
+						    	<div id="calendar_two_month" class="calendar"></div>
+						    	<div id="time_picker_container">
+						    		<input type="hidden" id="event_date" value="{{ date.eventDate.date }}"/>
+						    		<input type="text" id="time_picker" placeholder="Time" required="required"/>
+						    	</div>
+						    </div>
+					    </div>
+					    <div class="content">
+						    <div class="content_header">Message Box</div>
+						    <div class="content_block">
+						    	<div id="message_box">
+						    	</div>
+						    </div>
+						</div>
 					</div>
 				</div>
 			</div>
