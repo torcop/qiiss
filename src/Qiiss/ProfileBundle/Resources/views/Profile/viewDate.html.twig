@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html class="yui3-cssreset">
+<pre>
+</pre>
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %}Qiiss - Propose A Date{% endblock %}</title>
+	{% block stylesheets %}
+		<link rel="stylesheet" href="{{ asset('bundles/qiissuser/css/header.css') }}" type="text/css" media="all" />
+		<link rel="stylesheet" href="{{ asset('bundles/qiissprofile/css/viewDate.css') }}" type="text/css" media="all" />
+	    <link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/globalFunctions.css') }}" type="text/css" media="all" />
+		<link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/cssreset-context-min.css') }}" type="text/css" media="all" />
+		<link rel="stylesheet" href="{{ asset('bundles/qiissprofile/css/timepicker.css') }}" type="text/css" media="all" />
+	{% endblock %}
+	<script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/jquery-1.8.3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/modernizr.2.6.2-min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/yepnope.1.5.4-min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/polyfiller.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/globalFunctions.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissprofile/js/jquery-calender-widget.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissprofile/js/timepicker-min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('bundles/qiissprofile/js/viewDate.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('bundles/qiissuser/js/header.js') }}"></script>
+</head>
+<body>
+{% include 'QiissUserBundle:Profile:header.html.twig' %}
+<div id="main_container">
+	<div id="propose_date_main_border">
+		<div id="propose_date_main_header">
+			<div id="header_picture_sender" class="header_picture_image"></div>
+			<div id="center_text">Date Proposal</div>
+			<div id="header_picture_target" class="header_picture_image"></div>
+		</div>
+		<div id="propose_date_main_left">
+			<div class="section_container">
+				<div class="section">
+					<div class="section_body">
+						<div class="content">
+							<div class="content_header">Date Overview</div>
+						    <div class="content_block">
+						    	<div id="date_description">
+						    		{{ date.eventDescription }}
+						    	</div>
+						    </div>
+						</div>
+					    <div class="content">
+						    <div class="content_header">Location</div>
+						    <div class="content_block" id="date_location">
+						    	{{ date.eventPlace }}
+						    </div>
+						</div>
+					    <div class="content">
+						    <div class="content_header">Media</div>
+						    <div class="content_block">
+						    	{{ date.eventMedia }}
+						    </div>
+					    </div>
+					    <div class="content">
+						    <div class="content_header">Links</div>
+						    <div class="content_block">
+						    	{{ date.eventLink }}
+						    </div>
+					    </div>
+					    <div class="content">
+						    <div class="content_header">Price (Optional)</div>
+						    <div class="content_block">
+						    	{{ date.eventPrice }}
+						    </div>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="propose_date_main_right">
+			<div class="section_container">
+				<div class="section">
+					<div class="section_body">
+						<div class="content">
+					    	<div class="content_header">Date / Time</div>
+						    <div class="content_block calender_block">
+						    	<div id="calendar" class="calendar"></div>
+						    	<div id="calendar_one_month" class="calendar"></div>
+						    	<div id="calendar_two_month" class="calendar"></div>
+						    	<div id="time_picker_container">
+						    		<input type="hidden" id="event_date" value="{{ date.eventDate.date }}"/>
+						    		<input type="text" id="time_picker" placeholder="Time" required="required"/>
+						    	</div>
+						    </div>
+					    </div>
+					    <div class="content">
+						    <div class="content_header">Message Box</div>
+						    <div class="content_block">
+						    	<div id="message_box">
+						    	</div>
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

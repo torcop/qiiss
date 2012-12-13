@@ -57,7 +57,7 @@ html {
         -khtml-border-radius-bottomleft: 8px;
         border-bottom-left-radius: 8px; }
         html body #main_container #propose_date_main_border #propose_date_main_header {
-          font: 40px/48px "Lobster13Regular", Arial, sans-proprif;
+          font: 40px/48px "Lobster13Regular", Arial, sans-serif;
           letter-spacing: 0;
           background-color: #7AB2DE;
           border: 1px solid #aaa;

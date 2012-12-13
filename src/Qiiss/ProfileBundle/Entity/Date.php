@@ -22,6 +22,20 @@ class Date
     private $id;
 
     /**
+     * @var integer
+     *
+     * @ORM\ManyToOne(targetEntity="Qiiss\UserBundle\Entity\User")
+     */
+    private $sender;
+
+    /**
+     * @var integer
+     *
+     * @ORM\ManyToOne(targetEntity="Qiiss\UserBundle\Entity\User")
+     */
+    private $target;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="event_description", type="text", length=500)
@@ -67,7 +81,7 @@ class Date
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -90,14 +104,14 @@ class Date
     public function setEventDescription($eventDescription)
     {
         $this->event_description = $eventDescription;
-    
+
         return $this;
     }
 
     /**
      * Get event_description
      *
-     * @return string 
+     * @return string
      */
     public function getEventDescription()
     {
@@ -113,14 +127,14 @@ class Date
     public function setEventDate($eventDate)
     {
         $this->event_date = $eventDate;
-    
+
         return $this;
     }
 
     /**
      * Get event_date
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getEventDate()
     {
@@ -136,14 +150,14 @@ class Date
     public function setEventPlace($eventPlace)
     {
         $this->event_place = $eventPlace;
-    
+
         return $this;
     }
 
     /**
      * Get event_place
      *
-     * @return string 
+     * @return string
      */
     public function getEventPlace()
     {
@@ -159,14 +173,14 @@ class Date
     public function setEventMedia($eventMedia)
     {
         $this->event_media = $eventMedia;
-    
+
         return $this;
     }
 
     /**
      * Get event_media
      *
-     * @return string 
+     * @return string
      */
     public function getEventMedia()
     {
@@ -182,14 +196,14 @@ class Date
     public function setEventLink($eventLink)
     {
         $this->event_link = $eventLink;
-    
+
         return $this;
     }
 
     /**
      * Get event_link
      *
-     * @return string 
+     * @return string
      */
     public function getEventLink()
     {
@@ -205,7 +219,7 @@ class Date
     public function setEventPrice($eventPrice)
     {
         $this->event_price = $eventPrice;
-    
+
         return $this;
     }
 
@@ -217,5 +231,51 @@ class Date
     public function getEventPrice()
     {
         return $this->event_price;
+    }
+
+    /**
+     * Set sender
+     *
+     * @param \Qiiss\ProfileBundle\Entity\User $sender
+     * @return Date
+     */
+    public function setSender(\Qiiss\UserBundle\Entity\User $sender = null)
+    {
+        $this->sender = $sender;
+
+        return $this;
+    }
+
+    /**
+     * Get sender
+     *
+     * @return \Qiiss\ProfileBundle\Entity\User
+     */
+    public function getSender()
+    {
+        return $this->sender;
+    }
+
+    /**
+     * Set target
+     *
+     * @param \Qiiss\ProfileBundle\Entity\User $target
+     * @return Date
+     */
+    public function setTarget(\Qiiss\UserBundle\Entity\User $target = null)
+    {
+        $this->target = $target;
+
+        return $this;
+    }
+
+    /**
+     * Get target
+     *
+     * @return \Qiiss\ProfileBundle\Entity\User
+     */
+    public function getTarget()
+    {
+        return $this->target;
     }
 }
