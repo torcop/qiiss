@@ -3,9 +3,11 @@
 namespace Qiiss\WallBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Response;
 use Qiiss\WallBundle\Entity\Comment;
 use Qiiss\WallBundle\Entity\Photo;
+
 
 class WallController extends Controller
 {
@@ -70,6 +72,8 @@ class WallController extends Controller
 			{
 				$em = $this->getDoctrine()->getEntityManager();
 				$photo->upload();
+				//$form->getData()->move($dir, $form['file']->getClientOriginalName());
+
 				$em->persist($photo);
 				$em->flush();
       }

@@ -59,17 +59,13 @@ class Photo
 
 		public function upload()
 		{
-	    if (null === $this->file) {
+    	if (null === $this->file)
         return;
-    }
-
-    $this->file->move($this->getUploadRootDir(),
-        							$this->file->getClientOriginalName());
-
-    $this->path = $this->file->getClientOriginalName();
-
-    $this->file = null;
-}
+    	$this->file->move($this->getUploadRootDir(),
+      $this->file->getClientOriginalName());
+	    $this->path = $this->file->getClientOriginalName();
+ 			$this->file = null;
+		}
 
 
     /**
