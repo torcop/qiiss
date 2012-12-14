@@ -45,22 +45,24 @@ class MessageController extends Controller {
           $em = $this->getDoctrine()->getEntityManager();
           $em->persist($message);
           $em->flush();
-          /*
+
           $noty = new Noty();
           $noty->setDate(new \DateTime());
-          $noty->setSender($user->getId());
-          $noty->setTarget($profileid);
-          $noty->setType("date");
-          $noty->setContent("You have a new date request!");
+          $noty->setSender($user);
+          if ($sender == $date->getSender()) { // Find the message target via the other person in the date object
+            $noty->setTarget($date->getTarget());
+          }
+          else {
+            $noty->setTarget($date->getSender());
+          }
+          $noty->setType("message");
+          $noty->setContent($sender->getUsername() . " sent you a message about your date.");
           $noty->setLink($this->container->get('router')->getContext()->getBaseUrl() . "/date/" . $date->getId());
           $noty->setNotyRead(false);
-          $userObject = $this->getDoctrine()
-            ->getRepository('QiissUserBundle:User')
-            ->find($profileid);
-          $userObject->setNumDateNoty($userObject->getNumDateNoty() + 1);
+          $noty->getTarget()->setNumMessageNoty($noty->getTarget()->getNumMessageNoty() + 1);
           $em->persist($noty);
           $em->flush();
-          */
+
           $returnArray["result"] = "success";
           return new Response(json_encode($returnArray));
         }

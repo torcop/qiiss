@@ -45,16 +45,13 @@ class ProfileController extends Controller {
 
 				$noty = new Noty();
 				$noty->setDate(new \DateTime());
-				$noty->setSender($user->getId());
-				$noty->setTarget($profileid);
+				$noty->setSender($sender);
+				$noty->setTarget($target);
 				$noty->setType("date");
 				$noty->setContent("You have a new date request!");
         $noty->setLink($this->container->get('router')->getContext()->getBaseUrl() . "/date/" . $date->getId());
         $noty->setNotyRead(false);
-        $userObject = $this->getDoctrine()
-          ->getRepository('QiissUserBundle:User')
-          ->find($profileid);
-        $userObject->setNumDateNoty($userObject->getNumDateNoty() + 1);
+        $target->setNumDateNoty($target->getNumDateNoty() + 1);
 				$em->persist($noty);
         $em->flush();
 

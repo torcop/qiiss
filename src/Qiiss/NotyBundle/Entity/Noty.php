@@ -31,14 +31,14 @@ class Noty
     /**
      * @var integer
      *
-     * @ORM\Column(name="sender", type="integer", length=10)
+     * @ORM\ManyToOne(targetEntity="Qiiss\UserBundle\Entity\User")
      */
     private $sender;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="target", type="integer", length=10)
+     * @ORM\ManyToOne(targetEntity="Qiiss\UserBundle\Entity\User")
      */
     private $target;
 
@@ -101,52 +101,6 @@ class Noty
     public function getDate()
     {
         return $this->date;
-    }
-
-    /**
-     * Set sender
-     *
-     * @param integer $sender
-     * @return Noty
-     */
-    public function setSender($sender)
-    {
-        $this->sender = $sender;
-    
-        return $this;
-    }
-
-    /**
-     * Get sender
-     *
-     * @return integer 
-     */
-    public function getSender()
-    {
-        return $this->sender;
-    }
-
-    /**
-     * Set target
-     *
-     * @param integer $target
-     * @return Noty
-     */
-    public function setTarget($target)
-    {
-        $this->target = $target;
-    
-        return $this;
-    }
-
-    /**
-     * Get target
-     *
-     * @return integer 
-     */
-    public function getTarget()
-    {
-        return $this->target;
     }
 
     /**
@@ -239,5 +193,51 @@ class Noty
     public function getNotyRead()
     {
         return $this->notyRead;
+    }
+
+    /**
+     * Set sender
+     *
+     * @param \Qiiss\UserBundle\Entity\User $sender
+     * @return Noty
+     */
+    public function setSender(\Qiiss\UserBundle\Entity\User $sender = null)
+    {
+        $this->sender = $sender;
+    
+        return $this;
+    }
+
+    /**
+     * Get sender
+     *
+     * @return \Qiiss\UserBundle\Entity\User 
+     */
+    public function getSender()
+    {
+        return $this->sender;
+    }
+
+    /**
+     * Set target
+     *
+     * @param \Qiiss\UserBundle\Entity\User $target
+     * @return Noty
+     */
+    public function setTarget(\Qiiss\UserBundle\Entity\User $target = null)
+    {
+        $this->target = $target;
+    
+        return $this;
+    }
+
+    /**
+     * Get target
+     *
+     * @return \Qiiss\UserBundle\Entity\User 
+     */
+    public function getTarget()
+    {
+        return $this->target;
     }
 }
