@@ -3,6 +3,7 @@
 {% for i in comments %}
     <li>
         <p>
+						{{ i.date}}
             {{ i.comment }}
         </p>
     </li>

@@ -25,3 +25,7 @@ qiiss_profile_get_messages_old:
 qiiss_profile_get_messages_new:
     pattern: /message/get-new/{dateid}
     defaults: { _controller: QiissProfileBundle:Message:getNewMessages }
+
+qiiss_profile_upload:
+    pattern:  /upload
+    defaults: { _controller: QiissWallBundle:Wall:upload }

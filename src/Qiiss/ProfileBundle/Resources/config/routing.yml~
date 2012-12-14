@@ -8,12 +8,16 @@ qiiss_profile:
 
 qiiss_profile_view_date:
     pattern:  /date/{dateid}
-    defaults: { _controller: QiissProfileBundle:Profile:proposeDate }
+    defaults: { _controller: QiissProfileBundle:Profile:viewDate }
 
 qiiss_profile_post:
     pattern:  /wall
+<<<<<<< HEAD
     defaults: { _controller: QiissWallBundle:Wall:post }
 
-qiiss_profile_post_show:
-    pattern:  /wall-show
-    defaults: { _controller: QiissWallBundle:Wall:showPost }
+qiiss_profile_upload:
+    pattern:  /upload
+    defaults: { _controller: QiissWallBundle:Wall:upload }
+=======
+    defaults: { _controller: QiissWallBundle:Wall:post }
+>>>>>>> b33fe58d70a425abb8a7ab7537dba70cdba763cf
