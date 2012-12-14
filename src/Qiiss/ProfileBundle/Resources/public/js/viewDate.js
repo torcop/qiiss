@@ -1,7 +1,8 @@
 var firstResult = 0;
+var requestProcessing = false;
 
 $(document).ready(function() {
-	getOldMessages();
+	getOldMessages(true);
 
 	var eventTime = $("#event_date").val().split(" ")[1];
 	var eventTimeSplit = eventTime.split(":");
@@ -113,10 +114,16 @@ $(document).ready(function() {
 		});
 	    return false;
 	});
+
+	$("#message_box_inner").bind("scroll", function() {
+		if ($(this).scrollTop() < 100) {
+			getOldMessages(false);
+		}
+	});
 });
 
 function createMessage(content, image, date) {
-	$("#message_box_inner").append(
+	$("#message_box_inner").prepend(
 		'<div class="message">' +
 			'<img src="' + image + '" class="message_dp">' +
 			'<div class="message_text">' +
@@ -127,21 +134,29 @@ function createMessage(content, image, date) {
 	);
 }
 
-function getOldMessages() {
-	$.ajax({
-		type: "POST",
-		url: "/message/get-old/" + dateid,
-		data: { "firstResult" : firstResult },
-		datatype: "json"
-    }).done(function( msg ) {
-    	console.log(msg);
-		parsed = jQuery.parseJSON(msg);
-		console.log(parsed);
-		if (parsed.hasOwnProperty("messages")) {
-			$.each(parsed.messages.reverse(), function(key, val) { // Reverse the array so the newest messages appear at the bottom
-				createMessage(val.messageContent, "", val.messageDate.date);
-			});
-			$("#message_box_inner").scrollTop(10000);
-		}
-	});
+function getOldMessages(scrollBottom) {
+	if (!requestProcessing) {
+		requestProcessing = true;
+		$.ajax({
+			type: "POST",
+			url: "/message/get-old/" + dateid,
+			data: { "firstResult" : firstResult },
+			datatype: "json"
+	    }).done(function( msg ) {
+	    	requestProcessing = false;
+	    	console.log(msg);
+			parsed = jQuery.parseJSON(msg);
+			console.log(parsed);
+			if (parsed.hasOwnProperty("messages")) {
+				$.each(parsed.messages, function(key, val) {
+					createMessage(val.messageContent, "", val.messageDate.date);
+					firstResult++;
+				});
+				$("#sample_message").remove();
+				if (scrollBottom) {
+					$("#message_box_inner").scrollTop(10000);
+				}
+			}
+		});
+	}
 }
