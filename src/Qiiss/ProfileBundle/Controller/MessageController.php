@@ -134,12 +134,14 @@ class MessageController extends Controller {
 
       if($request->getMethod() == 'POST') {
         $result = $request->request->get('messageTime');
+
         if (isset($result)) {
+          $user = $this->container->get('security.context')->getToken()->getUser();
           $messageTime = $this->get('request')->request->get('messageTime');
 
           $em = $this->getDoctrine()->getEntityManager();
-          // Get all messages from the corresponding date after the specified time (new)
-          $dql = "SELECT m, d FROM Qiiss\ProfileBundle\Entity\Message m JOIN m.date d WHERE d.id = " . $dateid . " AND m.message_date > '" . $messageTime . "' ORDER BY m.message_date DESC";
+          // Get all messages from the corresponding date after the specified time, by the other person in the date (our own messages will have already been appended by javascript)
+          $dql = "SELECT m, d FROM Qiiss\ProfileBundle\Entity\Message m JOIN m.date d WHERE d.id = " . $dateid . " AND m.message_date > '" . $messageTime . "' AND m.sender NOT IN(" . $user->getId() . ") ORDER BY m.message_date DESC";
           $query = $em->createQuery($dql);
 
           $messageArray = array(
@@ -148,6 +150,7 @@ class MessageController extends Controller {
             "messageTime" => ""
           );
           $i = 0;
+
           foreach ($query->getResult() as $message) {
               $messageArray["messages"][$i]["messageSender"] = $message->getSender()->getUsername();
               $messageArray["messages"][$i]["messageDate"] = $message->getMessageDate();

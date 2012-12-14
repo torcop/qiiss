@@ -92,18 +92,23 @@ $(document).ready(function() {
 	});
 
 	$("#message_box_lower form").submit(function() {
-		var savedMessage = $(this).find("textarea").val();
+		var postData = {};
+		var messageVal = $(this).find("textarea").val();
+		postData[$(this).find("textarea").attr("name")] = messageVal; // Save the name and data in the text field so we can use it later
+		postData[$(this).find("input[type=hidden]").attr("name")] = $(this).find("input[type=hidden]").val();
+		$("#message_box_lower textarea").val("");
+		createMessage(messageVal, "", new Date(), true);
+		$("#message_box_inner").scrollTop(10000);
+
 	    $.ajax({
 			type: "POST",
 			url: $(this).attr("action"),
-			data: $(this).serialize(),
+			data: postData,
 			datatype: "json"
 	    }).done(function( msg ) {
-	    	$("#message_box_lower textarea").val("");
 			parsed = jQuery.parseJSON(msg);
 			if (parsed.result == "success") {
-				//createMessage(savedMessage);
-				//$("#message_box_inner").scrollTop(10000);
+
 			}
 			else if (parsed.result == "failure") {
 				if (parsed.error) {

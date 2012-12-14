@@ -51,8 +51,8 @@ $(document).ready(function() {
                 '<div class="popup_item">' +
                   '<div class="popup_item_dp"><img src="#" class="popup_item_dp_img"></div>' +
                   '<div class="popup_item_content">' +
-                    '<div class="popup_item_text">' + val.content + '</div>' +
                     '<div class="popup_item_time">' + val.date + '</div>' +
+                    '<div class="popup_item_text">' + val.content + '</div>' +
                   '</div>' +
                 '</div>' +
                 '</a>'

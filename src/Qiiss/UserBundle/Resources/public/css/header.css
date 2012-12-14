@@ -162,12 +162,14 @@
             #upper_top_banner .popup .popup_content a .popup_item .popup_item_dp img {
               width: 50;
               height: 50px; }
-          #upper_top_banner .popup .popup_content a .popup_item .popup_item_content div {
-            display: block; }
-          #upper_top_banner .popup .popup_content a .popup_item .popup_item_content .popup_item_time {
-            margin-top: 5px;
-            color: #666;
-            font-size: 12px; }
+          #upper_top_banner .popup .popup_content a .popup_item .popup_item_content {
+            width: 240px; }
+            #upper_top_banner .popup .popup_content a .popup_item .popup_item_content div {
+              display: block; }
+            #upper_top_banner .popup .popup_content a .popup_item .popup_item_content .popup_item_time {
+              margin-top: 5px;
+              color: #666;
+              font-size: 12px; }
   #upper_top_banner #notification_popup {
     right: 100px; }
   #upper_top_banner #message_popup {
