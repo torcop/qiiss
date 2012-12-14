@@ -2,7 +2,7 @@ var firstResult = 0;
 var requestProcessing = false;
 
 $(document).ready(function() {
-	getOldMessages(true);
+	getOldMessages("bottom");
 
 	var eventTime = $("#event_date").val().split(" ")[1];
 	var eventTimeSplit = eventTime.split(":");
@@ -105,6 +105,7 @@ $(document).ready(function() {
 			parsed = jQuery.parseJSON(msg);
 			if (parsed.result == "success") {
 				createMessage(savedMessage);
+				$("#message_box_inner").scrollTop(10000);
 			}
 			else if (parsed.result == "failure") {
 				if (parsed.error) {
@@ -116,8 +117,8 @@ $(document).ready(function() {
 	});
 
 	$("#message_box_inner").bind("scroll", function() {
-		if ($(this).scrollTop() < 100) {
-			getOldMessages(false);
+		if ($(this).scrollTop() < 1) {
+			getOldMessages("top");
 		}
 	});
 });
@@ -134,9 +135,10 @@ function createMessage(content, image, date) {
 	);
 }
 
-function getOldMessages(scrollBottom) {
+function getOldMessages(scrollPos) {
 	if (!requestProcessing) {
 		requestProcessing = true;
+		var firstMsg = $('.message:first'); // Save the top message for scroll position later
 		$.ajax({
 			type: "POST",
 			url: "/message/get-old/" + dateid,
@@ -153,8 +155,13 @@ function getOldMessages(scrollBottom) {
 					firstResult++;
 				});
 				$("#sample_message").remove();
-				if (scrollBottom) {
-					$("#message_box_inner").scrollTop(10000);
+				if (scrollPos) {
+					if (scrollPos == "bottom") {
+						$("#message_box_inner").scrollTop(10000);
+					}
+					else if (scrollPos == "top") {
+						$("#message_box_inner").scrollTop(firstMsg.position().top);
+					}
 				}
 			}
 		});
