@@ -6,8 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Qiiss\ProfileBundle\Entity\Date;
+use Qiiss\ProfileBundle\Entity\Message;
 use Qiiss\NotyBundle\Entity\Noty;
 use Qiiss\ProfileBundle\Form\DateType;
+use Qiiss\ProfileBundle\Form\MessageType;
 
 class ProfileController extends Controller {
 
@@ -73,8 +75,12 @@ class ProfileController extends Controller {
       ->getRepository('QiissProfileBundle:Date')
       ->find($dateid);
     if ($user == $date->getSender() || $user == $date->getTarget()) { // Make sure that only the "sender" and "target" are allowed to view this date, otherwise, redirect back to the profile
+      $message = new Message(); // Create the message form
+      $form = $this->createForm(new MessageType, $message);
       return $this->render('QiissProfileBundle:Profile:viewDate.html.twig', array(
-        "date" => $date
+        "date" => $date,
+        "messageTime" => new \DateTime(),
+        "messageForm" => $form->createView()
       ));
     }
     else {

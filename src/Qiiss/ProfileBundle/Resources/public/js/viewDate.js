@@ -1,4 +1,8 @@
+var firstResult = 0;
+
 $(document).ready(function() {
+	getOldMessages();
+
 	var eventTime = $("#event_date").val().split(" ")[1];
 	var eventTimeSplit = eventTime.split(":");
 	var realTime = eventTimeSplit[0] > 12 ? (parseInt(eventTimeSplit[0]) - 12) + ":" + eventTimeSplit[1] + " PM" : eventTimeSplit[0] + ":" + eventTimeSplit[1] + " AM";
@@ -86,4 +90,52 @@ $(document).ready(function() {
 		    return $(this).val() == minutes;
 		}).attr('selected', true);
 	});
+
+	$("#message_box_lower form").submit(function() {
+		var savedMessage = $(this).find("textarea").val();
+	    $.ajax({
+			type: "POST",
+			url: $(this).attr("action"),
+			data: $(this).serialize(),
+			datatype: "json"
+	    }).done(function( msg ) {
+	    	$("#message_box_lower textarea").val("");
+	    	console.log(msg);
+			parsed = jQuery.parseJSON(msg);
+			if (parsed.result == "success") {
+				createMessage(savedMessage);
+			}
+			else if (parsed.result == "failure") {
+				if (parsed.error) {
+					slideOutError(parsed.error, "#login_form");
+				}
+			}
+		});
+	    return false;
+	});
 });
+
+function createMessage(content) {
+	$("#message_box_inner").append(
+		'<div class="message">' + content + '</div>'
+	);
+}
+
+function getOldMessages() {
+	$.ajax({
+		type: "POST",
+		url: "/message/get-old/" + dateid,
+		data: { "firstResult" : firstResult },
+		datatype: "json"
+    }).done(function( msg ) {
+    	console.log(msg);
+		parsed = jQuery.parseJSON(msg);
+		console.log(parsed);
+		if (parsed.hasOwnProperty("messages")) {
+			$.each(parsed.messages.reverse(), function(key, val) { // Reverse the array so the newest messages appear at the bottom
+				createMessage(val.messageContent);
+			});
+			$("#message_box_inner").scrollTop(10000);
+		}
+	});
+}

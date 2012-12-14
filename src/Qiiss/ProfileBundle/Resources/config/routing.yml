@@ -13,3 +13,15 @@ qiiss_profile_view_date:
 qiiss_profile_post:
     pattern:  /wall
     defaults: { _controller: QiissWallBundle:Wall:post }
+
+qiiss_profile_send_message:
+    pattern:  /message/send/{dateid}
+    defaults: { _controller: QiissProfileBundle:Message:sendMessage }
+
+qiiss_profile_get_messages_old:
+    pattern: /message/get-old/{dateid}
+    defaults: { _controller: QiissProfileBundle:Message:getOldMessages }
+
+qiiss_profile_get_messages_new:
+    pattern: /message/get-new/{dateid}
+    defaults: { _controller: QiissProfileBundle:Message:getNewMessages }
