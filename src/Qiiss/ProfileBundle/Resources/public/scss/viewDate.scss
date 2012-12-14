@@ -377,8 +377,31 @@ html {
 
                       .message {
                         display:block;
-                        padding:10px;
+                        padding:5px;
                         border-bottom:1px solid #ddd;
+
+                        .message_dp {
+                          display:inline-block;
+                          vertical-align:top;
+                          height:50px;
+                          width:50px;
+                          margin-right:10px;
+                        }
+
+                        .message_text {
+                          display:inline-block;
+                          vertical-align:top;
+
+                          .message_datetime {
+                            color:#999;
+                            font-size:14;
+                            display:block;
+                          }
+
+                          .message_content {
+                            padding:5px;
+                          }
+                        }
 
                         &#sample_message {
                           color:#999;

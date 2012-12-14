@@ -115,9 +115,15 @@ $(document).ready(function() {
 	});
 });
 
-function createMessage(content) {
+function createMessage(content, image, date) {
 	$("#message_box_inner").append(
-		'<div class="message">' + content + '</div>'
+		'<div class="message">' +
+			'<img src="' + image + '" class="message_dp">' +
+			'<div class="message_text">' +
+				'<div class="message_datetime">' + date + '</div>' +
+				'<div class="message_content">' + content + '</div>' +
+			'</div>' +
+		'</div>'
 	);
 }
 
@@ -133,7 +139,7 @@ function getOldMessages() {
 		console.log(parsed);
 		if (parsed.hasOwnProperty("messages")) {
 			$.each(parsed.messages.reverse(), function(key, val) { // Reverse the array so the newest messages appear at the bottom
-				createMessage(val.messageContent);
+				createMessage(val.messageContent, "", val.messageDate.date);
 			});
 			$("#message_box_inner").scrollTop(10000);
 		}
