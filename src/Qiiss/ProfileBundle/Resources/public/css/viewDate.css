@@ -391,6 +391,8 @@ html {
                       display: block;
                       padding: 5px;
                       border-bottom: 1px solid #ddd; }
+                      html body #main_container #propose_date_main_border .section_container .section .section_body .content .content_block #message_box #message_box_inner .message.alternate {
+                        background-color: #EDF4FF; }
                       html body #main_container #propose_date_main_border .section_container .section .section_body .content .content_block #message_box #message_box_inner .message .message_dp {
                         display: inline-block;
                         vertical-align: top;

@@ -62,7 +62,7 @@
 						    		</div>
 						    		<div id="message_box_lower">
 						    			<form action="{{ path('qiiss_profile_send_message', { 'dateid' : date.id }) }}" method="post" {{ form_enctype(messageForm) }}>
-							    			{{ form_widget(messageForm.message_content, { 'attr': {'placeholder': 'Date Overview', 'rows' : 3} }) }}
+							    			{{ form_widget(messageForm.message_content, { 'attr': {'placeholder': 'Message Your Date', 'rows' : 3} }) }}
 							    			{{ form_widget(messageForm._token) }}
 							    			<div id="message_box_submit_outer">
 							    				<input type="submit" id="message_box_submit" value="Send" />

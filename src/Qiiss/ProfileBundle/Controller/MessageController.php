@@ -128,8 +128,39 @@ class MessageController extends Controller {
   */
   public function getNewMessagesAction($dateid) {
     if ($this->checkAllowed($dateid)) { // Make sure that only the "sender" and "target" are allowed to view this date, otherwise return an error
-      return new Response("test");
+      $request = $this->get('request');
+
+      if($request->getMethod() == 'POST') {
+        $result = $request->request->get('messageTime');
+        if (isset($result)) {
+          $messageTime = $this->get('request')->request->get('messageTime');
+
+          $em = $this->getDoctrine()->getEntityManager();
+          // Get all messages from the corresponding date after the specified time (new)
+          $dql = "SELECT m, d FROM Qiiss\ProfileBundle\Entity\Message m JOIN m.date d WHERE d.id = " . $dateid . " AND m.message_date > '" . $messageTime . "' ORDER BY m.message_date DESC";
+          $query = $em->createQuery($dql);
+
+          $messageArray = array(
+            "result" => "success",
+            "numResults" => 0,
+            "messageTime" => ""
+          );
+          $i = 0;
+          foreach ($query->getResult() as $message) {
+              $messageArray["messages"][$i]["messageSender"] = $message->getSender()->getUsername();
+              $messageArray["messages"][$i]["messageDate"] = $message->getMessageDate();
+              $messageArray["messages"][$i]["messageContent"] = $message->getMessageContent();
+              $messageArray["messageTime"] = $message->getMessageDate(); // Set the returned "messageTime" to the time of the newest returned message
+              $messageArray["numResults"]++;
+              $i++;
+          }
+
+          return new Response(json_encode($messageArray));
+        }
+      }
     }
+    $returnArray["result"] = "failure";
+    return new Response(json_encode($returnArray));
   }
 
   /*

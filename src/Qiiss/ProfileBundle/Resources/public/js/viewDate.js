@@ -1,5 +1,6 @@
 var firstResult = 0;
 var requestProcessing = false;
+var messageToggle = "";
 
 $(document).ready(function() {
 	getOldMessages("bottom");
@@ -49,7 +50,6 @@ $(document).ready(function() {
 
 	$('.calendar_header').disableTextSelect();
 	$("#calendar").find(".calendar_header_right").bind("click", function() {
-		console.log("TEST");
 		$("#calendar").css("display", "none");
 		$("#calendar_one_month").css("display", "block");
 	});
@@ -67,7 +67,6 @@ $(document).ready(function() {
 	});
 
 	$("#qiiss_profilebundle_datetype_event_price").change(function() {
-		console.log("test");
 		if ($(this).val().indexOf("$") != 0) {
 			$(this).val("$" + $(this).val());
 		}
@@ -101,11 +100,10 @@ $(document).ready(function() {
 			datatype: "json"
 	    }).done(function( msg ) {
 	    	$("#message_box_lower textarea").val("");
-	    	console.log(msg);
 			parsed = jQuery.parseJSON(msg);
 			if (parsed.result == "success") {
-				createMessage(savedMessage);
-				$("#message_box_inner").scrollTop(10000);
+				//createMessage(savedMessage);
+				//$("#message_box_inner").scrollTop(10000);
 			}
 			else if (parsed.result == "failure") {
 				if (parsed.error) {
@@ -121,18 +119,27 @@ $(document).ready(function() {
 			getOldMessages("top");
 		}
 	});
+
+	setInterval(function() {
+		getNewMessages();
+	}, 2000);
 });
 
-function createMessage(content, image, date) {
-	$("#message_box_inner").prepend(
-		'<div class="message">' +
-			'<img src="' + image + '" class="message_dp">' +
-			'<div class="message_text">' +
-				'<div class="message_datetime">' + date + '</div>' +
-				'<div class="message_content">' + content + '</div>' +
-			'</div>' +
-		'</div>'
-	);
+function createMessage(content, image, date, append) {
+	messageToggle = messageToggle == "" ? "alternate" : "";
+	var message = '<div class="message ' + messageToggle + '">' +
+		'<img src="' + image + '" class="message_dp">' +
+		'<div class="message_text">' +
+			'<div class="message_datetime">' + date + '</div>' +
+			'<div class="message_content">' + content + '</div>' +
+		'</div>' +
+	'</div>';
+	if (append) {
+		$("#message_box_inner").append(message);
+	}
+	else {
+		$("#message_box_inner").prepend(message);
+	}
 }
 
 function getOldMessages(scrollPos) {
@@ -146,12 +153,10 @@ function getOldMessages(scrollPos) {
 			datatype: "json"
 	    }).done(function( msg ) {
 	    	requestProcessing = false;
-	    	console.log(msg);
 			parsed = jQuery.parseJSON(msg);
-			console.log(parsed);
 			if (parsed.hasOwnProperty("messages")) {
 				$.each(parsed.messages, function(key, val) {
-					createMessage(val.messageContent, "", val.messageDate.date);
+					createMessage(val.messageContent, "", val.messageDate.date, false);
 					firstResult++;
 				});
 				$("#sample_message").remove();
@@ -166,4 +171,28 @@ function getOldMessages(scrollPos) {
 			}
 		});
 	}
+}
+
+function getNewMessages() {
+	var firstMsg = $('.message:first'); // Save the top message for scroll position later
+	$.ajax({
+		type: "POST",
+		url: "/message/get-new/" + dateid,
+		data: { "messageTime" : messageTime },
+		datatype: "json"
+    }).done(function( msg ) {
+    	console.log(msg);
+		parsed = jQuery.parseJSON(msg);
+		if (parsed.hasOwnProperty("messages")) {
+			$.each(parsed.messages, function(key, val) {
+				createMessage(val.messageContent, "", val.messageDate.date, true);
+				firstResult++;
+			});
+			$("#message_box_inner").scrollTop(10000);
+			$("#sample_message").remove();
+		}
+		if (parsed.hasOwnProperty("messageTime") && parsed.messageTime != "") {
+			messageTime = parsed.messageTime.date;
+		}
+	});
 }

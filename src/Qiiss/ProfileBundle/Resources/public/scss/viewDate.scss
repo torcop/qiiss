@@ -380,6 +380,10 @@ html {
                         padding:5px;
                         border-bottom:1px solid #ddd;
 
+                        &.alternate {
+                          background-color:#EDF4FF;
+                        }
+
                         .message_dp {
                           display:inline-block;
                           vertical-align:top;
