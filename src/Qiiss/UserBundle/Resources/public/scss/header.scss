@@ -4,7 +4,7 @@
   width:100%;
   height:50px;
   position:relative;
-  background-color:#ddd;
+  background-color:#eee;
   border-bottom: 2px solid #666;
   text-align:right;
   font-size:0;
@@ -34,29 +34,14 @@
     display:inline-block;
     vertical-align:middle;
     cursor:pointer;
-    padding:0px 4px;
-  }
-
-  #date_icon {
-    img {
-      height:35px;
-    }
-  }
-  #message_icon {
-    img {
-      height:20px;
-    }
-  }
-  #notification_icon {
-    margin-right:5px;
-
-    img {
-      height:25px;
-    }
   }
 
   .notifications {
     position:relative;
+    padding:0px;
+    &:hover {
+      background-color:#ddd;
+    }
     .noty_new {
       display:none;
       position:absolute;
@@ -191,15 +176,15 @@
     } // .popup_content
   } // .popup
   #notification_popup {
-    right:100px;
+    right:96px;
   }
 
   #message_popup {
-    right:150px;
+    right:156px;
   }
 
   #date_popup {
-    right:200px;
+    right:216px;
   }
 } // #upper_top_banner
 
@@ -208,7 +193,6 @@
   position:relative;
   display:inline-block;
   vertical-align:top;
-  background-color:#ddd;
   border-right:1px solid #666;
   border-bottom:1px solid #666;
   margin-left:-1px;
@@ -263,7 +247,7 @@
   display:inline-block;
   margin-left:50px;
   margin-top:-2px;
-  background-color:#ddd;
+  background-color:#eee;
   border:2px solid #666;
   border-top:none;
   text-align:center;

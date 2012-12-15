@@ -1,17 +1,19 @@
 $(document).ready(function() {
-  $(".notifications").each(function() {
-    var which = $(this).attr('id').split("_")[0];
-    var $this = $(this);
-    $.ajax({
-      url: '/get-notifications-number/' + which,
-      success: function(data) {
-        parsed = jQuery.parseJSON(data);
-        if (parseInt(parsed.numNew) > 0) {
-          $this.find(".noty_new").html(parsed.numNew).css("display", "block");
+  setInterval(function() {
+    $(".notifications").each(function() {
+      var which = $(this).attr('id').split("_")[0];
+      var $this = $(this);
+      $.ajax({
+        url: '/get-notifications-number/' + which,
+        success: function(data) {
+          parsed = jQuery.parseJSON(data);
+          if (parseInt(parsed.numNew) > 0) {
+            $this.find(".noty_new").html(parsed.numNew).css("display", "block");
+          }
         }
-      }
+      });
     });
-  });
+  }, 7000);
   // Set notification "opened" data
   $("#notification_popup").data( { notyIndex : 0, initialPull : false} );
   $("#message_popup").data( { notyIndex : 0, initialPull : false} );
@@ -22,13 +24,17 @@ $(document).ready(function() {
     var which = $(this).attr('id').split("_")[0];
     var popup = $("#" + which + "_popup");
     if (popup.css("display") != "none") {
-      popup.slideUp(300);
+      popup.slideUp(300, function() {
+        $this.removeAttr("style");
+      });
       return;
     }
     $(".popup").each(function() {
       if ($(this).css("display") != "none") {
         $(this).css("display", "none");
         popup.toggle();
+        $(".notifications").removeAttr("style")
+        $this.css("background-color", "#ccc");
         return;
       }
     });
@@ -36,6 +42,7 @@ $(document).ready(function() {
     popup.slideDown(300, function() {
       popup.removeClass("animating");
     });
+    $this.css("background-color", "#ddd");
     if (!popup.data("initialPull")) {
       $.ajax({
         url: '/get-notifications/' + which + "/" + popup.data("notyIndex"),
