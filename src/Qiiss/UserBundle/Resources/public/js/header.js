@@ -1,18 +1,7 @@
 $(document).ready(function() {
+  getNotificationNumber();
   setInterval(function() {
-    $(".notifications").each(function() {
-      var which = $(this).attr('id').split("_")[0];
-      var $this = $(this);
-      $.ajax({
-        url: '/get-notifications-number/' + which,
-        success: function(data) {
-          parsed = jQuery.parseJSON(data);
-          if (parseInt(parsed.numNew) > 0) {
-            $this.find(".noty_new").html(parsed.numNew).css("display", "block");
-          }
-        }
-      });
-    });
+    getNotificationNumber();
   }, 7000);
   // Set notification "opened" data
   $("#notification_popup").data( { notyIndex : 0, initialPull : false} );
@@ -44,11 +33,14 @@ $(document).ready(function() {
     });
     $this.css("background-color", "#ddd");
     if (!popup.data("initialPull")) {
+      popup.find(".vertical_align_fix").css("display", "inline-block");
+      popup.find(".ajax_loader").css("display", "inline-block");
       $.ajax({
         url: '/get-notifications/' + which + "/" + popup.data("notyIndex"),
         success: function(data) {
           popup.find(".vertical_align_fix").css("display", "none");
           popup.find(".ajax_loader").css("display", "none");
+          popup.find(".popup_item").remove();
           parsed = jQuery.parseJSON(data);
           console.log(parsed);
           popup.data("initialPull", true);
@@ -109,4 +101,22 @@ function isDescendant(parent, child) {
          node = node.parentNode;
      }
      return false;
+}
+
+function getNotificationNumber() {
+  $(".notifications").each(function() {
+    var which = $(this).attr('id').split("_")[0];
+    var $this = $(this);
+    $.ajax({
+      url: '/get-notifications-number/' + which,
+      success: function(data) {
+        parsed = jQuery.parseJSON(data);
+        if (parseInt(parsed.numNew) > 0) {
+          $this.find(".noty_new").html(parsed.numNew).css("display", "block");
+          $("#" + which + "_popup").data("notyIndex", 0);
+          $("#" + which + "_popup").data("initialPull", false);
+        }
+      }
+    });
+  });
 }

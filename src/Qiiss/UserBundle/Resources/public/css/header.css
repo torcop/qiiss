@@ -136,12 +136,12 @@
       font-size: 0;
       text-align: center; }
       #upper_top_banner .popup .popup_content .vertical_align_fix {
-        display: inline-block;
+        display: none;
         width: 0px;
         height: 280px;
         vertical-align: middle; }
       #upper_top_banner .popup .popup_content .ajax_loader {
-        display: inline-block;
+        display: none;
         vertical-align: middle; }
       #upper_top_banner .popup .popup_content .popup_none {
         font: 14px 'OxygenRegular', Arial, sans-serif;

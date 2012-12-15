@@ -46,22 +46,36 @@ class MessageController extends Controller {
           $em->persist($message);
           $em->flush();
 
-          $noty = new Noty();
-          $noty->setDate(new \DateTime());
-          $noty->setSender($user);
+          // Find the other person on the date
+          $other = null;
           if ($sender == $date->getSender()) { // Find the message target via the other person in the date object
-            $noty->setTarget($date->getTarget());
+           $other = $date->getTarget();
           }
           else {
-            $noty->setTarget($date->getSender());
+            $other = $date->getSender();
           }
-          $noty->setType("message");
-          $noty->setContent($sender->getUsername() . " sent you a message about your date.");
-          $noty->setLink($this->container->get('router')->getContext()->getBaseUrl() . "/date/" . $date->getId());
-          $noty->setNotyRead(false);
-          $noty->getTarget()->setNumMessageNoty($noty->getTarget()->getNumMessageNoty() + 1);
-          $em->persist($noty);
-          $em->flush();
+
+          $senderNoty = $this->getDoctrine()
+          ->getRepository('QiissNotyBundle:Noty')
+          ->findOneBy(array(
+            'sender' => $sender,
+            'target'      => $other,
+            'notyRead'  => false
+          ));
+
+          if (!isset($senderNoty)) {
+            $noty = new Noty();
+            $noty->setDate(new \DateTime());
+            $noty->setSender($user);
+            $noty->setTarget($other);
+            $noty->setType("message");
+            $noty->setContent($sender->getUsername() . " sent you a message about your date.");
+            $noty->setLink($this->container->get('router')->getContext()->getBaseUrl() . "/date/" . $date->getId());
+            $noty->setNotyRead(false);
+            $noty->getTarget()->setNumMessageNoty($noty->getTarget()->getNumMessageNoty() + 1);
+            $em->persist($noty);
+            $em->flush();
+          }
 
           $returnArray["result"] = "success";
           return new Response(json_encode($returnArray));

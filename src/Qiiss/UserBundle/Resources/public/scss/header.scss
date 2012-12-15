@@ -126,14 +126,14 @@
       text-align:center;
 
       .vertical_align_fix {
-        display:inline-block;
+        display:none;
         width:0px;
         height:280px;
         vertical-align: middle;
       }
 
       .ajax_loader {
-        display:inline-block;
+        display:none;
         vertical-align:middle;
       }
 
