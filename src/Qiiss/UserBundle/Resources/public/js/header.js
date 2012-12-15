@@ -47,6 +47,8 @@ $(document).ready(function() {
       $.ajax({
         url: '/get-notifications/' + which + "/" + popup.data("notyIndex"),
         success: function(data) {
+          popup.find(".vertical_align_fix").css("display", "none");
+          popup.find(".ajax_loader").css("display", "none");
           parsed = jQuery.parseJSON(data);
           console.log(parsed);
           popup.data("initialPull", true);
@@ -55,7 +57,7 @@ $(document).ready(function() {
               // Find a way to parametize this out, it's ugly
               popup.find(".popup_content").append(
                 '<a href="' + val.link +  '">' +
-                '<div class="popup_item">' +
+                '<div class="popup_item' + (val.notyRead == "false" ? ' popup_item_new' : '') + '">' +
                   '<div class="popup_item_dp"><img src="#" class="popup_item_dp_img"></div>' +
                   '<div class="popup_item_content">' +
                     '<div class="popup_item_time">' + val.date + '</div>' +
@@ -67,6 +69,13 @@ $(document).ready(function() {
               popup.data("notyIndex", popup.data("notyIndex") + parsed.numResults);
               $this.find(".noty_new").html("").css("display", "none");
             });
+          }
+          else { // If the user has no notifications
+            popup.find(".popup_content").append(
+              '<div class="popup_none">' +
+                  '<div class="popup_item_text"> You currently have no ' + which + ' notifications.</div>' +
+              '</div>'
+            );
           }
         }
       });
@@ -80,7 +89,11 @@ $(document).ready(function() {
   $("body").bind("click", function(event) {
     $(".popup").each(function() {
       if ($(this).css("display") != "none" && !$(this).hasClass("animating") && !isDescendant($("#upper_top_banner")[0], event.target)) {
-        $(this).slideUp(300);
+        var which = $(this).attr('id').split("_")[0];
+        var icon = $("#" + which + "_icon");
+        $(this).slideUp(300, function() {
+          icon.removeAttr("style");
+        });
       return;
       }
     })

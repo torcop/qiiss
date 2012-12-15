@@ -68,7 +68,7 @@ class NotyController extends Controller {
 
     public function getNotificationsNumberAction($notyType) {
     	$user = $this->container->get('security.context')->getToken()->getUser();
-		$userObject = $this->getDoctrine()
+		  $userObject = $this->getDoctrine()
           ->getRepository('QiissUserBundle:User')
           ->find($user->getId());
       	$notyArray = array();

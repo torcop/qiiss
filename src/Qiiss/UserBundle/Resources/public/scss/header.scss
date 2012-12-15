@@ -123,6 +123,24 @@
       padding:0px;
       display:block;
       font-size:0;
+      text-align:center;
+
+      .vertical_align_fix {
+        display:inline-block;
+        width:0px;
+        height:280px;
+        vertical-align: middle;
+      }
+
+      .ajax_loader {
+        display:inline-block;
+        vertical-align:middle;
+      }
+
+      .popup_none {
+        font: 14px 'OxygenRegular', Arial, sans-serif;
+        padding:10px;
+      }
 
       a {
         padding:0;
@@ -134,6 +152,10 @@
           border-bottom:1px solid #ccc;
           font: 14px 'OxygenRegular', Arial, sans-serif;
           cursor:pointer;
+
+          &.popup_item_new {
+            background-color:#EDF4FF;
+          }
 
           &:hover {
             background-color:#eee;
