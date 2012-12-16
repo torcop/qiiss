@@ -34,10 +34,36 @@ html {
           #center_text {
             display:inline-block;
             vertical-align: middle;
-            font: 40px/48px 'Lobster13Regular', Arial, sans-serif;letter-spacing: 0;
-            padding:10px;
             margin:0px 166px;
-          }
+
+            #center_text_top {
+              font: 40px/48px 'Lobster13Regular', Arial, sans-serif;letter-spacing: 0;
+              padding:10px;
+            }
+
+            #center_text_bottom {
+              font: 14px 'OxygenRegular', Arial, sans-serif;
+
+              div {
+                display:inline-block;
+                vertical-align: middle;
+                padding:5px 0px;
+                width:80px;
+                border: 1px solid #999;
+                background-color:#EDF4FF;
+                cursor:pointer;
+                @include corner(5px, 5px, 5px, 5px);
+
+                &:hover {
+                  background-color:#E3EEFF;
+                }
+
+                &:active {
+                  background-color:#D4E5FF;
+                }
+              } // div
+            } // center_text_bottom
+          } // #center_text
 
           .header_picture_image {
             display:inline-block;
@@ -459,6 +485,10 @@ html {
                           }
                         }
                       } // form
+
+                      #date_not_accepted {
+                        font: 16px 'OxygenRegular', Arial, sans-serif;
+                      }
                     } // #message_box_lower
                   } // #message_box
                 } // .content_block

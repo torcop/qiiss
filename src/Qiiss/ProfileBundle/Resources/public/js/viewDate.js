@@ -5,6 +5,57 @@ var messageToggle = "";
 $(document).ready(function() {
 	getOldMessages("bottom");
 
+	$('#date_accept').bind('click', function() {
+		$.ajax({
+			type: "POST",
+			url: "/accept-date/" + dateid,
+			datatype: "json"
+	    }).done(function( msg ) {
+	    	console.log(msg);
+			parsed = jQuery.parseJSON(msg);
+			if (parsed.result == "success") {
+				console.log("success");
+			}
+			else if (parsed.result == "failure") {
+				console.log("failure")
+			}
+		});
+	});
+
+	$('#date_decline').bind('click', function() {
+		$.ajax({
+			type: "POST",
+			url: "/decline-date/" + dateid,
+			datatype: "json"
+	    }).done(function( msg ) {
+	    	console.log(msg);
+			parsed = jQuery.parseJSON(msg);
+			if (parsed.result == "success") {
+				console.log("success");
+			}
+			else if (parsed.result == "failure") {
+				console.log("failure")
+			}
+		});
+	});
+
+	$('#date_ignore').bind('click', function() {
+		$.ajax({
+			type: "POST",
+			url: "/ignore-date/" + dateid,
+			datatype: "json"
+	    }).done(function( msg ) {
+	    	console.log(msg);
+			parsed = jQuery.parseJSON(msg);
+			if (parsed.result == "success") {
+				console.log("success");
+			}
+			else if (parsed.result == "failure") {
+				console.log("failure")
+			}
+		});
+	});
+
 	var eventTime = $("#event_date").val().split(" ")[1];
 	var eventTimeSplit = eventTime.split(":");
 	var realTime = eventTimeSplit[0] > 12 ? (parseInt(eventTimeSplit[0]) - 12) + ":" + eventTimeSplit[1] + " PM" : eventTimeSplit[0] + ":" + eventTimeSplit[1] + " AM";
@@ -99,6 +150,7 @@ $(document).ready(function() {
 		$("#message_box_lower textarea").val("");
 		createMessage(messageVal, "", new Date(), true);
 		$("#message_box_inner").scrollTop(10000);
+		$("#sample_message").remove();
 
 	    $.ajax({
 			type: "POST",
@@ -161,6 +213,7 @@ function getOldMessages(scrollPos) {
 			parsed = jQuery.parseJSON(msg);
 			if (parsed.hasOwnProperty("messages")) {
 				$.each(parsed.messages, function(key, val) {
+					console.log(val.messageDate.date);
 					createMessage(val.messageContent, "", val.messageDate.date, false);
 					firstResult++;
 				});

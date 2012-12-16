@@ -10,6 +10,18 @@ qiiss_profile_view_date:
     pattern:  /date/{dateid}
     defaults: { _controller: QiissProfileBundle:Profile:viewDate }
 
+qiiss_profile_accept_date:
+    pattern:  /accept-date/{dateid}
+    defaults: { _controller: QiissProfileBundle:Profile:acceptDate }
+
+qiiss_profile_decline_date:
+    pattern:  /decline-date/{dateid}
+    defaults: { _controller: QiissProfileBundle:Profile:declineDate }
+
+qiiss_profile_ignore_date:
+    pattern:  /ignore-date/{dateid}
+    defaults: { _controller: QiissProfileBundle:Profile:ignoreDate }
+
 qiiss_profile_post:
     pattern:  /wall
     defaults: { _controller: QiissWallBundle:Wall:post }

@@ -58,6 +58,7 @@ class MessageController extends Controller {
           $senderNoty = $this->getDoctrine()
           ->getRepository('QiissNotyBundle:Noty')
           ->findOneBy(array(
+            'type' => "message",
             'sender' => $sender,
             'target'      => $other,
             'notyRead'  => false
@@ -192,10 +193,10 @@ class MessageController extends Controller {
       ->getRepository('QiissProfileBundle:Date')
       ->find($dateid);
     if ($user == $date->getSender() || $user == $date->getTarget()) { // Make sure that only the "sender" and "target" are allowed to view this date, otherwise return an error
-      return true;
+      if ($date->getStatus() == "accepted") {
+        return true;
+      }
     }
-    else {
-      return false;
-    }
+    return false;
   }
 }
