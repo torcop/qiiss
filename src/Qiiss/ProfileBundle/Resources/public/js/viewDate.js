@@ -15,6 +15,7 @@ $(document).ready(function() {
 			parsed = jQuery.parseJSON(msg);
 			if (parsed.result == "success") {
 				console.log("success");
+				location.reload(); // Refresh the page if the date was accepted
 			}
 			else if (parsed.result == "failure") {
 				console.log("failure")
@@ -32,6 +33,7 @@ $(document).ready(function() {
 			parsed = jQuery.parseJSON(msg);
 			if (parsed.result == "success") {
 				console.log("success");
+				location.reload(); // Refresh the page if the date was accepted
 			}
 			else if (parsed.result == "failure") {
 				console.log("failure")
@@ -49,6 +51,7 @@ $(document).ready(function() {
 			parsed = jQuery.parseJSON(msg);
 			if (parsed.result == "success") {
 				console.log("success");
+				location.reload(); // Refresh the page if the date was accepted
 			}
 			else if (parsed.result == "failure") {
 				console.log("failure")

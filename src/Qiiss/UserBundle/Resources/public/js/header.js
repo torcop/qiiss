@@ -40,7 +40,7 @@ $(document).ready(function() {
         success: function(data) {
           popup.find(".vertical_align_fix").css("display", "none");
           popup.find(".ajax_loader").css("display", "none");
-          popup.find(".popup_item").remove();
+          popup.find("a").remove();
           parsed = jQuery.parseJSON(data);
           console.log(parsed);
           popup.data("initialPull", true);
@@ -49,7 +49,7 @@ $(document).ready(function() {
               // Find a way to parametize this out, it's ugly
               popup.find(".popup_content").append(
                 '<a href="' + val.link +  '">' +
-                '<div class="popup_item' + (val.notyRead == "false" ? ' popup_item_new' : '') + '">' +
+                '<div class="popup_item' + (val.notyRead == false ? ' popup_item_new' : '') + '">' +
                   '<div class="popup_item_dp"><img src="#" class="popup_item_dp_img"></div>' +
                   '<div class="popup_item_content">' +
                     '<div class="popup_item_time">' + val.date + '</div>' +
@@ -60,6 +60,9 @@ $(document).ready(function() {
               );
               popup.data("notyIndex", popup.data("notyIndex") + parsed.numResults);
               $this.find(".noty_new").html("").css("display", "none");
+              setTimeout(function() {
+                popup.find(".popup_item_new").removeClass("popup_item_new");
+              }, 3000);
             });
           }
           else { // If the user has no notifications

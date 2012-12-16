@@ -44,24 +44,40 @@ html {
             #center_text_bottom {
               font: 14px 'OxygenRegular', Arial, sans-serif;
 
-              div {
+              .date_accept_buttons {
                 display:inline-block;
                 vertical-align: middle;
                 padding:5px 0px;
-                width:80px;
+                width:100px;
                 border: 1px solid #999;
                 background-color:#EDF4FF;
                 cursor:pointer;
                 @include corner(5px, 5px, 5px, 5px);
 
+                div {
+                  display:inline-block;
+                  vertical-align: top;
+                }
+
+                &.selected {
+                  background-color:#D6E6FF;
+                  border:1px solid #555;
+                }
+
                 &:hover {
-                  background-color:#E3EEFF;
+                  background-color:#D6E6FF;
                 }
 
                 &:active {
-                  background-color:#D4E5FF;
+                  background-color:#BFD8FF;
                 }
               } // div
+
+              img {
+                display:inline-block;
+                vertical-align:top;
+                margin-right:5px;
+              }
             } // center_text_bottom
           } // #center_text
 

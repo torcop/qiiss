@@ -70,11 +70,11 @@ html {
               padding: 10px; }
             html body #main_container #propose_date_main_border #propose_date_main_header #center_text #center_text_bottom {
               font: 14px 'OxygenRegular', Arial, sans-serif; }
-              html body #main_container #propose_date_main_border #propose_date_main_header #center_text #center_text_bottom div {
+              html body #main_container #propose_date_main_border #propose_date_main_header #center_text #center_text_bottom .date_accept_buttons {
                 display: inline-block;
                 vertical-align: middle;
                 padding: 5px 0px;
-                width: 80px;
+                width: 100px;
                 border: 1px solid #999;
                 background-color: #EDF4FF;
                 cursor: pointer;
@@ -94,10 +94,20 @@ html {
                 -webkit-border-bottom-left-radius: 5px;
                 -khtml-border-radius-bottomleft: 5px;
                 border-bottom-left-radius: 5px; }
-                html body #main_container #propose_date_main_border #propose_date_main_header #center_text #center_text_bottom div:hover {
-                  background-color: #E3EEFF; }
-                html body #main_container #propose_date_main_border #propose_date_main_header #center_text #center_text_bottom div:active {
-                  background-color: #D4E5FF; }
+                html body #main_container #propose_date_main_border #propose_date_main_header #center_text #center_text_bottom .date_accept_buttons div {
+                  display: inline-block;
+                  vertical-align: top; }
+                html body #main_container #propose_date_main_border #propose_date_main_header #center_text #center_text_bottom .date_accept_buttons.selected {
+                  background-color: #D6E6FF;
+                  border: 1px solid #555; }
+                html body #main_container #propose_date_main_border #propose_date_main_header #center_text #center_text_bottom .date_accept_buttons:hover {
+                  background-color: #D6E6FF; }
+                html body #main_container #propose_date_main_border #propose_date_main_header #center_text #center_text_bottom .date_accept_buttons:active {
+                  background-color: #BFD8FF; }
+              html body #main_container #propose_date_main_border #propose_date_main_header #center_text #center_text_bottom img {
+                display: inline-block;
+                vertical-align: top;
+                margin-right: 5px; }
           html body #main_container #propose_date_main_border #propose_date_main_header .header_picture_image {
             display: inline-block;
             vertical-align: middle;

@@ -36,9 +36,9 @@
 				<div id="center_text_top">Date Proposal</div>
 				{% if isTarget == true %}
 				<div id="center_text_bottom">
-					<div id="date_accept">Accept</div>
-					<div id="date_decline">Decline</div>
-					<div id="date_ignore">Ignore</div>
+					<div id="date_accept" class="date_accept_buttons {% if date.status == 'accepted' %} selected {% endif %}"><img src="{{ asset('bundles/qiissgeneral/images/date-images/qiiss-green-tick.png') }}" /><div>Accept{% if date.status == 'accepted' %}ed{% endif %}</div></div>
+					<div id="date_decline" class="date_accept_buttons {% if date.status == 'declined' %} selected {% endif %}"><img src="{{ asset('bundles/qiissgeneral/images/date-images/qiiss-red-cross.png') }}" /><div>Decline{% if date.status == 'declined' %}d{% endif %}</div></div>
+					<div id="date_ignore" class="date_accept_buttons {% if date.status == 'ignored' %} selected {% endif %}"><img src="{{ asset('bundles/qiissgeneral/images/date-images/qiiss-ignore.png') }}" /><div>Ignore{% if date.status == 'ignored' %}d{% endif %}</div></div>
 				</div>
 				{% endif %}
 			</div>
