@@ -1,0 +1,138 @@
+<?php
+
+namespace Qiiss\SearchBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Location
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class Location
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string")
+     */
+    private $city;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="area", type="string")
+     */
+    private $area;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="zip", type="string")
+     */
+    private $zip;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="latitude", type="float")
+     */
+    private $latitude;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="longitude", type="float")
+     */
+    private $longitude;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set city
+     *
+     * @param string $city
+     * @return Location
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+    
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string 
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set area
+     *
+     * @param string $area
+     * @return Location
+     */
+    public function setArea($area)
+    {
+        $this->area = $area;
+    
+        return $this;
+    }
+
+    /**
+     * Get area
+     *
+     * @return string 
+     */
+    public function getArea()
+    {
+        return $this->area;
+    }
+
+    /**
+     * Set zip
+     *
+     * @param string $zip
+     * @return Location
+     */
+    public function setZip($zip)
+    {
+        $this->zip = $zip;
+    
+        return $this;
+    }
+
+    /**
+     * Get zip
+     *
+     * @return string 
+     */
+    public function getZip()
+    {
+        return $this->zip;
+    }
+}

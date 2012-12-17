@@ -1,1 +1,4 @@
-Hello {{ name }}!
+SEARCH PEOPLE!
+
+{{ form_widget(form) }}
+{{ form_rest(form) }}
