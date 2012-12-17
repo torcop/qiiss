@@ -10,14 +10,38 @@ qiiss_profile_view_date:
     pattern:  /date/{dateid}
     defaults: { _controller: QiissProfileBundle:Profile:viewDate }
 
+qiiss_profile_accept_date:
+    pattern:  /accept-date/{dateid}
+    defaults: { _controller: QiissProfileBundle:Profile:acceptDate }
+
+qiiss_profile_decline_date:
+    pattern:  /decline-date/{dateid}
+    defaults: { _controller: QiissProfileBundle:Profile:declineDate }
+
+qiiss_profile_ignore_date:
+    pattern:  /ignore-date/{dateid}
+    defaults: { _controller: QiissProfileBundle:Profile:ignoreDate }
+
 qiiss_profile_post:
     pattern:  /wall
-<<<<<<< HEAD
     defaults: { _controller: QiissWallBundle:Wall:post }
+
+qiiss_profile_send_message:
+    pattern:  /message/send/{dateid}
+    defaults: { _controller: QiissProfileBundle:Message:sendMessage }
+
+qiiss_profile_get_messages_old:
+    pattern: /message/get-old/{dateid}
+    defaults: { _controller: QiissProfileBundle:Message:getOldMessages }
+
+qiiss_profile_get_messages_new:
+    pattern: /message/get-new/{dateid}
+    defaults: { _controller: QiissProfileBundle:Message:getNewMessages }
 
 qiiss_profile_upload:
     pattern:  /upload
     defaults: { _controller: QiissWallBundle:Wall:upload }
-=======
-    defaults: { _controller: QiissWallBundle:Wall:post }
->>>>>>> b33fe58d70a425abb8a7ab7537dba70cdba763cf
+
+qiiss_profile_search:
+    pattern:  /search
+    defaults: { _controller: QiissSearchBundle:Search:upload }

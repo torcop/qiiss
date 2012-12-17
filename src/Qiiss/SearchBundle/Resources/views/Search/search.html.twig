@@ -1,2 +1,5 @@
-{{ form_widget(form) }}
-{{ form_rest(form) }}
+<form action="{{ path('qiiss_profile_search') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <br /><input type="submit" />
+		{{ form_rest(form) }}
+</form>

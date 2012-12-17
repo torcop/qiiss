@@ -15,9 +15,13 @@ class SearchType extends AbstractType
 				$location = new Location;
 
         $builder
-            ->add('preference', 'text')
-            ->add('age', 'text')
-						->add('interests', 'entity', array('class' => 'QiissUserBundle:Interests',
+            ->add('preference', 'choice', array('choices' =>
+																					array('m' => 'Male', 'f' => 'Female'),
+																								'required' => true,))
+            ->add('age', 'choice', array('choices' =>
+																	array('18' => '18', '25' => '25'),
+    																		'required'  => true,))
+						->add('interests', 'entity', array('class' => 'QiissUserBundle:Interest',
 																						'property' => 'name',))						
             ->add('location', 'entity', array('class' => 'QiissSearchBundle:Location',
 																						'property' => 'city',));

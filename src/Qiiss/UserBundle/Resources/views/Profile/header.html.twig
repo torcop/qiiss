@@ -40,7 +40,7 @@
 		{% else %} left
 		{% endif %}">Profile
 	</div></a>
-	<a href="/search"><div id="nav_find_dates" class="
+	<a href="{{ path('qiiss_profile_search') }}"><div id="nav_find_dates" class="
 		{% if navSelection is defined %}
 			{% if navSelection == "findDates" %} selected left right
 			{% elseif navSelection == "profile" %} left left-shadow

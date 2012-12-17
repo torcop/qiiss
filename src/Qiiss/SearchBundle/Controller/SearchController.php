@@ -17,8 +17,18 @@ class SearchController extends Controller
 		    if($request->getMethod() == 'POST') 
 				{
 						$form->bind($request);
-				}
+						if ($form->isValid())
+						{
+							$preference = $this->get('request')->request->get('preference');
 
+							$postData = $request->request
+																	->get('qiiss_searchbundle_searchtype');
+							$preference = $postData['preference'];
+							$age = $postData['age'];
+							$interests = $postData['interests'];
+							$location = $postData['location'];
+						}
+				}
         return $this->render('QiissSearchBundle:Search:search.html.twig', array('form' => $form->createView()));
     }
 }

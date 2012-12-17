@@ -36,9 +36,9 @@ class Search
     private $age;
 
     /**
-     * @var array
+     * @var string
      *
-     * @ORM\Column(name="interests", type="array")
+     * @ORM\Column(name="interests", type="string")
      */
     private $interests;
 
@@ -48,7 +48,6 @@ class Search
      * @ORM\Column(name="location", type="string", length=100)
      */
     private $location;
-
 
     /**
      * Get id
@@ -109,7 +108,7 @@ class Search
     /**
      * Set interests
      *
-     * @param array $interests
+     * @param string $interests
      * @return Search
      */
     public function setInterests($interests)
@@ -122,7 +121,7 @@ class Search
     /**
      * Get interests
      *
-     * @return array 
+     * @return string 
      */
     public function getInterests()
     {
