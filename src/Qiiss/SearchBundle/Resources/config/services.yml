@@ -1,0 +1,7 @@
+parameters:
+#    qiiss_search.example.class: Qiiss\SearchBundle\Example
+
+services:
+#    qiiss_search.example:
+#        class: %qiiss_search.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

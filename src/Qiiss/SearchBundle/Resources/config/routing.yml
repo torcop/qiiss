@@ -1,0 +1,3 @@
+qiiss_search_homepage:
+    pattern:  /search
+    defaults: { _controller: QiissSearchBundle:Search:index }

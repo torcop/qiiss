@@ -4,3 +4,9 @@
 [submodule "vendor/bundles/WhiteOctober/PagerfantaBundle"]
 	path = vendor/bundles/WhiteOctober/PagerfantaBundle
 	url = http://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git
+[submodule "vendor/zend-search/Zend/Search"]
+	path = vendor/zend-search/Zend/Search
+	url = git://github.com/excelwebzone/zend-search.git
+[submodule "vendor/bundles/EWZ/Bundle/SearchBundle"]
+	path = vendor/bundles/EWZ/Bundle/SearchBundle
+	url = git://github.com/excelwebzone/EWZSearchBundle.git
