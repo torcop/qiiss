@@ -6,8 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Qiiss\ProfileBundle\Entity\Date;
+use Qiiss\ProfileBundle\Entity\Message;
 use Qiiss\NotyBundle\Entity\Noty;
 use Qiiss\ProfileBundle\Form\DateType;
+use Qiiss\ProfileBundle\Form\MessageType;
 
 class ProfileController extends Controller {
 
@@ -43,16 +45,13 @@ class ProfileController extends Controller {
 
 				$noty = new Noty();
 				$noty->setDate(new \DateTime());
-				$noty->setSender($user->getId());
-				$noty->setTarget($profileid);
+				$noty->setSender($sender);
+				$noty->setTarget($target);
 				$noty->setType("date");
 				$noty->setContent("You have a new date request!");
         $noty->setLink($this->container->get('router')->getContext()->getBaseUrl() . "/date/" . $date->getId());
         $noty->setNotyRead(false);
-        $userObject = $this->getDoctrine()
-          ->getRepository('QiissUserBundle:User')
-          ->find($profileid);
-        $userObject->setNumDateNoty($userObject->getNumDateNoty() + 1);
+        $target->setNumDateNoty($target->getNumDateNoty() + 1);
 				$em->persist($noty);
         $em->flush();
 
@@ -67,14 +66,93 @@ class ProfileController extends Controller {
 																				"username" => $username->getUsername(), "profileid" => $profileid));
 	}
 
+  /**
+  * These functions cause an action on a date and may only be executed by the date target
+  */
+  public function acceptDateAction($dateid) {
+    $user = $this->container->get('security.context')->getToken()->getUser(); // Get the current user
+    $date = $this->getDoctrine() // Get the corresponding date object
+      ->getRepository('QiissProfileBundle:Date')
+      ->find($dateid);
+    if ($user == $date->getTarget() && $date->getStatus() != "accepted") { // Only the target is allowed to accept, and the date can only be accepted once
+      $em = $this->getDoctrine()->getEntityManager();
+      $date->setStatus("accepted");
+      $em->flush();
+      // Send the user a notification that their date has been accepted
+      $senderNoty = $this->getDoctrine()
+        ->getRepository('QiissNotyBundle:Noty')
+        ->findOneBy(array( // Make sure if this date gets repeated accepted and declined we don't send multiple new notifications
+          'type' => 'date',
+          'sender' => $date->getTarget(),
+          'target'      => $date->getSender(),
+          'notyRead'  => false
+        ));
+
+      if (!isset($senderNoty)) {
+        $noty = new Noty();
+        $noty->setDate(new \DateTime());
+        $noty->setSender($date->getTarget());
+        $noty->setTarget($date->getSender());
+        $noty->setType("date");
+        $noty->setContent($date->getTarget()->getUsername() . " has accepted your date request.");
+        $noty->setLink($this->container->get('router')->getContext()->getBaseUrl() . "/date/" . $date->getId());
+        $noty->setNotyRead(false);
+        $noty->getTarget()->setNumDateNoty($noty->getTarget()->getNumDateNoty() + 1);
+        $em->persist($noty);
+        $em->flush();
+      }
+      $returnArray['result'] = 'success';
+      return new Response(json_encode($returnArray));
+    }
+    $returnArray['result'] = 'failure';
+    return new Response(json_encode($returnArray));
+  }
+
+  public function declineDateAction($dateid) {
+    $user = $this->container->get('security.context')->getToken()->getUser(); // Get the current user
+    $date = $this->getDoctrine() // Get the corresponding date object
+      ->getRepository('QiissProfileBundle:Date')
+      ->find($dateid);
+    if ($user == $date->getTarget() && $date->getStatus() != "declined") { // Only the target is allowed to accept, and the date can only be accepted once
+      $em = $this->getDoctrine()->getEntityManager();
+      $date->setStatus("declined");
+      $em->flush();
+      $returnArray['result'] = 'success';
+      return new Response(json_encode($returnArray));
+    }
+    $returnArray['result'] = 'failure';
+    return new Response(json_encode($returnArray));
+  }
+
+  public function ignoreDateAction($dateid) {
+    $user = $this->container->get('security.context')->getToken()->getUser(); // Get the current user
+    $date = $this->getDoctrine() // Get the corresponding date object
+      ->getRepository('QiissProfileBundle:Date')
+      ->find($dateid);
+    if ($user == $date->getTarget() && $date->getStatus() != "ignored") { // Only the target is allowed to accept, and the date can only be accepted once
+      $em = $this->getDoctrine()->getEntityManager();
+      $date->setStatus("ignored");
+      $em->flush();
+      $returnArray['result'] = 'success';
+      return new Response(json_encode($returnArray));
+    }
+    $returnArray['result'] = 'failure';
+    return new Response(json_encode($returnArray));
+  }
+
   public function viewDateAction($dateid) {
     $user = $this->container->get('security.context')->getToken()->getUser(); // Get the current user
     $date = $this->getDoctrine() // Get the corresponding date object
       ->getRepository('QiissProfileBundle:Date')
       ->find($dateid);
     if ($user == $date->getSender() || $user == $date->getTarget()) { // Make sure that only the "sender" and "target" are allowed to view this date, otherwise, redirect back to the profile
+      $message = new Message(); // Create the message form
+      $form = $this->createForm(new MessageType, $message);
       return $this->render('QiissProfileBundle:Profile:viewDate.html.twig', array(
-        "date" => $date
+        "date" => $date,
+        "messageTime" => new \DateTime(),
+        "messageForm" => $form->createView(),
+        "isTarget" => $user == $date->getTarget() ? true : false
       ));
     }
     else {

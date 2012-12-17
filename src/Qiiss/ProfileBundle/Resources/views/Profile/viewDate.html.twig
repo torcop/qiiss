@@ -12,6 +12,10 @@
 		<link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/cssreset-context-min.css') }}" type="text/css" media="all" />
 		<link rel="stylesheet" href="{{ asset('bundles/qiissprofile/css/timepicker.css') }}" type="text/css" media="all" />
 	{% endblock %}
+	<script type="text/javascript">
+		var dateid = {{ date.id }};
+		var messageTime = "{{ messageTime.date }}";
+	</script>
 	<script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/jquery-1.8.3.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/modernizr.2.6.2-min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/yepnope.1.5.4-min.js') }}"></script>
@@ -28,7 +32,16 @@
 	<div id="propose_date_main_border">
 		<div id="propose_date_main_header">
 			<div id="header_picture_sender" class="header_picture_image"></div>
-			<div id="center_text">Date Proposal</div>
+			<div id="center_text">
+				<div id="center_text_top">Date Proposal</div>
+				{% if isTarget == true %}
+				<div id="center_text_bottom">
+					<div id="date_accept" class="date_accept_buttons {% if date.status == 'accepted' %} selected {% endif %}"><img src="{{ asset('bundles/qiissgeneral/images/date-images/qiiss-green-tick.png') }}" /><div>Accept{% if date.status == 'accepted' %}ed{% endif %}</div></div>
+					<div id="date_decline" class="date_accept_buttons {% if date.status == 'declined' %} selected {% endif %}"><img src="{{ asset('bundles/qiissgeneral/images/date-images/qiiss-red-cross.png') }}" /><div>Decline{% if date.status == 'declined' %}d{% endif %}</div></div>
+					<div id="date_ignore" class="date_accept_buttons {% if date.status == 'ignored' %} selected {% endif %}"><img src="{{ asset('bundles/qiissgeneral/images/date-images/qiiss-ignore.png') }}" /><div>Ignore{% if date.status == 'ignored' %}d{% endif %}</div></div>
+				</div>
+				{% endif %}
+			</div>
 			<div id="header_picture_target" class="header_picture_image"></div>
 		</div>
 		<div id="propose_date_main_left">
@@ -50,23 +63,28 @@
 						    </div>
 						</div>
 					    <div class="content">
-						    <div class="content_header">Media</div>
-						    <div class="content_block">
-						    	{{ date.eventMedia }}
+						    <div class="content_header">Message Box</div>
+						    <div class="content_block" id="message_block">
+						    	<div id="message_box">
+						    		<div id="message_box_inner">
+						    			<div id="sample_message" class="message">Messages will appear in this box.</div>
+						    		</div>
+						    		<div id="message_box_lower">
+						    			{% if date.status == "accepted" %}
+						    			<form action="{{ path('qiiss_profile_send_message', { 'dateid' : date.id }) }}" method="post" {{ form_enctype(messageForm) }}>
+							    			{{ form_widget(messageForm.message_content, { 'attr': {'placeholder': 'Message Your Date', 'rows' : 3} }) }}
+							    			{{ form_widget(messageForm._token) }}
+							    			<div id="message_box_submit_outer">
+							    				<input type="submit" id="message_box_submit" value="Send" />
+							    			</div>
+						    			</form>
+						    			{% else %}
+						    			<div id="date_not_accepted">The recipient of this date must accept the date proposal before you can begin messaging eachother.</div>
+						    			{% endif %}
+						    		</div>
+						    	</div>
 						    </div>
-					    </div>
-					    <div class="content">
-						    <div class="content_header">Links</div>
-						    <div class="content_block">
-						    	{{ date.eventLink }}
-						    </div>
-					    </div>
-					    <div class="content">
-						    <div class="content_header">Price (Optional)</div>
-						    <div class="content_block">
-						    	{{ date.eventPrice }}
-						    </div>
-					    </div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -88,12 +106,23 @@
 						    </div>
 					    </div>
 					    <div class="content">
-						    <div class="content_header">Message Box</div>
+						    <div class="content_header">Media</div>
 						    <div class="content_block">
-						    	<div id="message_box">
-						    	</div>
+						    	{{ date.eventMedia }}
 						    </div>
-						</div>
+					    </div>
+					    <div class="content">
+						    <div class="content_header">Links</div>
+						    <div class="content_block">
+						    	{{ date.eventLink }}
+						    </div>
+					    </div>
+					    <div class="content">
+						    <div class="content_header">Price (Optional)</div>
+						    <div class="content_block">
+						    	{{ date.eventPrice }}
+						    </div>
+					    </div>
 					</div>
 				</div>
 			</div>

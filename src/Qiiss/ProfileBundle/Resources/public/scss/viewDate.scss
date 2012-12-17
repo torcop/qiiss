@@ -34,10 +34,52 @@ html {
           #center_text {
             display:inline-block;
             vertical-align: middle;
-            font: 40px/48px 'Lobster13Regular', Arial, sans-serif;letter-spacing: 0;
-            padding:10px;
             margin:0px 166px;
-          }
+
+            #center_text_top {
+              font: 40px/48px 'Lobster13Regular', Arial, sans-serif;letter-spacing: 0;
+              padding:10px;
+            }
+
+            #center_text_bottom {
+              font: 14px 'OxygenRegular', Arial, sans-serif;
+
+              .date_accept_buttons {
+                display:inline-block;
+                vertical-align: middle;
+                padding:5px 0px;
+                width:100px;
+                border: 1px solid #999;
+                background-color:#EDF4FF;
+                cursor:pointer;
+                @include corner(5px, 5px, 5px, 5px);
+
+                div {
+                  display:inline-block;
+                  vertical-align: top;
+                }
+
+                &.selected {
+                  background-color:#D6E6FF;
+                  border:1px solid #555;
+                }
+
+                &:hover {
+                  background-color:#D6E6FF;
+                }
+
+                &:active {
+                  background-color:#BFD8FF;
+                }
+              } // div
+
+              img {
+                display:inline-block;
+                vertical-align:top;
+                margin-right:5px;
+              }
+            } // center_text_bottom
+          } // #center_text
 
           .header_picture_image {
             display:inline-block;
@@ -172,7 +214,7 @@ html {
 
                   #date_description {
                     width:438px;
-                    height:180px;
+                    height:150px;
                     resize:none;
                     overflow-y:auto;
                     font: 16px 'OxygenRegular', Arial, sans-serif;
@@ -365,38 +407,112 @@ html {
                   }
 
                   #message_box {
-                    height:217px;
-                  }
+                    padding:0px;
+
+                    #message_box_inner {
+                      display:block;
+                      height:230px;
+                      width:100%;
+                      overflow-y:scroll;
+                      border-bottom:1px solid #999;
+                      padding:0px;
+
+                      .message {
+                        display:block;
+                        padding:5px;
+                        border-bottom:1px solid #ddd;
+
+                        &.alternate {
+                          background-color:#EDF4FF;
+                        }
+
+                        .message_dp {
+                          display:inline-block;
+                          vertical-align:top;
+                          height:50px;
+                          width:50px;
+                          margin-right:10px;
+                        }
+
+                        .message_text {
+                          display:inline-block;
+                          vertical-align:top;
+                          width:400px;
+
+                          .message_datetime {
+                            color:#999;
+                            font-size:12px;
+                            display:block;
+                            margin-bottom:10px;
+                          }
+                        }
+
+                        &#sample_message {
+                          color:#999;
+                          border-bottom:1px solid #999;
+                          padding:10px;
+                        }
+                      }
+                    }
+
+                    #message_box_lower {
+                      display:inline-block;
+                      padding:20px;
+                      font-size:0;
+
+                      form {
+
+                        textarea {
+                          width:438px;
+                          padding:8px;
+                          resize:none;
+                          overflow-y:auto;
+                          border: 2px solid #bbb;
+                          font: 16px 'OxygenRegular', Arial, sans-serif;
+                          color:#333;
+                          @include corner(3px, 3px, 0px, 3px);
+
+                          &:focus {
+                             outline-width: 0;
+                             border-color:#999;
+                          }
+                        }
+
+                        #message_box_submit_outer {
+                          text-align:right;
+
+                          #message_box_submit {
+                            width:auto;
+                            padding:5px 10px;
+                            border-top:none;
+                            font-size:16px;
+                            cursor:pointer;
+                            @include corner(0px, 0px, 3px, 3px);
+                            @include shadow(0px, 0px, 0px, 0px, #bbb);
+
+                            &:hover {
+                              background-color:#aaa;
+                              border-color: #aaa;
+                            }
+                            &:active {
+                              background-color:#999;
+                              border-color: #888;
+                            }
+                          }
+                        }
+                      } // form
+
+                      #date_not_accepted {
+                        font: 16px 'OxygenRegular', Arial, sans-serif;
+                      }
+                    } // #message_box_lower
+                  } // #message_box
                 } // .content_block
 
-                #date_location {
-                  height:66px;
+                #message_block {
+                  padding:0px;
                 }
               } // .content
-              .content_submit {
-                .submit {
-                  color:#eee;
-                  border: 1px solid #999;
-                  border-top:none;
-                  padding:7px 15px;
-                  font: 18px 'PatuaOneRegular', Arial, sans-serif;
-                  display:inline-block;
-                  vertical-align: middle;
-                  cursor:pointer;
-                  @include shadow(0px, 0px, 10px, 1px, #999);
-                  @include corner(0px, 0px, 5px, 5px);
-                  @include gradient(#777, #666);
-
-                  &:hover {
-                    @include gradient(#595959, #595959);
-                    border-color: #888;
-                  }
-                  &:active {
-                    @include gradient(#494949, #494949);
-                    border-color: #777;
-                  }
-                } // .submit
-              } // .content_submit
             } // .section_body
           } // .section
         } // .section_container

@@ -50,14 +50,16 @@ class NotyController extends Controller {
       $userObject = $this->getDoctrine()
         ->getRepository('QiissUserBundle:User')
         ->find($user->getId());
+
+      // Even if the user didn't request all their new notifications, just set the total number to 0 anyway
       if ($notyType == "date") {
-        $userObject->setNumDateNoty($userObject->getNumDateNoty() - $notyArray["numNew"]);
+        $userObject->setNumDateNoty(0);
       }
       else if ($notyType == "message") {
-        $userObject->setNumMessageNoty($userObject->getNumMessageNoty() - $notyArray["numNew"]);
+        $userObject->setNumMessageNoty(0);
       }
       else if ($notyType == "notification") {
-        $userObject->setNumNotificationNoty($userObject->getNumNotificationNoty() - $notyArray["numNew"]);
+        $userObject->setNumNotificationNoty(0);
       }
       $em->flush();
 
@@ -66,7 +68,7 @@ class NotyController extends Controller {
 
     public function getNotificationsNumberAction($notyType) {
     	$user = $this->container->get('security.context')->getToken()->getUser();
-		$userObject = $this->getDoctrine()
+		  $userObject = $this->getDoctrine()
           ->getRepository('QiissUserBundle:User')
           ->find($user->getId());
       	$notyArray = array();

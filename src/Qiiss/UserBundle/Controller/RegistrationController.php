@@ -59,7 +59,7 @@ class RegistrationController extends BaseController
         }
         // If the request failed, get all error messages
         $errorHelper = $this->container->get('general.helper.error');
-        $errors = $errorHelper-> getErrorMessages($form);
+        $errors = $errorHelper->getErrorMessages($form);
         $array['result'] = 'failure';
         if (sizeof($errors) > 0) {
             $shift = array_shift($errors);

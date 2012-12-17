@@ -24,14 +24,14 @@ class Date
     /**
      * @var integer
      *
-     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="Qiiss\UserBundle\Entity\User")
      */
     private $sender;
 
     /**
      * @var integer
      *
-     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="Qiiss\UserBundle\Entity\User")
      */
     private $target;
 
@@ -76,6 +76,13 @@ class Date
      * @ORM\Column(name="event_price", type="string")
      */
     private $event_price;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string")
+     */
+    private $status;
 
 
     /**
@@ -231,5 +238,51 @@ class Date
     public function getEventPrice()
     {
         return $this->event_price;
+    }
+
+    /**
+     * Set sender
+     *
+     * @param \Qiiss\ProfileBundle\Entity\User $sender
+     * @return Date
+     */
+    public function setSender(\Qiiss\UserBundle\Entity\User $sender = null)
+    {
+        $this->sender = $sender;
+
+        return $this;
+    }
+
+    /**
+     * Get sender
+     *
+     * @return \Qiiss\ProfileBundle\Entity\User
+     */
+    public function getSender()
+    {
+        return $this->sender;
+    }
+
+    /**
+     * Set target
+     *
+     * @param \Qiiss\ProfileBundle\Entity\User $target
+     * @return Date
+     */
+    public function setTarget(\Qiiss\UserBundle\Entity\User $target = null)
+    {
+        $this->target = $target;
+
+        return $this;
+    }
+
+    /**
+     * Get target
+     *
+     * @return \Qiiss\ProfileBundle\Entity\User
+     */
+    public function getTarget()
+    {
+        return $this->target;
     }
 }
