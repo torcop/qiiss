@@ -52,6 +52,8 @@ window.fbAsyncInit = function() {
 END FACEBOOK SDK CODE
 ********************/
 
+var wallPostIndex = 0;
+
 $(document).ready(function() {
   $("#profile_picture").bind("mouseenter", function() {
     $("#profile_picture_overlay").stop().fadeIn(200);
@@ -66,4 +68,78 @@ $(document).ready(function() {
       "margin-left": "200px"
     }, 200, "linear");
   });
+
+  $("#canvas_story_create form").submit(function() {
+    $.ajax({
+      type: "POST",
+      url: $(this).attr("action"),
+      data: $(this).serialize(),
+      datatype: "json"
+    }).done(function( msg ) {
+      parsed = jQuery.parseJSON(msg);
+      if (parsed.result == "success") {
+        if (parsed.hasOwnProperty("postObject")) {
+          createCanvasPost(parsed.postObject, true);
+          $("#canvas_story_create textarea").val("");
+        }
+      }
+      else if (parsed.result == "failure") {
+        if (parsed.error) {
+          slideOutError(parsed.error, "#login_form");
+        }
+      }
+    });
+    return false;
+  });
+
+  getWallPosts();
 });
+
+function getWallPosts() {
+  $.ajax({
+    url: '/get-wall-post/' + profileid,
+    data: {firstResult : wallPostIndex},
+    success: function(data) {
+      console.log(data);
+      parsed = jQuery.parseJSON(data);
+      console.log(parsed);
+      if (parsed.hasOwnProperty("wallPosts")) {
+        $.each(parsed.wallPosts, function(key, val) {
+          createCanvasPost(val, false);
+        });
+      }
+      else { // If the user has no notifications
+
+      }
+    }
+  });
+}
+
+function createCanvasPost(canvasObject, slideDown) {
+  // Find a way to parametize this out, it's ugly
+  var toAppend =
+    '<div class="canvas_post">' +
+      '<div class="canvas_post_header">' +
+        '<div class="header_dp"><img src="#" /></div>' +
+        '<div class="header_text">' +
+          '<div class="header_name">' + canvasObject.author + '</div>' +
+          '<div class="header_time">Posted at ' + canvasObject.date.date + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="canvas_post_body canvas_post_section">' + canvasObject.comment + '</div>' +
+      '<div class="canvas_post_tags canvas_post_section">' +
+        '<div class="post_tag_bubble">Breaking Bad</div><div class="post_tag_bubble">Guitar</div><div class="post_tag_bubble">Cycling</div>' +
+      '</div>' +
+      '<div class="canvas_qool canvas_post_section">' +
+        '<div class="canvas_qool_button">Qool</div>' +
+        '<div class="canvas_qool_count">' + canvasObject.numQool + ' people think this is Qool.</div>' +
+      '</div>' +
+    '</div>';
+  if (slideDown) {
+    $("#canvas_story_container").prepend(toAppend);
+    $(".canvas_post").first().hide().slideDown();
+  }
+  else {
+    $("#canvas_story_container").append(toAppend);
+  }
+}

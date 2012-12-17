@@ -16,6 +16,9 @@
     <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/globalFunctions.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/qiissuser/js/profile/profile.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/qiissuser/js/header.js') }}"></script>
+    <script type="text/javascript">
+        var profileid = {{ profileid }};
+    </script>
 </head>
 <body>
 	{% include 'QiissUserBundle:Profile:header.html.twig' %}

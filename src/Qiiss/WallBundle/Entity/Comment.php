@@ -47,7 +47,7 @@ class Comment
      *
      * @ORM\Column(name="nb_Qiiss", type="integer", nullable=true)
      */
-    private $nb_Qiiss;
+    private $nb_Qiiss = 0;
 
     /**
      * @var string
@@ -56,7 +56,7 @@ class Comment
      */
     private $media_link;
 
-		/**
+	/**
      * @ORM\ManyToOne(targetEntity="Qiiss\UserBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -65,7 +65,7 @@ class Comment
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
