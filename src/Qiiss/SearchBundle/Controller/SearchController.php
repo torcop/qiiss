@@ -8,6 +8,9 @@ use Qiiss\SearchBundle\Form\SearchType;
 
 class SearchController extends Controller
 {
+		/*
+		* This function manage the search engine requests.
+		*/
     public function indexAction()
     {
 				$search = new Search();
@@ -19,7 +22,6 @@ class SearchController extends Controller
 						$form->bind($request);
 						if ($form->isValid())
 						{
-							$preference = $this->get('request')->request->get('preference');
 
 							$postData = $request->request
 																	->get('qiiss_searchbundle_searchtype');

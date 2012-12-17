@@ -8,6 +8,9 @@ use Qiiss\SearchBundle\Form\SearchType;
 
 class SearchController extends Controller
 {
+		/*
+		* This function manage the search engine requests.
+		*/
     public function indexAction()
     {
 				$search = new Search();
@@ -27,8 +30,6 @@ class SearchController extends Controller
 							$age = $postData['age'];
 							$interests = $postData['interests'];
 							$location = $postData['location'];
-
-							$request = 
 						}
 				}
         return $this->render('QiissSearchBundle:Search:search.html.twig', array('form' => $form->createView()));
