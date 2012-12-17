@@ -95,9 +95,9 @@ class WallController extends Controller
 		$photo = new Photo();
 
 		$form = $this->createFormBuilder($photo)
-									->add('name')
-        					->add('file')
-        					->getForm();
+			->add('name')
+			->add('file')
+			->getForm();
 
 		$path = $this->get('request')->request->get('file');
 
