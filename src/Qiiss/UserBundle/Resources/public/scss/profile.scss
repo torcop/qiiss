@@ -296,6 +296,13 @@ html {
                       }
                     } // #post
                   } // #canvas_lower_button
+
+                  .canvas_file_upload {
+                    display:none;
+                    vertical-align:middle;
+                    font-size:14px;
+                    padding:4.5px 5px;
+                  }
                 } // #canvas_create_buttons
               } // #canvas_create_lower
             } // #canvas_story_create

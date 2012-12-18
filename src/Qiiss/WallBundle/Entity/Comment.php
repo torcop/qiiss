@@ -81,14 +81,14 @@ class Comment
     public function setAuthor($author)
     {
         $this->author = $author;
-    
+
         return $this;
     }
 
     /**
      * Get author
      *
-     * @return string 
+     * @return string
      */
     public function getAuthor()
     {
@@ -104,14 +104,14 @@ class Comment
     public function setDate($date)
     {
         $this->date = $date;
-    
+
         return $this;
     }
 
     /**
      * Get date
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDate()
     {
@@ -127,14 +127,14 @@ class Comment
     public function setComment($comment)
     {
         $this->comment = $comment;
-    
+
         return $this;
     }
 
     /**
      * Get comment
      *
-     * @return string 
+     * @return string
      */
     public function getComment()
     {
@@ -150,14 +150,14 @@ class Comment
     public function setNbQiiss($nbQiiss)
     {
         $this->nb_Qiiss = $nbQiiss;
-    
+
         return $this;
     }
 
     /**
      * Get nb_Qiiss
      *
-     * @return integer 
+     * @return integer
      */
     public function getNbQiiss()
     {
@@ -173,14 +173,14 @@ class Comment
     public function setMediaLink($mediaLink)
     {
         $this->media_link = $mediaLink;
-    
+
         return $this;
     }
 
     /**
      * Get media_link
      *
-     * @return string 
+     * @return string
      */
     public function getMediaLink()
     {
@@ -196,14 +196,14 @@ class Comment
     public function setUser(\Qiiss\UserBundle\Entity\User $user)
     {
         $this->user = $user;
-    
+
         return $this;
     }
 
     /**
      * Get user
      *
-     * @return \Qiiss\UserBundle\Entity\User 
+     * @return \Qiiss\UserBundle\Entity\User
      */
     public function getUser()
     {

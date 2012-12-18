@@ -92,6 +92,11 @@ $(document).ready(function() {
     return false;
   });
 
+  $("#attach_photo_button").click(function() {
+    $(this).hide();
+    $(this).closest("#left_canvas_buttons").find(".canvas_file_upload").css("display", "inline-block");
+  });
+
   getWallPosts();
 });
 

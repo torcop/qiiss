@@ -401,6 +401,11 @@ html {
                       background-color: #6697BD; }
                     html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_create #canvas_create_lower #canvas_create_buttons .canvas_lower_button#post:active {
                       background-color: #407BA8; }
+                html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_create #canvas_create_lower #canvas_create_buttons .canvas_file_upload {
+                  display: none;
+                  vertical-align: middle;
+                  font-size: 14px;
+                  padding: 4.5px 5px; }
           html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_container {
             padding: 10px 20px; }
             html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_container .canvas_post {

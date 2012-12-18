@@ -76,11 +76,10 @@ class Photo
 				$this->path = $_safePath;
 				$this->file = null;
 			}
-			
 			else
 			{
 				//Throw an error here!
-				echo 'UNAUTHORIZED TYPE OF FILE! : ' . $extension;			
+				echo 'UNAUTHORIZED TYPE OF FILE! : ' . $extension;
 			}
 		}
 
