@@ -86,26 +86,28 @@ class WallController extends Controller
 				$returnArray["result"] = "on";
 				$user->addPostsLiked($post);
 				$post->setNbQiiss($post->getNbQiiss() + 1);
-				$senderNoty = $this->getDoctrine()
-				  ->getRepository('QiissNotyBundle:Noty')
-				  ->findOneBy(array(
-				    'type' => "notification",
-				    'sender' => $user,
-				    'target'      => $post->getUser(),
-				    'notyRead'  => false
-				  ));
+				if ($user->getId() != $post->getUser()->getId()) { // You're allowed to like your own post, but we wont send you a notification for it
+					$senderNoty = $this->getDoctrine()
+					  ->getRepository('QiissNotyBundle:Noty')
+					  ->findOneBy(array(
+					    'type' => "notification",
+					    'sender' => $user,
+					    'target'      => $post->getUser(),
+					    'notyRead'  => false
+					  ));
 
-				if (!isset($senderNoty)) {
-					$noty = new Noty();
-					$noty->setDate(new \DateTime());
-					$noty->setSender($user);
-					$noty->setTarget($post->getUser());
-					$noty->setType("notification");
-					$noty->setContent($user->getUsername() . " thought your post was qool.");
-					$noty->setLink($this->container->get('router')->getContext()->getBaseUrl() . "/get-single-wall-post/" . $post->getId());
-					$noty->setNotyRead(false);
-					$noty->getTarget()->setNumNotificationNoty($noty->getTarget()->getNumNotificationNoty() + 1);
-					$em->persist($noty);
+					if (!isset($senderNoty)) {
+						$noty = new Noty();
+						$noty->setDate(new \DateTime());
+						$noty->setSender($user);
+						$noty->setTarget($post->getUser());
+						$noty->setType("notification");
+						$noty->setContent($user->getUsername() . " thought your post was qool.");
+						$noty->setLink($this->container->get('router')->getContext()->getBaseUrl() . "/get-single-wall-post/" . $post->getId());
+						$noty->setNotyRead(false);
+						$noty->getTarget()->setNumNotificationNoty($noty->getTarget()->getNumNotificationNoty() + 1);
+						$em->persist($noty);
+					}
 				}
 				$em->flush();
 				return new Response(json_encode($returnArray));
@@ -127,7 +129,7 @@ class WallController extends Controller
 		}
 		$maxResults = 10;
 		$em = $this->getDoctrine()->getEntityManager();
-		$dql = "SELECT c FROM Qiiss\WallBundle\Entity\Comment c WHERE c.user = " . $user->getId() . " ORDER BY c.date DESC";
+		$dql = "SELECT c FROM Qiiss\WallBundle\Entity\Comment c WHERE c.user = " . $userid . " ORDER BY c.date DESC";
 		$query = $em->createQuery($dql)
 			->setFirstResult($firstResult)
 			->setMaxResults($maxResults);
