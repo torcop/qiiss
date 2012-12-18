@@ -42,6 +42,10 @@ qiiss_get_wall_posts:
     pattern: /get-wall-post/{userid}
     defaults: { _controller: QiissWallBundle:Wall:getUserWallPosts }
 
+qiiss_like_wall_post:
+    pattern: /qool-wall-post/{postid}
+    defaults: { _controller: QiissWallBundle:Wall:toggleLikePost }
+
 qiiss_profile_upload:
     pattern:  /upload
     defaults: { _controller: QiissWallBundle:Wall:upload }

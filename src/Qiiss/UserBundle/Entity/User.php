@@ -25,7 +25,7 @@ class User extends BaseUser
 			parent::__construct();
     }
 
-		/**
+	/**
      * @ORM\Column(type="string", length=255)
      *
      * @Assert\NotBlank(message="dob.empty", groups={"Registration", "Profile"})
@@ -49,6 +49,12 @@ class User extends BaseUser
      *
      */
     protected $numNotificationNoty = 0;
+
+    /**
+    * @var integer
+    * @ORM\ManyToMany(targetEntity="Qiiss\WallBundle\Entity\Comment")
+    */
+    protected $postsLiked;
 
     /**
      * Set dob
@@ -263,5 +269,38 @@ class User extends BaseUser
     public function getNumNotificationNoty()
     {
         return $this->numNotificationNoty;
+    }
+
+    /**
+     * Add postsLiked
+     *
+     * @param \Qiiss\WallBundle\Entity\Comment $postsLiked
+     * @return User
+     */
+    public function addPostsLiked(\Qiiss\WallBundle\Entity\Comment $postsLiked)
+    {
+        $this->postsLiked[] = $postsLiked;
+    
+        return $this;
+    }
+
+    /**
+     * Remove postsLiked
+     *
+     * @param \Qiiss\WallBundle\Entity\Comment $postsLiked
+     */
+    public function removePostsLiked(\Qiiss\WallBundle\Entity\Comment $postsLiked)
+    {
+        $this->postsLiked->removeElement($postsLiked);
+    }
+
+    /**
+     * Get postsLiked
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPostsLiked()
+    {
+        return $this->postsLiked;
     }
 }

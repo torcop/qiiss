@@ -107,6 +107,9 @@ function getWallPosts() {
         $.each(parsed.wallPosts, function(key, val) {
           createCanvasPost(val, false);
         });
+        $(".canvas_qool_button").each(function() {
+          bindQoolClick($(this)); // Bind all the posts initially
+        })
       }
       else { // If the user has no notifications
 
@@ -115,10 +118,35 @@ function getWallPosts() {
   });
 }
 
+function bindQoolClick(button) {
+  button.bind("click", function() {
+    console.log($(this).closest(".canvas_post").find(".postid").val());
+    $.ajax({
+      type: "POST",
+      url: "/qool-wall-post/" + $(this).closest(".canvas_post").find(".postid").val(),
+      datatype: "json"
+    }).done(function( msg ) {
+      console.log(msg);
+      parsed = jQuery.parseJSON(msg);
+      if (parsed.result == "off") {
+        button.html("Qool")
+        var count = button.closest(".canvas_qool").find(".qiiss_qool_count_num");
+        count.html(parseInt(count.html()) - 1);
+      }
+      else if (parsed.result == "on") {
+        button.html("Unqool");
+        var count = button.closest(".canvas_qool").find(".qiiss_qool_count_num");
+        count.html(parseInt(count.html()) + 1);
+      }
+    });
+  });
+}
+
 function createCanvasPost(canvasObject, slideDown) {
   // Find a way to parametize this out, it's ugly
   var toAppend =
     '<div class="canvas_post">' +
+      '<input type="hidden" class="postid" value="' + canvasObject.postId + '">' +
       '<div class="canvas_post_header">' +
         '<div class="header_dp"><img src="#" /></div>' +
         '<div class="header_text">' +
@@ -131,13 +159,14 @@ function createCanvasPost(canvasObject, slideDown) {
         '<div class="post_tag_bubble">Breaking Bad</div><div class="post_tag_bubble">Guitar</div><div class="post_tag_bubble">Cycling</div>' +
       '</div>' +
       '<div class="canvas_qool canvas_post_section">' +
-        '<div class="canvas_qool_button">Qool</div>' +
-        '<div class="canvas_qool_count">' + canvasObject.numQool + ' people think this is Qool.</div>' +
+        '<div class="canvas_qool_button">' + (canvasObject.postLiked ? 'Unq' : 'Q') + 'ool</div>' +
+        '<div class="canvas_qool_count"><div class="qiiss_qool_count_num">' + canvasObject.numQool + '</div> people think this is Qool.</div>' +
       '</div>' +
     '</div>';
   if (slideDown) {
     $("#canvas_story_container").prepend(toAppend);
     $(".canvas_post").first().hide().slideDown();
+    bindQoolClick($(".canvas_post").first());
   }
   else {
     $("#canvas_story_container").append(toAppend);
