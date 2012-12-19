@@ -164,6 +164,35 @@ class WallController extends Controller
 		return new Response(json_encode($messageArray));
 	}
 
+	public function getSinglePostAction($postid) {
+		$user = $this->container->get('security.context')->getToken()->getUser(); // Get the current user
+
+		$repository = $this->getDoctrine()
+			->getRepository('QiissWallBundle:Comment');
+
+		$post = $repository->findOneById($postid);
+
+		$returnArray = array();
+
+		if (isset($post)) {
+			$returnArray["post"] = $post;
+			$returnArray["profileid"] = $user->getId();
+			// Check if the user likes the post already
+			$em = $this->getDoctrine()->getEntityManager();
+			$query = $em->createQuery('SELECT u,c2 from Qiiss\UserBundle\Entity\User u INNER JOIN u.postsLiked c2 WHERE u.id = :userId AND c2.id = :postId')
+		    	->setParameters(array('postId' => $post->getId(),'userId' => $user->getId()));
+		    $result = $query->getResult();
+		    if (sizeof($result) > 0) {
+		    	$returnArray["postLiked"] = true;
+		    }
+		    else {
+		    	$returnArray["postLiked"] = false;
+		    }
+		    // Create the single wall post view with the data from the object we retrieved
+			return $this->render('QiissUserBundle:Profile:canvas_post.html.twig', $returnArray);
+		}
+	}
+
 	/*
 	 * This function allows to a user to upload a photo inside the Qiiss Wall.
 	 */

@@ -105,9 +105,7 @@ function getWallPosts() {
     url: '/get-wall-post/' + profileid,
     data: {firstResult : wallPostIndex},
     success: function(data) {
-      console.log(data);
       parsed = jQuery.parseJSON(data);
-      console.log(parsed);
       if (parsed.hasOwnProperty("wallPosts")) {
         $.each(parsed.wallPosts, function(key, val) {
           createCanvasPost(val, false);
@@ -125,13 +123,11 @@ function getWallPosts() {
 
 function bindQoolClick(button) {
   button.bind("click", function() {
-    console.log($(this).closest(".canvas_post").find(".postid").val());
     $.ajax({
       type: "POST",
       url: "/qool-wall-post/" + $(this).closest(".canvas_post").find(".postid").val(),
       datatype: "json"
     }).done(function( msg ) {
-      console.log(msg);
       parsed = jQuery.parseJSON(msg);
       if (parsed.result == "off") {
         button.html("Qool")
