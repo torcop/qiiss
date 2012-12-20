@@ -129,6 +129,18 @@ services:
             container: "@service_container"
     general.helper.error:
         class: Qiiss\GeneralBundle\Helper\ErrorHelper
+    general.helper.upload:
+        class:        Qiiss\GeneralBundle\Helper\UploadHelper
+        arguments:
+            - "@service_container"
+    general.helper.xhrupload:
+        class:        Qiiss\GeneralBundle\Helper\XhrUploadHelper
+        arguments:
+            - "@service_container"
+    general.helper.formupload:
+        class:        Qiiss\GeneralBundle\Helper\FormUploadHelper
+        arguments:
+            - "@service_container"
 
 fos_facebook:
     file:   %kernel.root_dir%/../vendor/facebook/php-sdk/src/base_facebook.php

@@ -340,7 +340,8 @@ html {
               html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_create #canvas_create_lower #canvas_create_buttons {
                 background-color: #ddd;
                 padding: 5px;
-                height: 29px;
+                display: inline-block;
+                width: 738px;
                 margin-top: -1px;
                 border: 1px solid #ccc;
                 -moz-border-radius-topleft: 0px;
@@ -360,6 +361,7 @@ html {
                 -khtml-border-radius-bottomleft: 5px;
                 border-bottom-left-radius: 5px; }
                 html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_create #canvas_create_lower #canvas_create_buttons #left_canvas_buttons {
+                  padding: 0px;
                   float: left;
                   text-align: left; }
                 html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_create #canvas_create_lower #canvas_create_buttons #right_canvas_buttons {
@@ -401,11 +403,10 @@ html {
                       background-color: #6697BD; }
                     html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_create #canvas_create_lower #canvas_create_buttons .canvas_lower_button#post:active {
                       background-color: #407BA8; }
-                html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_create #canvas_create_lower #canvas_create_buttons .canvas_file_upload {
-                  display: none;
+                html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_create #canvas_create_lower #canvas_create_buttons #canvas_file_upload {
+                  display: inline-block;
                   vertical-align: middle;
-                  font-size: 14px;
-                  padding: 4.5px 5px; }
+                  font-size: 14px; }
           html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_container {
             padding: 10px 20px; }
             html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_container .canvas_post {

@@ -8,6 +8,8 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
 use Qiiss\WallBundle\Entity\Comment;
 use Qiiss\WallBundle\Entity\Photo;
 use Qiiss\NotyBundle\Entity\Noty;
+use Qiiss\GeneralBundle\Helper\UploadHelper;
+
 
 
 class WallController extends Controller
@@ -197,27 +199,31 @@ class WallController extends Controller
 	 * This function allows to a user to upload a photo inside the Qiiss Wall.
 	 */
 	public function uploadAction() {
-		$photo = new Photo();
+		$uploader = $this->container->get('general.helper.upload');
+		$user = $this->container->get('security.context')->getToken()->getUser(); // Get the current user
+		// list of valid extensions, ex. array("jpeg", "xml", "bmp")
 
-		$form = $this->createFormBuilder($photo)
-			->add('name')
-			->add('file')
-			->getForm();
+		// Call handleUpload() with the name of the folder, relative to PHP's getcwd()
+		$path = 'uploads/' . $user->getUsername();
+		if (!is_dir($path)) { // If there isn't a directory with the name specified, create it
+			mkdir($path);
+        }
+		$result = $uploader->handleUpload('uploads/' . $user->getUsername());
 
-		$path = $this->get('request')->request->get('file');
+		if (isset($result['success'])) {
+			$path = $path . "/" . $uploader->getUploadName(); // Get the name of the file to upload
+			$photo = new Photo();
+			$photo->setName($path);
+			$em = $this->getDoctrine()->getEntityManager();
+			$em->persist($photo);
+			$em->flush();
+      	}
 
-		$photo->setPath($path);
-		if ($this->getRequest()->getMethod() === 'POST')
-		{
-			$form->bindRequest($this->getRequest());
-			if ($form->isValid())
-			{
-				$em = $this->getDoctrine()->getEntityManager();
-				$photo->upload();
-				$em->persist($photo);
-				$em->flush();
-      }
-	  }
-		return $this->render('QiissWallBundle::upload_photo.html.twig', array('form' => $form->createView()));
+
+		// to pass data through iframe you will need to encode all html tags
+		header("Content-Type: text/plain");
+
+	    return new Response(htmlspecialchars(json_encode($result), ENT_NOQUOTES));
+
 	}
 }

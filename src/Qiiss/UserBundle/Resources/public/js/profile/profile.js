@@ -94,7 +94,19 @@ $(document).ready(function() {
 
   $("#attach_photo_button").click(function() {
     $(this).hide();
-    $(this).closest("#left_canvas_buttons").find(".canvas_file_upload").css("display", "inline-block");
+    $(this).closest("#left_canvas_buttons").find("#canvas_file_upload").css("display", "inline-block");
+  });
+
+  var uploader = new qq.FineUploader({
+    // Pass the HTML element here
+    element: $('#canvas_file_upload')[0],
+    // or, if using jQuery
+    // element: $('#fine-uploader')[0],
+    // Use the relevant server script url here
+    // if it's different from the default “/server/upload”
+    request: {
+      endpoint: '/upload'
+    }
   });
 
   getWallPosts();

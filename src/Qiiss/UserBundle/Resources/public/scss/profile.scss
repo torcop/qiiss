@@ -258,12 +258,14 @@ html {
                 #canvas_create_buttons {
                   background-color:#ddd;
                   padding:5px;
-                  height:29px;
+                  display:inline-block;
+                  width:738px;
                   margin-top:-1px;
                   border:1px solid #ccc;
                   @include corner(0px, 0px, 5px, 5px);
 
                   #left_canvas_buttons {
+                    padding:0px;
                     float:left;
                     text-align:left;
                   }
@@ -297,11 +299,10 @@ html {
                     } // #post
                   } // #canvas_lower_button
 
-                  .canvas_file_upload {
-                    display:none;
+                  #canvas_file_upload {
+                    display:inline-block;
                     vertical-align:middle;
                     font-size:14px;
-                    padding:4.5px 5px;
                   }
                 } // #canvas_create_buttons
               } // #canvas_create_lower
