@@ -25,8 +25,8 @@ class WallController extends Controller
 			$profileid = $this->get('request')->request
 												->get('profileid');
 
-			$repository = $this->getDoctrine()
-											 ->getRepository('QiissUserBundle:User');
+			$repository = $this->getDoctrine()->getRepository('QiissUserBundle:User');
+			$photos = $this->getDoctrine()->getRepository('QiissWallBundle:Photo');
 
 			$user = $repository->findOneById($profileid);
 			$username = $user->getUsername();
@@ -35,6 +35,9 @@ class WallController extends Controller
 			$comment_content = $this->get('request')->request->get('wall_content');
 			$comment->setComment($comment_content);
 			$comment->setUser($user);
+			if ($this->get('request')->request->get('photoid') != "") {
+				$comment->setPhoto($photos->findOneById($this->get('request')->request->get('photoid')));
+			}
 
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($user);
@@ -49,6 +52,11 @@ class WallController extends Controller
 			$returnArray["postObject"]["date"] = $comment->getDate();
 			$returnArray["postObject"]["comment"] = $comment->getComment();
 			$returnArray["postObject"]["numQool"] = $comment->getNbQiiss();
+
+			// If there is a photo associated with this wall post, attach it
+			if ($comment->getPhoto() != NULL) {
+				$returnArray["postObject"]["photo"] = $comment->getPhoto()->getName();
+			}
 			return new Response(json_encode($returnArray));
 		}
 		$returnArray["result"] = "failure";
@@ -160,6 +168,11 @@ class WallController extends Controller
 		    else {
 		    	$messageArray["wallPosts"][$i]["postLiked"] = false;
 		    }
+
+		    // Check if there are any photos associated with the post
+		    if ($post->getPhoto() != NULL) {
+				$messageArray["wallPosts"][$i]["photo"] = $post->getPhoto()->getName();
+			}
 			$messageArray["numResults"]++;
 			$i++;
 		}
@@ -190,6 +203,7 @@ class WallController extends Controller
 		    else {
 		    	$returnArray["postLiked"] = false;
 		    }
+			return new Response(json_encode($returnArray));
 		    // Create the single wall post view with the data from the object we retrieved
 			return $this->render('QiissUserBundle:Profile:canvas_post.html.twig', $returnArray);
 		}
@@ -217,6 +231,10 @@ class WallController extends Controller
 			$em = $this->getDoctrine()->getEntityManager();
 			$em->persist($photo);
 			$em->flush();
+
+			if (isset($result['success'])) {
+				$result['photoid'] = $photo->getId();
+			}
       	}
 
 

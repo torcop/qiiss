@@ -33,6 +33,9 @@
         </div>
       </div>
       <div class="canvas_post_body canvas_post_section">{{ post.comment }}</div>
+      {% if post.photo != null %}
+      <div class="canvas_post_attachment canvas_post_section"><img src="/{{ post.photo }}" /></div>
+      {% endif %}
       <div class="canvas_post_tags canvas_post_section">
         <div class="post_tag_bubble">Breaking Bad</div><div class="post_tag_bubble">Guitar</div><div class="post_tag_bubble">Cycling</div>
       </div>

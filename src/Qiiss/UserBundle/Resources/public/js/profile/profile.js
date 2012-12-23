@@ -17,7 +17,6 @@ window.fbAsyncInit = function() {
         FB.api('/me', function(response) { //If the user is already logged in via facebook, redirect them to the profile page
           FB.api(response.id + '?fields=picture.type(large)', function(data) {
             $("#profile_picture img").attr("src", data.picture.data.url);
-            $(".canvas_post_attachment img").attr("src", data.picture.data.url);
           });
           FB.api(response.id + '?fields=picture.type(small)', function(data) {
             $(".canvas_post_header .header_dp img").attr("src", data.picture.data.url);
@@ -97,15 +96,18 @@ $(document).ready(function() {
     $(this).closest("#left_canvas_buttons").find("#canvas_file_upload").css("display", "inline-block");
   });
 
-  var uploader = new qq.FineUploader({
-    // Pass the HTML element here
-    element: $('#canvas_file_upload')[0],
-    // or, if using jQuery
-    // element: $('#fine-uploader')[0],
-    // Use the relevant server script url here
-    // if it's different from the default “/server/upload”
+  $('#canvas_file_upload').fineUploader({
     request: {
-      endpoint: '/upload'
+        endpoint: '/upload'
+    }
+  }).on('error', function(event, id, filename, reason) {
+  })
+  .on('complete', function(event, id, filename, responseJSON){
+    $("#canvas_photo_preview img").attr("src", "/" + responseJSON.filename);
+    $("#canvas_photo_preview").css("display", "block");
+    // Set a hidden input field in order to attach the uploaded picture to the wall post
+    if (responseJSON.hasOwnProperty('photoid')) {
+      $("#photoid").val(responseJSON.photoid);
     }
   });
 
@@ -167,8 +169,11 @@ function createCanvasPost(canvasObject, slideDown) {
           '<div class="header_time">Posted at ' + canvasObject.date.date + '</div>' +
         '</div>' +
       '</div>' +
-      '<div class="canvas_post_body canvas_post_section">' + canvasObject.comment + '</div>' +
-      '<div class="canvas_post_tags canvas_post_section">' +
+      '<div class="canvas_post_body canvas_post_section">' + canvasObject.comment + '</div>';
+    if (canvasObject.hasOwnProperty('photo')) {
+      toAppend += '<a href="/' + canvasObject.photo + '"><div class="canvas_post_attachment"><img src="/' + canvasObject.photo + '"></a></div>';
+    }
+    toAppend += '<div class="canvas_post_tags canvas_post_section">' +
         '<div class="post_tag_bubble">Breaking Bad</div><div class="post_tag_bubble">Guitar</div><div class="post_tag_bubble">Cycling</div>' +
       '</div>' +
       '<div class="canvas_qool canvas_post_section">' +

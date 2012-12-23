@@ -63,6 +63,12 @@ class Comment
     private $user;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Qiiss\WallBundle\Entity\Photo")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $photo;
+
+    /**
      * Get id
      *
      * @return integer
@@ -208,5 +214,27 @@ class Comment
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set photo
+     *
+     * @param \Qiiss\UserBundle\Entity\User $photo
+     * @return Comment
+     */
+    public function setPhoto(\Qiiss\WallBundle\Entity\Photo $photo = null)
+    {
+        $this->photo = $photo;
+        return $this;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return \Qiiss\UserBundle\Entity\User
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
     }
 }

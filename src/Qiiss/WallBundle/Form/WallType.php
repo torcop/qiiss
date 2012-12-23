@@ -16,6 +16,7 @@ class WallType extends AbstractType
             ->add('comment', 'text')
             ->add('nb_Qiiss', 'integer')
             ->add('media_link', 'text')
+            ->add('photo', 'integer')
         ;
     }
 

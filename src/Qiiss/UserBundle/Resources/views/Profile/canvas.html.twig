@@ -67,7 +67,9 @@
       <div id="canvas_story_create">
 			<form action="{{ path('qiiss_wall_post') }}" method="POST">
 				<input type="hidden" name="profileid" value="{{ profileid }}" />
+        <input type="hidden" id="photoid" name="photoid" value="" />
         <textarea name="wall_content" rows="3" placeholder="Express Yourself!"></textarea>
+        <div id="canvas_photo_preview"><img src="" /></div>
         <div id="canvas_create_lower">
           <div id="canvas_create_buttons">
             <div id="left_canvas_buttons">
