@@ -25,7 +25,7 @@ class User extends BaseUser
 			parent::__construct();
     }
 
-		/**
+	/**
      * @ORM\Column(type="string", length=255)
      *
      * @Assert\NotBlank(message="dob.empty", groups={"Registration", "Profile"})
@@ -63,6 +63,12 @@ class User extends BaseUser
      *
      */
     protected $numNotificationNoty = 0;
+
+    /**
+    * @var integer
+    * @ORM\ManyToMany(targetEntity="Qiiss\WallBundle\Entity\Comment")
+    */
+    protected $postsLiked;
 
     /**
      * Set dob
@@ -280,6 +286,7 @@ class User extends BaseUser
     }
 
     /**
+<<<<<<< HEAD
      * Set sex
      *
      * @param string $sex
@@ -288,11 +295,22 @@ class User extends BaseUser
     public function setSex($sex)
     {
         $this->sex = $sex;
+=======
+     * Add postsLiked
+     *
+     * @param \Qiiss\WallBundle\Entity\Comment $postsLiked
+     * @return User
+     */
+    public function addPostsLiked(\Qiiss\WallBundle\Entity\Comment $postsLiked)
+    {
+        $this->postsLiked[] = $postsLiked;
+>>>>>>> e8f1f3ce3c419e3379fb6b9fb91ae3981dd65963
     
         return $this;
     }
 
     /**
+<<<<<<< HEAD
      * Get sex
      *
      * @return string 
@@ -323,5 +341,24 @@ class User extends BaseUser
     public function getLocation()
     {
         return $this->location;
+=======
+     * Remove postsLiked
+     *
+     * @param \Qiiss\WallBundle\Entity\Comment $postsLiked
+     */
+    public function removePostsLiked(\Qiiss\WallBundle\Entity\Comment $postsLiked)
+    {
+        $this->postsLiked->removeElement($postsLiked);
+    }
+
+    /**
+     * Get postsLiked
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPostsLiked()
+    {
+        return $this->postsLiked;
+>>>>>>> e8f1f3ce3c419e3379fb6b9fb91ae3981dd65963
     }
 }

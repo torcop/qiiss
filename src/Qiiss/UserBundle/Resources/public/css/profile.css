@@ -304,13 +304,13 @@ html {
             margin: 10px 0px 10px 0px; }
           html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_create {
             margin-bottom: 20px;
-            width: 732px;
+            width: 768px;
             font-size: 0px;
-            padding: 10px 0px 0px 20px; }
+            padding: 10px 0px 0px 10px; }
             html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_create textarea {
               font: 20px 'OxygenRegular', Arial, sans-serif;
               border: 1px solid #ccc;
-              width: 100%;
+              width: 750px;
               resize: none;
               padding: 8px;
               margin: 0px;
@@ -333,14 +333,22 @@ html {
               html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_create textarea:focus {
                 outline-width: 0;
                 border-color: #aaa; }
+            html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_create #canvas_photo_preview {
+              padding: 10px;
+              border-left: 1px solid #ccc;
+              border-right: 1px solid #ccc;
+              display: none; }
+              html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_create #canvas_photo_preview img {
+                max-width: 300px;
+                max-height: 300px; }
             html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_create #canvas_create_lower {
               font: 20px 'OxygenRegular', Arial, sans-serif;
-              width: 750px;
               text-align: right; }
               html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_create #canvas_create_lower #canvas_create_buttons {
                 background-color: #ddd;
                 padding: 5px;
-                height: 29px;
+                display: inline-block;
+                width: 756px;
                 margin-top: -1px;
                 border: 1px solid #ccc;
                 -moz-border-radius-topleft: 0px;
@@ -360,6 +368,7 @@ html {
                 -khtml-border-radius-bottomleft: 5px;
                 border-bottom-left-radius: 5px; }
                 html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_create #canvas_create_lower #canvas_create_buttons #left_canvas_buttons {
+                  padding: 0px;
                   float: left;
                   text-align: left; }
                 html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_create #canvas_create_lower #canvas_create_buttons #right_canvas_buttons {
@@ -401,6 +410,10 @@ html {
                       background-color: #6697BD; }
                     html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_create #canvas_create_lower #canvas_create_buttons .canvas_lower_button#post:active {
                       background-color: #407BA8; }
+                html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_create #canvas_create_lower #canvas_create_buttons #canvas_file_upload {
+                  display: inline-block;
+                  vertical-align: middle;
+                  font-size: 14px; }
           html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_container {
             padding: 10px 20px; }
             html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_container .canvas_post {
@@ -443,9 +456,12 @@ html {
               html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_container .canvas_post .canvas_post_body {
                 border-bottom: 1px solid #ccc; }
               html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_container .canvas_post .canvas_post_attachment {
-                border-bottom: 1px solid #ccc; }
+                border-bottom: 1px solid #ccc;
+                padding: 10px; }
                 html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_container .canvas_post .canvas_post_attachment img {
-                  vertical-align: middle; }
+                  vertical-align: middle;
+                  max-width: 300px;
+                  max-height: 300px; }
               html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_container .canvas_post .canvas_post_tags {
                 border-bottom: 1px solid #ccc; }
                 html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_container .canvas_post .canvas_post_tags .post_tag_bubble {

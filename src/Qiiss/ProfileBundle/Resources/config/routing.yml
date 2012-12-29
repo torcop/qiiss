@@ -22,10 +22,6 @@ qiiss_profile_ignore_date:
     pattern:  /ignore-date/{dateid}
     defaults: { _controller: QiissProfileBundle:Profile:ignoreDate }
 
-qiiss_profile_post:
-    pattern:  /wall
-    defaults: { _controller: QiissWallBundle:Wall:post }
-
 qiiss_profile_send_message:
     pattern:  /message/send/{dateid}
     defaults: { _controller: QiissProfileBundle:Message:sendMessage }
@@ -38,9 +34,33 @@ qiiss_profile_get_messages_new:
     pattern: /message/get-new/{dateid}
     defaults: { _controller: QiissProfileBundle:Message:getNewMessages }
 
+qiiss_wall_post:
+    pattern: /wall-post
+    defaults: { _controller: QiissWallBundle:Wall:post }
+
+qiiss_get_wall_posts:
+    pattern: /get-wall-post/{userid}
+    defaults: { _controller: QiissWallBundle:Wall:getUserWallPosts }
+
+qiiss_like_wall_post:
+    pattern: /qool-wall-post/{postid}
+    defaults: { _controller: QiissWallBundle:Wall:toggleLikePost }
+
+qiiss_get_single_wall_post:
+    pattern: /get-single-wall-post/{postid}
+    defaults: { _controller: QiissWallBundle:Wall:getSinglePost }
+
 qiiss_profile_upload:
     pattern:  /upload
     defaults: { _controller: QiissWallBundle:Wall:upload }
+
+qiiss_profile_photos:
+    pattern: /photos/{userid}
+    defaults: { _controller: QiissWallBundle:Photo:showPhotos }
+
+qiiss_get_photos:
+    pattern: /get-photos/{userid}
+    defaults: { _controller: QiissWallBundle:Photo:getPhotos }
 
 qiiss_profile_search:
     pattern:  /search

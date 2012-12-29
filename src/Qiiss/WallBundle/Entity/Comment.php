@@ -47,7 +47,7 @@ class Comment
      *
      * @ORM\Column(name="nb_Qiiss", type="integer", nullable=true)
      */
-    private $nb_Qiiss;
+    private $nb_Qiiss = 0;
 
     /**
      * @var string
@@ -56,16 +56,22 @@ class Comment
      */
     private $media_link;
 
-		/**
+	/**
      * @ORM\ManyToOne(targetEntity="Qiiss\UserBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Qiiss\WallBundle\Entity\Photo")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $photo;
+
+    /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -81,14 +87,14 @@ class Comment
     public function setAuthor($author)
     {
         $this->author = $author;
-    
+
         return $this;
     }
 
     /**
      * Get author
      *
-     * @return string 
+     * @return string
      */
     public function getAuthor()
     {
@@ -104,14 +110,14 @@ class Comment
     public function setDate($date)
     {
         $this->date = $date;
-    
+
         return $this;
     }
 
     /**
      * Get date
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDate()
     {
@@ -127,14 +133,14 @@ class Comment
     public function setComment($comment)
     {
         $this->comment = $comment;
-    
+
         return $this;
     }
 
     /**
      * Get comment
      *
-     * @return string 
+     * @return string
      */
     public function getComment()
     {
@@ -150,14 +156,14 @@ class Comment
     public function setNbQiiss($nbQiiss)
     {
         $this->nb_Qiiss = $nbQiiss;
-    
+
         return $this;
     }
 
     /**
      * Get nb_Qiiss
      *
-     * @return integer 
+     * @return integer
      */
     public function getNbQiiss()
     {
@@ -173,14 +179,14 @@ class Comment
     public function setMediaLink($mediaLink)
     {
         $this->media_link = $mediaLink;
-    
+
         return $this;
     }
 
     /**
      * Get media_link
      *
-     * @return string 
+     * @return string
      */
     public function getMediaLink()
     {
@@ -196,17 +202,39 @@ class Comment
     public function setUser(\Qiiss\UserBundle\Entity\User $user)
     {
         $this->user = $user;
-    
+
         return $this;
     }
 
     /**
      * Get user
      *
-     * @return \Qiiss\UserBundle\Entity\User 
+     * @return \Qiiss\UserBundle\Entity\User
      */
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set photo
+     *
+     * @param \Qiiss\UserBundle\Entity\User $photo
+     * @return Comment
+     */
+    public function setPhoto(\Qiiss\WallBundle\Entity\Photo $photo = null)
+    {
+        $this->photo = $photo;
+        return $this;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return \Qiiss\UserBundle\Entity\User
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
     }
 }

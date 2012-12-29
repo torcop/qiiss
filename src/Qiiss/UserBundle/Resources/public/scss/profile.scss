@@ -232,14 +232,14 @@ html {
 
             #canvas_story_create {
               margin-bottom:20px;
-              width:732px;
+              width:768px;
               font-size:0px;
-              padding: 10px 0px 0px 20px;
+              padding: 10px 0px 0px 10px;
 
               textarea {
                 font: 20px 'OxygenRegular', Arial, sans-serif;
                 border:1px solid #ccc;
-                width:100%;
+                width:750px;
                 resize:none;
                 padding:8px;
                 margin:0px;
@@ -250,20 +250,33 @@ html {
                   border-color:#aaa;
                 }
               } // #textarea
+
+              #canvas_photo_preview {
+                padding:10px;
+                border-left:1px solid #ccc;
+                border-right:1px solid #ccc;
+                display:none;
+
+                img {
+                  max-width:300px;
+                  max-height:300px;
+                }
+              }
               #canvas_create_lower {
                 font: 20px 'OxygenRegular', Arial, sans-serif;
-                width:750px;
                 text-align:right;
 
                 #canvas_create_buttons {
                   background-color:#ddd;
                   padding:5px;
-                  height:29px;
+                  display:inline-block;
+                  width:756px;
                   margin-top:-1px;
                   border:1px solid #ccc;
                   @include corner(0px, 0px, 5px, 5px);
 
                   #left_canvas_buttons {
+                    padding:0px;
                     float:left;
                     text-align:left;
                   }
@@ -296,6 +309,12 @@ html {
                       }
                     } // #post
                   } // #canvas_lower_button
+
+                  #canvas_file_upload {
+                    display:inline-block;
+                    vertical-align:middle;
+                    font-size:14px;
+                  }
                 } // #canvas_create_buttons
               } // #canvas_create_lower
             } // #canvas_story_create
@@ -347,9 +366,12 @@ html {
 
                 .canvas_post_attachment {
                   border-bottom:1px solid #ccc;
+                  padding:10px;
 
                   img {
                     vertical-align:middle;
+                    max-width:300px;
+                    max-height:300px;
                   }
                 }
 

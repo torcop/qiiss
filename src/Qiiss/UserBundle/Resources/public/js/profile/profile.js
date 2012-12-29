@@ -17,7 +17,6 @@ window.fbAsyncInit = function() {
         FB.api('/me', function(response) { //If the user is already logged in via facebook, redirect them to the profile page
           FB.api(response.id + '?fields=picture.type(large)', function(data) {
             $("#profile_picture img").attr("src", data.picture.data.url);
-            $(".canvas_post_attachment img").attr("src", data.picture.data.url);
           });
           FB.api(response.id + '?fields=picture.type(small)', function(data) {
             $(".canvas_post_header .header_dp img").attr("src", data.picture.data.url);
@@ -52,6 +51,8 @@ window.fbAsyncInit = function() {
 END FACEBOOK SDK CODE
 ********************/
 
+var wallPostIndex = 0;
+
 $(document).ready(function() {
   $("#profile_picture").bind("mouseenter", function() {
     $("#profile_picture_overlay").stop().fadeIn(200);
@@ -66,4 +67,126 @@ $(document).ready(function() {
       "margin-left": "200px"
     }, 200, "linear");
   });
+
+  $("#canvas_story_create form").submit(function() {
+    $.ajax({
+      type: "POST",
+      url: $(this).attr("action"),
+      data: $(this).serialize(),
+      datatype: "json"
+    }).done(function( msg ) {
+      parsed = jQuery.parseJSON(msg);
+      if (parsed.result == "success") {
+        if (parsed.hasOwnProperty("postObject")) {
+          createCanvasPost(parsed.postObject, true);
+          $("#canvas_story_create textarea").val("");
+        }
+      }
+      else if (parsed.result == "failure") {
+        if (parsed.error) {
+          slideOutError(parsed.error, "#login_form");
+        }
+      }
+    });
+    return false;
+  });
+
+  $("#attach_photo_button").click(function() {
+    $(this).hide();
+    $(this).closest("#left_canvas_buttons").find("#canvas_file_upload").css("display", "inline-block");
+  });
+
+  $('#canvas_file_upload').fineUploader({
+    request: {
+        endpoint: '/upload'
+    }
+  }).on('error', function(event, id, filename, reason) {
+  })
+  .on('complete', function(event, id, filename, responseJSON){
+    $("#canvas_photo_preview img").attr("src", "/" + responseJSON.filename);
+    $("#canvas_photo_preview").css("display", "block");
+    // Set a hidden input field in order to attach the uploaded picture to the wall post
+    if (responseJSON.hasOwnProperty('photoid')) {
+      $("#photoid").val(responseJSON.photoid);
+    }
+  });
+
+  getWallPosts();
 });
+
+function getWallPosts() {
+  $.ajax({
+    url: '/get-wall-post/' + profileid,
+    data: {firstResult : wallPostIndex},
+    success: function(data) {
+      parsed = jQuery.parseJSON(data);
+      if (parsed.hasOwnProperty("wallPosts")) {
+        $.each(parsed.wallPosts, function(key, val) {
+          createCanvasPost(val, false);
+        });
+        $(".canvas_qool_button").each(function() {
+          bindQoolClick($(this)); // Bind all the posts initially
+        })
+      }
+      else { // If the user has no notifications
+
+      }
+    }
+  });
+}
+
+function bindQoolClick(button) {
+  button.bind("click", function() {
+    $.ajax({
+      type: "POST",
+      url: "/qool-wall-post/" + $(this).closest(".canvas_post").find(".postid").val(),
+      datatype: "json"
+    }).done(function( msg ) {
+      parsed = jQuery.parseJSON(msg);
+      if (parsed.result == "off") {
+        button.html("Qool")
+        var count = button.closest(".canvas_qool").find(".qiiss_qool_count_num");
+        count.html(parseInt(count.html()) - 1);
+      }
+      else if (parsed.result == "on") {
+        button.html("Unqool");
+        var count = button.closest(".canvas_qool").find(".qiiss_qool_count_num");
+        count.html(parseInt(count.html()) + 1);
+      }
+    });
+  });
+}
+
+function createCanvasPost(canvasObject, slideDown) {
+  // Find a way to parametize this out, it's ugly
+  var toAppend =
+    '<div class="canvas_post">' +
+      '<input type="hidden" class="postid" value="' + canvasObject.postId + '">' +
+      '<div class="canvas_post_header">' +
+        '<div class="header_dp"><img src="#" /></div>' +
+        '<div class="header_text">' +
+          '<div class="header_name">' + canvasObject.author + '</div>' +
+          '<div class="header_time">Posted at ' + canvasObject.date.date + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="canvas_post_body canvas_post_section">' + canvasObject.comment + '</div>';
+    if (canvasObject.hasOwnProperty('photo')) {
+      toAppend += '<a href="/' + canvasObject.photo + '"><div class="canvas_post_attachment"><img src="/' + canvasObject.photo + '"></a></div>';
+    }
+    toAppend += '<div class="canvas_post_tags canvas_post_section">' +
+        '<div class="post_tag_bubble">Breaking Bad</div><div class="post_tag_bubble">Guitar</div><div class="post_tag_bubble">Cycling</div>' +
+      '</div>' +
+      '<div class="canvas_qool canvas_post_section">' +
+        '<div class="canvas_qool_button">' + (canvasObject.postLiked ? 'Unq' : 'Q') + 'ool</div>' +
+        '<div class="canvas_qool_count"><div class="qiiss_qool_count_num">' + canvasObject.numQool + '</div> people think this is Qool.</div>' +
+      '</div>' +
+    '</div>';
+  if (slideDown) {
+    $("#canvas_story_container").prepend(toAppend);
+    $(".canvas_post").first().hide().slideDown();
+    bindQoolClick($(".canvas_post").first());
+  }
+  else {
+    $("#canvas_story_container").append(toAppend);
+  }
+}

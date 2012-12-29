@@ -2,10 +2,12 @@
 <script type="text/javascript" src="{{ asset('bundles/qiisswall/js/uploadMedia.js') }}"></script>
 <div id="canvas_container">
   <div id="canvas_left" class="canvas_segment canvas_small">
-    <div id="profile_picture">
-      <div id="profile_picture_overlay"><div>View More Photos</div></div>
-      <img src="#">
-    </div>
+    <a href="{{ path('qiiss_profile_photos', {'userid': profileid}) }}">
+      <div id="profile_picture">
+        <div id="profile_picture_overlay"><div>View More Photos</div></div>
+        <img src="#">
+      </div>
+    </a>
     <div id="review_header">Date Reviews</div>
     <div class="review">
       This person hasn't been on any dates yet. Maybe you can be the first!
@@ -65,16 +67,16 @@
       </div>
       <div class="canvas_center_seperator"></div>
       <div id="canvas_story_create">
-			<form action="{{ path('qiiss_profile_post') }}" method="POST">
+			<form action="{{ path('qiiss_wall_post') }}" method="POST">
 				<input type="hidden" name="profileid" value="{{ profileid }}" />
+        <input type="hidden" id="photoid" name="photoid" value="" />
         <textarea name="wall_content" rows="3" placeholder="Express Yourself!"></textarea>
+        <div id="canvas_photo_preview"><img src="" /></div>
         <div id="canvas_create_lower">
           <div id="canvas_create_buttons">
             <div id="left_canvas_buttons">
               <div class="canvas_lower_button">Tag Interests</div>
-              <div class="canvas_lower_button">Attach Photo</div>
-							{#<input type="button" name="_uploader" value ="Attach Photo" class="canvas_lower_button" onClick="uploadPhoto()"/>#}
-              <div class="canvas_lower_button">Check In</div>
+              <div id="canvas_file_upload"></div>
             </div>
             <div id="right_canvas_buttons">
 							<input type="submit" class="canvas_lower_button" id="post" value="Post"/>
@@ -86,7 +88,6 @@
 
       <div class="canvas_center_seperator"></div>
       <div id="canvas_story_container">
-        {% include 'QiissUserBundle:Profile:canvas_post.html.twig' %}
       </div>
     </div>
   </div>

@@ -1,38 +1,49 @@
-<div class="canvas_post">
-	<div class="canvas_post_header">
-		<div class="header_dp"><img src="#" /></div>
-		<div class="header_text">
-			<div class="header_name">{{ username }}</div>
-			<div class="header_time">Posted 20 Minutes ago</div>
-		</div>
-	</div>
-	<div class="canvas_post_body canvas_post_section">Sample canvas post. Here's my new profile picture!</div>
-	<div class="canvas_post_attachment canvas_post_section">
-		<img src="#" />
-	</div>
-	<div class="canvas_post_tags canvas_post_section">
-		<div class="post_tag_bubble">Breaking Bad</div><div class="post_tag_bubble">Guitar</div><div class="post_tag_bubble">Cycling</div>
-	</div>
-	<div class="canvas_qool canvas_post_section">
-		<div class="canvas_qool_button">Qool</div>
-		<div class="canvas_qool_count">12,599 people think this is Qool.</div>
-	</div>
-</div>
-
-<div class="canvas_post">
-	<div class="canvas_post_header">
-		<div class="header_dp"><img src="#" /></div>
-		<div class="header_text">
-			<div class="header_name">{{ username }}</div>
-			<div class="header_time">Posted 60 Minutes ago</div>
-		</div>
-	</div>
-	<div class="canvas_post_body canvas_post_section">"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</div>
-	<div class="canvas_post_tags canvas_post_section">
-		<div class="post_tag_bubble">Random Stuff</div><div class="post_tag_bubble">Other Stuff</div><div class="post_tag_bubble">lolololol</div>
-	</div>
-	<div class="canvas_qool canvas_post_section">
-		<div class="canvas_qool_button">Qool</div>
-		<div class="canvas_qool_count">122,599 people think this is Qool.</div>
-	</div>
-</div>
+<!DOCTYPE html>
+<html class="yui3-cssreset">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Qiiss - Profile{% endblock %}</title>
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/qiissuser/css/header.css') }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('bundles/qiissuser/css/canvasPost.css') }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/globalFunctions.css') }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/cssreset-context-min.css') }}" type="text/css" media="all" />
+    {% endblock %}
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/jquery-1.8.3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/modernizr.2.6.2-min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/yepnope.1.5.4-min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/polyfiller.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/globalFunctions.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissuser/js/profile/canvasPost.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissuser/js/header.js') }}"></script>
+    <script type="text/javascript">
+        var profileid = {{ profileid }};
+    </script>
+</head>
+<body>
+  {% include 'QiissUserBundle:Profile:header.html.twig' %}
+  <div id="main_container">
+    <div class="canvas_post">
+      <input type="hidden" class="postid" value="{{ post.id }}">
+      <div class="canvas_post_header">
+        <div class="header_dp"><img src="#" /></div>
+        <div class="header_text">
+          <div class="header_name">{{ post.author }}</div>
+          <div class="header_time">Posted at {{ post.date.date }}</div>
+        </div>
+      </div>
+      <div class="canvas_post_body canvas_post_section">{{ post.comment }}</div>
+      {% if post.photo != null %}
+      <div class="canvas_post_attachment canvas_post_section"><img src="/{{ post.photo }}" /></div>
+      {% endif %}
+      <div class="canvas_post_tags canvas_post_section">
+        <div class="post_tag_bubble">Breaking Bad</div><div class="post_tag_bubble">Guitar</div><div class="post_tag_bubble">Cycling</div>
+      </div>
+      <div class="canvas_qool canvas_post_section">
+        <div class="canvas_qool_button">{% if postLiked %}Unq{% else %}Q{% endif %}ool</div>
+        <div class="canvas_qool_count"><div class="qiiss_qool_count_num">{{ post.nbQiiss }}</div> people think this is Qool.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
