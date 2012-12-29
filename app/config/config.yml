@@ -131,16 +131,16 @@ services:
         class: Qiiss\GeneralBundle\Helper\ErrorHelper
     general.helper.upload:
         class:        Qiiss\GeneralBundle\Helper\UploadHelper
-        arguments:
-            - "@service_container"
+        arguments:    ['@service_container']
+        scope:        "request"
     general.helper.xhrupload:
         class:        Qiiss\GeneralBundle\Helper\XhrUploadHelper
-        arguments:
-            - "@service_container"
+        arguments:    ['@service_container']
+        scope:        "request"
     general.helper.formupload:
         class:        Qiiss\GeneralBundle\Helper\FormUploadHelper
-        arguments:
-            - "@service_container"
+        arguments:    ['@service_container']
+        scope:        "request"
 
 fos_facebook:
     file:   %kernel.root_dir%/../vendor/facebook/php-sdk/src/base_facebook.php

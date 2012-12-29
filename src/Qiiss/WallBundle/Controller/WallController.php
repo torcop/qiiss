@@ -12,8 +12,7 @@ use Qiiss\GeneralBundle\Helper\UploadHelper;
 
 
 
-class WallController extends Controller
-{
+class WallController extends Controller {
 	/*
 	 * This function allows to a user to post a new comment in the Qiiss Wall.
 	 */
@@ -204,8 +203,6 @@ class WallController extends Controller
 		    	$returnArray["postLiked"] = false;
 		    }
 			return new Response(json_encode($returnArray));
-		    // Create the single wall post view with the data from the object we retrieved
-			return $this->render('QiissUserBundle:Profile:canvas_post.html.twig', $returnArray);
 		}
 	}
 
@@ -228,6 +225,8 @@ class WallController extends Controller
 			$path = $path . "/" . $uploader->getUploadName(); // Get the name of the file to upload
 			$photo = new Photo();
 			$photo->setName($path);
+			$photo->setUser($user);
+			$photo->setDate(new \DateTime());
 			$em = $this->getDoctrine()->getEntityManager();
 			$em->persist($photo);
 			$em->flush();

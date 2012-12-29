@@ -2,10 +2,12 @@
 <script type="text/javascript" src="{{ asset('bundles/qiisswall/js/uploadMedia.js') }}"></script>
 <div id="canvas_container">
   <div id="canvas_left" class="canvas_segment canvas_small">
-    <div id="profile_picture">
-      <div id="profile_picture_overlay"><div>View More Photos</div></div>
-      <img src="#">
-    </div>
+    <a href="{{ path('qiiss_profile_photos', {'userid': profileid}) }}">
+      <div id="profile_picture">
+        <div id="profile_picture_overlay"><div>View More Photos</div></div>
+        <img src="#">
+      </div>
+    </a>
     <div id="review_header">Date Reviews</div>
     <div class="review">
       This person hasn't been on any dates yet. Maybe you can be the first!

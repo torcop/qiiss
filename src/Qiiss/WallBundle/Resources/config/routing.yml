@@ -1,7 +1,3 @@
 qiiss_wall_post:
-    pattern: /wall-post
-    defaults: { _controller: QiissWallBundle:Wall:post }
-
-qiiss_get_wall_posts:
-    pattern: /get-wall-post/{userid}
-    defaults: { _controller: QiissWallBundle:Wall:getUserWallPosts }
+    pattern: /photos/{userid}
+    defaults: { _controller: QiissWallBundle:Photo:getPhotos }
