@@ -87,7 +87,7 @@ class MessageController extends Controller {
           $array['result'] = 'failure';
           if (sizeof($errors) > 0) {
               $shift = array_shift($errors);
-              $array['error'] = is_array($shift) ? array_shift($shift)[0] : $shift;
+              //$array['error'] = is_array($shift) ? array_shift($shift)[0] : $shift;
           }
           return new Response(json_encode($array));
         }

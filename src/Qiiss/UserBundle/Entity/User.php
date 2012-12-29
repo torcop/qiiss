@@ -32,6 +32,20 @@ class User extends BaseUser
      */
     protected $dob;
 
+		/**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank(message="sex.empty", groups={"Registration", "Profile"})
+     */
+    protected $sex;
+
+		/**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank(message="location.empty", groups={"Registration", "Profile"})
+     */
+    protected $location;
+
     /**
      * @ORM\Column(type="integer", length=10)
      *
@@ -263,5 +277,51 @@ class User extends BaseUser
     public function getNumNotificationNoty()
     {
         return $this->numNotificationNoty;
+    }
+
+    /**
+     * Set sex
+     *
+     * @param string $sex
+     * @return User
+     */
+    public function setSex($sex)
+    {
+        $this->sex = $sex;
+    
+        return $this;
+    }
+
+    /**
+     * Get sex
+     *
+     * @return string 
+     */
+    public function getSex()
+    {
+        return $this->sex;
+    }
+
+    /**
+     * Set location
+     *
+     * @param string $location
+     * @return User
+     */
+    public function setLocation($location)
+    {
+        $this->location = $location;
+    
+        return $this;
+    }
+
+    /**
+     * Get location
+     *
+     * @return string 
+     */
+    public function getLocation()
+    {
+        return $this->location;
     }
 }
