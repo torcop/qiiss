@@ -26,6 +26,21 @@ class Photo
     public $name;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    public $thumbnailPath;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    public $mediumPath;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    public $largePath;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Qiiss\UserBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -125,17 +140,82 @@ class Photo
     public function setDate($date)
     {
         $this->date = $date;
-    
         return $this;
     }
 
     /**
      * Get date
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * Set thumbnailPath
+     *
+     * @param string $thumbnailPath
+     * @return Photo
+     */
+    public function setThumbnailPath($thumbnailPath)
+    {
+        $this->thumbnailPath = $thumbnailPath;
+        return $this;
+    }
+
+    /**
+     * Get thumbnailPath
+     *
+     * @return string
+     */
+    public function getThumbnailPath()
+    {
+        return $this->thumbnailPath;
+    }
+
+    /**
+     * Set mediumPath
+     *
+     * @param string $mediumPath
+     * @return Photo
+     */
+    public function setMediumPath($mediumPath)
+    {
+        $this->mediumPath = $mediumPath;
+        return $this;
+    }
+
+    /**
+     * Get mediumPath
+     *
+     * @return string
+     */
+    public function getMediumPath()
+    {
+        return $this->mediumPath;
+    }
+
+    /**
+     * Set largePath
+     *
+     * @param string $largePath
+     * @return Photo
+     */
+    public function setLargePath($largePath)
+    {
+        $this->largePath = $largePath;
+        return $this;
+    }
+
+    /**
+     * Get largePath
+     *
+     * @return string
+     */
+    public function getLargePath()
+    {
+        return $this->largePath;
     }
 }

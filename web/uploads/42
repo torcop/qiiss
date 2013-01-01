@@ -1,0 +1,493 @@
+		
+
+
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fees - CUA</title>
+    
+    <link rel="shortcut icon" href="http://www.cua.com.au/__data/assets/file/0015/159/favicon.ico?v=0.1.1" />
+    <link rel="apple-touch-icon" href="http://www.cua.com.au/__data/assets/image/0008/215/apple-touch-icon.png?v=0.1.1" /> 
+   
+    
+<!-- Tools and Calculators //-->
+
+<!-- Remote URLs //-->
+<meta name="calcUrl" content="" />
+<meta name="calcWidth" content="700px" />
+<meta name="calcHeight" content="750px" />
+
+<!-- Global metadata //-->
+
+<!-- Details //-->
+<meta name="DC.Title" content="Fees" />
+<meta name="DC.Creator" content="CUA" />
+<meta name="DC.Contact" content="web.feedback@cua.com.au" />
+<meta name="DC.Keywords" content="schedule of fees; charges; transaction costs; costs; fees; charge; fee" />
+<meta name="DC.Description" content="Information on CUA's fees and charges" />
+<meta name="DC.Date.Modified" content="03-11-2011 09:15:55" />
+<meta name="DC.Date.Published" content="13-09-2011 23:04:04" />
+<meta name="DC.Date.Created" content="12-09-2011 18:25:26" />
+<meta name="DC.Publisher" content="CUA" />
+<meta name="DC.Format" content="HTML" />
+<meta name="DC.Rights" content="http://www.cua.com.au/home/copyright" />
+<meta name="DC.Identifier" content="http://www.cua.com.au/forms-and-calculators/fees" />
+<meta name="DC.Language" content="English" />
+
+
+    
+    <!-- CSS - JS -->
+  <link rel="stylesheet" href="http://www.cua.com.au/design/css/global-css.css" media="screen"/>
+<link rel="stylesheet" href="http://www.cua.com.au/design/css/inside.css" media="screen"/>
+<link rel="stylesheet" href="http://www.cua.com.au/design/css/print.css" media="print"/>
+
+<script type="text/javascript" src="http://www.cua.com.au/__data/assets/js_file/0020/3665/jquery-1.6.4.min.js"></script>
+
+<script type="text/javascript" src="http://www.cua.com.au/__data/assets/js_file/0013/157/plugins.js"></script>
+<script type="text/javascript" src="http://www.cua.com.au/__data/assets/js_file/0014/158/script.js"></script>
+
+<!--[if IE 6]>
+<link rel="stylesheet" href="http://www.cua.com.au/design/css/ie6.css" media="screen" />
+<script type="text/javascript" src="http://www.cua.com.au/__data/assets/js_file/0010/3988/ie6-script.js"></script>
+<script type="text/javascript" src="http://www.cua.com.au/__data/assets/js_file/0005/3947/supersleight-min.js"></script>
+<![endif]-->
+
+<script type="text/javascript" src="http://www.cua.com.au/__data/assets/js_file/0012/156/modernizr-1.7.min.js"></script>
+<script type="text/javascript"> 
+     
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-2394122-1']);
+        _gaq.push(['_setDomainName', '.cua.com.au']);
+        _gaq.push(['_trackPageview']);
+     
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src ='http://www.cua.com.au/__data/assets/js_file/0017/3671/ga.js?MOD=AJPERES&CACHEID=59806400485275ba97c5b709d39b72f5';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+     
+    </script>
+
+
+
+<!--
+  Running Squiz Matrix
+  Developed by Squiz - http://www.squiz.net
+  MySource, MySource Matrix and Squiz.net are registered Trademarks of Squiz Pty Ltd
+  Page generated: 04 November 2011 13:19:15
+-->
+
+
+
+</head>
+
+
+  <!-- [if lt IE 7 ]> <body class="no-js ie ie6"> <![endif]-->
+  <!-- [if IE 7 ]> <body class="no-js ie ie7"> <![endif]-->
+  <!-- [if IE 8 ]> <body class="no-js ie ie8"> <![endif]-->
+  <!-- [if IE 9 ]> <body class="no-js ie ie9"> <![endif]-->
+  <!-- [if (gt IE 9)|!(IE)]><!--> <body class="no-js"> <!-- <![endif]-->
+    
+<ul class="hide no-print">
+   <li><a href="#main-nav">Skip to navigation</a></li>
+   <li><a href="#content-container">Skip to content</a></li>
+   <li><a href="#footer">Skip to footer</a></li>
+</ul>
+<div id="tagging"></div>
+<div id="page-container" class="page_2372">
+
+  <!-- ################ global_header STARTS ################-->
+  
+			<div id="header">
+            <a href="http://www.cua.com.au"><img src="http://www.cua.com.au/__data/assets/image/0010/154/cua-logo.gif" alt="Logo: C U A - A change for the better" class="logo" /></a>
+
+           <form id="main-search" action="http://www.cua.com.au/search">
+<label for="queries_site_search_query">Search CUA</label>
+                <input type="text" id="queries_site_search_query" name="queries_site_search_query" title="Keyword search" value="" />
+                <input type="submit" value="search" />
+            </form>
+
+            <ul class="horizontal-links">
+                <li><a href="http://www.cua.com.au/forms-and-calculators/interest-rates">Rates</a></li>
+                <li><a href="http://www.cua.com.au/forms-and-calculators/fees">Fees</a></li>
+                <li><a href="http://www.cua.com.au/forms-and-calculators">Forms &amp; Calculators</a></li>
+                <li><a href="http://www.cua.com.au/about-cua/contact-us">Contact Us</a></li>
+                <li><a href="http://www.cua.com.au/about-cua/contact-us/find-us">Find Us</a></li>
+                <li><a href="http://www.cua.com.au/about-cua/site-help">Help</a></li>
+              <li><a class="cua-bsb" href="http://www.cua.com.au/about-cua/contact-us/bsb-number">BSB: 814 282</a></li>
+            </ul>
+
+        </div>
+        <a id="online-banking" href="https://webbanker.cua.com.au/webbanker/lb/" target="_blank">LOGON TO WEB BANKER</a>			
+  <!-- ################ global_header ENDS ################-->
+
+  <!-- ################ global_main_menu STARTS ################-->
+  		
+  <ul id="nav" class="main-nav">
+<li class="nav-92" id="id-92"><a href="http://www.cua.com.au">Home</a></li>
+        <li id="id-96" class=" nav-96">
+       <a href="http://www.cua.com.au/the-cua-difference" class="">The CUA Difference</a>
+           		
+               <ul class="sub-main-nav">
+                                      <li><a href="http://www.cua.com.au/the-cua-difference/making-the-change" class="">Making the change</a></li>
+                                      <li><a href="http://www.cua.com.au/the-cua-difference/how-to-change" class="">How to change to CUA</a></li>
+                                      <li><a href="http://www.cua.com.au/the-cua-difference/cua-community" class="">CUA community</a></li>
+                                      <li><a href="http://www.cua.com.au/the-cua-difference/promotions-and-competitions" class="">Promotions &amp; competitions</a></li>
+                                      <li><a href="http://www.cua.com.au/the-cua-difference/awards" class="">Awards</a></li>
+                                  </ul>
+           
+						
+      </li>
+        <li id="id-100" class=" nav-100">
+       <a href="http://www.cua.com.au/personal-banking" class="">Personal Banking</a>
+           		
+               <ul class="sub-main-nav">
+                                      <li><a href="http://www.cua.com.au/personal-banking/transaction-accounts" class="">Transaction accounts</a></li>
+                                      <li><a href="http://www.cua.com.au/personal-banking/savings-and-term-deposits" class="">Savings &amp; term deposits</a></li>
+                                      <li><a href="http://www.cua.com.au/personal-banking/home-loans" class="">Home loans</a></li>
+                                      <li><a href="http://www.cua.com.au/personal-banking/personal-loans" class="">Personal loans</a></li>
+                                      <li><a href="http://www.cua.com.au/personal-banking/credit-cards" class="">Credit cards</a></li>
+                                      <li><a href="http://www.cua.com.au/personal-banking/health-insurance" class="">Health insurance</a></li>
+                                      <li><a href="http://www.cua.com.au/personal-banking/insurance" class="">General insurance</a></li>
+                                      <li><a href="http://www.cua.com.au/personal-banking/financial-planning" class="">Financial planning</a></li>
+                                      <li><a href="http://www.cua.com.au/personal-banking/international" class="">International</a></li>
+                                  </ul>
+           
+						
+      </li>
+        <li id="id-104" class=" nav-104">
+       <a href="http://www.cua.com.au/business-banking" class="">Business Banking</a>
+           		
+               <ul class="sub-main-nav">
+                                      <li><a href="http://www.cua.com.au/business-banking/starting-a-business" class="">Starting a business</a></li>
+                                      <li><a href="http://www.cua.com.au/business-banking/growing-your-business" class="">Growing your business</a></li>
+                                      <li><a href="http://www.cua.com.au/business-banking/selling-your-business" class="">Selling your business</a></li>
+                                      <li><a href="http://www.cua.com.au/business-banking/business-products" class="">Business products</a></li>
+                                  </ul>
+           
+						
+      </li>
+        <li id="id-108" class=" nav-108">
+       <a href="http://www.cua.com.au/about-cua" class="">About CUA</a>
+           		
+               <ul class="sub-main-nav">
+                                      <li><a href="http://www.cua.com.au/about-cua/about-us" class="">About us</a></li>
+                                      <li><a href="http://www.cua.com.au/about-cua/corporate-governance" class="">Corporate Governance</a></li>
+                                      <li><a href="http://www.cua.com.au/about-cua/working-at-cua" class="">Working at CUA</a></li>
+                                      <li><a href="http://www.cua.com.au/about-cua/news" class="">News</a></li>
+                                      <li><a href="http://www.cua.com.au/about-cua/contact-us" class="">Contact Us</a></li>
+                                      <li><a href="http://www.cua.com.au/about-cua/site-help" class="">Site Help</a></li>
+                                  </ul>
+           
+						
+      </li>
+    </ul><!-- main-menu-->
+  
+						
+  <!-- ################ global_main_menu ENDS ################-->
+
+
+
+  
+
+
+        
+        <div id="content-container" class="">
+    
+<!-- ################ inside_breadcrumb STARTS ################-->
+
+<div id="breadcrumb">
+<a href="http://www.cua.com.au">Home &gt; </a>
+   
+   
+   
+   
+   
+      
+   <span class="current">Fees</span>
+</div><!-- breadcrumb-->
+
+                      
+<!-- ################ inside_leftcol_menu STARTS ################-->
+   		
+       <ul class="third-nav">
+                  <li class="">
+           <a href="http://www.cua.com.au/forms-and-calculators/calculators">Calculators</a>
+           		
+           </li>           <li class="">
+           <a href="http://www.cua.com.au/forms-and-calculators/interest-rates">Interest rates</a>
+           		
+           </li>           <li class="current">
+           <a href="http://www.cua.com.au/forms-and-calculators/fees">Fees</a>
+           		
+           </li>           <li class="">
+           <a href="http://www.cua.com.au/forms-and-calculators/forms-and-brochures">Forms &amp; brochures</a>
+           		
+           </li>           <li class="">
+           <a href="http://www.cua.com.au/forms-and-calculators/how-to-access">How to access</a>
+           		
+           </li>       </ul>
+   
+						
+<!-- ################ inside_leftcol_menu ENDS ################-->
+            
+ 
+            <div class="inner-content">
+
+            
+		<div id="feature-black" class="feature ">
+
+  
+  
+<div class="inner_feature">
+
+<h1 id="page_title">Fees</h1>
+
+  <p class="hide"><a href="#" class="button">-</a></p>
+</div>
+
+</div>
+
+                <div class="image hide">
+                   
+                    <p class="hide"></p>
+                </div>
+
+<div class="contact  hide">
+  <span class="phone hide"></span>
+
+</div>
+
+<div class="contact  hide">
+<span class="phone hide"></span>
+
+</div>
+
+
+<div id="content_div_2374">
+<p>CUA prides itself on its ‘fair fee’ policy. We have no monthly account keeping fees and provide more free transactions to those who do most of their banking with us.</p>
+
+<p>Members whose combined balance of deposits and loans exceeds $50,000 enjoy an unlimited number of free transactions.</p>
+
+<p>CUA’s fees and charges:</p>
+
+<ul>
+  <li><a href="http://www.cua.com.au/__data/assets/pdf_file/0013/1642/Schedule-of-Fees-brochure-110726.pdf" target="_blank">CUA schedule of fees</a> (PDF File, 258.5 KB) effective 1 September 2010</li>
+
+  <li><a href="http://www.cua.com.au/__data/assets/pdf_file/0012/1641/One-off-and-exception-fees-110815.pdf" target="_blank">One-off and exceptions fees</a> (PDF File, 154.0 KB)</li>
+
+  <li><a href="http://www.cua.com.au/__data/assets/pdf_file/0011/1640/Lending-Schedule-of-Fees-110805.pdf" target="_blank">Lending schedule of fees</a> (PDF File, 142.9 KB)</li>
+
+  <li><a href="http://www.cua.com.au/__data/assets/pdf_file/0015/1644/rewardsfeescharges-June-2011.pdf" target="_blank">Rewards MasterCard fees and charges</a> (PDF File, 258.5 KB)</li>
+
+  <li><a href="http://www.cua.com.au/__data/assets/pdf_file/0014/1643/Lowratefeescharges-June-2011.pdf" target="_blank">Low Rate MasterCard fees and charges</a> (PDF File, 156.4 KB)</li>
+</ul>
+
+<p>Members are allocated free transactions each month on one of their transaction or special purpose savings accounts.<sup>1</sup> Cash Management account holders will receive four free transactions per month for each Cash Management account they have. Freedom Plus account holders will receive a minimum of 15 free transactions per month on their primary transaction account.</p>
+
+<p>All members are allocated a minimum number of free transactions per month depending on their total balance:</p>
+
+<table style="WIDTH: 50%" border="1">
+  <tbody>
+    <tr>
+      <th><strong>Total balance</strong></th>
+
+      <th><strong>Free transactions</strong></th>
+    </tr>
+
+    <tr>
+      <td>&lt;= $5,000</td>
+
+      <td>4</td>
+    </tr>
+
+    <tr>
+      <td>&gt;$5,000 to &lt;=$10,000</td>
+
+      <td>8</td>
+    </tr>
+
+    <tr>
+      <td>&gt;$10,000 to &lt;=$50,000</td>
+
+      <td>15</td>
+    </tr>
+
+    <tr>
+      <td>&gt;$50,000</td>
+
+      <td>Unlimited</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+The total balance is the combined balance of all your deposits and borrowings at the end of the month. For example, if you have $5,000 in deposits and a $5,000 loan, you would have a total balance of $10,000.</p>
+
+<p>Members can also receive two additional free transactions by being a CUA Financial Planning client or holding one or more of the following products<sup>2</sup>:</p>
+
+<ul>
+  <li>CGU insurance policy through CUA</li>
+
+  <li>CUA Health policy</li>
+
+  <li>Credicorp insurance policy</li>
+
+  <li>CUA MasterCard.</li>
+</ul>
+
+<p><strong>How to avoid excess transaction fees on personal accounts</strong></p>
+
+<p>Although most CUA members do not pay regular transaction fees, it is possible to bank without any other regular fees and charges by following these useful tips.</p>
+
+<p><strong>Paying for purchases</strong></p>
+
+<ul>
+  <li>Ask for a free upgrade of your <a href="http://www.cua.com.au/forms-and-calculators/how-to-access/how-to-access/redicard">rediCARD</a> to a <a href="http://www.cua.com.au/forms-and-calculators/how-to-access/how-to-access/visa-debit-card">Visa Debit card</a>.<sup>3</sup> With Visa Debit, all EFTPOS transactions are completely free as long as you press the Credit (CR) button.<sup>4</sup> You can use Visa Debit in the same way as a credit card, which includes using it to shop online and over the phone. However, instead of accessing a pre-approved credit limit, you only spend your own money.</li>
+
+  <li>Use a CUA <a href="http://www.cua.com.au/personal-banking/credit-cards">MasterCard</a> for all purchases and pay your bill in full each month to avoid interest.<sup>5</sup></li>
+</ul>
+
+<p><strong>Withdrawing cash</strong></p>
+
+<ul>
+  <li>Plan your transactions so you do not exceed your allowed number of free transactions per month</li>
+
+  <li>Combine transactions by using EFTPOS to pay for purchases and withdraw cash at the same time</li>
+
+  <li>Make any excess withdrawals from a supermarket using EFTPOS. This incurs a lesser fee than withdrawing from an ATM or branch</li>
+
+  <li>When withdrawing cash from an ATM, always use a rediATM branded machine wherever possible to avoid direct charging by other ATM networks.</li>
+</ul>
+
+<p><strong>Paying bills</strong></p>
+
+<ul>
+  <li>Pay bills for free using BPAY through phone or internet banking</li>
+
+  <li>Transfer funds into another bank account at any financial institution, at no cost, using internet banking</li>
+
+  <li>Use your <a href="http://www.cua.com.au/forms-and-calculators/how-to-access/how-to-access/visa-debit-card">Visa Debit</a><sup>3</sup> card and select the credit option for unlimited free transactions</li>
+
+  <li>Use your CUA <a href="http://www.cua.com.au/personal-banking/credit-cards">MasterCard</a><sup>5</sup> and pay your bill in full each month.</li>
+</ul>
+
+<p><strong>Checking account balances</strong></p>
+
+<ul>
+  <li>Obtain account balances for free by logging onto your account via <a href="https://webbanker.cua.com.au/webbanker/CUA" target="_blank">Web Banker</a> (www.cua.com.au) or by calling Telebanker on 133 282.</li>
+</ul>
+
+<p><strong>Avoiding dishonour fees</strong></p>
+
+<ul>
+  <li>Ensure you always have sufficient cleared funds in your account to cover all withdrawals and debits. To help keep track of this, CUA offers an <a href="http://www.cua.com.au/forms-and-calculators/how-to-access/how-to-access/sms-banking">SMS alert</a> service that notifies you of money movements in your accounts as they happen.</li>
+
+  <li>Consider applying for an overdraft facility as a safety net for any unexpected expenses you may incur.<sup>5</sup></li>
+</ul>
+
+</div>
+
+<div class="bottom" id="terms_&_conditions">
+<p><sub><sup>1</sup> Transaction accounts include: Prime Access, Freedom Plus, Platinum Plus and Pensioner Deeming. Please note, unless advised otherwise by the customer, CUA will select the account to which the free withdrawal transactions will apply. Free transaction allocations only include the following: rediATM withdrawals (within Australia), EFTPOS withdrawals, member cheque withdrawals, staff assisted transfer fee, cash withdrawals at CUA branches.</sub></p>
+
+<p><sub><sup>2</sup> It may take up to 30 days to register any new products or services (i.e. if a product is taken up after the 15<sup>th</sup> of the month, the allocated free transactions will not register until the following month).</sub></p>
+
+<p><sub><sup>3</sup> Eligibility criteria apply.</sub></p>
+
+<p><sub><sup>4</sup> While all purchases made by pressing the credit button on your Visa Debit or MasterCard are free, some merchants may apply a surcharge fee. Some merchants may disable the credit button for Visa Debit transactions.</sub></p>
+
+<p><sub><sup>5</sup> Subject to credit approval.</sub></p>
+
+</div>
+
+        </div><!-- end inner-content -->
+
+  <!-- ################ inside_right_column STARTS ################-->
+  <div id="rightcol">
+
+
+<div class="contact ">
+  <span class="phone ">Call 133 282</span>
+
+<p>Monday to Friday<br />
+8:00am - 8:00pm (AEST)</p>
+
+<p>Saturday<br />
+8:00am - 4:00pm (AEST)</p>
+
+</div>
+
+<div id="social_links" class="hide ">
+  <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+    <a href="#" class="addthis_button_email">email</a>
+    <a href="#" class="addthis_button_print">print</a>
+    <a href="#" class="addthis_button_facebook">facebook</a>
+    <a href="#" class="addthis_button_twitter">twitter</a>
+    <a href="#" class="addthis_button_linkedin">linkedin</a>
+    <a href="#" class="addthis_button_google">google</a>
+    <a href="#" class="addthis_button_compact">compact</a>
+  </div>
+</div><div class="promo_mod hide">
+  
+<!-- 
+  <a href="#" class="adspot">
+-->
+  
+  
+  <!--</a>-->
+  
+
+<!--
+  <a href="#" class="button" style="
+ "></a>
+-->
+</div></div><!-- end #rightcol -->  <!-- ################ inside_right_column ENDS ################-->
+
+            <div class="clearfix"></div>
+        </div>
+
+  <!-- ################ global_footer STARTS ################-->
+  
+			<div id="footer">
+
+  <!-- SiteCatalyst code version: H.23.3.
+   Copyright 1996-2011 Adobe, Inc. All Rights Reserved
+   More info available at http://www.omniture.com -->
+   <script language="JavaScript" type="text/javascript" src="http://www.cua.com.au/__data/assets/js_file/0005/3884/s_code.js"></script>
+   <script language="JavaScript" type="text/javascript"><!--
+   /* You may give each page an identifying name, server, and channel on
+   the next lines. */
+   if(!s.campaign) s.campaign=s.getQueryParam('s_kwcid')
+   s.events=""
+   s.products=""
+   s.purchaseID="" 
+   /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+   s.tempSCCT = s.getQueryParam('s_kwcid');
+   s.tempSCCT = s.getValOnce(s.tempSCCT,'s_tempSCCT',0);
+   s.clickPast(s.tempSCCT,'event15','event16');
+   if(s.campaign||s.events){var s_code=s.t();if(s_code)document.write(s_code)}//--></script>
+   <!-- End SiteCatalyst code version: H.23.3. -->
+
+            <span class="copyright">
+                &copy; Credit Union Australia Limited. ABN: 44 087 650 959 AFSL/ACL No. 238317
+            </span>
+            <ul class="horizontal-links">
+                <li><a href="http://www.cua.com.au/about-cua/site-help/copyright">Copyright</a></li>
+                <li><a href="http://www.cua.com.au/forms-and-calculators/forms-and-brochures">Terms &amp; Conditions</a></li>
+                <li><a href="http://www.cua.com.au/about-cua/site-help/privacy">Privacy &amp; Disclaimer</a></li>
+                <li><a href="mailto:web.feedback@cua.com.au?subject=Website Feedback">Website Feedback</a></li>
+                <li><a href="http://www.cua.com.au/sitemap">Site Map</a></li>
+            </ul>
+        </div>
+
+</div>			
+  <!-- ################ global_footer ENDS ################--> 
+
+
+
+</body>
+</html>
