@@ -5,6 +5,7 @@ namespace Qiiss\SearchBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Qiiss\SearchBundle\Entity\Search;
 use Qiiss\SearchBundle\Form\SearchType;
+use Qiiss\UserBundle\Entity\User;
 
 class SearchController extends Controller
 {
@@ -27,8 +28,22 @@ class SearchController extends Controller
 																	->get('qiiss_searchbundle_searchtype');
 							$preference = $postData['preference'];
 							$age = $postData['age'];
-							$interests = $postData['interests'];
-							$location = $postData['location'];
+							$id_interests = $postData['interests'];
+							$id_location = $postData['location'];
+							
+
+							$em = $this->getDoctrine()->getManager();
+							$query = $em->createQuery('SELECT i FROM QiissUserBundle:Interest i WHERE i.id = :id')
+													->setParameter('id', $id_interests);
+							$interests = $query->getResult();
+							var_dump($interests);exit();
+							
+
+							/*$query = $em->createQuery("SELECT u FROM QiissUserBundle:User u WHERE u.sex LIKE :preference
+																				 AND u.location LIKE :location");
+							$query->setParameters(array('preference' => '%' . $preference . '%',
+    																			'location' => '%' . $location . '%',));
+							$users = $query->getResult();*/						
 						}
 				}
         return $this->render('QiissSearchBundle:Search:search.html.twig', array('form' => $form->createView()));

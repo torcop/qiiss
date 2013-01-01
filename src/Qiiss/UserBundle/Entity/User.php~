@@ -32,6 +32,23 @@ class User extends BaseUser
      */
     protected $dob;
 
+<<<<<<< HEAD
+		/**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank(message="sex.empty", groups={"Registration", "Profile"})
+     */
+    protected $sex;
+
+		/**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank(message="location.empty", groups={"Registration", "Profile"})
+     */
+    protected $location;
+
+=======
+>>>>>>> e8f1f3ce3c419e3379fb6b9fb91ae3981dd65963
     /**
      * @ORM\Column(type="integer", length=10)
      *
