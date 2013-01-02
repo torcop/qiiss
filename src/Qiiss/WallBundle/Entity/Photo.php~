@@ -26,6 +26,21 @@ class Photo
     public $name;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    public $thumbnailPath;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    public $mediumPath;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    public $largePath;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Qiiss\UserBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -114,5 +129,28 @@ class Photo
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Photo
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
     }
 }

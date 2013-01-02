@@ -227,12 +227,15 @@ class WallController extends Controller {
 			$photo->setName($path);
 			$photo->setUser($user);
 			$photo->setDate(new \DateTime());
+			$photo->setMediumPath($result['mediumFile']);
+			$photo->setLargePath($result['largeFile']);
 			$em = $this->getDoctrine()->getEntityManager();
 			$em->persist($photo);
 			$em->flush();
 
 			if (isset($result['success'])) {
 				$result['photoid'] = $photo->getId();
+				$result['photo'] = $photo;
 			}
       	}
 

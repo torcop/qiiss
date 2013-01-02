@@ -1,0 +1,109 @@
+@import "fonts", "shared";
+
+html {
+  height:100%;
+
+  body {
+    margin:0;
+    padding:0;
+    font-size:0;
+    height:100%;
+    background-image:url('/bundles/qiissgeneral/images/Final-Homepage-background.gif');
+    background-size: 100%;
+    background-repeat:no-repeat;
+
+    #main_container {
+
+      .canvas_post {
+        //display:none;
+        background-color:#fff;
+        width:500px;
+        margin:20px auto;
+        font: 18px 'OxygenRegular', Arial, sans-serif;
+        border:1px solid #999;
+        @include corner(5px, 5px, 5px, 5px);
+
+        .canvas_post_section {
+          padding:10px;
+        }
+
+        .canvas_post_header {
+          background-color:#F2F8FA;
+          border-bottom: 1px solid #ccc;
+          padding:5px;
+          @include corner(5px, 5px, 5px, 5px);
+
+          .header_dp, .header_text {
+            display:inline-block;
+            vertical-align:middle;
+          }
+
+          .header_dp {
+            margin-right:10px;
+
+            img {
+              display:inline-block;
+              vertical-align: middle;
+            }
+          }
+
+          .header_text {
+            .header_time {
+              color:#666;
+              font-size:14px;
+            }
+          }
+        }
+
+        .canvas_post_body {
+          border-bottom:1px solid #ccc;
+        }
+
+        .canvas_post_attachment {
+          border-bottom:1px solid #ccc;
+
+          img {
+            vertical-align:middle;
+          }
+        }
+
+        .canvas_post_tags {
+          border-bottom:1px solid #ccc;
+
+          .post_tag_bubble {
+            display:inline-block;
+            background-color:#F2F8FA;
+            margin-right:10px;
+            border:1px solid #ddd;
+            padding:8px;
+            font-size:14px;
+            @include corner(5px, 5px, 5px, 5px);
+            @include lightButtonColor();
+          }
+        } // .canvas_post_tags
+
+        .canvas_qool {
+
+          div {
+            display:inline-block;
+            vertical-align: middle;
+          }
+
+          .canvas_qool_button {
+            background-color:#F2F8FA;
+            margin-right:10px;
+            border:1px solid #ddd;
+            padding:6px 10px;
+            text-align: center;
+            font-size:14px;
+            @include corner(5px, 5px, 5px, 5px);
+            @include lightButtonColor();
+          }
+          .canvas_qool_count {
+            font-size:14px;
+          }
+        }
+      } // .canvas_post
+    } // #main_container
+  } // body
+} // html
