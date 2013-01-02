@@ -285,40 +285,26 @@ class User extends BaseUser
         return $this->numNotificationNoty;
     }
 
-    /**
-<<<<<<< HEAD
-     * Set sex
-     *
-     * @param string $sex
-     * @return User
-     */
     public function setSex($sex)
     {
         $this->sex = $sex;
-=======
-     * Add postsLiked
+
+     /* Add postsLiked
      *
      * @param \Qiiss\WallBundle\Entity\Comment $postsLiked
      * @return User
      */
-    public function addPostsLiked(\Qiiss\WallBundle\Entity\Comment $postsLiked)
+   /* public function addPostsLiked(\Qiiss\WallBundle\Entity\Comment $postsLiked)
     {
         $this->postsLiked[] = $postsLiked;
->>>>>>> e8f1f3ce3c419e3379fb6b9fb91ae3981dd65963
     
         return $this;
     }
 
-    /**
-<<<<<<< HEAD
-     * Get sex
-     *
-     * @return string 
-     */
     public function getSex()
     {
         return $this->sex;
-    }
+    }*/
 
     /**
      * Set location
@@ -341,8 +327,8 @@ class User extends BaseUser
     public function getLocation()
     {
         return $this->location;
-=======
-     * Remove postsLiked
+
+     /* Remove postsLiked
      *
      * @param \Qiiss\WallBundle\Entity\Comment $postsLiked
      */
@@ -359,6 +345,5 @@ class User extends BaseUser
     public function getPostsLiked()
     {
         return $this->postsLiked;
->>>>>>> e8f1f3ce3c419e3379fb6b9fb91ae3981dd65963
     }
 }
