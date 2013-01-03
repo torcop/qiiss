@@ -62,6 +62,10 @@ qiiss_get_photos:
     pattern: /get-photos/{userid}
     defaults: { _controller: QiissWallBundle:Photo:getPhotos }
 
+qiiss_publish_photo:
+    pattern: /publish-photo/{photoid}
+    defaults: { _controller: QiissWallBundle:Photo:publishPhoto }
+
 qiiss_profile_search:
     pattern:  /search
     defaults: { _controller: QiissSearchBundle:Search:index}

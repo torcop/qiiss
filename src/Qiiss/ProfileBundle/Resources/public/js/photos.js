@@ -38,6 +38,8 @@ $(document).ready(function() {
       createPhotoPost(responseJSON.photo, false);
     }
   });
+
+  bindPublish($(".publish_button"));
 });
 
 function getPhotos() {
@@ -63,6 +65,33 @@ function getPhotos() {
 
       }
     }
+  });
+}
+
+function bindPublish(buttonObject) {
+  buttonObject.bind("click", function() {
+    buttonObject.html("Publishing...");
+    var photoid = $(this).closest(".photo").find('.photoid').val();
+    $.ajax({
+      url: '/publish-photo/' + photoid,
+      success: function(data) {
+        parsed = jQuery.parseJSON(data);
+        console.log(parsed);
+        if (parsed.result == "success") {
+          buttonObject.html("Success!");
+          setTimeout(function() {
+            buttonObject.slideUp();
+          }, 2000);
+        }
+        else { // If the user has no photos
+          buttonObject.html("Publishing Failed");
+        }
+      },
+      failure: function(data) {
+        buttonObject.html("Publishing Failed");
+      }
+    });
+    return false;
   });
 }
 
@@ -92,5 +121,6 @@ function createPhotoPost(photoObject, append) {
     $container.imagesLoaded(function() {
       $container.masonry('reload');
     });
+    bindPublish(toAppend.find(".publish_button"));
   }
 }

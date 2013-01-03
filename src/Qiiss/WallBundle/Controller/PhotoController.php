@@ -30,6 +30,25 @@ class PhotoController extends Controller {
 		return $this->render('QiissProfileBundle:Profile:viewPhotos.html.twig', $photos);
 	}
 
+	public function publishPhotoAction($photoid) {
+		$photos = $this->getDoctrine()->getRepository('QiissWallBundle:Photo');
+
+		$photoObject = $photos->findOneById($photoid);
+
+		$returnArray["result"] = "failure";
+
+		// Make sure the user has permission to publish this photo (i.e it's theirs)
+		if ($photoObject->getUser()->getId() == $this->container->get('security.context')->getToken()->getUser()->getId()) {
+			$photoObject->setStatus("published");
+			$em = $this->getDoctrine()->getManager();
+			$em->flush();
+
+			$returnArray["result"] = "success";
+		}
+
+		return new Response(json_encode($returnArray));
+	}
+
 	public function retrievePhotos($userid) {
 		$firstResult = 0;
 		$request = $this->get('request');
