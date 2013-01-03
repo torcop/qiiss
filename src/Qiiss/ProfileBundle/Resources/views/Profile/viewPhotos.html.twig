@@ -38,6 +38,9 @@
 			{% for photo in photos %}
 			<a href="/{{ photo.largePath }}" class="fancybox" rel="group">
 		        <div class="photo">
+		        	{% if photo.status == "unpublished" %}
+	        		<div class="publish_button">Click to publish</div>
+		        	{% endif %}
 		        	<input type="hidden" class="photoid" value="{{ photo.id }}">
 		        	<div class="photo_container_inner">
 		        		<img src="/{{ photo.mediumPath }}" />

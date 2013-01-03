@@ -38,7 +38,6 @@ $(document).ready(function() {
       createPhotoPost(responseJSON.photo, false);
     }
   });
-  //getPhotos();
 });
 
 function getPhotos() {
@@ -70,16 +69,20 @@ function getPhotos() {
 function createPhotoPost(photoObject, append) {
   // Find a way to parametize this out, it's ugly
   console.log(photoObject);
-  var toAppend =
-    $('<a href="/' + photoObject.largePath + '" class="fancybox" rel="group">' +
-        '<div class="photo">' +
-          '<input type="hidden" class="photoid" value="' + photoObject.id + '">' +
-          '<div class="photo_container_inner">' +
-            '<img src="/' + photoObject.mediumPath + '" />' +
-          '</div>' +
-        '</div>' +
-      '</a>'
-    );
+  var appendString =
+    '<a href="/' + photoObject.largePath + '" class="fancybox" rel="group">' +
+        '<div class="photo">'
+  if (photoObject.status == "unpublished") {
+    appendString += '<div class="publish_button">Click to publish</div>';
+  }
+  appendString +=
+    '<input type="hidden" class="photoid" value="' + photoObject.id + '">' +
+      '<div class="photo_container_inner">' +
+        '<img src="/' + photoObject.mediumPath + '" />' +
+      '</div>' +
+    '</div>' +
+  '</a>';
+  var toAppend = $(appendString);
   if (append) {
     $("#photo_container").append(toAppend);
   }

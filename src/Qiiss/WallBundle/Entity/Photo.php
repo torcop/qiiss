@@ -54,6 +54,12 @@ class Photo
     private $date;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     */
+    public $status;
+
+    /**
      * Get id
      *
      * @return integer
@@ -217,5 +223,27 @@ class Photo
     public function getLargePath()
     {
         return $this->largePath;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     * @return Photo
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

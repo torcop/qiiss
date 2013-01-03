@@ -201,11 +201,30 @@ html {
 
         .photo {
           float:left;
+          position:relative;
           background-color:#fff;
           padding:5px;
           margin:5px;
           border:1px solid #ccc;
           cursor:pointer;
+
+          .publish_button {
+            font: 14px 'OxygenRegular', Arial, sans-serif;
+            position:absolute;
+            top:0px;
+            left:0px;
+            display:inline-block;
+            color:#333;
+            padding:8px 8px 5px 8px;
+            border-right:1px solid #ccc;
+            border-bottom:1px solid #ccc;
+            @include corner(0px, 0px, 5px, 0px);
+            background-color:$dark-blue;
+
+            &:hover {
+              background-color:#6C9DC4;
+            }
+          }
 
           &:hover {
             background-color:#ddd;

@@ -35,7 +35,9 @@ class WallController extends Controller {
 			$comment->setComment($comment_content);
 			$comment->setUser($user);
 			if ($this->get('request')->request->get('photoid') != "") {
-				$comment->setPhoto($photos->findOneById($this->get('request')->request->get('photoid')));
+				$photoObject = $photos->findOneById($this->get('request')->request->get('photoid'));
+				$comment->setPhoto($photoObject);
+				$photoObject->setStatus("published");
 			}
 
 			$em = $this->getDoctrine()->getManager();
@@ -43,7 +45,7 @@ class WallController extends Controller {
 			$em->persist($comment);
 			$em->flush();
 			$query = $em->createQuery('SELECT c FROM QiissWallBundle:Comment c WHERE c.user = :id')
-								->setParameter('id', $profileid);
+				->setParameter('id', $profileid);
 			$comments = $query->getResult();
 
 			$returnArray["result"] = "success";
@@ -229,6 +231,7 @@ class WallController extends Controller {
 			$photo->setDate(new \DateTime());
 			$photo->setMediumPath($result['mediumFile']);
 			$photo->setLargePath($result['largeFile']);
+			$photo->setStatus("unpublished");
 			$em = $this->getDoctrine()->getEntityManager();
 			$em->persist($photo);
 			$em->flush();

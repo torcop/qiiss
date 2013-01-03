@@ -32,17 +32,15 @@ class User extends BaseUser
      */
     protected $dob;
 
-		/**
+	/**
      * @ORM\Column(type="string", length=255)
      *
-     * @Assert\NotBlank(message="sex.empty", groups={"Registration", "Profile"})
      */
     protected $sex;
 
-		/**
+	/**
      * @ORM\Column(type="string", length=255)
      *
-     * @Assert\NotBlank(message="location.empty", groups={"Registration", "Profile"})
      */
     protected $location;
 
@@ -286,7 +284,6 @@ class User extends BaseUser
     }
 
     /**
-<<<<<<< HEAD
      * Set sex
      *
      * @param string $sex
@@ -295,25 +292,13 @@ class User extends BaseUser
     public function setSex($sex)
     {
         $this->sex = $sex;
-=======
-     * Add postsLiked
-     *
-     * @param \Qiiss\WallBundle\Entity\Comment $postsLiked
-     * @return User
-     */
-    public function addPostsLiked(\Qiiss\WallBundle\Entity\Comment $postsLiked)
-    {
-        $this->postsLiked[] = $postsLiked;
->>>>>>> e8f1f3ce3c419e3379fb6b9fb91ae3981dd65963
-    
-        return $this;
+
     }
 
     /**
-<<<<<<< HEAD
      * Get sex
      *
-     * @return string 
+     * @return string
      */
     public function getSex()
     {
@@ -329,19 +314,31 @@ class User extends BaseUser
     public function setLocation($location)
     {
         $this->location = $location;
-    
         return $this;
     }
 
     /**
      * Get location
      *
-     * @return string 
+     * @return string
      */
-    public function getLocation()
-    {
+    public function getLocation() {
         return $this->location;
-=======
+    }
+
+    /**
+     * Add postsLiked
+     *
+     * @param \Qiiss\WallBundle\Entity\Comment $postsLiked
+     * @return User
+     */
+    public function addPostsLiked(\Qiiss\WallBundle\Entity\Comment $postsLiked)
+    {
+        $this->postsLiked[] = $postsLiked;
+        return $this;
+    }
+
+    /**
      * Remove postsLiked
      *
      * @param \Qiiss\WallBundle\Entity\Comment $postsLiked
@@ -354,11 +351,10 @@ class User extends BaseUser
     /**
      * Get postsLiked
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getPostsLiked()
     {
         return $this->postsLiked;
->>>>>>> e8f1f3ce3c419e3379fb6b9fb91ae3981dd65963
     }
 }

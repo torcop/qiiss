@@ -37,7 +37,13 @@ class PhotoController extends Controller {
 		}
 		$maxResults = 30;
 		$em = $this->getDoctrine()->getEntityManager();
-		$dql = "SELECT p FROM Qiiss\WallBundle\Entity\Photo p WHERE p.user = " . $userid . " ORDER BY p.date DESC";
+		$dql = "";
+		if ($userid == $user->getId()) { // If the user is looking at their own photos, show unpublished ones, too
+			$dql = "SELECT p FROM Qiiss\WallBundle\Entity\Photo p WHERE p.user = " . $userid . " ORDER BY p.date DESC";
+		}
+		else {
+			$dql = "SELECT p FROM Qiiss\WallBundle\Entity\Photo p WHERE p.user = " . $userid . " AND p.status = 'published' ORDER BY p.date DESC";
+		}
 		$query = $em->createQuery($dql)
 			->setFirstResult($firstResult)
 			->setMaxResults($maxResults);
