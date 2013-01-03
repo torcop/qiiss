@@ -21,6 +21,12 @@ class PhotoController extends Controller {
 	public function showPhotosAction($userid) {
 		$photos = $this->retrievePhotos($userid);
 		$photos['userid'] = $userid;
+		if ($this->container->get('security.context')->getToken()->getUser()->getId() == $userid) {
+			$photos['selfPage'] = true;
+		}
+		else {
+			$photos['selfPage'] = false;
+		}
 		return $this->render('QiissProfileBundle:Profile:viewPhotos.html.twig', $photos);
 	}
 

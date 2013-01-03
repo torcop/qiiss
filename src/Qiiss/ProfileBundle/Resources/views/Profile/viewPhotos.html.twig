@@ -27,6 +27,7 @@
 {% include 'QiissUserBundle:Profile:header.html.twig' %}
 <body>
 	<div id="main_container">
+		{% if selfPage == true %}
 		<div id="upload_photos_container">
 			<div id="upload_photos_outer">
 				<div id="upload_photo_inner">
@@ -34,7 +35,9 @@
 				</div>
 			</div>
 		</div>
+		{% endif %}
 		<div id="photo_container">
+			{% if photos is defined %}
 			{% for photo in photos %}
 			<a href="/{{ photo.largePath }}" class="fancybox" rel="group">
 		        <div class="photo">
@@ -48,6 +51,7 @@
 		        </div>
 		    </a>
 		    {% endfor %}
+		    {% endif %}
 		</div>
 	</div>
 </body>
