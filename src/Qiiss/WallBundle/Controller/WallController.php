@@ -192,6 +192,7 @@ class WallController extends Controller {
 
 		if (isset($post)) {
 			$returnArray["post"] = $post;
+			$returnArray["largePath"] = $post->getPhoto()->getLargePath();
 			$returnArray["profileid"] = $user->getId();
 			// Check if the user likes the post already
 			$em = $this->getDoctrine()->getEntityManager();
@@ -204,7 +205,8 @@ class WallController extends Controller {
 		    else {
 		    	$returnArray["postLiked"] = false;
 		    }
-			return new Response(json_encode($returnArray));
+
+		    return $this->render('QiissUserBundle:Profile:canvas_post.html.twig', $returnArray);
 		}
 	}
 

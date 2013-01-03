@@ -82,7 +82,9 @@ html {
       html body #main_container .canvas_post .canvas_post_attachment {
         border-bottom: 1px solid #ccc; }
         html body #main_container .canvas_post .canvas_post_attachment img {
-          vertical-align: middle; }
+          vertical-align: middle;
+          max-width: 300px;
+          min-width: 300px; }
       html body #main_container .canvas_post .canvas_post_tags {
         border-bottom: 1px solid #ccc; }
         html body #main_container .canvas_post .canvas_post_tags .post_tag_bubble {
