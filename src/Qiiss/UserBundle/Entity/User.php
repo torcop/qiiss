@@ -283,7 +283,7 @@ class User extends BaseUser
         return $this->numNotificationNoty;
     }
 
-    /**
+    /*
      * Set sex
      *
      * @param string $sex
@@ -300,8 +300,8 @@ class User extends BaseUser
      *
      * @return string
      */
-    public function getSex()
-    {
+
+    public function getSex() {
         return $this->sex;
     }
 
@@ -326,14 +326,12 @@ class User extends BaseUser
         return $this->location;
     }
 
-    /**
+     /*
      * Add postsLiked
-     *
      * @param \Qiiss\WallBundle\Entity\Comment $postsLiked
      * @return User
      */
-    public function addPostsLiked(\Qiiss\WallBundle\Entity\Comment $postsLiked)
-    {
+     public function addPostsLiked(\Qiiss\WallBundle\Entity\Comment $postsLiked) {
         $this->postsLiked[] = $postsLiked;
         return $this;
     }
