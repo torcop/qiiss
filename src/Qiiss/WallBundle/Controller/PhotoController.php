@@ -49,6 +49,25 @@ class PhotoController extends Controller {
 		return new Response(json_encode($returnArray));
 	}
 
+	public function deletePhotoAction($photoid) {
+		$photos = $this->getDoctrine()->getRepository('QiissWallBundle:Photo');
+
+		$photoObject = $photos->findOneById($photoid);
+
+		$returnArray["result"] = "failure";
+
+		// Make sure the user has permission to delete this photo (i.e it's theirs)
+		if ($photoObject->getUser()->getId() == $this->container->get('security.context')->getToken()->getUser()->getId()) {
+			$em = $this->getDoctrine()->getManager();
+			$em->remove($photoObject);
+			$em->flush();
+
+			$returnArray["result"] = "success";
+		}
+
+		return new Response(json_encode($returnArray));
+	}
+
 	public function retrievePhotos($userid) {
 		$firstResult = 0;
 		$request = $this->get('request');

@@ -184,47 +184,84 @@ html {
               margin-bottom: 3px;
               display: none; }
       html body #main_container #photo_container {
-        margin: 0 auto; }
-        html body #main_container #photo_container .photo {
-          float: left;
-          position: relative;
-          background-color: #fff;
-          padding: 5px;
-          margin: 5px;
-          border: 1px solid #ccc;
-          cursor: pointer; }
-          html body #main_container #photo_container .photo .publish_button {
-            font: 14px 'OxygenRegular', Arial, sans-serif;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            display: inline-block;
-            color: #333;
-            padding: 8px 8px 5px 8px;
-            border-right: 1px solid #ccc;
-            border-bottom: 1px solid #ccc;
-            -moz-border-radius-topleft: 0px;
-            -webkit-border-top-left-radius: 0px;
-            -khtml-border-radius-topleft: 0px;
-            border-top-left-radius: 0px;
-            -moz-border-radius-topright: 0px;
-            -webkit-border-top-right-radius: 0px;
-            -khtml-border-radius-topright: 0px;
-            border-top-right-radius: 0px;
-            -moz-border-radius-bottomright: 5px;
-            -webkit-border-bottom-right-radius: 5px;
-            -khtml-border-radius-bottomright: 5px;
-            border-bottom-right-radius: 5px;
-            -moz-border-radius-bottomleft: 0px;
-            -webkit-border-bottom-left-radius: 0px;
-            -khtml-border-radius-bottomleft: 0px;
-            border-bottom-left-radius: 0px;
-            background-color: #7ab2de; }
-            html body #main_container #photo_container .photo .publish_button:hover {
-              background-color: #6C9DC4; }
-          html body #main_container #photo_container .photo:hover {
-            background-color: #ddd;
-            border-color: #aaa; }
-          html body #main_container #photo_container .photo .photo_container_inner img {
-            max-width: 300px;
-            max-height: 150px; }
+        text-align: center; }
+        html body #main_container #photo_container a {
+          display: inline-block;
+          vertical-align: top; }
+          html body #main_container #photo_container a .photo {
+            position: relative;
+            background-color: #fff;
+            padding: 3px;
+            margin: 3px;
+            border: 1px solid #ccc;
+            cursor: pointer; }
+            html body #main_container #photo_container a .photo .publish_button {
+              font: 14px 'OxygenRegular', Arial, sans-serif;
+              position: absolute;
+              top: 0px;
+              left: 0px;
+              display: inline-block;
+              color: #333;
+              padding: 8px 8px 5px 8px;
+              border-right: 1px solid #ccc;
+              border-bottom: 1px solid #ccc;
+              -moz-border-radius-topleft: 0px;
+              -webkit-border-top-left-radius: 0px;
+              -khtml-border-radius-topleft: 0px;
+              border-top-left-radius: 0px;
+              -moz-border-radius-topright: 0px;
+              -webkit-border-top-right-radius: 0px;
+              -khtml-border-radius-topright: 0px;
+              border-top-right-radius: 0px;
+              -moz-border-radius-bottomright: 5px;
+              -webkit-border-bottom-right-radius: 5px;
+              -khtml-border-radius-bottomright: 5px;
+              border-bottom-right-radius: 5px;
+              -moz-border-radius-bottomleft: 0px;
+              -webkit-border-bottom-left-radius: 0px;
+              -khtml-border-radius-bottomleft: 0px;
+              border-bottom-left-radius: 0px;
+              background-color: #7ab2de; }
+              html body #main_container #photo_container a .photo .publish_button:hover {
+                background-color: #6C9DC4; }
+            html body #main_container #photo_container a .photo .delete_button {
+              display: none;
+              font: 12px 'OxygenRegular', Arial, sans-serif;
+              position: absolute;
+              top: 0px;
+              right: 0px;
+              color: #f00;
+              padding: 3px 6px;
+              background-color: #eee;
+              overflow: hidden;
+              white-space: nowrap;
+              border-left: 1px solid #ccc;
+              border-bottom: 1px solid #ccc; }
+              html body #main_container #photo_container a .photo .delete_button:hover {
+                background-color: #ddd;
+                border-color: #aaa; }
+              html body #main_container #photo_container a .photo .delete_button .delete_button_second {
+                display: none;
+                cursor: default; }
+                html body #main_container #photo_container a .photo .delete_button .delete_button_second div {
+                  display: inline-block;
+                  vertical-align: middle;
+                  padding: 3px 6px;
+                  border: 1px solid #aaa;
+                  cursor: pointer; }
+                html body #main_container #photo_container a .photo .delete_button .delete_button_second .delete_button_confirm {
+                  background-color: #BF3030;
+                  color: #fff; }
+                  html body #main_container #photo_container a .photo .delete_button .delete_button_second .delete_button_confirm:hover {
+                    background-color: #960E0E; }
+                html body #main_container #photo_container a .photo .delete_button .delete_button_second .delete_button_cancel {
+                  background-color: #ddd;
+                  color: #333; }
+                  html body #main_container #photo_container a .photo .delete_button .delete_button_second .delete_button_cancel:hover {
+                    background-color: #ccc; }
+            html body #main_container #photo_container a .photo:hover {
+              background-color: #ddd;
+              border-color: #aaa; }
+            html body #main_container #photo_container a .photo .photo_container_inner img {
+              max-width: 300px;
+              max-height: 150px; }

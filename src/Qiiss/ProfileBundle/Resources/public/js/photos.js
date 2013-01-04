@@ -1,11 +1,6 @@
 var photoIndex = 0; // Keep track of how many photos we've requested for infinite scroll
 
 $(document).ready(function() {
-  var $container = $('#photo_container');
-  $container.masonry({
-    itemSelector : '.photo',
-    isFitWidth: true
-  });
   $(".fancybox").fancybox();
   $('#canvas_file_upload').fineUploader({
     request: {
@@ -31,8 +26,6 @@ $(document).ready(function() {
   }).on('error', function(event, id, filename, reason) {
   })
   .on('complete', function(event, id, filename, responseJSON){
-    //$("#canvas_photo_preview img").attr("src", "/" + responseJSON.filename);
-    //$("#canvas_photo_preview").css("display", "block");
     // Set a hidden input field in order to attach the uploaded picture to the wall post
     if (responseJSON.hasOwnProperty('photo')) {
       createPhotoPost(responseJSON.photo, false);
@@ -40,6 +33,10 @@ $(document).ready(function() {
   });
 
   bindPublish($(".publish_button"));
+  $(".photo").each(function() {
+    bindMouseOver($(this));
+    bindDelete($(this).find(".delete_button"));
+  });
 });
 
 function getPhotos() {
@@ -54,12 +51,6 @@ function getPhotos() {
           createPhotoPost(val);
         });
         var $container = $('#photo_container');
-        $container.imagesLoaded(function() {
-          $container.masonry({
-            itemSelector : '.photo',
-            isFitWidth: true
-          });
-        });
       }
       else { // If the user has no photos
 
@@ -95,6 +86,54 @@ function bindPublish(buttonObject) {
   });
 }
 
+function bindDelete(buttonObject) {
+  buttonObject.bind("click", function() {
+    buttonObject.width(buttonObject.width()); // Set the width so we can animate
+    buttonObject.find(".delete_button_initial").css("display", "none");
+    buttonObject.find(".delete_button_second").css("display", "block");
+    buttonObject.animate({
+      "width": "110px"
+    }, 200, "linear");
+
+    buttonObject.find(".delete_button_confirm").bind("click", function() {
+      var photoid = $(this).closest(".photo").find('.photoid').val();
+      $.ajax({
+        url: '/delete-photo/' + photoid,
+        success: function(data) {
+          parsed = jQuery.parseJSON(data);
+          console.log(parsed);
+          if (parsed.result == "success") {
+            buttonObject.closest("a").remove();
+          }
+          else { // If the user has no photos
+            console.log("delete failed")
+          }
+        },
+        failure: function(data) {
+          console.log("delete failed");
+        }
+      });
+      return false;
+    });
+    buttonObject.find(".delete_button_cancel").bind("click", function() {
+      buttonObject.find(".delete_button_initial").css("display", "block");
+      buttonObject.find(".delete_button_second").css("display", "none");
+      buttonObject.width("auto");
+      return false;
+    });
+    return false;
+  });
+}
+
+function bindMouseOver(photoObject) {
+  photoObject.bind("mouseenter", function() {
+    photoObject.find(".delete_button").css("display", "inline-block");
+  });
+  photoObject.bind("mouseleave", function() {
+    photoObject.find(".delete_button").css("display", "none");
+  });
+}
+
 function createPhotoPost(photoObject, append) {
   // Find a way to parametize this out, it's ugly
   console.log(photoObject);
@@ -103,6 +142,9 @@ function createPhotoPost(photoObject, append) {
         '<div class="photo">'
   if (photoObject.status == "unpublished") {
     appendString += '<div class="publish_button">Click to publish</div>';
+  }
+  if (selfPage) {
+    appendString += '<div class="delete_button">X</div>';
   }
   appendString +=
     '<input type="hidden" class="photoid" value="' + photoObject.id + '">' +
@@ -118,9 +160,7 @@ function createPhotoPost(photoObject, append) {
   else {
     $("#photo_container").prepend(toAppend);
     var $container = $('#photo_container');
-    $container.imagesLoaded(function() {
-      $container.masonry('reload');
-    });
     bindPublish(toAppend.find(".publish_button"));
+    bindMouseOver(toAppend);
   }
 }
