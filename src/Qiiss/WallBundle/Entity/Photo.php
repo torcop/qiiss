@@ -60,6 +60,12 @@ class Photo
     public $status;
 
     /**
+     * @ORM\Column(type="integer", length=10)
+     *
+     */
+    protected $numLikes = 0;
+
+    /**
      * Get id
      *
      * @return integer
@@ -245,5 +251,27 @@ class Photo
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Set numLikes
+     *
+     * @param integer $numLikes
+     * @return Photo
+     */
+    public function setNumLikes($numLikes)
+    {
+        $this->numLikes = $numLikes;
+        return $this;
+    }
+
+    /**
+     * Get numLikes
+     *
+     * @return integer
+     */
+    public function getNumLikes()
+    {
+        return $this->numLikes;
     }
 }

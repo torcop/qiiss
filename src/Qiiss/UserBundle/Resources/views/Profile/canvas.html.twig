@@ -5,7 +5,7 @@
     <a href="{{ path('qiiss_profile_photos', {'userid': profileid}) }}">
       <div id="profile_picture">
         <div id="profile_picture_overlay"><div>View More Photos</div></div>
-        <img src="#">
+        <img src="/{{ profilePicture }}">
       </div>
     </a>
     <div id="review_header">Date Reviews</div>
@@ -54,11 +54,12 @@
         </div>
       </div>
       <div id="sample_photos">
-        <div class="sample_photo">SAMPLE PHOTO 1</div>
-        <div class="sample_photo">SAMPLE PHOTO 2</div>
-        <div class="sample_photo">SAMPLE PHOTO 3</div>
-        <div class="sample_photo">SAMPLE PHOTO 4</div>
-        <div class="sample_photo">SAMPLE PHOTO 5</div>
+        <div id="sample_photos_overlay"><div>View More Photos</div></div>
+        {% for photo in photos %}
+          <div class="sample_photo">
+            <img src="\{{ photo.mediumPath }}" />
+          </div>
+        {% endfor %}
       </div>
     </div>
     <div id="canvas_body">

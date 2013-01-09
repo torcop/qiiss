@@ -60,15 +60,23 @@ html {
           margin-left: 10px; }
         html body #main_container #canvas_container #canvas_left {
           font: 16px 'OxygenRegular', Arial, sans-serif; }
-          html body #main_container #canvas_container #canvas_left #profile_picture {
-            width: 190px;
-            height: 190px;
-            border: 1px solid #ccc;
-            margin: 9px;
-            cursor: pointer; }
-            html body #main_container #canvas_container #canvas_left #profile_picture img {
+          html body #main_container #canvas_container #canvas_left a {
+            color: #333; }
+            html body #main_container #canvas_container #canvas_left a:active {
+              color: #333; }
+            html body #main_container #canvas_container #canvas_left a:visited {
+              color: #333; }
+            html body #main_container #canvas_container #canvas_left a:hover {
+              color: #333; }
+            html body #main_container #canvas_container #canvas_left a #profile_picture {
               width: 190px;
-              height: 190px; }
+              height: 190px;
+              border: 1px solid #ccc;
+              margin: 9px;
+              cursor: pointer; }
+              html body #main_container #canvas_container #canvas_left a #profile_picture img {
+                width: 190px;
+                height: 190px; }
           html body #main_container #canvas_container #canvas_left #profile_picture_overlay {
             display: none;
             position: absolute;
@@ -279,19 +287,42 @@ html {
                   cursor: pointer; }
             html body #main_container #canvas_container #canvas_center #canvas_header #sample_photos {
               display: block;
+              overflow: hidden;
+              white-space: nowrap;
+              padding: 0;
               text-align: center;
-              padding: 10px 0px 10px 0px;
               background-color: #f8f8f8;
               border-top: 1px solid #ccc;
               border-bottom: 1px solid #ccc; }
+              html body #main_container #canvas_container #canvas_center #canvas_header #sample_photos #sample_photos_overlay {
+                display: none;
+                cursor: pointer;
+                position: absolute;
+                background-color: rgba(220, 220, 220, 0.6);
+                width: 790px;
+                padding: 0;
+                margin: 0;
+                height: 154px;
+                overflow: hidden;
+                white-space: nowrap; }
+                html body #main_container #canvas_container #canvas_center #canvas_header #sample_photos #sample_photos_overlay div {
+                  margin-left: 400px;
+                  font: 18px 'PatuaOneRegular', Arial, sans-serif;
+                  line-height: 145px;
+                  text-align: center; }
               html body #main_container #canvas_container #canvas_center #canvas_header #sample_photos .sample_photo {
+                margin: 10px 0px;
                 display: inline-block;
                 vertical-align: middle;
+                overflow: hidden;
                 font: 16px 'OxygenRegular', Arial, sans-serif;
                 width: 130px;
                 height: 130px;
                 border: 1px solid #ccc;
                 padding: 0px; }
+                html body #main_container #canvas_container #canvas_center #canvas_header #sample_photos .sample_photo img {
+                  max-height: 200px;
+                  max-width: 200px; }
           html body #main_container #canvas_container #canvas_center #canvas_body #canvas_body_header {
             font: 30px 'OxygenRegular', Arial, sans-serif;
             padding: 10px 0px 0px 20px;

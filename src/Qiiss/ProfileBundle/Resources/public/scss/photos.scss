@@ -296,5 +296,43 @@ html {
         } // a
       } // #photo_container
     } // #main_container
+
+    .fancybox-overlay {
+      font: 16px 'OxygenRegular', Arial, sans-serif;
+      .fancybox-title {
+        margin-top:10px;
+        height:30px;
+        .qool_box {
+          float:left;
+          div {
+            display: inline-block;
+            vertical-align: middle;
+          }
+          .qool_button {
+            background-color:#F2F8FA;
+            margin-right:10px;
+            border:1px solid #aaa;
+            padding:4px 10px;
+            text-align: center;
+            font-size:14px;
+            @include corner(5px, 5px, 5px, 5px);
+            @include lightButtonColor();
+          } // .qool_button
+          .qiiss_qool_count_num {
+            margin-right:5px;
+          }
+        } // .qool_box
+        .dp_select {
+          float:right;
+          background-color:#F2F8FA;
+          border:1px solid #aaa;
+          padding:4px 10px;
+          text-align: center;
+          font-size:14px;
+          @include corner(5px, 5px, 5px, 5px);
+          @include lightButtonColor();
+        } // .dp_select
+      } // .fancybox-title
+    } // .fancybox-overlay
   } // body
 } // html

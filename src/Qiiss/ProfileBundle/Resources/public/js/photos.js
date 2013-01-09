@@ -1,7 +1,31 @@
 var photoIndex = 0; // Keep track of how many photos we've requested for infinite scroll
 
 $(document).ready(function() {
-  $(".fancybox").fancybox();
+  $(".fancybox").fancybox({
+    helpers : {
+      title : {
+        type: 'inside'
+      }
+    },
+    beforeShow: function () {
+      this.title = '<div class="qool_box"><div class="qool_button">Qool</div><input type="hidden" class="qool_photo_id" value="' + $(this.element).find('.photoid').val() +'"/>' +
+        '<div class="qiiss_qool_count_num">' + $(this.element).attr('caption') + '</div>' +
+        '<div class="qiiss_qool_count_message"> people think this is qool.</div></div>';
+      if (displayPictureId == $(this.element).find(".photoid").val()) {
+        this.title += '<div class="dp_select">This is your profile picture</div>';
+      }
+      else {
+        this.title += '<div class="dp_select">Set as profile picture</div>';
+      }
+    },
+    afterShow: function() {
+      var qoolButton = $(this.skin).find(".qool_button");
+      var setDpButton = $(this.skin).find(".dp_select");
+      bindQoolClick(qoolButton, $(this.skin).find(".qool_photo_id").val(), $(this.skin).find(".qiiss_qool_count_num"));
+      bindSetDp(setDpButton, $(this.skin).find(".qool_photo_id").val());
+    }
+  });
+  bindQoolClick($(".qool_button"))
   $('#canvas_file_upload').fineUploader({
     request: {
         endpoint: '/upload'
@@ -38,6 +62,47 @@ $(document).ready(function() {
     bindDelete($(this).find(".delete_button"));
   });
 });
+
+function bindQoolClick(button, photoid, count) {
+  button.bind("click", function() {
+    $.ajax({
+      type: "POST",
+      url: "/qool-photo/" + photoid,
+      datatype: "json"
+    }).done(function( msg ) {
+      console.log(msg);
+      parsed = jQuery.parseJSON(msg);
+      if (parsed.result == "off") {
+        button.html("Qool")
+        count.html(parseInt(count.html()) - 1);
+      }
+      else if (parsed.result == "on") {
+        button.html("Unqool");
+        count.html(parseInt(count.html()) + 1);
+      }
+    });
+  });
+}
+
+function bindSetDp(button, photoid) {
+  button.bind("click", function() {
+    button.html("Working...");
+    $.ajax({
+      type: "POST",
+      url: "/set-display-picture/" + photoid,
+      datatype: "json"
+    }).done(function( msg ) {
+      console.log(msg);
+      parsed = jQuery.parseJSON(msg);
+      if (parsed.result == "success") {
+        button.html("This is your profile picture");
+      }
+      else if (parsed.result == "failure") {
+        button.html("Oops! Something went wrong.");
+      }
+    });
+  });
+}
 
 function getPhotos() {
   $.ajax({

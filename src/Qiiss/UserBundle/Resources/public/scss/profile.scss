@@ -40,18 +40,34 @@ html {
         #canvas_left {
           font: 16px 'OxygenRegular', Arial, sans-serif;
 
-          #profile_picture {
-            width:190px;
-            height:190px;
-            border:1px solid #ccc;
-            margin: 9px;
-            cursor:pointer;
+          a {
+            color:#333;
 
-            img {
+            &:active {
+              color:#333;
+            }
+
+            &:visited {
+              color:#333;
+            }
+
+            &:hover {
+              color:#333;
+            }
+
+            #profile_picture {
               width:190px;
               height:190px;
-            }
-          }
+              border:1px solid #ccc;
+              margin: 9px;
+              cursor:pointer;
+
+              img {
+                width:190px;
+                height:190px;
+              }
+            } // #profile_picture
+          } // a
 
           #profile_picture_overlay {
             display:none;
@@ -196,20 +212,49 @@ html {
 
             #sample_photos {
               display:block;
+              overflow:hidden;
+              white-space:nowrap;
+              padding:0;
               text-align:center;
-              padding:10px 0px 10px 0px;
               background-color:#f8f8f8;
               border-top:1px solid #ccc;
               border-bottom:1px solid #ccc;
 
+              #sample_photos_overlay {
+                display:none;
+                cursor:pointer;
+                position:absolute;
+                background-color:rgba(220, 220, 220, 0.6);
+                width:790px;
+                padding:0;
+                margin:0;
+                height:154px;
+                overflow:hidden;
+                white-space:nowrap;
+
+                div {
+                  margin-left:400px;
+                  font: 18px 'PatuaOneRegular', Arial, sans-serif;
+                  line-height:145px;
+                  text-align:center;
+                }
+              }
+
               .sample_photo {
+                margin:10px 0px;
                 display:inline-block;
                 vertical-align:middle;
+                overflow:hidden;
                 font: 16px 'OxygenRegular', Arial, sans-serif;
                 width:130px;
                 height:130px;
                 border:1px solid #ccc;
                 padding:0px;
+
+                img {
+                  max-height:200px;
+                  max-width:200px;
+                }
               }
             }
           } // #canvas_header

@@ -68,6 +68,20 @@ $(document).ready(function() {
     }, 200, "linear");
   });
 
+  $("#sample_photos").bind("mouseenter", function() {
+    $("#sample_photos_overlay").stop().fadeIn(200);
+    $("#sample_photos_overlay div").stop().animate({
+      "margin-left": "0px"
+    }, 200, "linear");
+  });
+
+  $("#sample_photos").bind("mouseleave", function() {
+    $("#sample_photos_overlay").stop().fadeOut(200);
+    $("#sample_photos_overlay div").stop().animate({
+      "margin-left": "200px"
+    }, 200, "linear");
+  });
+
   $("#canvas_story_create form").submit(function() {
     $.ajax({
       type: "POST",

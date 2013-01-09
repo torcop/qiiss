@@ -70,6 +70,14 @@ qiiss_delete_photo:
     pattern: /delete-photo/{photoid}
     defaults: { _controller: QiissWallBundle:Photo:deletePhoto }
 
+qiiss_like_photo:
+    pattern: /qool-photo/{photoid}
+    defaults: { _controller: QiissWallBundle:Photo:toggleLikePhoto }
+
+qiiss_set_dp:
+    pattern: /set-display-picture/{photoid}
+    defaults: { _controller: QiissWallBundle:Photo:setDisplayPicture }
+
 qiiss_profile_search:
     pattern:  /search
     defaults: { _controller: QiissSearchBundle:Search:index}

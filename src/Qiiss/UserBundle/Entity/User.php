@@ -69,6 +69,18 @@ class User extends BaseUser
     protected $postsLiked;
 
     /**
+    * @var integer
+    * @ORM\ManyToMany(targetEntity="Qiiss\WallBundle\Entity\Photo")
+    */
+    protected $photosLiked;
+
+    /**
+    * @var integer
+    * @ORM\OneToOne(targetEntity="Qiiss\WallBundle\Entity\Photo")
+    */
+    protected $displayPicture;
+
+    /**
      * Set dob
      *
      * @param \string $dob
@@ -354,5 +366,59 @@ class User extends BaseUser
     public function getPostsLiked()
     {
         return $this->postsLiked;
+    }
+
+    /**
+     * Add photosLiked
+     *
+     * @param \Qiiss\WallBundle\Entity\Photo $photosLiked
+     * @return User
+     */
+    public function addPhotosLiked(\Qiiss\WallBundle\Entity\Photo $photosLiked)
+    {
+        $this->photosLiked[] = $photosLiked;
+        return $this;
+    }
+
+    /**
+     * Remove photosLiked
+     *
+     * @param \Qiiss\WallBundle\Entity\Photo $photosLiked
+     */
+    public function removePhotosLiked(\Qiiss\WallBundle\Entity\Photo $photosLiked)
+    {
+        $this->photosLiked->removeElement($photosLiked);
+    }
+
+    /**
+     * Get photosLiked
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPhotosLiked()
+    {
+        return $this->photosLiked;
+    }
+
+    /**
+     * Set displayPicture
+     *
+     * @param \Qiiss\WallBundle\Entity\Photo $displayPicture
+     * @return User
+     */
+    public function setDisplayPicture(\Qiiss\WallBundle\Entity\Photo $displayPicture = null)
+    {
+        $this->displayPicture = $displayPicture;
+        return $this;
+    }
+
+    /**
+     * Get displayPicture
+     *
+     * @return \Qiiss\WallBundle\Entity\Photo
+     */
+    public function getDisplayPicture()
+    {
+        return $this->displayPicture;
     }
 }
