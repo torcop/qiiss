@@ -33,13 +33,13 @@ class User extends BaseUser
     protected $dob;
 
 	/**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
     protected $sex;
 
 	/**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
     protected $location;

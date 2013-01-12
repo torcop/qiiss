@@ -15,13 +15,7 @@ window.fbAsyncInit = function() {
     FB.getLoginStatus(function(response) {
       if (response.status === 'connected') {
         FB.api('/me', function(response) { //If the user is already logged in via facebook, redirect them to the profile page
-          FB.api(response.id + '?fields=picture.type(large)', function(data) {
-            $("#profile_picture img").attr("src", data.picture.data.url);
-          });
-          FB.api(response.id + '?fields=picture.type(small)', function(data) {
-            $(".canvas_post_header .header_dp img").attr("src", data.picture.data.url);
-            $(".popup_item_dp img").attr("src", data.picture.data.url);
-          });
+
         });
       }
    });
@@ -94,6 +88,7 @@ $(document).ready(function() {
         if (parsed.hasOwnProperty("postObject")) {
           createCanvasPost(parsed.postObject, true);
           $("#canvas_story_create textarea").val("");
+          $("#canvas_photo_preview").html("");
         }
       }
       else if (parsed.result == "failure") {
@@ -113,6 +108,9 @@ $(document).ready(function() {
   $('#canvas_file_upload').fineUploader({
     request: {
         endpoint: '/upload'
+    },
+    text: {
+      uploadButton: 'Attach photo'
     }
   }).on('error', function(event, id, filename, reason) {
   })
@@ -125,8 +123,35 @@ $(document).ready(function() {
     }
   });
 
+  $('#edit_profile').bind('click', function() {
+    setEditable(true);
+  });
+  $('#edit_profile_confirm').bind('click', function() {
+    setEditable(false);
+  });
+  $('#edit_profile_cancel').bind('click', function() {
+    setEditable(false);
+  });
+
   getWallPosts();
 });
+
+function setEditable(enableEdit) {
+  if (!enableEdit) {
+    $('#header_info .info_section_bubble_edit').hide();
+    $('#edit_profile_confirm').hide();
+    $('#edit_profile_cancel').hide();
+    $('#edit_profile').show();
+    $('#header_info .info_section_bubble').show();
+  }
+  else {
+    $('#header_info .info_section_bubble_edit').show();
+    $('#edit_profile_confirm').css("display", "inline-block");
+    $('#edit_profile_cancel').css("display", "inline-block");
+    $('#edit_profile').hide();
+    $('#header_info .info_section_bubble').hide();
+  }
+}
 
 function getWallPosts() {
   $.ajax({
@@ -136,6 +161,7 @@ function getWallPosts() {
       parsed = jQuery.parseJSON(data);
       if (parsed.hasOwnProperty("wallPosts")) {
         $.each(parsed.wallPosts, function(key, val) {
+          console.log(val);
           createCanvasPost(val, false);
         });
         $(".canvas_qool_button").each(function() {
@@ -177,7 +203,7 @@ function createCanvasPost(canvasObject, slideDown) {
     '<div class="canvas_post">' +
       '<input type="hidden" class="postid" value="' + canvasObject.postId + '">' +
       '<div class="canvas_post_header">' +
-        '<div class="header_dp"><img src="#" /></div>' +
+        '<div class="header_dp"><img src="/' + canvasObject.profilePicture + '" /></div>' +
         '<div class="header_text">' +
           '<div class="header_name">' + canvasObject.author + '</div>' +
           '<div class="header_time">Posted at ' + canvasObject.date.date + '</div>' +

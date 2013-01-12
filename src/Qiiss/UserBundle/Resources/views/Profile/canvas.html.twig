@@ -20,8 +20,20 @@
     <div id="canvas_header">
       <div id="header_top">
         <div id="header_name_fav">
-          {{ username }}
-          <div id="header_fav">+ Favourite</div>
+          <div id="header_username">{{ username }}</div>
+          {% if selfProfile == true %}
+              <div id="edit_profile" class="edit_profile">Edit My Profile</div>
+              <div id="edit_profile_confirm" class="edit_profile">
+                <img src="{{ asset('bundles/qiissgeneral/images/date-images/qiiss-green-tick.png') }}" />
+                Save Changes
+              </div>
+              <div id="edit_profile_cancel" class="edit_profile">
+                <img src="{{ asset('bundles/qiissgeneral/images/date-images/qiiss-red-cross.png') }}" />
+                Cancel Edit
+              </div>
+          {% else %}
+              <div id="header_fav">+ Favourite</div>
+          {% endif %}
         </div>
         <div id="header_age">
           21
@@ -29,38 +41,47 @@
         <div id="flag_inappropriate">Flag Profile As Inappropriate</div>
       </div>
       <div id="header_info">
-        <div id="info_left">
+        <div id="info_left"{% if selfProfile == true %} style="width:auto;" {% endif %}>
           <div id="location">
-            <div class="info_section_header">Location <br /></div>
+            <div class="info_section_header">Location<br /></div>
             <div class="info_section_bubble">NSW, Australia</div>
+            <input type="text" class="info_section_bubble_edit" placeholder="NSW, Australia" />
           </div>
           <div id="preference">
             <div class="info_section_header">Preference</div>
             <div class="info_section_bubble">Women</div>
+            <input type="text" class="info_section_bubble_edit" placeholder="Women" />
           </div>
           <div id="charity">
             <div class="info_section_header">Charity</div>
             <div class="info_section_bubble">Red Cross</div>
-          </div>
+            <input type="text" class="info_section_bubble_edit" placeholder="Red Cross" />
+          </div><br />
           <div id="location">
             <div class="info_section_header">Interests</div>
-            <div class="info_section_bubble">Breaking Bad</div><div class="info_section_bubble">Guitar</div><div class="info_section_bubble">Cycling</div>
+            <div class="info_section_bubble">Breaking Bad</div><input type="text" class="info_section_bubble_edit" placeholder="Breaking Bad" />
+            <div class="info_section_bubble">Guitar</div><input type="text" class="info_section_bubble_edit" placeholder="Guitar" />
+            <div class="info_section_bubble">Cycling</div><input type="text" class="info_section_bubble_edit" placeholder="Cycling" />
           </div>
         </div>
         <div id="info_right">
           <div id="info_propose">
-            <a href="{{ path('qiiss_profile_propose_date', { 'profileid' : profileid }) }}"><img src="{{ asset('bundles/qiissuser/images/Qiiss-Propose-Date.png') }}" /></a>
+            {% if selfProfile == false %}
+              <a href="{{ path('qiiss_profile_propose_date', { 'profileid' : profileid }) }}"><img src="{{ asset('bundles/qiissuser/images/Qiiss-Propose-Date.png') }}" /></a>
+            {% endif %}
           </div>
         </div>
       </div>
-      <div id="sample_photos">
-        <div id="sample_photos_overlay"><div>View More Photos</div></div>
-        {% for photo in photos %}
-          <div class="sample_photo">
-            <img src="\{{ photo.mediumPath }}" />
-          </div>
-        {% endfor %}
-      </div>
+      <a href="{{ path('qiiss_profile_photos', {'userid': profileid}) }}">
+        <div id="sample_photos">
+          <div id="sample_photos_overlay"><div>View More Photos</div></div>
+          {% for photo in photos %}
+            <div class="sample_photo">
+              <img src="\{{ photo.mediumPath }}" />
+            </div>
+          {% endfor %}
+        </div>
+      </a>
     </div>
     <div id="canvas_body">
       <div id="canvas_body_header">
@@ -86,7 +107,6 @@
         </div>
       </div>
 			</form>
-
       <div class="canvas_center_seperator"></div>
       <div id="canvas_story_container">
       </div>

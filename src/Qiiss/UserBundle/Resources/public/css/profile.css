@@ -14,6 +14,15 @@
 
 html {
   height: 100%; }
+  html a {
+    color: #000;
+    text-decoration: none; }
+    html a:active {
+      color: #000; }
+    html a:visited {
+      color: #000; }
+    html a:hover {
+      color: #000; }
   html body {
     margin: 0;
     padding: 0;
@@ -60,23 +69,16 @@ html {
           margin-left: 10px; }
         html body #main_container #canvas_container #canvas_left {
           font: 16px 'OxygenRegular', Arial, sans-serif; }
-          html body #main_container #canvas_container #canvas_left a {
-            color: #333; }
-            html body #main_container #canvas_container #canvas_left a:active {
-              color: #333; }
-            html body #main_container #canvas_container #canvas_left a:visited {
-              color: #333; }
-            html body #main_container #canvas_container #canvas_left a:hover {
-              color: #333; }
-            html body #main_container #canvas_container #canvas_left a #profile_picture {
-              width: 190px;
-              height: 190px;
-              border: 1px solid #ccc;
-              margin: 9px;
-              cursor: pointer; }
-              html body #main_container #canvas_container #canvas_left a #profile_picture img {
-                width: 190px;
-                height: 190px; }
+          html body #main_container #canvas_container #canvas_left a #profile_picture {
+            width: 190px;
+            height: 190px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            margin: 9px;
+            cursor: pointer; }
+            html body #main_container #canvas_container #canvas_left a #profile_picture img {
+              min-width: 190px;
+              min-height: 190px; }
           html body #main_container #canvas_container #canvas_left #profile_picture_overlay {
             display: none;
             position: absolute;
@@ -166,11 +168,14 @@ html {
               border-bottom-left-radius: 0px; }
               html body #main_container #canvas_container #canvas_center #canvas_header #header_top #header_name_fav {
                 width: 650px; }
-                html body #main_container #canvas_container #canvas_center #canvas_header #header_top #header_name_fav #header_fav {
+                html body #main_container #canvas_container #canvas_center #canvas_header #header_top #header_name_fav #header_username {
+                  margin: 0;
+                  padding: 0;
+                  margin-right: 10px; }
+                html body #main_container #canvas_container #canvas_center #canvas_header #header_top #header_name_fav #header_fav, html body #main_container #canvas_container #canvas_center #canvas_header #header_top #header_name_fav .edit_profile {
                   vertical-align: middle;
                   font-size: 16px;
                   background-color: #F2F8FA;
-                  margin: 0px 10px;
                   border: 1px solid #ddd;
                   padding: 5px 10px;
                   -moz-border-radius-topleft: 5px;
@@ -191,10 +196,13 @@ html {
                   border-bottom-left-radius: 5px;
                   background-color: #F2F8FA;
                   cursor: pointer; }
-                  html body #main_container #canvas_container #canvas_center #canvas_header #header_top #header_name_fav #header_fav:hover {
+                  html body #main_container #canvas_container #canvas_center #canvas_header #header_top #header_name_fav #header_fav:hover, html body #main_container #canvas_container #canvas_center #canvas_header #header_top #header_name_fav .edit_profile:hover {
                     background-color: #C7E2EB; }
-                  html body #main_container #canvas_container #canvas_center #canvas_header #header_top #header_name_fav #header_fav:active {
+                  html body #main_container #canvas_container #canvas_center #canvas_header #header_top #header_name_fav #header_fav:active, html body #main_container #canvas_container #canvas_center #canvas_header #header_top #header_name_fav .edit_profile:active {
                     background-color: #AFD4E0; }
+                html body #main_container #canvas_container #canvas_center #canvas_header #header_top #header_name_fav #edit_profile_confirm, html body #main_container #canvas_container #canvas_center #canvas_header #header_top #header_name_fav #edit_profile_cancel {
+                  display: none;
+                  margin: 0px 2px; }
               html body #main_container #canvas_container #canvas_center #canvas_header #header_top #header_age {
                 text-align: right;
                 padding-right: 20px;
@@ -272,6 +280,27 @@ html {
                     background-color: #C7E2EB; }
                   html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left .info_section_bubble:active {
                     background-color: #AFD4E0; }
+                html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left .info_section_bubble_edit {
+                  display: none;
+                  padding: 10px;
+                  margin: 10px 10px 10px 0px;
+                  border: 2px solid #ccc;
+                  -moz-border-radius-topleft: 5px;
+                  -webkit-border-top-left-radius: 5px;
+                  -khtml-border-radius-topleft: 5px;
+                  border-top-left-radius: 5px;
+                  -moz-border-radius-topright: 5px;
+                  -webkit-border-top-right-radius: 5px;
+                  -khtml-border-radius-topright: 5px;
+                  border-top-right-radius: 5px;
+                  -moz-border-radius-bottomright: 5px;
+                  -webkit-border-bottom-right-radius: 5px;
+                  -khtml-border-radius-bottomright: 5px;
+                  border-bottom-right-radius: 5px;
+                  -moz-border-radius-bottomleft: 5px;
+                  -webkit-border-bottom-left-radius: 5px;
+                  -khtml-border-radius-bottomleft: 5px;
+                  border-bottom-left-radius: 5px; }
                 html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left #location, html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left #preference, html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left #charity {
                   display: inline-block;
                   padding: 0;
@@ -477,10 +506,15 @@ html {
                   display: inline-block;
                   vertical-align: middle; }
                 html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_container .canvas_post .canvas_post_header .header_dp {
-                  margin-right: 10px; }
+                  margin-right: 10px;
+                  width: 50px;
+                  height: 50px;
+                  overflow: hidden; }
                   html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_container .canvas_post .canvas_post_header .header_dp img {
                     display: inline-block;
-                    vertical-align: middle; }
+                    vertical-align: middle;
+                    min-width: 50px;
+                    min-height: 50px; }
                 html body #main_container #canvas_container #canvas_center #canvas_body #canvas_story_container .canvas_post .canvas_post_header .header_text .header_time {
                   color: #666;
                   font-size: 14px; }

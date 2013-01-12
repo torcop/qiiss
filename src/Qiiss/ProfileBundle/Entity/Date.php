@@ -80,7 +80,7 @@ class Date
     /**
      * @var string
      *
-     * @ORM\Column(name="status", type="string")
+     * @ORM\Column(name="status", type="string", nullable=true)
      */
     private $status;
 

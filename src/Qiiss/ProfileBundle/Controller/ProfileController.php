@@ -147,12 +147,21 @@ class ProfileController extends Controller {
       ->find($dateid);
     if ($user == $date->getSender() || $user == $date->getTarget()) { // Make sure that only the "sender" and "target" are allowed to view this date, otherwise, redirect back to the profile
       $message = new Message(); // Create the message form
+      // Get the user's display pictures
+      $displayPictureSender = $date->getSender()->getDisplayPicture();
+      $displayPictureTarget = $date->getTarget()->getDisplayPicture();
+
+      $displayPictureSender = isset($displayPictureSender) ? $displayPictureSender->getMediumPath() : "qiissgeneral/images/placeholder_dp_medium.png";
+      $displayPictureTarget = isset($displayPictureTarget) ? $displayPictureTarget->getMediumPath() : "qiissgeneral/images/placeholder_dp_medium.png";
+
       $form = $this->createForm(new MessageType, $message);
       return $this->render('QiissProfileBundle:Profile:viewDate.html.twig', array(
         "date" => $date,
         "messageTime" => new \DateTime(),
         "messageForm" => $form->createView(),
-        "isTarget" => $user == $date->getTarget() ? true : false
+        "isTarget" => $user == $date->getTarget() ? true : false,
+        "displayPictureSender" => $displayPictureSender,
+        "displayPictureTarget" => $displayPictureTarget
       ));
     }
     else {

@@ -38,6 +38,13 @@ class NotyController extends Controller {
 		    $notyArray["notifications"][$i]["type"] = $post->getType();
 		    $notyArray["notifications"][$i]["content"] = $post->getContent();
 		    $notyArray["notifications"][$i]["notyRead"] = $post->getNotyRead();
+        $displayPicture = $post->getSender()->getDisplayPicture();
+        if (isset($displayPicture)) {
+          $notyArray["notifications"][$i]["dp"] = $post->getSender()->getDisplayPicture()->getThumbnailPath();
+        }
+        else {
+          $notyArray["notifications"][$i]["dp"] = "qiissgeneral/images/placeholder_dp_thumb.png";
+        }
 		    if (!$post->getNotyRead()) {
 		    	$notyArray["numNew"]++;
 		    	$post->setNotyRead(true);

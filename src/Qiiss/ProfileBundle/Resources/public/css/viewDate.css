@@ -63,7 +63,7 @@ html {
           html body #main_container #propose_date_main_border #propose_date_main_header #center_text {
             display: inline-block;
             vertical-align: middle;
-            margin: 0px 166px; }
+            width: 575px; }
             html body #main_container #propose_date_main_border #propose_date_main_header #center_text #center_text_top {
               font: 40px/48px "Lobster13Regular", Arial, sans-serif;
               letter-spacing: 0;
@@ -113,9 +113,13 @@ html {
             vertical-align: middle;
             width: 190px;
             height: 190px;
+            overflow: hidden;
             border: 1px solid #ccc;
             margin: 10px;
             cursor: pointer; }
+            html body #main_container #propose_date_main_border #propose_date_main_header .header_picture_image img {
+              min-width: 190px;
+              min-height: 190px; }
         html body #main_container #propose_date_main_border #propose_date_main_left {
           background-color: #fff;
           display: inline-block;

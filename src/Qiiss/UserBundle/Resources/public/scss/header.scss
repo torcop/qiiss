@@ -173,10 +173,13 @@
 
           .popup_item_dp {
             margin-right:10px;
+            width:50px;
+            height:50px;
+            overflow:hidden;
 
             img {
-              width:50;
-              height:50px;
+              min-width:50px;
+              min-height:50px;
             }
           }
 

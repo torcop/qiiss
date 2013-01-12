@@ -3,6 +3,23 @@
 html {
   height:100%;
 
+  a {
+    color:#000;
+    text-decoration: none;
+
+    &:active {
+      color:#000;
+    }
+
+    &:visited {
+      color:#000;
+    }
+
+    &:hover {
+      color:#000;
+    }
+  }
+
   body {
     margin:0;
     padding:0;
@@ -41,30 +58,17 @@ html {
           font: 16px 'OxygenRegular', Arial, sans-serif;
 
           a {
-            color:#333;
-
-            &:active {
-              color:#333;
-            }
-
-            &:visited {
-              color:#333;
-            }
-
-            &:hover {
-              color:#333;
-            }
-
             #profile_picture {
               width:190px;
               height:190px;
+              overflow:hidden;
               border:1px solid #ccc;
               margin: 9px;
               cursor:pointer;
 
               img {
-                width:190px;
-                height:190px;
+                min-width:190px;
+                min-height:190px;
               }
             } // #profile_picture
           } // a
@@ -128,15 +132,25 @@ html {
               #header_name_fav {
                 width:650px;
 
-                #header_fav {
+                #header_username {
+                  margin:0;
+                  padding:0;
+                  margin-right:10px;
+                }
+
+                #header_fav, .edit_profile {
                   vertical-align: middle;
                   font-size:16px;
                   background-color:#F2F8FA;
-                  margin:0px 10px;
                   border:1px solid #ddd;
                   padding:5px 10px;
                   @include corner(5px, 5px, 5px, 5px);
                   @include lightButtonColor();
+                }
+
+                #edit_profile_confirm, #edit_profile_cancel {
+                  display:none;
+                  margin:0px 2px;
                 }
               }
               #header_age {
@@ -186,6 +200,14 @@ html {
                   padding:10px;
                   @include corner(5px, 5px, 5px, 5px);
                   @include lightButtonColor();
+                }
+
+                .info_section_bubble_edit {
+                  display:none;
+                  padding:10px;
+                  margin:10px 10px 10px 0px;
+                  border: 2px solid #ccc;
+                  @include corner(5px, 5px, 5px, 5px);
                 }
 
                 #location, #preference, #charity {
@@ -390,10 +412,15 @@ html {
 
                   .header_dp {
                     margin-right:10px;
+                    width:50px;
+                    height:50px;
+                    overflow:hidden;
 
                     img {
                       display:inline-block;
                       vertical-align: middle;
+                      min-width:50px;
+                      min-height:50px;
                     }
                   }
 

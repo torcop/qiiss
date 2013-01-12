@@ -20,6 +20,10 @@ class RetrieveController extends Controller
         ->getRepository('QiissUserBundle:User')
         ->find($profileid);
 
+        if (!is_object($username)) {
+            return new Response("404 profile not found");
+        }
+
         $photos = new PhotoController();
         $photos->setContainer($this->container);
         $photoArray = array();
@@ -27,13 +31,22 @@ class RetrieveController extends Controller
         if ($photoArrayUnsliced["numResults"] > 0) {
             $photoArray = array_slice($photos->retrievePhotos($profileid)["photos"], 0, 6);
         }
+        $displayPicture = $username->getDisplayPicture();
+        if (isset($displayPicture)) {
+            $displayPicture = $displayPicture->getMediumPath();
+        }
+        else {
+            $displayPicture = "qiissgeneral/images/placeholder_dp_medium.png";
+        }
+        $selfProfile = ($user->getId() == $username->getId());
         return $this->container->get('templating')->renderResponse('FOSUserBundle:Profile:show.html.'.$this->container->getParameter('fos_user.template.engine'),
             array(
                 'username' => $username->getUsername(),
                 'profileid' => $username->getId(),
-                'profilePicture' => $user->getDisplayPicture()->getMediumPath(),
+                'profilePicture' => $displayPicture,
                 'navSelection' => 'profile',
-                'photos' => $photoArray)
+                'photos' => $photoArray,
+                'selfProfile' => $selfProfile)
             );
     }
 }

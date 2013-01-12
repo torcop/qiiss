@@ -50,7 +50,7 @@ $(document).ready(function() {
               popup.find(".popup_content").append(
                 '<a href="' + val.link +  '">' +
                 '<div class="popup_item' + (val.notyRead == false ? ' popup_item_new' : '') + '">' +
-                  '<div class="popup_item_dp"><img src="#" class="popup_item_dp_img"></div>' +
+                  '<div class="popup_item_dp"><img src="/' + val.dp + '" class="popup_item_dp_img"></div>' +
                   '<div class="popup_item_content">' +
                     '<div class="popup_item_time">' + val.date + '</div>' +
                     '<div class="popup_item_text">' + val.content + '</div>' +

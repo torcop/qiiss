@@ -53,10 +53,18 @@ class WallController extends Controller {
 			$returnArray["postObject"]["date"] = $comment->getDate();
 			$returnArray["postObject"]["comment"] = $comment->getComment();
 			$returnArray["postObject"]["numQool"] = $comment->getNbQiiss();
+			// Get the user's display picture
+			$displayPicture = $user->getDisplayPicture();
+	        if (isset($displayPicture)) {
+	          $returnArray["postObject"]["profilePicture"] = $displayPicture->getThumbnailPath();
+	        }
+	        else {
+	          $returnArray["postObject"]["profilePicture"] = "qiissgeneral/images/placeholder_dp_thumb.png";
+	        }
 
 			// If there is a photo associated with this wall post, attach it
 			if ($comment->getPhoto() != NULL) {
-				$returnArray["postObject"]["photo"] = $comment->getPhoto()->getName();
+				$returnArray["postObject"]["photo"] = $comment->getPhoto()->getLargePath();
 			}
 			return new Response(json_encode($returnArray));
 		}
@@ -159,6 +167,14 @@ class WallController extends Controller {
 			$messageArray["wallPosts"][$i]["date"] = $post->getDate();
 			$messageArray["wallPosts"][$i]["comment"] = $post->getComment();
 			$messageArray["wallPosts"][$i]["numQool"] = $post->getNbQiiss();
+			// Get the user's display picture
+			$displayPicture = $post->getUser()->getDisplayPicture();
+	        if (isset($displayPicture)) {
+	          $messageArray["wallPosts"][$i]["profilePicture"] = $displayPicture->getThumbnailPath();
+	        }
+	        else {
+	          $messageArray["wallPosts"][$i]["profilePicture"] = "qiissgeneral/images/placeholder_dp_thumb.png";
+	        }
 			// Check if the user liked the post already
 			$query = $em->createQuery('SELECT u,c2 from Qiiss\UserBundle\Entity\User u INNER JOIN u.postsLiked c2 WHERE u.id = :userId AND c2.id = :postId')
 		    	->setParameters(array('postId' => $post->getId(),'userId' => $user->getId()));
@@ -172,7 +188,7 @@ class WallController extends Controller {
 
 		    // Check if there are any photos associated with the post
 		    if ($post->getPhoto() != NULL) {
-				$messageArray["wallPosts"][$i]["photo"] = $post->getPhoto()->getName();
+				$messageArray["wallPosts"][$i]["photo"] = $post->getPhoto()->getLargePath();
 			}
 			$messageArray["numResults"]++;
 			$i++;
@@ -231,6 +247,7 @@ class WallController extends Controller {
 			$photo->setName($path);
 			$photo->setUser($user);
 			$photo->setDate(new \DateTime());
+			$photo->setThumbnailPath($result['thumbnail']);
 			$photo->setMediumPath($result['mediumFile']);
 			$photo->setLargePath($result['largeFile']);
 			$photo->setStatus("unpublished");

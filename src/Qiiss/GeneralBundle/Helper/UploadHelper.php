@@ -151,13 +151,16 @@ class UploadHelper {
             // Resize the image using imagemagick
             $webDirectory = '/Users/bicnarker/Sites/Qiiss/web/';
             $filePath = $uploadDirectory . DIRECTORY_SEPARATOR . $filename . $ext;
+            $thumbFile = $uploadDirectory . DIRECTORY_SEPARATOR . '_thumb_' . $filename . $ext;
             $mediumFile = $uploadDirectory . DIRECTORY_SEPARATOR . '_medium_' . $filename . $ext;
             $largeFile = $uploadDirectory . DIRECTORY_SEPARATOR . '_large_' . $filename . $ext;
+            exec('convert ' . $webDirectory . $filePath . ' -resize 50x50 ' . $thumbFile);
             exec('convert ' . $webDirectory . $filePath . ' -resize 200x200 ' . $mediumFile);
             exec('convert ' . $webDirectory . $filePath . ' -resize 600x600 ' . $largeFile);
             return array(
                 'success' => true,
                 'filename' => $uploadDirectory . DIRECTORY_SEPARATOR . $filename . $ext,
+                'thumbnail' => $thumbFile,
                 'mediumFile' => $mediumFile,
                 'largeFile' => $largeFile,
             );

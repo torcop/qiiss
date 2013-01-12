@@ -166,10 +166,13 @@
             display: inline-block;
             vertical-align: middle; }
           #upper_top_banner .popup .popup_content a .popup_item .popup_item_dp {
-            margin-right: 10px; }
+            margin-right: 10px;
+            width: 50px;
+            height: 50px;
+            overflow: hidden; }
             #upper_top_banner .popup .popup_content a .popup_item .popup_item_dp img {
-              width: 50;
-              height: 50px; }
+              min-width: 50px;
+              min-height: 50px; }
           #upper_top_banner .popup .popup_content a .popup_item .popup_item_content {
             width: 240px; }
             #upper_top_banner .popup .popup_content a .popup_item .popup_item_content div {
