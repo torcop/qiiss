@@ -25,24 +25,29 @@ class User extends BaseUser
 			parent::__construct();
     }
 
-	/**
+		/**
+	   * @ORM\OneToOne(targetEntity="Qiiss\SearchBundle\Entity\Location", cascade={"persist"})
+	   */
+	  private $location;
+
+		/**
      * @ORM\Column(type="string", length=255)
      *
      * @Assert\NotBlank(message="dob.empty", groups={"Registration", "Profile"})
      */
     protected $dob;
+			
+		/**
+     * @ORM\Column(type="string", length=10, nullable=true)
+     *
+     */
+    protected $age;
 
 	/**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
     protected $sex;
-
-	/**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     *
-     */
-    protected $location;
 
     /**
      * @ORM\Column(type="integer", length=10)
