@@ -128,11 +128,30 @@ $(document).ready(function() {
   });
   $('#edit_profile_confirm').bind('click', function() {
     setEditable(false);
+    var interests = new Array();
+    interests[0] = $("#edit_interest_one").val();
+    interests[1] = $("#edit_interest_two").val();
+    interests[2] = $("#edit_interest_three").val();
+    $.ajax({
+      type: "POST",
+      url: "/interests/set",
+      data: {interests : JSON.stringify(interests)},
+      datatype: "json",
+      success: function(data) {
+        console.log(data)
+      }
+    });
   });
   $('#edit_profile_cancel').bind('click', function() {
     setEditable(false);
   });
 
+  $(".info_section_bubble_edit").each(function() {
+    $(this).ajaxDropdown({
+      placeholder : $(this).attr("placeholder"),
+      name : $(this).attr("name")
+    });
+  })
   getWallPosts();
 });
 

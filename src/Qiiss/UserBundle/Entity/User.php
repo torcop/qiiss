@@ -76,6 +76,12 @@ class User extends BaseUser
 
     /**
     * @var integer
+    * @ORM\ManyToMany(targetEntity="Qiiss\UserBundle\Entity\Interest")
+    */
+    protected $interests;
+
+    /**
+    * @var integer
     * @ORM\OneToOne(targetEntity="Qiiss\WallBundle\Entity\Photo")
     */
     protected $displayPicture;
@@ -420,5 +426,37 @@ class User extends BaseUser
     public function getDisplayPicture()
     {
         return $this->displayPicture;
+    }
+
+    /**
+     * Add interests
+     *
+     * @param \Qiiss\UserBundle\Entity\Interest $interests
+     * @return User
+     */
+    public function addInterest(\Qiiss\UserBundle\Entity\Interest $interests)
+    {
+        $this->interests[] = $interests;
+        return $this;
+    }
+
+    /**
+     * Remove interests
+     *
+     * @param \Qiiss\UserBundle\Entity\Interest $interests
+     */
+    public function removeInterest(\Qiiss\UserBundle\Entity\Interest $interests)
+    {
+        $this->interests->removeElement($interests);
+    }
+
+    /**
+     * Get interests
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getInterests()
+    {
+        return $this->interests;
     }
 }

@@ -92,6 +92,7 @@ $(document).ready(function() {
     });
     return false;
   });
+
   $("#signup_form").submit(function(e) {
     $("#signup_form .error_message").animate({
       "right" : "280px",

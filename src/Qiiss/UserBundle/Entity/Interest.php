@@ -31,15 +31,22 @@ class Interest
     /**
      * @var string
      *
-     * @ORM\Column(name="category", type="string", length=200)
+     * @ORM\Column(name="category", type="string", length=200, nullable=true)
      */
     private $category;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="numUsers", type="integer")
+     */
+    private $numUsers;
 
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -90,5 +97,28 @@ class Interest
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set numUsers
+     *
+     * @param integer $numUsers
+     * @return Interest
+     */
+    public function setNumUsers($numUsers)
+    {
+        $this->numUsers = $numUsers;
+    
+        return $this;
+    }
+
+    /**
+     * Get numUsers
+     *
+     * @return integer 
+     */
+    public function getNumUsers()
+    {
+        return $this->numUsers;
     }
 }

@@ -78,6 +78,14 @@ qiiss_set_dp:
     pattern: /set-display-picture/{photoid}
     defaults: { _controller: QiissWallBundle:Photo:setDisplayPicture }
 
+qiiss_predict_interests:
+    pattern: /interests/predict
+    defaults: { _controller: QiissUserBundle:Interest:predictInterests }
+
+qiiss_set_interests:
+    pattern: /interests/set
+    defaults: { _controller: QiissUserBundle:Interest:setInterests }
+
 qiiss_profile_search:
     pattern:  /search
     defaults: { _controller: QiissSearchBundle:Search:index}

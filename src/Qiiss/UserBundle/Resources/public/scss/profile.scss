@@ -208,6 +208,10 @@ html {
                   margin:10px 10px 10px 0px;
                   border: 2px solid #ccc;
                   @include corner(5px, 5px, 5px, 5px);
+
+                  &:focus {
+                    outline-width: 0px;
+                  }
                 }
 
                 #location, #preference, #charity {
@@ -489,5 +493,41 @@ html {
         } // #canvas_center
       } // #canvas_container
     } // #main_container
+    .dropdown {
+      position: absolute;
+      height: 191px;
+      width:276px;
+      overflow: auto;
+      background: #fff;
+      border: 2px solid #ccc;
+      font: 16px 'PatuaOneRegular', Arial, sans-serif;
+      z-index: 1003;
+      margin: 0;
+      @include corner(0px, 0px, 5px, 5px);
+
+      .ajax_loader_div {
+        position:absolute;
+        width:100%;
+        top:20px;
+        text-align:center;
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          cursor: pointer;
+          padding: 8px;
+          border-bottom:1px solid #bbb;
+
+          &.selected {
+            background: #7AB2DE;
+            color: #333;
+          }
+        }
+      }
+    }
   } // body
 } // html

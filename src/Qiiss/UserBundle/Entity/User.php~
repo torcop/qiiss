@@ -33,13 +33,13 @@ class User extends BaseUser
     protected $dob;
 
 	/**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
     protected $sex;
 
 	/**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
     protected $location;
@@ -73,6 +73,12 @@ class User extends BaseUser
     * @ORM\ManyToMany(targetEntity="Qiiss\WallBundle\Entity\Photo")
     */
     protected $photosLiked;
+
+    /**
+    * @var integer
+    * @ORM\ManyToMany(targetEntity="Qiiss\UserBundle\Entity\Interest")
+    */
+    protected $interests;
 
     /**
     * @var integer
@@ -398,5 +404,27 @@ class User extends BaseUser
     public function getPhotosLiked()
     {
         return $this->photosLiked;
+    }
+
+    /**
+     * Set displayPicture
+     *
+     * @param \Qiiss\WallBundle\Entity\Photo $displayPicture
+     * @return User
+     */
+    public function setDisplayPicture(\Qiiss\WallBundle\Entity\Photo $displayPicture = null)
+    {
+        $this->displayPicture = $displayPicture;
+        return $this;
+    }
+
+    /**
+     * Get displayPicture
+     *
+     * @return \Qiiss\WallBundle\Entity\Photo
+     */
+    public function getDisplayPicture()
+    {
+        return $this->displayPicture;
     }
 }
