@@ -25,24 +25,29 @@ class User extends BaseUser
 			parent::__construct();
     }
 
-	/**
+		/**
+	   * @ORM\OneToOne(targetEntity="Qiiss\SearchBundle\Entity\Location", cascade={"persist"})
+	   */
+	  private $location;
+
+		/**
      * @ORM\Column(type="string", length=255)
      *
      * @Assert\NotBlank(message="dob.empty", groups={"Registration", "Profile"})
      */
     protected $dob;
+			
+		/**
+     * @ORM\Column(type="int", length=10, nullable=true)
+     *
+     */
+    protected $age;
 
 	/**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
     protected $sex;
-
-	/**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     *
-     */
-    protected $location;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -471,6 +476,7 @@ class User extends BaseUser
     {
         return $this->interests;
     }
+<<<<<<< HEAD
 
     /**
      * Set preference
@@ -495,3 +501,6 @@ class User extends BaseUser
         return $this->preference;
     }
 }
+=======
+}
+>>>>>>> fa70d85fcc941dd7a4949cf637be50dd8e9066b0

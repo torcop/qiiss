@@ -16,16 +16,17 @@ class SearchType extends AbstractType
 
         $builder
             ->add('preference', 'choice', array('choices' =>
-																					array('m' => 'Male', 'f' => 'Female'),
+																					array('male' => 'Male', 'female' => 'Female'),
 																								'required' => true,))
             ->add('age', 'choice', array('choices' =>
 																	array('18' => '18', '25' => '25'),
     																		'required'  => true,))
+						->add('location', 'entity', array('class' => 'QiissSearchBundle:Location',
+																						'property' => 'city',))
 						->add('interests', 'entity', array('class' => 'QiissUserBundle:Interest',
 																						'property' => 'name',
-																						'multiple' => 'true'))						
-            ->add('location', 'entity', array('class' => 'QiissSearchBundle:Location',
-																						'property' => 'city',));
+																						'multiple' => 'true'));				
+            
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

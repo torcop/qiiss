@@ -28,22 +28,20 @@ class SearchController extends Controller
 																	->get('qiiss_searchbundle_searchtype');
 							$preference = $postData['preference'];
 							$age = $postData['age'];
-							$id_interests = $postData['interests'];
+							$id_interest = $postData['interests'];
 							$id_location = $postData['location'];
-							
+
 
 							$em = $this->getDoctrine()->getManager();
-							$query = $em->createQuery('SELECT i FROM QiissUserBundle:Interest i WHERE i.id = :id')
-													->setParameter('id', $id_interests);
-							$interests = $query->getResult();
-							var_dump($interests);exit();
-							
-
-							/*$query = $em->createQuery("SELECT u FROM QiissUserBundle:User u WHERE u.sex LIKE :preference
-																				 AND u.location LIKE :location");
+							//Main DQL query which retrieve the users matched.
+							$query = $em->createQuery("SELECT u FROM QiissUserBundle:User u WHERE u.sex LIKE :preference
+																				 AND u.age LIKE :age");
 							$query->setParameters(array('preference' => '%' . $preference . '%',
-    																			'location' => '%' . $location . '%',));
-							$users = $query->getResult();*/						
+																					'age' => '%' . $age . '%'));
+
+							$users = $query->getResult();
+							if ($users == NULL)
+								echo ('dont work!');exit();
 						}
 				}
         return $this->render('QiissSearchBundle:Search:search.html.twig', array('form' => $form->createView()));
