@@ -303,7 +303,7 @@ html {
                   border-bottom-left-radius: 5px; }
                   html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left .info_section_bubble_edit:focus {
                     outline-width: 0px; }
-                html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left #location, html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left #preference, html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left #charity {
+                html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left #location_div, html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left #preference_div, html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left #charity_div, html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left #interest_div {
                   display: inline-block;
                   padding: 0;
                   margin-right: 20px; }
@@ -633,6 +633,9 @@ html {
           cursor: pointer;
           padding: 8px;
           border-bottom: 1px solid #bbb; }
-          html body .dropdown ul li.selected {
+          html body .dropdown ul li div {
+            display: inline-block;
+            margin-right: 5px; }
+          html body .dropdown ul li:hover {
             background: #7AB2DE;
             color: #333; }

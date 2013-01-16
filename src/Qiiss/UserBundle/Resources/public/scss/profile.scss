@@ -214,7 +214,7 @@ html {
                   }
                 }
 
-                #location, #preference, #charity {
+                #location_div, #preference_div, #charity_div, #interest_div {
                   display:inline-block;
                   padding:0;
                   margin-right:20px;
@@ -522,7 +522,12 @@ html {
           padding: 8px;
           border-bottom:1px solid #bbb;
 
-          &.selected {
+          div {
+            display:inline-block;
+            margin-right:5px;
+          }
+
+          &:hover {
             background: #7AB2DE;
             color: #333;
           }

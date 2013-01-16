@@ -126,12 +126,19 @@ $(document).ready(function() {
   $('#edit_profile').bind('click', function() {
     setEditable(true);
   });
+
   $('#edit_profile_confirm').bind('click', function() {
     setEditable(false);
     var interests = new Array();
     interests[0] = $("#edit_interest_one").val();
     interests[1] = $("#edit_interest_two").val();
     interests[2] = $("#edit_interest_three").val();
+
+    // Update the interests that display on the page
+    $("#interest_one").html(interests[0]);
+    $("#interest_two").html(interests[1]);
+    $("#interest_three").html(interests[2]);
+
     $.ajax({
       type: "POST",
       url: "/interests/set",
@@ -142,6 +149,9 @@ $(document).ready(function() {
       }
     });
   });
+
+  $()
+
   $('#edit_profile_cancel').bind('click', function() {
     setEditable(false);
   });
@@ -169,6 +179,9 @@ function setEditable(enableEdit) {
     $('#edit_profile_cancel').css("display", "inline-block");
     $('#edit_profile').hide();
     $('#header_info .info_section_bubble').hide();
+    $('#header_info .info_section_bubble').each(function() {
+      $("#edit_" + $(this).attr("id")).val($(this).html());
+    });
   }
 }
 
