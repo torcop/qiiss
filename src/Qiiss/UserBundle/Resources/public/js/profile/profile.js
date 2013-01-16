@@ -164,13 +164,26 @@ $(document).ready(function() {
   $('#edit_profile_cancel').bind('click', function() {
     setEditable(false);
   });
-
+/*
   $(".info_section_bubble_edit").each(function() {
-    $(this).ajaxDropdown({
+    $("#interest_one").ajaxDropdown({
       placeholder : $(this).attr("placeholder"),
       name : $(this).attr("name")
     });
   })
+*/
+  $("#edit_interest_one").ajaxDropdown({
+    placeholder : $(this).attr("placeholder"),
+    name : $(this).attr("name")
+  });
+  $("#edit_interest_two").ajaxDropdown({
+    placeholder : $(this).attr("placeholder"),
+    name : $(this).attr("name")
+  });
+  $("#edit_interest_three").ajaxDropdown({
+    placeholder : $(this).attr("placeholder"),
+    name : $(this).attr("name")
+  });
   getWallPosts();
 });
 
