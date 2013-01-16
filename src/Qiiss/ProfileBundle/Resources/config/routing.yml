@@ -82,9 +82,9 @@ qiiss_predict_interests:
     pattern: /interests/predict
     defaults: { _controller: QiissUserBundle:Interest:predictInterests }
 
-qiiss_set_interests:
-    pattern: /interests/set
-    defaults: { _controller: QiissUserBundle:Interest:setInterests }
+qiiss_edit_profile:
+    pattern: /edit-profile/set
+    defaults: { _controller: QiissUserBundle:Interest:setProfile }
 
 qiiss_profile_search:
     pattern:  /search

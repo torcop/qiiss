@@ -45,6 +45,18 @@ class User extends BaseUser
     protected $location;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     */
+    protected $preference;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     */
+    protected $charity;
+
+    /**
      * @ORM\Column(type="integer", length=10)
      *
      */
@@ -426,5 +438,60 @@ class User extends BaseUser
     public function getDisplayPicture()
     {
         return $this->displayPicture;
+    }
+
+    /**
+     * Add interests
+     *
+     * @param \Qiiss\UserBundle\Entity\Interest $interests
+     * @return User
+     */
+    public function addInterest(\Qiiss\UserBundle\Entity\Interest $interests)
+    {
+        $this->interests[] = $interests;
+        return $this;
+    }
+
+    /**
+     * Remove interests
+     *
+     * @param \Qiiss\UserBundle\Entity\Interest $interests
+     */
+    public function removeInterest(\Qiiss\UserBundle\Entity\Interest $interests)
+    {
+        $this->interests->removeElement($interests);
+    }
+
+    /**
+     * Get interests
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getInterests()
+    {
+        return $this->interests;
+    }
+
+    /**
+     * Set preference
+     *
+     * @param string $preference
+     * @return User
+     */
+    public function setPreference($preference)
+    {
+        $this->preference = $preference;
+    
+        return $this;
+    }
+
+    /**
+     * Get preference
+     *
+     * @return string 
+     */
+    public function getPreference()
+    {
+        return $this->preference;
     }
 }

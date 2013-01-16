@@ -139,10 +139,19 @@ $(document).ready(function() {
     $("#interest_two").html(interests[1]);
     $("#interest_three").html(interests[2]);
 
+    $("#preference").html($("#edit_preference").val());
+    $("#charity").html($("#edit_charity").val());
+    $("#location").html($("#edit_location").val());
+
     $.ajax({
       type: "POST",
-      url: "/interests/set",
-      data: {interests : JSON.stringify(interests)},
+      url: "/edit-profile/set",
+      data: {
+        interests : JSON.stringify(interests),
+        location : $("#edit_location").val(),
+        preference : $("#edit_preference").val(),
+        charity : $("#edit_charity").val()
+      },
       datatype: "json",
       success: function(data) {
         console.log(data)

@@ -41,6 +41,7 @@ class RetrieveController extends Controller
         $selfProfile = ($user->getId() == $username->getId());
         return $this->container->get('templating')->renderResponse('FOSUserBundle:Profile:show.html.'.$this->container->getParameter('fos_user.template.engine'),
             array(
+                'user' => $username,
                 'username' => $username->getUsername(),
                 'profileid' => $username->getId(),
                 'profilePicture' => $displayPicture,

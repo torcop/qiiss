@@ -45,6 +45,18 @@ class User extends BaseUser
     protected $location;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     */
+    protected $preference;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     */
+    protected $charity;
+
+    /**
      * @ORM\Column(type="integer", length=10)
      *
      */
@@ -458,5 +470,51 @@ class User extends BaseUser
     public function getInterests()
     {
         return $this->interests;
+    }
+
+    /**
+     * Set preference
+     *
+     * @param string $preference
+     * @return User
+     */
+    public function setPreference($preference)
+    {
+        $this->preference = $preference;
+    
+        return $this;
+    }
+
+    /**
+     * Get preference
+     *
+     * @return string 
+     */
+    public function getPreference()
+    {
+        return $this->preference;
+    }
+
+    /**
+     * Set charity
+     *
+     * @param string $charity
+     * @return User
+     */
+    public function setCharity($charity)
+    {
+        $this->charity = $charity;
+    
+        return $this;
+    }
+
+    /**
+     * Get charity
+     *
+     * @return string 
+     */
+    public function getCharity()
+    {
+        return $this->charity;
     }
 }
