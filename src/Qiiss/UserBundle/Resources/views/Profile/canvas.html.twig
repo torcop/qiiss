@@ -44,25 +44,36 @@
         <div id="info_left"{% if selfProfile == true %} style="width:auto;" {% endif %}>
           <div id="location_div">
             <div class="info_section_header">Location<br /></div>
-            <div class="info_section_bubble" id="location">{{ user.location }}</div>
-            <input type="text" class="info_section_bubble_edit" id="edit_location" name="location" />
+            <div class="info_section_bubble" id="location_city">{% if user.location %}{{ user.location.city }}{% else %}City{% endif %}</div>
+            <div class="info_section_bubble" id="location_country">{% if user.location %}{{ user.location.country }}{% else %}Country{% endif %}</div>
+            <input type="text" class="info_section_bubble_edit" id="edit_location_city" name="location" />
+            <input type="text" class="info_section_bubble_edit" id="edit_location_country" name="location" />
           </div>
           <div id="preference_div">
             <div class="info_section_header">Preference</div>
-            <div class="info_section_bubble" id="preference">{{ user.preference }}</div>
+            <div class="info_section_bubble" id="preference">{% if user.preference %}{{ user.preference }}{% else %}Preference{% endif %}</div>
             <input type="text" class="info_section_bubble_edit" id="edit_preference" name="preference" />
           </div>
           <div id="charity_div">
             <div class="info_section_header">Charity</div>
-            <div class="info_section_bubble" id="charity">{{ user.charity }}</div>
+            <div class="info_section_bubble" id="charity">{% if user.charity %}{{ user.charity }}{% else %}Charity{% endif %}</div>
             <input type="text" class="info_section_bubble_edit" id="edit_charity" name="charity" />
           </div><br />
           <div id="interest_div">
             <div class="info_section_header">Interests</div>
-            {% for interest in user.interests %}
-                  <div class="info_section_bubble" id="{% if loop.index0 == 0 %}interest_one{% elseif loop.index0 == 1 %}interest_two{% else %}interest_three{% endif %}">{{ interest.name }}</div>
-                  <input type="text" class="info_section_bubble_edit" id="{% if loop.index0 == 0 %}edit_interest_one{% elseif loop.index0 == 1 %}edit_interest_two{% else %}edit_interest_three{% endif %}"/>
-            {% endfor %}
+            {% if user.interests is not empty %}
+              {% for interest in user.interests %}
+                <div class="info_section_bubble" id="{% if loop.index0 == 0 %}interest_one{% elseif loop.index0 == 1 %}interest_two{% else %}interest_three{% endif %}">{{ interest.name }}</div>
+                <input type="text" class="info_section_bubble_edit" id="{% if loop.index0 == 0 %}edit_interest_one{% elseif loop.index0 == 1 %}edit_interest_two{% else %}edit_interest_three{% endif %}"/>
+              {% endfor %}
+            {% else %}
+              <div class="info_section_bubble" id="interest_one">Interest One</div>
+              <div class="info_section_bubble" id="interest_two">Interest Two</div>
+              <div class="info_section_bubble" id="interest_three">Interest Three</div>
+              <input type="text" class="info_section_bubble_edit" id="edit_interest_one"/>
+              <input type="text" class="info_section_bubble_edit" id="edit_interest_two"/>
+              <input type="text" class="info_section_bubble_edit" id="edit_interest_three"/>
+            {% endif %}
           </div>
         </div>
         <div id="info_right">

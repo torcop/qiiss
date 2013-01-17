@@ -20,24 +20,23 @@ class User extends BaseUser
      */
     protected $id;
 
-		public function __construct()
-		{
-			parent::__construct();
+	public function __construct() {
+		parent::__construct();
     }
 
-		/**
-	   * @ORM\OneToOne(targetEntity="Qiiss\SearchBundle\Entity\Location", cascade={"persist"})
-	   */
-	  private $location;
+    /**
+    * @ORM\OneToOne(targetEntity="Qiiss\SearchBundle\Entity\Location", cascade={"persist"})
+    */
+    private $location;
 
-		/**
+	/**
      * @ORM\Column(type="string", length=255)
      *
      * @Assert\NotBlank(message="dob.empty", groups={"Registration", "Profile"})
      */
     protected $dob;
-			
-		/**
+
+	/**
      * @ORM\Column(type="string", length=10, nullable=true)
      *
      */
@@ -508,8 +507,7 @@ class User extends BaseUser
      */
     public function setCharity($charity)
     {
-        $this->charity = $charity;
-    
+        $this->charity = $charity;  
         return $this;
     }
 

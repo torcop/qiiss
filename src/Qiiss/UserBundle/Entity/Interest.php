@@ -40,7 +40,7 @@ class Interest
      *
      * @ORM\Column(name="numUsers", type="integer")
      */
-    private $numUsers;
+    private $numUsers = 0;
 
 
     /**

@@ -254,6 +254,7 @@ html {
                   padding: 5px 0px;
                   border-bottom: 1px solid #ccc; }
                 html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left .info_section_bubble {
+                  font-size: 16px;
                   background-color: #F2F8FA;
                   margin: 10px 10px 10px 0px;
                   border: 1px solid #ddd;
@@ -280,8 +281,48 @@ html {
                     background-color: #C7E2EB; }
                   html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left .info_section_bubble:active {
                     background-color: #AFD4E0; }
+                html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left #location_city {
+                  text-align: center;
+                  min-width: 40px;
+                  margin-right: 0;
+                  border-right: none;
+                  -moz-border-radius-topleft: 5px;
+                  -webkit-border-top-left-radius: 5px;
+                  -khtml-border-radius-topleft: 5px;
+                  border-top-left-radius: 5px;
+                  -moz-border-radius-topright: 0px;
+                  -webkit-border-top-right-radius: 0px;
+                  -khtml-border-radius-topright: 0px;
+                  border-top-right-radius: 0px;
+                  -moz-border-radius-bottomright: 0px;
+                  -webkit-border-bottom-right-radius: 0px;
+                  -khtml-border-radius-bottomright: 0px;
+                  border-bottom-right-radius: 0px;
+                  -moz-border-radius-bottomleft: 5px;
+                  -webkit-border-bottom-left-radius: 5px;
+                  -khtml-border-radius-bottomleft: 5px;
+                  border-bottom-left-radius: 5px; }
+                html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left #location_country {
+                  min-width: 40px;
+                  -moz-border-radius-topleft: 0px;
+                  -webkit-border-top-left-radius: 0px;
+                  -khtml-border-radius-topleft: 0px;
+                  border-top-left-radius: 0px;
+                  -moz-border-radius-topright: 5px;
+                  -webkit-border-top-right-radius: 5px;
+                  -khtml-border-radius-topright: 5px;
+                  border-top-right-radius: 5px;
+                  -moz-border-radius-bottomright: 5px;
+                  -webkit-border-bottom-right-radius: 5px;
+                  -khtml-border-radius-bottomright: 5px;
+                  border-bottom-right-radius: 5px;
+                  -moz-border-radius-bottomleft: 0px;
+                  -webkit-border-bottom-left-radius: 0px;
+                  -khtml-border-radius-bottomleft: 0px;
+                  border-bottom-left-radius: 0px; }
                 html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left .info_section_bubble_edit {
                   display: none;
+                  font-size: 16px;
                   padding: 10px;
                   margin: 10px 10px 10px 0px;
                   border: 2px solid #ccc;
@@ -306,6 +347,7 @@ html {
                 html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left #location_div, html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left #preference_div, html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left #charity_div, html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left #interest_div {
                   display: inline-block;
                   padding: 0;
+                  font-size: 0;
                   margin-right: 20px; }
                 html body #main_container #canvas_container #canvas_center #canvas_header #header_info #info_left #charity {
                   margin-right: 0px; }

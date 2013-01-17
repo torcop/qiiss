@@ -202,6 +202,7 @@ function setEditable(enableEdit) {
     $('#edit_profile').hide();
     $('#header_info .info_section_bubble').hide();
     $('#header_info .info_section_bubble').each(function() {
+      console.log($(this).html());
       $("#edit_" + $(this).attr("id")).val($(this).html());
     });
   }

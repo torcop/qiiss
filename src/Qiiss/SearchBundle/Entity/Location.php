@@ -31,9 +31,9 @@ class Location
     /**
      * @var string
      *
-     * @ORM\Column(name="area", type="string")
+     * @ORM\Column(name="country", type="string")
      */
-    private $area;
+    private $country;
 
     /**
      * @var string
@@ -180,5 +180,28 @@ class Location
     public function getLongitude()
     {
         return $this->longitude;
+    }
+
+    /**
+     * Set country
+     *
+     * @param string $country
+     * @return Location
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+    
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return string 
+     */
+    public function getCountry()
+    {
+        return $this->country;
     }
 }

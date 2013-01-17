@@ -42,6 +42,7 @@ class RetrieveController extends Controller
         return $this->container->get('templating')->renderResponse('FOSUserBundle:Profile:show.html.'.$this->container->getParameter('fos_user.template.engine'),
             array(
                 'user' => $username,
+                'location' => $username->getLocation(),
                 'username' => $username->getUsername(),
                 'profileid' => $username->getId(),
                 'profilePicture' => $displayPicture,
