@@ -46,7 +46,6 @@ class SearchController extends Controller
       																 'interest' => '%'. $id_interest .'%',));
 
 							$profiles = $query->getQuery()->getResult();
-							var_dump($id_location);exit();
 						}
 				}
         return $this->render('QiissSearchBundle:Search:search.html.twig', array('form' => $form->createView()));
