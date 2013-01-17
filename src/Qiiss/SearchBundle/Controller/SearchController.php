@@ -31,17 +31,21 @@ class SearchController extends Controller
 							$id_interest = $postData['interests'];
 							$id_location = $postData['location'];
 
+							$query =  $this->getDoctrine()->getEntityManager()->createQueryBuilder();
 
-							$em = $this->getDoctrine()->getManager();
-							//Main DQL query which retrieve the users matched.
-							$query = $em->createQuery("SELECT u FROM QiissUserBundle:User u WHERE u.sex LIKE :preference
-																				 AND u.age LIKE :age");
-							$query->setParameters(array('preference' => '%' . $preference . '%',
-																					'age' => '%' . $age . '%'));
+							$query
+  							 ->select('u')
+								 ->from('QiissUserBundle:User', 'u')
+   							 ->where($query->expr()->like('u.sex', ':preferense'))
+   							 ->andWhere($query->expr()->like('u.age', ':age'))
+   							 ->andWhere($query->expr()->like('u.location', ':location'))
+   							 //->andWhere($query->expr()->like('u.interest', ':interest'))
+   							 ->setParameters(array('preferense' => '%'.$preference.'%',
+		      														 'age' => '%'. $age .'%',
+      																 'location' => '%'. $id_location .'%',));
+      																 //'interest' => '%'. $id_interest .'%',));
 
-							$users = $query->getResult();
-							if ($users == NULL)
-								echo ('dont work!');exit();
+							$users = $query->getQuery()->getResult();
 						}
 				}
         return $this->render('QiissSearchBundle:Search:search.html.twig', array('form' => $form->createView()));
