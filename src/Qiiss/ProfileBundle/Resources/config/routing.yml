@@ -80,11 +80,15 @@ qiiss_set_dp:
 
 qiiss_predict_interests:
     pattern: /interests/predict
-    defaults: { _controller: QiissUserBundle:Interest:predictInterests }
+    defaults: { _controller: QiissUserBundle:UserAttributes:predictInterests }
+
+qiiss_predict_location:
+    pattern: /location/predict/{city}
+    defaults: { _controller: QiissUserBundle:UserAttributes:predictLocation }
 
 qiiss_edit_profile:
     pattern: /edit-profile/set
-    defaults: { _controller: QiissUserBundle:Interest:setProfile }
+    defaults: { _controller: QiissUserBundle:UserAttributes:setProfile }
 
 qiiss_profile_search:
     pattern:  /search

@@ -141,14 +141,16 @@ $(document).ready(function() {
 
     $("#preference").html($("#edit_preference").val());
     $("#charity").html($("#edit_charity").val());
-    $("#location").html($("#edit_location").val());
+    $("#location_city").html($("#edit_location_city").val());
+    $("#location_country").html($("#edit_location_country").val());
 
     $.ajax({
       type: "POST",
       url: "/edit-profile/set",
       data: {
         interests : JSON.stringify(interests),
-        location : $("#edit_location").val(),
+        location_city : $("#edit_location_city").val(),
+        location_country : $("#edit_location_country").val(),
         preference : $("#edit_preference").val(),
         charity : $("#edit_charity").val()
       },
@@ -172,17 +174,25 @@ $(document).ready(function() {
     });
   })
 */
+  $("#edit_location_city").ajaxDropdown({
+    placeholder : $(this).attr("placeholder"),
+    name : "location",
+    endPoint : '/location/predict/city'
+  });
   $("#edit_interest_one").ajaxDropdown({
     placeholder : $(this).attr("placeholder"),
-    name : $(this).attr("name")
+    name : "interest_one",
+    endPoint : '/interests/predict'
   });
   $("#edit_interest_two").ajaxDropdown({
     placeholder : $(this).attr("placeholder"),
-    name : $(this).attr("name")
+    name : "interest_two",
+    endPoint : '/interests/predict'
   });
   $("#edit_interest_three").ajaxDropdown({
     placeholder : $(this).attr("placeholder"),
-    name : $(this).attr("name")
+    name : "interest_three",
+    endPoint : '/interests/predict'
   });
   getWallPosts();
 });

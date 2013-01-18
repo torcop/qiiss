@@ -56,6 +56,12 @@ class Location
      */
     private $longitude;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="numUsers", type="integer")
+     */
+    private $numUsers;
 
     /**
      * Get id
@@ -180,5 +186,28 @@ class Location
     public function getLongitude()
     {
         return $this->longitude;
+    }
+
+    /**
+     * Set country
+     *
+     * @param string $country
+     * @return Location
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+    
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return string 
+     */
+    public function getCountry()
+    {
+        return $this->country;
     }
 }

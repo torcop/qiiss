@@ -56,6 +56,12 @@ class Location
      */
     private $longitude;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="numUsers", type="integer")
+     */
+    private $numUsers;
 
     /**
      * Get id
@@ -203,5 +209,28 @@ class Location
     public function getCountry()
     {
         return $this->country;
+    }
+
+    /**
+     * Set numUsers
+     *
+     * @param integer $numUsers
+     * @return Location
+     */
+    public function setNumUsers($numUsers)
+    {
+        $this->numUsers = $numUsers;
+    
+        return $this;
+    }
+
+    /**
+     * Get numUsers
+     *
+     * @return integer 
+     */
+    public function getNumUsers()
+    {
+        return $this->numUsers;
     }
 }
