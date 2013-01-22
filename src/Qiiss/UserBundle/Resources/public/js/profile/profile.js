@@ -176,8 +176,18 @@ $(document).ready(function() {
 */
   $("#edit_location_city").ajaxDropdown({
     placeholder : $(this).attr("placeholder"),
-    name : "location",
+    name : "location_city",
     endPoint : '/location/predict/city'
+  });
+  $("#edit_location_country").ajaxDropdown({
+    placeholder : $(this).attr("placeholder"),
+    name : "location_country",
+    endPoint : '/location/predict/country'
+  });
+  $("#edit_preference").ajaxDropdown({
+    placeholder : $(this).attr("placeholder"),
+    name : "preference",
+    endPoint : '/preference/predict'
   });
   $("#edit_interest_one").ajaxDropdown({
     placeholder : $(this).attr("placeholder"),

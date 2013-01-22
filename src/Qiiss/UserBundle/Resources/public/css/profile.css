@@ -678,6 +678,8 @@ html {
           html body .dropdown ul li div {
             display: inline-block;
             margin-right: 5px; }
+          html body .dropdown ul li .predict_name_one {
+            margin-right: 0px; }
           html body .dropdown ul li:hover {
             background: #7AB2DE;
             color: #333; }

@@ -51,7 +51,7 @@
           </div>
           <div id="preference_div">
             <div class="info_section_header">Preference</div>
-            <div class="info_section_bubble" id="preference">{% if user.preference %}{{ user.preference }}{% else %}Preference{% endif %}</div>
+            <div class="info_section_bubble" id="preference">{% if user.preference.preference %}{{ user.preference.preference }}{% else %}Preference{% endif %}</div>
             <input type="text" class="info_section_bubble_edit" id="edit_preference" name="preference" />
           </div>
           <div id="charity_div">
@@ -66,12 +66,17 @@
                 <div class="info_section_bubble" id="{% if loop.index0 == 0 %}interest_one{% elseif loop.index0 == 1 %}interest_two{% else %}interest_three{% endif %}">{{ interest.name }}</div>
                 <input type="text" class="info_section_bubble_edit" id="{% if loop.index0 == 0 %}edit_interest_one{% elseif loop.index0 == 1 %}edit_interest_two{% else %}edit_interest_three{% endif %}"/>
               {% endfor %}
-            {% else %}
+            {% endif %}
+            {% if user.interests | length == 0 %}
               <div class="info_section_bubble" id="interest_one">Interest One</div>
-              <div class="info_section_bubble" id="interest_two">Interest Two</div>
-              <div class="info_section_bubble" id="interest_three">Interest Three</div>
               <input type="text" class="info_section_bubble_edit" id="edit_interest_one"/>
+            {% endif %}
+            {% if user.interests | length < 2 %}
+              <div class="info_section_bubble" id="interest_two">Interest Two</div>
               <input type="text" class="info_section_bubble_edit" id="edit_interest_two"/>
+            {% endif %}
+            {% if user.interests | length < 3 %}
+              <div class="info_section_bubble" id="interest_three">Interest Three</div>
               <input type="text" class="info_section_bubble_edit" id="edit_interest_three"/>
             {% endif %}
           </div>
