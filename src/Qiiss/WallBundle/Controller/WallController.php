@@ -8,6 +8,7 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
 use Qiiss\WallBundle\Entity\Comment;
 use Qiiss\WallBundle\Entity\Photo;
 use Qiiss\NotyBundle\Entity\Noty;
+use Qiiss\UserBundle\Entity\Interest;
 use Qiiss\GeneralBundle\Helper\UploadHelper;
 
 
@@ -39,6 +40,26 @@ class WallController extends Controller {
 				$comment->setPhoto($photoObject);
 				$photoObject->setStatus("published");
 			}
+			$interests = $this->get('request')->request->get('interests');
+			if (isset($interests)) {
+				$em = $this->getDoctrine()->getEntityManager();
+                $interestRepo = $em->getRepository('Qiiss\UserBundle\Entity\Interest');
+				$interestsArray = json_decode($interests);
+				foreach ($interestsArray as $interest) {
+					if ($interest != "") {
+						$toAdd = $interestRepo->findOneBy(array('name' => $interest));
+	                    if (isset($toAdd)) {
+	                        $comment->addInterest($toAdd);
+	                    }
+	                    else {
+	                        $toAdd = new Interest();
+	                        $toAdd->setName($interest);
+	                        $comment->addInterest($toAdd);
+	                        $em->persist($toAdd);
+	                    }
+                	}
+				}
+			}
 
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($user);
@@ -53,6 +74,11 @@ class WallController extends Controller {
 			$returnArray["postObject"]["date"] = $comment->getDate();
 			$returnArray["postObject"]["comment"] = $comment->getComment();
 			$returnArray["postObject"]["numQool"] = $comment->getNbQiiss();
+			$i = 0;
+			foreach ($comment->getInterests() as $interest) {
+				$returnArray["postObject"]["interests"][$i] = $interest->getName();
+				$i++;
+            }
 			// Get the user's display picture
 			$displayPicture = $user->getDisplayPicture();
 	        if (isset($displayPicture)) {
@@ -185,6 +211,12 @@ class WallController extends Controller {
 		    else {
 		    	$messageArray["wallPosts"][$i]["postLiked"] = false;
 		    }
+
+		    $j = 0;
+			foreach ($post->getInterests() as $interest) {
+				$messageArray["wallPosts"][$i]["interests"][$j] = $interest->getName();
+				$j++;
+            }
 
 		    // Check if there are any photos associated with the post
 		    if ($post->getPhoto() != NULL) {

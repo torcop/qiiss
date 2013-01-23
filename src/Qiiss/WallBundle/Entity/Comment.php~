@@ -69,6 +69,12 @@ class Comment
     private $photo;
 
     /**
+    * @var integer
+    * @ORM\ManyToMany(targetEntity="Qiiss\UserBundle\Entity\Interest")
+    */
+    protected $interests;
+
+    /**
      * Get id
      *
      * @return integer

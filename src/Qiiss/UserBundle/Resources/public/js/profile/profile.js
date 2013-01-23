@@ -77,10 +77,18 @@ $(document).ready(function() {
   });
 
   $("#canvas_story_create form").submit(function() {
+    var interests = new Array();
+    interests[0] = $("#tag_interest_one").val();
+    interests[1] = $("#tag_interest_two").val();
+    interests[2] = $("#tag_interest_three").val();
+
+    var postData = $(this).serialize();
+    postData += "&interests=" + JSON.stringify(interests);
+    console.log(postData);
     $.ajax({
       type: "POST",
       url: $(this).attr("action"),
-      data: $(this).serialize(),
+      data: postData,
       datatype: "json"
     }).done(function( msg ) {
       parsed = jQuery.parseJSON(msg);
@@ -89,6 +97,7 @@ $(document).ready(function() {
           createCanvasPost(parsed.postObject, true);
           $("#canvas_story_create textarea").val("");
           $("#canvas_photo_preview").html("");
+          toggleTagInterests();
         }
       }
       else if (parsed.result == "failure") {
@@ -130,9 +139,9 @@ $(document).ready(function() {
   $('#edit_profile_confirm').bind('click', function() {
     setEditable(false);
     var interests = new Array();
-    interests[0] = $("#edit_interest_one").val();
-    interests[1] = $("#edit_interest_two").val();
-    interests[2] = $("#edit_interest_three").val();
+      interests[0] = $("#edit_interest_one").val();
+      interests[1] = $("#edit_interest_two").val();
+      interests[2] = $("#edit_interest_three").val();
 
     // Update the interests that display on the page
     $("#interest_one").html(interests[0]);
@@ -165,6 +174,10 @@ $(document).ready(function() {
 
   $('#edit_profile_cancel').bind('click', function() {
     setEditable(false);
+  });
+
+  $('#tag_interest_button').bind('click', function() {
+    toggleTagInterests();
   });
 /*
   $(".info_section_bubble_edit").each(function() {
@@ -204,8 +217,37 @@ $(document).ready(function() {
     name : "interest_three",
     endPoint : '/interests/predict'
   });
+  $("#tag_interest_one").ajaxDropdown({
+    placeholder : $(this).attr("placeholder"),
+    name : "tag_interest_one",
+    endPoint : '/interests/predict'
+  });
+  $("#tag_interest_two").ajaxDropdown({
+    placeholder : $(this).attr("placeholder"),
+    name : "tag_interest_two",
+    endPoint : '/interests/predict'
+  });
+  $("#tag_interest_three").ajaxDropdown({
+    placeholder : $(this).attr("placeholder"),
+    name : "tag_interest_three",
+    endPoint : '/interests/predict'
+  });
   getWallPosts();
 });
+
+function toggleTagInterests() {
+  $el = $('#canvas_lower_tag_div');
+  if ($el.css("display") == "none") {
+    $el.slideDown("fast");
+  }
+  else {
+    $el.slideUp("fast", function() {
+      $("#tag_interest_one").val("");
+      $("#tag_interest_two").val("");
+      $("#tag_interest_three").val("");
+    });
+  }
+}
 
 function setEditable(enableEdit) {
   if (!enableEdit) {
@@ -288,10 +330,14 @@ function createCanvasPost(canvasObject, slideDown) {
     if (canvasObject.hasOwnProperty('photo')) {
       toAppend += '<a href="/' + canvasObject.photo + '"><div class="canvas_post_attachment"><img src="/' + canvasObject.photo + '"></a></div>';
     }
-    toAppend += '<div class="canvas_post_tags canvas_post_section">' +
-        '<div class="post_tag_bubble">Breaking Bad</div><div class="post_tag_bubble">Guitar</div><div class="post_tag_bubble">Cycling</div>' +
-      '</div>' +
-      '<div class="canvas_qool canvas_post_section">' +
+    if (canvasObject.hasOwnProperty('interests')) {
+      toAppend += '<div class="canvas_post_tags canvas_post_section">';
+      for (var i = 0; i < canvasObject.interests.length; i++) {
+        toAppend += '<div class="post_tag_bubble">' + canvasObject.interests[i] + '</div>';
+      }
+      toAppend += '</div>';
+    }
+    toAppend += '<div class="canvas_qool canvas_post_section">' +
         '<div class="canvas_qool_button">' + (canvasObject.postLiked ? 'Unq' : 'Q') + 'ool</div>' +
         '<div class="canvas_qool_count"><div class="qiiss_qool_count_num">' + canvasObject.numQool + '</div> people think this is Qool.</div>' +
       '</div>' +
