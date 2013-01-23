@@ -51,7 +51,7 @@
           </div>
           <div id="preference_div">
             <div class="info_section_header">Preference</div>
-            <div class="info_section_bubble" id="preference">{% if user.preference.preference %}{{ user.preference.preference }}{% else %}Preference{% endif %}</div>
+            <div class="info_section_bubble" id="preference">{% if user.preference %}{% if user.preference.preference %}{{ user.preference.preference }}{% else %}Preference{% endif %}{% else %}Preference{% endif %}</div>
             <input type="text" class="info_section_bubble_edit" id="edit_preference" name="preference" />
           </div>
           <div id="charity_div">
@@ -105,6 +105,7 @@
         Canvas
       </div>
       <div class="canvas_center_seperator"></div>
+      {% if selfProfile == true %}
       <div id="canvas_story_create">
 			<form action="{{ path('qiiss_wall_post') }}" method="POST">
 				<input type="hidden" name="profileid" value="{{ profileid }}" />
@@ -128,6 +129,7 @@
           </div>
         </div>
       </div>
+      {% endif %}
 			</form>
       <div class="canvas_center_seperator"></div>
       <div id="canvas_story_container">

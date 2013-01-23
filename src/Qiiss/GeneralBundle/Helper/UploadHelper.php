@@ -128,7 +128,9 @@ class UploadHelper {
         }
 
         $pathinfo = pathinfo($this->file->getName());
-        $filename = $pathinfo['filename'];
+        // $filename = $pathinfo['filename'];
+        $filename = md5(rand(10, 10000));
+
         $ext = @$pathinfo['extension'];     // hide notices if extension is empty
 
         if($this->allowedExtensions && !in_array(strtolower($ext), $this->allowedExtensions)){

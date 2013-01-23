@@ -70,6 +70,7 @@ class WallController extends Controller {
 			$comments = $query->getResult();
 
 			$returnArray["result"] = "success";
+			$returnArray["postObject"]["postId"] = $comment->getId();
 			$returnArray["postObject"]["author"] = $comment->getAuthor();
 			$returnArray["postObject"]["date"] = $comment->getDate();
 			$returnArray["postObject"]["comment"] = $comment->getComment();

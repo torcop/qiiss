@@ -97,7 +97,12 @@ $(document).ready(function() {
           createCanvasPost(parsed.postObject, true);
           $("#canvas_story_create textarea").val("");
           $("#canvas_photo_preview").html("");
-          toggleTagInterests();
+          $el = $('#canvas_lower_tag_div');
+          $el.slideUp("fast", function() {
+            $("#tag_interest_one").val("");
+            $("#tag_interest_two").val("");
+            $("#tag_interest_three").val("");
+          });
         }
       }
       else if (parsed.result == "failure") {
@@ -345,7 +350,7 @@ function createCanvasPost(canvasObject, slideDown) {
   if (slideDown) {
     $("#canvas_story_container").prepend(toAppend);
     $(".canvas_post").first().hide().slideDown();
-    bindQoolClick($(".canvas_post").first());
+    bindQoolClick($(".canvas_post").first().find(".canvas_qool_button"));
   }
   else {
     $("#canvas_story_container").append(toAppend);
