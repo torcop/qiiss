@@ -1,3 +1,7 @@
+qiiss_charity:
+    resource: "@QiissCharityBundle/Resources/config/routing.yml"
+    prefix:   /
+
 qiiss_search:
     resource: "@QiissSearchBundle/Resources/config/routing.yml"
     prefix:   /
