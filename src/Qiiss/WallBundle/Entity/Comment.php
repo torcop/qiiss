@@ -69,6 +69,12 @@ class Comment
     private $photo;
 
     /**
+    * @var integer
+    * @ORM\ManyToMany(targetEntity="Qiiss\UserBundle\Entity\Interest")
+    */
+    protected $interests;
+
+    /**
      * Get id
      *
      * @return integer
@@ -236,5 +242,45 @@ class Comment
     public function getPhoto()
     {
         return $this->photo;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->interests = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add interests
+     *
+     * @param \Qiiss\UserBundle\Entity\Interest $interests
+     * @return Comment
+     */
+    public function addInterest(\Qiiss\UserBundle\Entity\Interest $interests)
+    {
+        $this->interests[] = $interests;
+    
+        return $this;
+    }
+
+    /**
+     * Remove interests
+     *
+     * @param \Qiiss\UserBundle\Entity\Interest $interests
+     */
+    public function removeInterest(\Qiiss\UserBundle\Entity\Interest $interests)
+    {
+        $this->interests->removeElement($interests);
+    }
+
+    /**
+     * Get interests
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getInterests()
+    {
+        return $this->interests;
     }
 }

@@ -49,9 +49,8 @@ class User extends BaseUser
     protected $sex;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     *
-     */
+    * @ORM\OneToOne(targetEntity="Qiiss\SearchBundle\Entity\Preference")
+    */
     protected $preference;
 
     /**
@@ -519,5 +518,28 @@ class User extends BaseUser
     public function getCharity()
     {
         return $this->charity;
+    }
+
+    /**
+     * Set age
+     *
+     * @param string $age
+     * @return User
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
+    
+        return $this;
+    }
+
+    /**
+     * Get age
+     *
+     * @return string 
+     */
+    public function getAge()
+    {
+        return $this->age;
     }
 }

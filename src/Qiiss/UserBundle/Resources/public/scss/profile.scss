@@ -351,7 +351,6 @@ html {
               }
               #canvas_create_lower {
                 font: 20px 'OxygenRegular', Arial, sans-serif;
-                text-align:right;
 
                 #canvas_create_buttons {
                   background-color:#ddd;
@@ -403,6 +402,28 @@ html {
                     font-size:14px;
                   }
                 } // #canvas_create_buttons
+                #canvas_lower_tag_div {
+                  position:relative;
+                  display:none;
+                  background-color:#F2F8FA;
+                  padding:5px;
+                  width:756px;
+                  top:-8px;
+                  border:1px solid #ccc;
+                  @include corner(0px, 0px, 5px, 5px);
+
+                  .tag_interest_edit {
+                    font-size:16px;
+                    padding:10px;
+                    margin:5px 5px 5px 2px;
+                    border: 2px solid #ccc;
+                    @include corner(5px, 5px, 5px, 5px);
+
+                    &:focus {
+                      outline-width: 0px;
+                    }
+                  }
+                }
               } // #canvas_create_lower
             } // #canvas_story_create
 
@@ -541,6 +562,10 @@ html {
           div {
             display:inline-block;
             margin-right:5px;
+          }
+
+          .predict_name_one {
+            margin-right:0px;
           }
 
           &:hover {
