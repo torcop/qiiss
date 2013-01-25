@@ -39,15 +39,18 @@
 </div>
 <div id="lower_top_nav">
 	<a href="{{ path('fos_user_profile_show') }}"><div id="nav_profile" class="
-		{% if (navSelection is defined) and (navSelection == "profile") %} selected left
+		{% if navSelection is defined %}
+			{% if navSelection == "profile" %} selected left
+				{% elseif navSelection == "searchPeople" %} left right-shadow
+			{% endif %}
 		{% else %} left
 		{% endif %}">Profile
 	</div></a>
 	<a href="{{ path('qiiss_profile_search') }}"><div id="nav_find_dates" class="
 		{% if navSelection is defined %}
-			{% if navSelection == "findDates" %} selected left right
+			{% if navSelection == "searchPeople" %} selected left right
 			{% elseif navSelection == "profile" %} left left-shadow
-			{% elseif navSelection == "searchPeople" %} right right-shadow
+			{% elseif navSelection == "globalCanvas" %} right-shadow
 			{% else %} left
 			{% endif %}
 		{% else %} left
@@ -56,8 +59,8 @@
 	<a href="/global-canvas"><div id="nav_global_canvas" class="
 		{% if navSelection is defined %}
 			{% if navSelection == "globalCanvas" %} selected left right
-			{% elseif navSelection == "findDates" %} left left-shadow
-			{% elseif navSelection == "settings" %} left right right-shadow
+			{% elseif navSelection == "searchPeople" %} left-shadow
+			{% elseif navSelection == "settings" %} left right-shadow
 			{% else %} left
 			{% endif %}
 		{% else %} left
@@ -66,7 +69,7 @@
 	<a href="{{ path('qiiss_self_admin') }}"><div id="nav_settings" class="
 		{% if navSelection is defined %}
 			{% if navSelection == "settings" %} selected
-			{% elseif navSelection == "findDates" %} left left-shadow
+			{% elseif navSelection == "globalCanvas" %} left left-shadow
 			{% else %} left
 			{% endif %}
 		{% else %} left
