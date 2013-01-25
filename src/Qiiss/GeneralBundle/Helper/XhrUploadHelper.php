@@ -53,7 +53,7 @@ class XhrUploadHelper {
      * @return string filename
      */
     public function getName() {
-        return explode("=", $this->container->get('request')->getRequestUri())[1];
+        //return explode("=", $this->container->get('request')->getRequestUri())[1];
     }
 
     /**
