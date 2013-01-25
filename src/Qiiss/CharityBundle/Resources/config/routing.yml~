@@ -1,0 +1,3 @@
+qiiss_charity_homepage:
+    pattern:  /charity
+    defaults: { _controller: QiissCharityBundle:Charity:index }

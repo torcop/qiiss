@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html class="yui3-cssreset">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Qiiss - Charity{% endblock %}</title>
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/qiissuser/css/header.css') }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('bundles/qiisssearch/css/search.css') }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/globalFunctions.css') }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('bundles/qiissgeneral/css/cssreset-context-min.css') }}" type="text/css" media="all" />
+    {% endblock %}
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/jquery-1.8.3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/modernizr.2.6.2-min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/yepnope.1.5.4-min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/polyfiller.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/globalFunctions.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissuser/js/header.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiisssearch/js/search.js') }}"></script>
+</head>
+<body>
+	{% include 'QiissUserBundle:Profile:header.html.twig' %}
+	<div id="main_container">
+		<form action="{{ path('qiiss_charity_homepage') }}" method="post" {{ form_enctype(form) }}>
+			{{ form_widget(form) }}
+			{{ form_rest(form) }}
+			<input type="submit" value="Add charity"/>
+		</form>
+	</div>
+</body>
+</html>
