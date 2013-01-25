@@ -50,8 +50,13 @@ class User extends BaseUser
 
     /**
     * @ORM\OneToOne(targetEntity="Qiiss\SearchBundle\Entity\Preference")
-    *
-    protected $preference;*/
+    */
+    protected $preference;
+
+		/**
+		 * @ORM\OneToMany(targetEntity="Qiiss\CharityBundle\Entity\Transaction", mappedBy="User", cascade={"remove", "persist"})
+ 		 */
+		protected $transaction;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)

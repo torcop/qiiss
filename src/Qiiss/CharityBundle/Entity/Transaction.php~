@@ -30,7 +30,7 @@ class Transaction
     private $amount;
 
 		/**
- 		 * @ORM\ManyToOne(targetEntity="Qiiss\UserBundle\Entity\User", inversedBy="transaction", cascade={"remove"})
+ 		 * @ORM\ManyToOne(targetEntity="QiissUserBundle\Entity\User", inversedBy="transaction", cascade={"remove"})
  		 * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
  		 */
 		protected $user;

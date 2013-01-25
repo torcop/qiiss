@@ -53,6 +53,11 @@ class User extends BaseUser
     */
     protected $preference;
 
+		/**
+		 * @ORM\OneToMany(targetEntity="Qiiss\CharityBundle\Entity\Transaction", mappedBy="User", cascade={"remove", "persist"})
+ 		 */
+		protected $transaction;
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      *

@@ -8,7 +8,8 @@ use Qiiss\CharityBundle\Form\CharityType;
 
 class CharityController extends Controller
 {
-		/* This function allow to add a new charity inside our database.*/
+		/* This function allow to add a new charity inside our database.
+			 Only available forthe admins.*/
     public function newCharityAction()
     {
 				$charity = new Charity();
