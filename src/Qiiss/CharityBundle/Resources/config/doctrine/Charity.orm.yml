@@ -1,0 +1,25 @@
+Qiiss\CharityBundle\Entity\Charity:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: '100'
+        description:
+            type: string
+            length: '500'
+        weblink:
+            type: string
+            length: '500'
+        commission:
+            type: float
+            length: null
+        logo:
+            type: string
+            length: null
+    lifecycleCallbacks: {  }

@@ -29,7 +29,7 @@ class RetrieveController extends Controller
         $photoArray = array();
         $photoArrayUnsliced = $photos->retrievePhotos($profileid);
         if ($photoArrayUnsliced["numResults"] > 0) {
-            $photoArray = array_slice($photos->retrievePhotos($profileid)["photos"], 0, 6);
+            //$photoArray = array_slice($photos->retrievePhotos($profileid)["photos"], 0, 6);
         }
         $displayPicture = $username->getDisplayPicture();
         if (isset($displayPicture)) {

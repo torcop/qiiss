@@ -1,0 +1,19 @@
+Qiiss\CharityBundle\Entity\Transaction:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        date:
+            type: datetime
+            length: null
+        description:
+            type: string
+            length: '500'
+        amount:
+            type: float
+            length: null
+    lifecycleCallbacks: {  }
