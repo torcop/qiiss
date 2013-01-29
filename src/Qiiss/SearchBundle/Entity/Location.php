@@ -66,7 +66,7 @@ class Location
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -82,14 +82,13 @@ class Location
     public function setCity($city)
     {
         $this->city = $city;
-    
         return $this;
     }
 
     /**
      * Get city
      *
-     * @return string 
+     * @return string
      */
     public function getCity()
     {
@@ -105,14 +104,13 @@ class Location
     public function setArea($area)
     {
         $this->area = $area;
-    
         return $this;
     }
 
     /**
      * Get area
      *
-     * @return string 
+     * @return string
      */
     public function getArea()
     {
@@ -128,14 +126,13 @@ class Location
     public function setZip($zip)
     {
         $this->zip = $zip;
-    
         return $this;
     }
 
     /**
      * Get zip
      *
-     * @return string 
+     * @return string
      */
     public function getZip()
     {
@@ -151,14 +148,13 @@ class Location
     public function setLatitude($latitude)
     {
         $this->latitude = $latitude;
-    
         return $this;
     }
 
     /**
      * Get latitude
      *
-     * @return float 
+     * @return float
      */
     public function getLatitude()
     {
@@ -174,14 +170,13 @@ class Location
     public function setLongitude($longitude)
     {
         $this->longitude = $longitude;
-    
         return $this;
     }
 
     /**
      * Get longitude
      *
-     * @return float 
+     * @return float
      */
     public function getLongitude()
     {
@@ -197,14 +192,13 @@ class Location
     public function setCountry($country)
     {
         $this->country = $country;
-    
         return $this;
     }
 
     /**
      * Get country
      *
-     * @return string 
+     * @return string
      */
     public function getCountry()
     {
@@ -220,14 +214,13 @@ class Location
     public function setNumUsers($numUsers)
     {
         $this->numUsers = $numUsers;
-    
         return $this;
     }
 
     /**
      * Get numUsers
      *
-     * @return integer 
+     * @return integer
      */
     public function getNumUsers()
     {

@@ -14,17 +14,53 @@
     <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/yepnope.1.5.4-min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/polyfiller.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/qiissgeneral/js/globalFunctions.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/qiissuser/js/profile/ajaxDropDown.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/qiissuser/js/header.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/qiisssearch/js/search.js') }}"></script>
 </head>
 <body>
 	{% include 'QiissUserBundle:Profile:header.html.twig' %}
 	<div id="main_container">
-		<form action="{{ path('qiiss_profile_search') }}" method="post" {{ form_enctype(form) }}>
-			{{ form_widget(form) }}
-			{{ form_rest(form) }}
-			<input type="submit" value="Find people"/>
-		</form>
+		<div id="search_param_container_outer">
+			<div id="search_param_container_inner">
+				<div id="search_param_header">
+					Search (Click to contract)
+				</div>
+				<div id="search_param_body_upper">
+					<div class="search_param_field_outer">
+						<div class="search_param_label hidden">Gender</div>
+						<input type="text" class="search_param_field" id="search_param_gender" placeholder="Gender" />
+					</div>
+					<div class="search_param_field_outer">
+						<div class="search_param_label hidden">Age</div>
+						<input type="text" class="search_param_field" id="search_param_age" placeholder="Age" />
+					</div>
+					<div class="search_param_field_outer">
+						<div class="search_param_label hidden">Location</div>
+						<input type="text" class="search_param_field" id="search_param_location" placeholder="Location" />
+					</div>
+				</div>
+				<div id="search_param_body_lower">
+					<div class="search_param_field_outer">
+						<div class="search_param_label hidden">Interest One</div>
+						<input type="text" class="search_param_field" id="search_param_interest_one" placeholder="Interest One" />
+					</div>
+					<div class="search_param_field_outer">
+						<div class="search_param_label hidden">Interest Two</div>
+						<input type="text" class="search_param_field" id="search_param_interest_two" placeholder="Interest Two" />
+					</div>
+					<div class="search_param_field_outer">
+						<div class="search_param_label hidden">Interest Three</div>
+						<input type="text" class="search_param_field" id="search_param_interest_three" placeholder="Interest Three" />
+					</div>
+				</div>
+				<div id="search_param_submit_outer">
+					<div id="search_param_submit_inner">
+						Search
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

@@ -41,7 +41,8 @@
 	<a href="{{ path('fos_user_profile_show') }}"><div id="nav_profile" class="
 		{% if navSelection is defined %}
 			{% if navSelection == "profile" %} selected left
-				{% elseif navSelection == "searchPeople" %} left right-shadow
+			{% elseif navSelection == "searchPeople" %} left right-shadow
+			{% else %} left
 			{% endif %}
 		{% else %} left
 		{% endif %}">Profile
@@ -68,7 +69,7 @@
 	</div></a>
 	<a href="{{ path('qiiss_self_admin') }}"><div id="nav_settings" class="
 		{% if navSelection is defined %}
-			{% if navSelection == "settings" %} selected
+			{% if navSelection == "settings" %} left selected
 			{% elseif navSelection == "globalCanvas" %} left left-shadow
 			{% else %} left
 			{% endif %}
