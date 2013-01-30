@@ -2,7 +2,8 @@ $(document).ready(function() {
   $("#search_param_location_city").ajaxDropdown({
     placeholder : $(this).attr("placeholder"),
     name : "location_city",
-    endPoint : '/location/predict/city'
+    endPoint : '/location/predict/city',
+    linkedElement : $("#search_param_location_country")
   });
   $("#search_param_location_country").ajaxDropdown({
     placeholder : $(this).attr("placeholder"),
@@ -54,9 +55,26 @@ $(document).ready(function() {
     var body = $(this).parent().find('.search_param_section_body');
     if (body.css('display') == "none") {
       body.slideDown(280);
+      $(this).find(".expand_message").html("(Click To Contract -)");
     }
     else {
       body.slideUp(280);
+      $(this).find(".expand_message").html("(Click To Expand +)");
     }
+  });
+  $('#search_param_header').bind('click', function() {
+    var body = $(this).parent().find('.search_param_body');
+    if (body.css('display') == "none") {
+      body.slideDown(280);
+      $(this).find(".expand_message").html("(Click To Contract -)");
+    }
+    else {
+      body.slideUp(280);
+      $(this).find(".expand_message").html("(Click To Expand +)");
+    }
+  });
+
+  $("#search_param_submit_inner").bind('click', function() {
+    $(this).html("Searching...");
   });
 });

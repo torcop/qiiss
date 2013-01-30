@@ -74,6 +74,14 @@ html {
               background-color: #6D9CC2; }
             html body #main_container #search_param_container_outer #search_param_container_inner #search_param_header:active {
               background-color: #5D84A3; }
+            html body #main_container #search_param_container_outer #search_param_container_inner #search_param_header .inner_text {
+              display: inline-block;
+              vertical-align: middle; }
+            html body #main_container #search_param_container_outer #search_param_container_inner #search_param_header .expand_message {
+              font-color: #666;
+              font-size: 16px;
+              display: inline-block;
+              vertical-align: middle; }
           html body #main_container #search_param_container_outer #search_param_container_inner .search_param_section_header {
             padding: 10px;
             font: 16px 'PatuaOneRegular', Arial, sans-serif;
@@ -84,6 +92,10 @@ html {
               background-color: #DFE6E8; }
             html body #main_container #search_param_container_outer #search_param_container_inner .search_param_section_header:active {
               background-color: #D3D9DB; }
+            html body #main_container #search_param_container_outer #search_param_container_inner .search_param_section_header .expand_message {
+              font-color: #666;
+              font-size: 14px;
+              float: right; }
           html body #main_container #search_param_container_outer #search_param_container_inner .search_param_section_body {
             padding: 10px 10px 0px 10px;
             display: block;
@@ -152,6 +164,7 @@ html {
                     outline-width: 0px; }
           html body #main_container #search_param_container_outer #search_param_container_inner #search_param_submit_outer {
             text-align: right;
+            margin-top: 10px;
             padding: 0px 19px 10px 0px; }
             html body #main_container #search_param_container_outer #search_param_container_inner #search_param_submit_outer #search_param_submit_inner {
               display: inline-block;

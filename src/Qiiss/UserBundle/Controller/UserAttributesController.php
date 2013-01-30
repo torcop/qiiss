@@ -116,7 +116,7 @@ class UserAttributesController extends Controller
                 $i = 0;
                 foreach ($paginator as $post) {
                     if ($type == "city") {
-                        $resultArray["splitName"] = "#edit_location_country";
+                        $resultArray["isSplit"] = true;
                         $resultArray["rows"][$i]["valOne"] = $post->getCity();
                         $resultArray["rows"][$i]["valTwo"] = $post->getCountry();
                     }

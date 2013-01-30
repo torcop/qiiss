@@ -7,6 +7,14 @@ jQuery.fn.ajaxDropdown = function() {
 
     var endPoint = args.endPoint;
 
+    var linkedElement = null;
+
+    if (typeof args.linkedElement !== 'undefined') {
+        linkedElement = args.linkedElement;
+    }
+
+    console.log(linkedElement);
+
     var name = args.name;
 
     var $insert = $(this[0]) // It's your element
@@ -25,11 +33,15 @@ jQuery.fn.ajaxDropdown = function() {
     		'display' : 'block',
     		'left' : $insert.offset().left,
     		'top' : $insert.offset().top + $insert.outerHeight() - 4,
-    		'width' : $insert.outerWidth() - 4
+    		'width' : $insert.outerWidth() - 4,
+            'height' : 0
     	});
+        $dropdownMatch.stop().animate({
+            "height": "191px"
+        }, 150, "linear");
     });
 
-    $insert.bind("keypress", function() {
+    $insert.bind("keyup", function() {
         var $dropdownMatch = $('#dropdown_' + name);
         semaphore++;
 
@@ -53,10 +65,10 @@ jQuery.fn.ajaxDropdown = function() {
                             $dropdownMatch.find(".ajax_loader_div").hide();
                             $.each(parsed.rows, function(key, val) {
                                 console.log(val);
-                                if (parsed.hasOwnProperty("splitName")) {
+                                if (parsed.hasOwnProperty("isSplit") && linkedElement != null) {
                                     $element = $('<li><div class="predict_name_one">' + val.valOne + '</div>, <div class="predict_name_two">' + val.valTwo + '</div><div class="predict_num">(' + val.numUsers + ')</div></li>');
                                     $dropdownMatch.find("ul").append($element);
-                                    bindSplitItemClick($element, $insert, $(parsed.splitName), val.valOne, val.valTwo);
+                                    bindSplitItemClick($element, $insert, linkedElement, val.valOne, val.valTwo);
                                 }
                                 else {
                                     $element = $('<li><div class="predict_name">' + val.value + '</div>' +
@@ -79,7 +91,11 @@ jQuery.fn.ajaxDropdown = function() {
 
     $insert.bind("blur", function() {
     	var $dropdownMatch = $('#dropdown_' + name);
-    	$dropdownMatch.css({'display' : 'none'});
+    	$dropdownMatch.stop().animate({
+            "height": "0px"
+        }, 150, "linear", function() {
+            $dropdownMatch.css("display", "none");
+        });
     });
     $dropdown.find('li').bind("mouseenter", function() {
     	$(this).addClass("selected");
@@ -92,7 +108,7 @@ jQuery.fn.ajaxDropdown = function() {
 function bindItemClick(element, toChange) {
     element.bind('mousedown', function() {
         var inner = $(this).find(".predict_name").html();
-        toChange.val(inner);
+        toChange.val(inner).keyup(); // Trigger a keyup event as if the user was typing the value
     });
 }
 
@@ -100,7 +116,7 @@ function bindSplitItemClick(element, toChangeOne, toChangeTwo) {
     element.bind('mousedown', function() {
         var innerOne = $(this).find(".predict_name_one").html();
         var innerTwo = $(this).find(".predict_name_two").html();
-        toChangeOne.val(innerOne);
-        toChangeTwo.val(innerTwo);
+        toChangeOne.val(innerOne).keyup();
+        toChangeTwo.val(innerTwo).keyup();
     });
 }
