@@ -151,6 +151,8 @@ class ProfileController extends Controller {
       $displayPictureSender = $date->getSender()->getDisplayPicture();
       $displayPictureTarget = $date->getTarget()->getDisplayPicture();
 
+      $displayPictureSenderThumb = isset($displayPictureSender) ? $displayPictureSender->getThumbnailPath() : "qiissgeneral/images/placeholder_dp_thumb.png";
+      $displayPictureTargetThumb = isset($displayPictureTarget) ? $displayPictureTarget->getThumbnailPath() : "qiissgeneral/images/placeholder_dp_thumb.png";
       $displayPictureSender = isset($displayPictureSender) ? $displayPictureSender->getMediumPath() : "qiissgeneral/images/placeholder_dp_medium.png";
       $displayPictureTarget = isset($displayPictureTarget) ? $displayPictureTarget->getMediumPath() : "qiissgeneral/images/placeholder_dp_medium.png";
 
@@ -161,7 +163,9 @@ class ProfileController extends Controller {
         "messageForm" => $form->createView(),
         "isTarget" => $user == $date->getTarget() ? true : false,
         "displayPictureSender" => $displayPictureSender,
-        "displayPictureTarget" => $displayPictureTarget
+        "displayPictureTarget" => $displayPictureTarget,
+        "displayPictureSenderThumb" => $displayPictureSenderThumb,
+        "displayPictureTargetThumb" => $displayPictureTargetThumb
       ));
     }
     else {

@@ -151,7 +151,8 @@ $(document).ready(function() {
 		postData[$(this).find("textarea").attr("name")] = messageVal; // Save the name and data in the text field so we can use it later
 		postData[$(this).find("input[type=hidden]").attr("name")] = $(this).find("input[type=hidden]").val();
 		$("#message_box_lower textarea").val("");
-		createMessage(messageVal, "", new Date(), true);
+		var imageThumb = isTarget ? dpTargetThumb : dpSenderThumb;
+		createMessage(messageVal, imageThumb, new Date(), true);
 		$("#message_box_inner").scrollTop(10000);
 		$("#sample_message").remove();
 
