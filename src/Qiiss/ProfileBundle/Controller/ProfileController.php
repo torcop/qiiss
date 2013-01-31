@@ -162,6 +162,8 @@ class ProfileController extends Controller {
         "messageTime" => new \DateTime(),
         "messageForm" => $form->createView(),
         "isTarget" => $user == $date->getTarget() ? true : false,
+        "targetUsername" => $date->getTarget()->getUsername(),
+        "senderUsername" => $date->getSender()->getUsername(),
         "displayPictureSender" => $displayPictureSender,
         "displayPictureTarget" => $displayPictureTarget,
         "displayPictureSenderThumb" => $displayPictureSenderThumb,

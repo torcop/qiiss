@@ -189,7 +189,7 @@ $(document).ready(function() {
 function createMessage(content, image, date, append) {
 	messageToggle = messageToggle == "" ? "alternate" : "";
 	var message = '<div class="message ' + messageToggle + '">' +
-		'<img src="' + image + '" class="message_dp">' +
+		'<div class="message_dp_outer"><img src="/' + image + '" class="message_dp"></div>' +
 		'<div class="message_text">' +
 			'<div class="message_datetime">' + date + '</div>' +
 			'<div class="message_content">' + content + '</div>' +
@@ -218,7 +218,8 @@ function getOldMessages(scrollPos) {
 			if (parsed.hasOwnProperty("messages")) {
 				$.each(parsed.messages, function(key, val) {
 					console.log(val.messageDate.date);
-					createMessage(val.messageContent, "", val.messageDate.date, false);
+					var imageThumb = val.messageSender == targetUsername ? dpTargetThumb : dpSenderThumb;
+					createMessage(val.messageContent, imageThumb, val.messageDate.date, false);
 					firstResult++;
 				});
 				$("#sample_message").remove();
