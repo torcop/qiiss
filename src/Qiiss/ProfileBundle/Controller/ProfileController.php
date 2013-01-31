@@ -157,6 +157,7 @@ class ProfileController extends Controller {
       $displayPictureTarget = isset($displayPictureTarget) ? $displayPictureTarget->getMediumPath() : "qiissgeneral/images/placeholder_dp_medium.png";
 
       $form = $this->createForm(new MessageType, $message);
+      return new Response($date->getEventDate()->format("d"));
       return $this->render('QiissProfileBundle:Profile:viewDate.html.twig', array(
         "date" => $date,
         "messageTime" => new \DateTime(),

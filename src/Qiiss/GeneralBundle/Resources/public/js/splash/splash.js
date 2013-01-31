@@ -94,10 +94,6 @@ $(document).ready(function() {
   });
 
   $("#signup_form").submit(function(e) {
-    $("#signup_form .error_message").animate({
-      "right" : "280px",
-      "width" : "0px"
-    }, 300, "linear");
     $.ajax({
       type: "POST",
       url: $(this).attr("action"),
@@ -194,13 +190,15 @@ function slideOutError(message, form) {
   else if (message == "This value is not valid.") {
     $element = $(form + " .birthday_error_message").html("Invalid Date.");
   }
-  $element.css("width", "auto");
-  var width = $element.width();
-  $element.css("width", "0px");
-  $element.animate({
-    "right" : "300px",
-    "width" : width,
-  }, 300, "linear");
+  if ($element != null) {
+    $element.css("width", "auto");
+    var width = $element.width();
+    $element.css("width", "0px");
+    $element.animate({
+      "right" : "300px",
+      "width" : width,
+    }, 300, "linear");
+  }
 }
 
 function bindTabs(click, show) {
