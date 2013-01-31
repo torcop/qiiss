@@ -70,17 +70,17 @@ $(document).ready(function() {
 	$("#calendar").calendarWidget({
 		month: thismonth,
 		year: thisyear,
-		nav: jQuery.parseJSON('{"right": "' + (thismonth % 11) + '", "left" : ""}')
+		nav: jQuery.parseJSON('{"right": "' + ((thismonth + 1) % 11) + '", "left" : ""}')
 	 });
 	$("#calendar_one_month").calendarWidget({
-		month: thismonth % 11,
-		year: (thismonth % 11) < thismonth ? thisyear + 1 : thisyear,
-		nav: jQuery.parseJSON('{"left": "' + thismonth + '", "right" : "' + ((thismonth + 1) % 11)  + '"}')
-	 });
-	$("#calendar_two_month").calendarWidget({
 		month: (thismonth + 1) % 11,
 		year: (thismonth + 1) % 11 < thismonth ? thisyear + 1 : thisyear,
-		nav: jQuery.parseJSON('{"left": "' + (thismonth % 11) + '", "right" : ""}')
+		nav: jQuery.parseJSON('{"left": "' + thismonth + '", "right" : "' + ((thismonth + 2) % 11)  + '"}')
+	 });
+	$("#calendar_two_month").calendarWidget({
+		month: (thismonth + 2) % 11,
+		year: (thismonth + 2) % 11 < thismonth ? thisyear + 1 : thisyear,
+		nav: jQuery.parseJSON('{"left": "' + ((thismonth + 1) % 11) + '", "right" : ""}')
 	 });
 
 	$(".calendar td").bind("click", function() {
