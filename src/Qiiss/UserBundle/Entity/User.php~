@@ -107,6 +107,11 @@ class User extends BaseUser
     protected $displayPicture;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $interestString;
+
+    /**
      * Set dob
      *
      * @param \string $dob

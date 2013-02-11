@@ -184,14 +184,6 @@ $(document).ready(function() {
   $('#tag_interest_button').bind('click', function() {
     toggleTagInterests();
   });
-/*
-  $(".info_section_bubble_edit").each(function() {
-    $("#interest_one").ajaxDropdown({
-      placeholder : $(this).attr("placeholder"),
-      name : $(this).attr("name")
-    });
-  })
-*/
   $("#edit_location_city").ajaxDropdown({
     placeholder : $(this).attr("placeholder"),
     name : "location_city",

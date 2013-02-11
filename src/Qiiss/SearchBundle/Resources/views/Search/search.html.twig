@@ -26,66 +26,70 @@
 				<div id="search_param_header">
 					<span class="inner_text">Search</span> <span class="expand_message">(Click To Contract -)</span>
 				</div>
-				<div class="search_param_body">
-					<div class="search_param_section">
-						<div class="search_param_section_header">
-							General <span class="expand_message">(Click To Contract -)</span>
-						</div>
-						<div class="search_param_section_body">
-							<div class="search_param_field_block">
-								<div class="search_param_field_outer">
-									<div class="search_param_label hidden">Gender</div>
-									<input type="text" class="search_param_field" id="search_param_gender" placeholder="Gender" />
+				<form id="advanced_search_form" action="/search" method="POST">
+					<div class="search_param_body">
+						<div class="search_param_section">
+							<div class="search_param_section_header">
+								General <span class="expand_message">(Click To Contract -)</span>
+							</div>
+							<div class="search_param_section_body">
+								<div class="search_param_field_block">
+									<div class="search_param_field_outer">
+										<div class="search_param_label hidden">Gender</div>
+										<input type="text" class="search_param_field" id="search_param_gender" placeholder="Gender" />
+									</div>
+									<div class="search_param_field_outer">
+										<div class="search_param_label hidden">Age - Minimum</div>
+										<input type="text" class="search_param_field" id="search_param_age_min" placeholder="Age - Minimum" />
+									</div>
+									<div class="search_param_field_outer">
+										<div class="search_param_label hidden">Age - Maximum</div>
+										<input type="text" class="search_param_field" id="search_param_age_max" placeholder="Age - Maximum" />
+									</div>
 								</div>
-								<div class="search_param_field_outer">
-									<div class="search_param_label hidden">Age - Minimum</div>
-									<input type="text" class="search_param_field" id="search_param_age" placeholder="Age - Minimum" />
-								</div>
-								<div class="search_param_field_outer">
-									<div class="search_param_label hidden">Age - Maximum</div>
-									<input type="text" class="search_param_field" id="search_param_age" placeholder="Age - Maximum" />
+								<div class="search_param_field_block lower">
+									<div class="search_param_field_outer">
+										<div class="search_param_label hidden">Location - City</div>
+										<input type="text" class="search_param_field" id="search_param_location_city" placeholder="Location - City" />
+									</div>
+									<div class="search_param_field_outer">
+										<div class="search_param_label hidden">Location - Country</div>
+										<input type="text" class="search_param_field" id="search_param_location_country" placeholder="Location - Country" />
+									</div>
 								</div>
 							</div>
-							<div class="search_param_field_block lower">
-								<div class="search_param_field_outer">
-									<div class="search_param_label hidden">Location - City</div>
-									<input type="text" class="search_param_field" id="search_param_location_city" placeholder="Location - City" />
+						</div>
+						<div class="search_param_section">
+							<div class="search_param_section_header">
+								Interests <span class="expand_message">(Click To Contract -)</span>
+							</div>
+							<div class="search_param_section_body">
+								<div class="search_param_field_block">
+									<div class="search_param_field_outer">
+										<div class="search_param_label hidden">Interest One</div>
+										<input type="text" class="search_param_field" id="search_param_interest_one" placeholder="Interest One" />
+									</div>
+									<div class="search_param_field_outer">
+										<div class="search_param_label hidden">Interest Two</div>
+										<input type="text" class="search_param_field" id="search_param_interest_two" placeholder="Interest Two" />
+									</div>
+									<div class="search_param_field_outer">
+										<div class="search_param_label hidden">Interest Three</div>
+										<input type="text" class="search_param_field" id="search_param_interest_three" placeholder="Interest Three" />
+									</div>
 								</div>
-								<div class="search_param_field_outer">
-									<div class="search_param_label hidden">Location - Country</div>
-									<input type="text" class="search_param_field" id="search_param_location_country" placeholder="Location - Country" />
+							</div>
+							<div id="search_param_submit_outer">
+								<div id="search_param_submit_inner">
+									Search
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="search_param_section">
-						<div class="search_param_section_header">
-							Interests <span class="expand_message">(Click To Contract -)</span>
-						</div>
-						<div class="search_param_section_body">
-							<div class="search_param_field_block">
-								<div class="search_param_field_outer">
-									<div class="search_param_label hidden">Interest One</div>
-									<input type="text" class="search_param_field" id="search_param_interest_one" placeholder="Interest One" />
-								</div>
-								<div class="search_param_field_outer">
-									<div class="search_param_label hidden">Interest Two</div>
-									<input type="text" class="search_param_field" id="search_param_interest_two" placeholder="Interest Two" />
-								</div>
-								<div class="search_param_field_outer">
-									<div class="search_param_label hidden">Interest Three</div>
-									<input type="text" class="search_param_field" id="search_param_interest_three" placeholder="Interest Three" />
-								</div>
-							</div>
-						</div>
-						<div id="search_param_submit_outer">
-							<div id="search_param_submit_inner">
-								Search
-							</div>
-						</div>
-					</div>
-				</div>
+				</form>
 			</div>
+		</div>
+		<div id="search_results_outer">
 		</div>
 	</div>
 </body>

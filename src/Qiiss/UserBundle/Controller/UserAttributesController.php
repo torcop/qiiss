@@ -153,8 +153,11 @@ class UserAttributesController extends Controller
                     $interest->setNumUsers($interest->getNumUsers() - 1);
                 }
                 // Add new interests
+                $interestString = '';
+                asort($interestsArray); // Sort our array in alphabetical order
                 foreach ($interestsArray as $interest) {
                     if ($interest != "" && $interest != "Interest One" && $interest != "Interest Two" && $interest != "Interest Three") {
+                        $interestString .= str_replace("|", "", $interest) . "|";
                         $toAdd = $repository->findOneBy(array('name' => $interest));
                         if (isset($toAdd)) {
                             $user->addInterest($toAdd);
@@ -168,6 +171,10 @@ class UserAttributesController extends Controller
                             $em->persist($toAdd);
                         }
                     }
+                }
+                $interestString = rtrim($interestString, "|");
+                if ($interestString != '') {
+                    $user->setInterestString($interestString);
                 }
             }
 

@@ -107,6 +107,11 @@ class User extends BaseUser
     protected $displayPicture;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $interestString;
+
+    /**
      * Set dob
      *
      * @param \string $dob
@@ -489,14 +494,13 @@ class User extends BaseUser
     public function setPreference($preference)
     {
         $this->preference = $preference;
-    
         return $this;
     }
 
     /**
      * Get preference
      *
-     * @return string 
+     * @return string
      */
     public function getPreference()
     {
@@ -511,14 +515,14 @@ class User extends BaseUser
      */
     public function setCharity($charity)
     {
-        $this->charity = $charity;  
+        $this->charity = $charity;
         return $this;
     }
 
     /**
      * Get charity
      *
-     * @return string 
+     * @return string
      */
     public function getCharity()
     {
@@ -534,17 +538,71 @@ class User extends BaseUser
     public function setAge($age)
     {
         $this->age = $age;
-    
         return $this;
     }
 
     /**
      * Get age
      *
-     * @return string 
+     * @return string
      */
     public function getAge()
     {
         return $this->age;
+    }
+
+    /**
+     * Set interestString
+     *
+     * @param string $interestString
+     * @return User
+     */
+    public function setInterestString($interestString)
+    {
+        $this->interestString = $interestString;
+        return $this;
+    }
+
+    /**
+     * Get interestString
+     *
+     * @return string
+     */
+    public function getInterestString()
+    {
+        return $this->interestString;
+    }
+
+    /**
+     * Add transaction
+     *
+     * @param \Qiiss\CharityBundle\Entity\Transaction $transaction
+     * @return User
+     */
+    public function addTransaction(\Qiiss\CharityBundle\Entity\Transaction $transaction)
+    {
+        $this->transaction[] = $transaction;
+    
+        return $this;
+    }
+
+    /**
+     * Remove transaction
+     *
+     * @param \Qiiss\CharityBundle\Entity\Transaction $transaction
+     */
+    public function removeTransaction(\Qiiss\CharityBundle\Entity\Transaction $transaction)
+    {
+        $this->transaction->removeElement($transaction);
+    }
+
+    /**
+     * Get transaction
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTransaction()
+    {
+        return $this->transaction;
     }
 }
