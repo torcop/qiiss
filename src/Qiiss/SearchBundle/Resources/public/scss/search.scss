@@ -28,21 +28,24 @@ html {
     background-image:url('/bundles/qiissgeneral/images/Final-Homepage-background.gif');
     background-size: 100%;
     background-repeat:no-repeat;
+    padding-bottom:20px;
 
     #main_container {
-      margin-top:-10px;
+      margin-bottom:20px;
       padding:0px 15px 20px 40px;
       font-size:16px;
       text-align:center;
 
       #search_param_container_outer {
         position:absolute;
+        top:110px;
         left:25%;
         padding:5px;
         border:1px solid #aaa;
         display:inline-block;
         background-color:#eee;
         @include corner(5px, 5px, 5px, 5px);
+        @include shadow(0px, 0px, 8px, 1px, #666);
 
         #search_param_container_inner {
           width:698px;
@@ -171,6 +174,48 @@ html {
           } // #search_param_submit_outer
         } // #search_param_container_inner
       } // #search_param_container_outer
+
+      #search_results_outer {
+        top:50px;
+        position:relative;
+        z-index:-1000;
+        margin-bottom:20px;
+
+        .search_result {
+          float:left;
+          width:312px;
+          overflow:hidden;
+          font-size:0;
+          margin:3px 0px;
+          border:1px solid #999;
+          background-color:#fff;
+
+          .result_dp_section {
+            padding:5px;
+            border-bottom:1px solid #ccc;
+
+            img {
+              width:300px;
+            }
+          }
+
+          .result_name_section {
+            font: 20px 'PatuaOneRegular', Arial, sans-serif;
+            color:#000;
+            display:inline-block;
+            width:100%;
+
+            .result_name_username {
+              margin:5px 5px 5px 10px;
+              float:left;
+            }
+            .result_name_age {
+              margin:5px 10px 5px 5px;
+              float:right;
+            }
+          }
+        }
+      }
     } // #main_container
     .dropdown {
       position: absolute;
@@ -217,5 +262,10 @@ html {
         } // li
       } // ul
     } // .dropdown
+
+    #footer {
+      height:30px;
+      width:100%;
+    }
   } // body
 } // html

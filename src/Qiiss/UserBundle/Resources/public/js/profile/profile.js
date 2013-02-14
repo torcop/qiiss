@@ -187,7 +187,8 @@ $(document).ready(function() {
   $("#edit_location_city").ajaxDropdown({
     placeholder : $(this).attr("placeholder"),
     name : "location_city",
-    endPoint : '/location/predict/city'
+    endPoint : '/location/predict/city',
+    linkedElement : $("#edit_location_country")
   });
   $("#edit_location_country").ajaxDropdown({
     placeholder : $(this).attr("placeholder"),

@@ -260,7 +260,7 @@ class WallController extends Controller {
 	}
 
 	/*
-	 * This function allows to a user to upload a photo inside the Qiiss Wall.
+	 * This function allows to a user to upload a photo to the Qiiss Wall.
 	 */
 	public function uploadAction() {
 		$uploader = $this->container->get('general.helper.upload');
@@ -281,8 +281,14 @@ class WallController extends Controller {
 			$photo->setUser($user);
 			$photo->setDate(new \DateTime());
 			$photo->setThumbnailPath($result['thumbnail']);
+			$photo->setThumbnailWidth(explode("x", $result['thumbDimensions'])[0]);
+			$photo->setThumbnailHeight(explode("x", $result['thumbDimensions'])[1]);
 			$photo->setMediumPath($result['mediumFile']);
+			$photo->setMediumWidth(explode("x", $result['mediumDimensions'])[0]);
+			$photo->setMediumHeight(explode("x", $result['mediumDimensions'])[1]);
 			$photo->setLargePath($result['largeFile']);
+			$photo->setLargeWidth(explode("x", $result['largeDimensions'])[0]);
+			$photo->setLargeHeight(explode("x", $result['largeDimensions'])[1]);
 			$photo->setStatus("unpublished");
 			$em = $this->getDoctrine()->getEntityManager();
 			$em->persist($photo);

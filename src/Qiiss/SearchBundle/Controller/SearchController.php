@@ -19,7 +19,7 @@ class SearchController extends Controller {
     }
 
     public function searchAction() {
-    	$page_size = 30;
+    	$page_size = 4;
 
 	    $request = $this->get('request');
 		$gender = $request->request->get('gender');
@@ -51,12 +51,12 @@ class SearchController extends Controller {
 		$stmts = array();
 		$params = array();
 		if ($num_interests == 3) {
-			$stmts[sizeof($stmts)] = "SELECT fos_user.id as userid, username, age, sex, city, intereststring, location_id, location.id as locationid, mediumPath FROM fos_user LEFT JOIN location ON (fos_user.location_id = location.id) LEFT JOIN photo ON (fos_user.displayPicture_id = photo.id) WHERE interestString = ?";
+			$stmts[sizeof($stmts)] = "SELECT fos_user.id as userid, username, age, sex, city, intereststring, location_id, location.id as locationid, mediumPath, mediumWidth, mediumHeight FROM fos_user LEFT JOIN location ON (fos_user.location_id = location.id) LEFT JOIN photo ON (fos_user.displayPicture_id = photo.id) WHERE interestString = ?";
 			$params[sizeof($params)] = $interests_array[0] . $interests_array[1] . $interests_array[2];
 		}
 		if ($num_interests > 1) {
 			$index = sizeof($stmts);
-			$stmts[$index] = "SELECT fos_user.id as userid, username, age, sex, city, intereststring, location_id, location.id as locationid, mediumPath FROM fos_user LEFT JOIN location ON (fos_user.location_id = location.id) LEFT JOIN photo ON (fos_user.displayPicture_id = photo.id) WHERE (interestString LIKE ? AND interestString LIKE ?)"; // We know that there are at least two here
+			$stmts[$index] = "SELECT fos_user.id as userid, username, age, sex, city, intereststring, location_id, location.id as locationid, mediumPath, mediumWidth, mediumHeight FROM fos_user LEFT JOIN location ON (fos_user.location_id = location.id) LEFT JOIN photo ON (fos_user.displayPicture_id = photo.id) WHERE (interestString LIKE ? AND interestString LIKE ?)"; // We know that there are at least two here
 			$params[sizeof($params)] = "%" . $interests_array[0] . "%";
 			$params[sizeof($params)] = "%" . $interests_array[1] . "%";
 			if ($num_interests == 3) {
@@ -68,7 +68,7 @@ class SearchController extends Controller {
 		}
 		if ($num_interests > 0) {
 			$index = sizeof($stmts);
-			$stmts[$index] = "SELECT fos_user.id as userid, username, age, sex, city, intereststring, location_id, location.id as locationid, mediumPath FROM fos_user LEFT JOIN location ON (fos_user.location_id = location.id) LEFT JOIN photo ON (fos_user.displayPicture_id = photo.id) WHERE (interestString LIKE ?)";
+			$stmts[$index] = "SELECT fos_user.id as userid, username, age, sex, city, intereststring, location_id, location.id as locationid, mediumPath, mediumWidth, mediumHeight FROM fos_user LEFT JOIN location ON (fos_user.location_id = location.id) LEFT JOIN photo ON (fos_user.displayPicture_id = photo.id) WHERE (interestString LIKE ?)";
 			$params[sizeof($params)] = "%" . $interests_array[0] . "%";
 			if ($num_interests == 2) {
 				$stmts[$index] .= " OR (interestString LIKE ?)";
@@ -80,7 +80,7 @@ class SearchController extends Controller {
 			}
 		}
 		else {
-			$sql .= "SELECT fos_user.id as userid, username, age, sex, city, intereststring, location_id, location.id as locationid, mediumPath FROM fos_user LEFT JOIN location ON (fos_user.location_id = location.id) LEFT JOIN photo ON (fos_user.displayPicture_id = photo.id)";
+			$sql .= "SELECT fos_user.id as userid, username, age, sex, city, intereststring, location_id, location.id as locationid, mediumPath, mediumWidth, mediumHeight FROM fos_user LEFT JOIN location ON (fos_user.location_id = location.id) LEFT JOIN photo ON (fos_user.displayPicture_id = photo.id)";
 		}
 		for ($i = 0; $i < sizeof($stmts); $i++) {
 			if ($i < sizeof($stmts) - 1) {
@@ -149,6 +149,9 @@ class SearchController extends Controller {
 		$rsm->addScalarResult('city', 'city');
 		$rsm->addScalarResult('intereststring', 'intereststring');
 		$rsm->addScalarResult('mediumPath', 'mediumPath');
+		$rsm->addScalarResult('mediumWidth', 'mediumWidth');
+		$rsm->addScalarResult('mediumHeight', 'mediumHeight');
+		$rsm->addScalarResult('age', 'age');
 
         $query = $em->createNativeQuery($sql, $rsm);
 
@@ -162,8 +165,11 @@ class SearchController extends Controller {
         foreach ($results as $result) {
         	$toReturn['results'][$i]['username'] = $result['username'];
         	$toReturn['results'][$i]['city'] = $result['city'];
+        	$toReturn['results'][$i]['age'] = $result['age'];
         	$toReturn['results'][$i]['interests'] = explode("|", $result['intereststring']);
         	$toReturn['results'][$i]['displayPicture'] = $result['mediumPath'];
+        	$toReturn['results'][$i]['displayPictureWidth'] = $result['mediumWidth'];
+        	$toReturn['results'][$i]['displayPictureHeight'] = $result['mediumHeight'];
         	$i++;
         }
         return new Response(json_encode($toReturn));

@@ -25,7 +25,7 @@ class User extends BaseUser
     }
 
     /**
-    * @ORM\OneToOne(targetEntity="Qiiss\SearchBundle\Entity\Location", cascade={"persist"})
+    * @ORM\ManyToOne(targetEntity="Qiiss\SearchBundle\Entity\Location", cascade={"persist"})
     */
     private $location;
 
@@ -49,14 +49,14 @@ class User extends BaseUser
     protected $sex;
 
     /**
-    * @ORM\OneToOne(targetEntity="Qiiss\SearchBundle\Entity\Preference")
+    * @ORM\ManyToOne(targetEntity="Qiiss\SearchBundle\Entity\Preference")
     */
     protected $preference;
 
-		/**
-		 * @ORM\OneToMany(targetEntity="Qiiss\CharityBundle\Entity\Transaction", mappedBy="User", cascade={"remove", "persist"})
- 		 */
-		protected $transaction;
+	/**
+	 * @ORM\OneToMany(targetEntity="Qiiss\CharityBundle\Entity\Transaction", mappedBy="User", cascade={"remove", "persist"})
+		 */
+	protected $transaction;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)

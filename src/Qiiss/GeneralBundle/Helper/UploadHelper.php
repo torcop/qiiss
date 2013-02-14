@@ -156,15 +156,18 @@ class UploadHelper {
             $thumbFile = $uploadDirectory . DIRECTORY_SEPARATOR . '_thumb_' . $filename . $ext;
             $mediumFile = $uploadDirectory . DIRECTORY_SEPARATOR . '_medium_' . $filename . $ext;
             $largeFile = $uploadDirectory . DIRECTORY_SEPARATOR . '_large_' . $filename . $ext;
-            exec('convert ' . $webDirectory . $filePath . ' -resize 50x50 ' . $thumbFile);
-            exec('convert ' . $webDirectory . $filePath . ' -resize 200x200 ' . $mediumFile);
-            exec('convert ' . $webDirectory . $filePath . ' -resize 600x600 ' . $largeFile);
+            $thumbDimensions = exec('convert ' . $webDirectory . $filePath . ' -resize 50x50 ' . $thumbFile . '; identify -format "%[fx:w]x%[fx:h]" ' . $thumbFile);
+            $mediumDimensions = exec('convert ' . $webDirectory . $filePath . ' -resize 300x300 ' . $mediumFile . '; identify -format "%[fx:w]x%[fx:h]" ' . $mediumFile);
+            $largeDimensions = exec('convert ' . $webDirectory . $filePath . ' -resize 600x600 ' . $largeFile . '; identify -format "%[fx:w]x%[fx:h]" ' . $largeFile);
             return array(
                 'success' => true,
                 'filename' => $uploadDirectory . DIRECTORY_SEPARATOR . $filename . $ext,
                 'thumbnail' => $thumbFile,
+                'thumbDimensions' => $thumbDimensions,
                 'mediumFile' => $mediumFile,
+                'mediumDimensions' => $mediumDimensions,
                 'largeFile' => $largeFile,
+                'largeDimensions' => $largeDimensions,
             );
         } else {
             return array('error'=> 'Could not save uploaded file.' .
