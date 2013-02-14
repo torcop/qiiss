@@ -1,0 +1,7 @@
+parameters:
+#    qiiss_info.example.class: Qiiss\InfoBundle\Example
+
+services:
+#    qiiss_info.example:
+#        class: %qiiss_info.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
