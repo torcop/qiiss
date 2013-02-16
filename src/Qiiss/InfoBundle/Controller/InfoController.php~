@@ -16,7 +16,7 @@ class InfoController extends Controller
  			$config[‘appId’] = $fbdata->getAppId();
   		$config[‘secret’] = $fbdata->getApiSecret();
 			$config[‘cookie’] = true;
-  		$config[‘fileUpload’] = false; // optional
+  		$config[‘fileUpload’] = false;
 
   		$facebook = new Facebook($config);
 			

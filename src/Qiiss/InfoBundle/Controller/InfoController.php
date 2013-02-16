@@ -13,10 +13,10 @@ class InfoController extends Controller
 
 			$fbdata = $this->container->get('facebook');
 			$config = array();
- 			$config[‘appId’] = $fbdata->getAppId();
-  		$config[‘secret’] = $fbdata->getApiSecret();
-			$config[‘cookie’] = true;
-  		$config[‘fileUpload’] = false;
+ 			$config['appId'] = $fbdata->getAppId();
+  		$config['secret'] = $fbdata->getApiSecret();
+			$config['cookie'] = true;
+  		$config['fileUpload'] = false;
 
   		$facebook = new Facebook($config);
 			

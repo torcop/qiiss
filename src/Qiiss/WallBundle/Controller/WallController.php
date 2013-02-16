@@ -281,14 +281,14 @@ class WallController extends Controller {
 			$photo->setUser($user);
 			$photo->setDate(new \DateTime());
 			$photo->setThumbnailPath($result['thumbnail']);
-			$photo->setThumbnailWidth(explode("x", $result['thumbDimensions'])[0]);
+			/*$photo->setThumbnailWidth(explode("x", $result['thumbDimensions'])[0]);
 			$photo->setThumbnailHeight(explode("x", $result['thumbDimensions'])[1]);
 			$photo->setMediumPath($result['mediumFile']);
 			$photo->setMediumWidth(explode("x", $result['mediumDimensions'])[0]);
 			$photo->setMediumHeight(explode("x", $result['mediumDimensions'])[1]);
 			$photo->setLargePath($result['largeFile']);
 			$photo->setLargeWidth(explode("x", $result['largeDimensions'])[0]);
-			$photo->setLargeHeight(explode("x", $result['largeDimensions'])[1]);
+			$photo->setLargeHeight(explode("x", $result['largeDimensions'])[1]);*/
 			$photo->setStatus("unpublished");
 			$em = $this->getDoctrine()->getEntityManager();
 			$em->persist($photo);

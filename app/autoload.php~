@@ -15,12 +15,6 @@ if (!function_exists('intl_get_error_code')) {
     $loader->add('', __DIR__.'/../vendor/symfony/symfony/src/Symfony/Component/Locale/Resources/stubs');
 }
 
-$loader = new UniversalClassLoader();
-$loader->register();
-
-$loader->registerNamespace('Facebook', __DIR__,'/../vendor/facebook/');
-
-
 AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
 
 return $loader;

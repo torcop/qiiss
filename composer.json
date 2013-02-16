@@ -21,7 +21,7 @@
         "sensio/generator-bundle": "2.1.*",
         "jms/security-extra-bundle": "1.2.*",
         "jms/di-extra-bundle": "1.1.*",
-				"friendsofsymfony/user-bundle": "*",
+				"friendsofsymfony/user-bundle": "1.3.x",
 				"symfony/finder": "2.1.*"
     },
     "scripts": {
