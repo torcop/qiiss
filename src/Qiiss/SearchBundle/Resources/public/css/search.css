@@ -30,12 +30,17 @@ html {
     height: 100%;
     background-image: url("/bundles/qiissgeneral/images/Final-Homepage-background.gif");
     background-size: 100%;
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    padding-bottom: 20px; }
     html body #main_container {
+      margin-bottom: 20px;
       padding: 0px 15px 20px 40px;
       font-size: 16px;
       text-align: center; }
       html body #main_container #search_param_container_outer {
+        position: absolute;
+        top: 110px;
+        left: 25%;
         padding: 5px;
         border: 1px solid #aaa;
         display: inline-block;
@@ -55,7 +60,10 @@ html {
         -moz-border-radius-bottomleft: 5px;
         -webkit-border-bottom-left-radius: 5px;
         -khtml-border-radius-bottomleft: 5px;
-        border-bottom-left-radius: 5px; }
+        border-bottom-left-radius: 5px;
+        -moz-box-shadow: 0px 0px 8px 1px #666666;
+        -webkit-box-shadow: 0px 0px 8px 1px #666666;
+        box-shadow: 0px 0px 8px 1px #666666; }
         html body #main_container #search_param_container_outer #search_param_container_inner {
           width: 698px;
           border: 1px solid #aaa;
@@ -196,6 +204,35 @@ html {
                 background-color: #6697BD; }
               html body #main_container #search_param_container_outer #search_param_container_inner #search_param_submit_outer #search_param_submit_inner:active {
                 background-color: #407BA8; }
+      html body #main_container #search_results_outer {
+        top: 50px;
+        position: relative;
+        z-index: -1000;
+        margin-bottom: 20px; }
+        html body #main_container #search_results_outer .search_result {
+          float: left;
+          width: 312px;
+          overflow: hidden;
+          font-size: 0;
+          margin: 3px 0px;
+          border: 1px solid #999;
+          background-color: #fff; }
+          html body #main_container #search_results_outer .search_result .result_dp_section {
+            padding: 5px;
+            border-bottom: 1px solid #ccc; }
+            html body #main_container #search_results_outer .search_result .result_dp_section img {
+              width: 300px; }
+          html body #main_container #search_results_outer .search_result .result_name_section {
+            font: 20px 'PatuaOneRegular', Arial, sans-serif;
+            color: #000;
+            display: inline-block;
+            width: 100%; }
+            html body #main_container #search_results_outer .search_result .result_name_section .result_name_username {
+              margin: 5px 5px 5px 10px;
+              float: left; }
+            html body #main_container #search_results_outer .search_result .result_name_section .result_name_age {
+              margin: 5px 10px 5px 5px;
+              float: right; }
     html body .dropdown {
       position: absolute;
       height: 191px;
@@ -243,3 +280,6 @@ html {
           html body .dropdown ul li:hover {
             background: #7AB2DE;
             color: #333; }
+    html body #footer {
+      height: 30px;
+      width: 100%; }

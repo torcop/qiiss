@@ -31,14 +31,44 @@ class Photo
     public $thumbnailPath;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    public $thumbnailWidth;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    public $thumbnailHeight;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     public $mediumPath;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    public $mediumWidth;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    public $mediumHeight;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     public $largePath;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    public $largeWidth;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    public $largeHeight;
 
     /**
      * @ORM\ManyToOne(targetEntity="Qiiss\UserBundle\Entity\User")
@@ -273,5 +303,143 @@ class Photo
     public function getNumLikes()
     {
         return $this->numLikes;
+    }
+
+    /**
+     * Set thumbnailWidth
+     *
+     * @param integer $thumbnailWidth
+     * @return Photo
+     */
+    public function setThumbnailWidth($thumbnailWidth)
+    {
+        $this->thumbnailWidth = $thumbnailWidth;
+    
+        return $this;
+    }
+
+    /**
+     * Get thumbnailWidth
+     *
+     * @return integer 
+     */
+    public function getThumbnailWidth()
+    {
+        return $this->thumbnailWidth;
+    }
+
+    /**
+     * Set thumbnailHeight
+     *
+     * @param integer $thumbnailHeight
+     * @return Photo
+     */
+    public function setThumbnailHeight($thumbnailHeight)
+    {
+        $this->thumbnailHeight = $thumbnailHeight;
+    
+        return $this;
+    }
+
+    /**
+     * Get thumbnailHeight
+     *
+     * @return integer 
+     */
+    public function getThumbnailHeight()
+    {
+        return $this->thumbnailHeight;
+    }
+
+    /**
+     * Set mediumWidth
+     *
+     * @param integer $mediumWidth
+     * @return Photo
+     */
+    public function setMediumWidth($mediumWidth)
+    {
+        $this->mediumWidth = $mediumWidth;
+    
+        return $this;
+    }
+
+    /**
+     * Get mediumWidth
+     *
+     * @return integer 
+     */
+    public function getMediumWidth()
+    {
+        return $this->mediumWidth;
+    }
+
+    /**
+     * Set mediumHeight
+     *
+     * @param integer $mediumHeight
+     * @return Photo
+     */
+    public function setMediumHeight($mediumHeight)
+    {
+        $this->mediumHeight = $mediumHeight;
+    
+        return $this;
+    }
+
+    /**
+     * Get mediumHeight
+     *
+     * @return integer 
+     */
+    public function getMediumHeight()
+    {
+        return $this->mediumHeight;
+    }
+
+    /**
+     * Set largeWidth
+     *
+     * @param integer $largeWidth
+     * @return Photo
+     */
+    public function setLargeWidth($largeWidth)
+    {
+        $this->largeWidth = $largeWidth;
+    
+        return $this;
+    }
+
+    /**
+     * Get largeWidth
+     *
+     * @return integer 
+     */
+    public function getLargeWidth()
+    {
+        return $this->largeWidth;
+    }
+
+    /**
+     * Set largeHeight
+     *
+     * @param integer $largeHeight
+     * @return Photo
+     */
+    public function setLargeHeight($largeHeight)
+    {
+        $this->largeHeight = $largeHeight;
+    
+        return $this;
+    }
+
+    /**
+     * Get largeHeight
+     *
+     * @return integer 
+     */
+    public function getLargeHeight()
+    {
+        return $this->largeHeight;
     }
 }

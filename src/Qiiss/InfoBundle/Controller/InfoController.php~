@@ -9,12 +9,17 @@ class InfoController extends Controller
 {
     public function indexAction()
     {
-			$user = $this->container->get('security.context')->getToken()->getUser();
-			$fbdata = $this->container->get('facebook');
+			//$user = $this->container->get('security.context')->getToken()->getUser();
 
-		  $facebook = new Facebook(array('appId'  => $fbdata->getAppId(),
-																		 'secret' => $fbdata->getApiSecret(),
-																		 'cookie' => true));
+			$fbdata = $this->container->get('facebook');
+			$config = array();
+ 			$config[‘appId’] = $fbdata->getAppId();
+  		$config[‘secret’] = $fbdata->getApiSecret();
+			$config[‘cookie’] = true;
+  		$config[‘fileUpload’] = false; // optional
+
+  		$facebook = new Facebook($config);
+			
 			return $this->render('QiissInfoBundle:Default:info.html.twig');
     }
 }

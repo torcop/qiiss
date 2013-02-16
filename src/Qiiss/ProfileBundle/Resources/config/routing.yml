@@ -97,3 +97,9 @@ qiiss_edit_profile:
 qiiss_profile_search:
     pattern:  /search
     defaults: { _controller: QiissSearchBundle:Search:index}
+    requirements: { _method: GET}
+
+qiiss_profile_create_search:
+    pattern:  /create_search
+    defaults: { _controller: QiissSearchBundle:Search:search}
+    requirements: { _method: POST}
