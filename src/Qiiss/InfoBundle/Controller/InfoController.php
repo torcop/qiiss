@@ -4,90 +4,47 @@ namespace Qiiss\InfoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Qiiss\UserBundle\Entity\User;
+use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
+use Facebook;
+use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
+use Symfony\Component\Security\Core\User\UserProviderInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
+use \BaseFacebook;
+use \FacebookApiException;
 
 class InfoController extends Controller
 {
-    public function indexAction()
+    public function facebookRetrieveAction()
     {
-			//$user = $this->container->get('security.context')->getToken()->getUser();
-
 			$fbdata = $this->container->get('facebook');
 			$config = array();
  			$config['appId'] = $fbdata->getAppId();
   		$config['secret'] = $fbdata->getApiSecret();
 			$config['cookie'] = true;
   		$config['fileUpload'] = false;
+			$config['baseurl'] = "http://localhost/Qiiss/web/app_dev.php/";
 
   		$facebook = new Facebook($config);
-	    $session = $facebook->getSession(); 
 	    $fbme = null;
-
-	    if ($session)
-			{
-      	try
-			{
-        $uid = $facebook->getUser();
-        $fbme = $facebook->api('/me');
-      }
-			catch (FacebookApiException $e)
-			{
-				d($e);
-      }
-    }
+      $uid = $facebook->getUser();
+      $fbme = $facebook->api('/me', 'GET');
  
-    function d($d)
-		{
-			echo '<pre>';
-      print_r($d);
-      echo '</pre>';
-    }
-	
-		$config['baseurl'] = "http://localhost/Qiiss/web/app_dev.php/";
- 
-    //if user is logged in and session is valid.
-    if ($fbme)
-		{
-        //Retriving pictures
-      try
-				{
-          $movies = $facebook->api('/me/pictures');
-        }
-      catch(Exception $o)
-			{
-        d($o);
-      }
- 
-      //Calling users.getinfo
-      try
+	    if ($fbme)
 			{
         $param  =   array(
         'method'  => 'users.getinfo',
         'uids'    => $fbme['id'],
-        'fields'  => 'name,current_location,profile_url',
+        'fields'  => 'name,current_location,profile_url, pic_square',
         'callback'=> '');
-        $userInfo   =   $facebook->api($param);
-      }
-      catch(Exception $o)
-			{
-        d($o);
-      }
-        try{
-            //get user id
-            $uid    = $facebook->getUser();
+        $userInfo = $facebook->api($param);
+   		}
 
-            $fql    =   "select name, hometown_location, sex, pic_square from user where uid=" . $uid;
-            $param  =   array(
-                'method'    => 'fql.query',
-                'query'     => $fql,
-                'callback'  => ''
-            );
-            $fqlResult   =   $facebook->api($param);
-        		}
-        catch(Exception $o)
-				{
-            d($o);
-        }
-    }
-		return $this->render('QiissInfoBundle:Default:info.html.twig');
-   }
+/* This part of the code retrieve the profile picture in large size and save it inside the avatar folder. */
+		$img = file_get_contents('https://graph.facebook.com/'.$uid.'/picture?type=large');
+		$file = dirname(__file__).'/avatar/'.$uid.'.jpg';
+		file_put_contents($file, $img);
+		
+		var_dump($userInfo);exit();
+		return $this->render('QiissInfoBundle:Default:info.html.twig', array('facebookInfo' => $userInfo));
+	}
 }

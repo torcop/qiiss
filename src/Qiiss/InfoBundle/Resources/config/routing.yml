@@ -1,3 +1,3 @@
 qiiss_info_homepage:
     pattern:  /infos
-    defaults: { _controller: QiissInfoBundle:Info:index }
+    defaults: { _controller: QiissInfoBundle:Info:facebookRetrieve }

@@ -7,11 +7,11 @@ services:
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: qiiss_user_registration }
+    qiiss_user.change_password.form.type:
+        class: Qiiss\UserBundle\Form\Type\ChangePasswordFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: qiiss_user_change_password }
     authentication_handler:
         class:  %vendor_security.authentication_handler%
         arguments:  [@router]
-
-    my.listener:
-        class: Qiiss\ProfileBundle\EventListener\SearchIndexer
-        tags:
-            - { name: doctrine.event_listener, event: postPersist }

@@ -1,3 +1,15 @@
+qiiss_info:
+    resource: "@QiissInfoBundle/Resources/config/routing.yml"
+    prefix:   /
+
+qiiss_charity:
+    resource: "@QiissCharityBundle/Resources/config/routing.yml"
+    prefix:   /
+
+qiiss_search:
+    resource: "@QiissSearchBundle/Resources/config/routing.yml"
+    prefix:   /
+
 qiiss_noty:
     resource: "@QiissNotyBundle/Resources/config/routing.yml"
     prefix:   /
@@ -13,10 +25,6 @@ qiiss_general:
 qiiss_user:
     resource: "@QiissUserBundle/Resources/config/routing.yml"
     prefix:   /
-
-qiiss_wall_post:
-    pattern: /
-    defaults: { _controller: QiissWallBundle:Wall:post
 
 _fb_security_check:
   pattern: /login_check_fb
@@ -46,4 +54,4 @@ fos_user_resetting:
 
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /profile
+    prefix: /

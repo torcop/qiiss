@@ -129,6 +129,18 @@ services:
             container: "@service_container"
     general.helper.error:
         class: Qiiss\GeneralBundle\Helper\ErrorHelper
+    general.helper.upload:
+        class:        Qiiss\GeneralBundle\Helper\UploadHelper
+        arguments:    ['@service_container']
+        scope:        "request"
+    general.helper.xhrupload:
+        class:        Qiiss\GeneralBundle\Helper\XhrUploadHelper
+        arguments:    ['@service_container']
+        scope:        "request"
+    general.helper.formupload:
+        class:        Qiiss\GeneralBundle\Helper\FormUploadHelper
+        arguments:    ['@service_container']
+        scope:        "request"
 
 fos_facebook:
     file:   %kernel.root_dir%/../vendor/facebook/php-sdk/src/base_facebook.php
@@ -136,4 +148,15 @@ fos_facebook:
     app_id: 281453298642270
     secret: 1626a167ab9e1ed4cc5e41e897beeebc
     cookie: true
-    permissions: [email, birthday]
+    permissions: [email, user_birthday, user_location]
+
+knp_paginator:
+    page_range: 5                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        sort_field_name: sort          # sort field query parameter name
+        sort_direction_name: direction # sort direction query parameter name
+        distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+        pagination: KnpPaginatorBundle:Pagination:sliding.html.twig     # sliding pagination controls template
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template

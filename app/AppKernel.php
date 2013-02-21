@@ -27,7 +27,7 @@ class AppKernel extends Kernel
             new Qiiss\UserBundle\QiissUserBundle(),
             new Qiiss\ProfileBundle\QiissProfileBundle(),
             new Qiiss\NotyBundle\QiissNotyBundle(),
-			new Qiiss\WallBundle\QiissWallBundle(),
+						new Qiiss\WallBundle\QiissWallBundle(),
             new Qiiss\SearchBundle\QiissSearchBundle(),
             new Qiiss\CharityBundle\QiissCharityBundle(),
             new Qiiss\InfoBundle\QiissInfoBundle(),

@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
 						new FOS\UserBundle\FOSUserBundle(),
 						new FOS\FacebookBundle\FOSFacebookBundle(),
+						new Qiiss\vendor\facebook\php\src\Facebook(),
 						new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 						new Qiiss\GeneralBundle\QiissGeneralBundle(),
             new Qiiss\UserBundle\QiissUserBundle(),
@@ -29,6 +30,8 @@ class AppKernel extends Kernel
             new Qiiss\NotyBundle\QiissNotyBundle(),
 						new Qiiss\WallBundle\QiissWallBundle(),
             new Qiiss\SearchBundle\QiissSearchBundle(),
+            new Qiiss\CharityBundle\QiissCharityBundle(),
+            new Qiiss\InfoBundle\QiissInfoBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

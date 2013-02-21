@@ -148,7 +148,7 @@ fos_facebook:
     app_id: 281453298642270
     secret: 1626a167ab9e1ed4cc5e41e897beeebc
     cookie: true
-    permissions: [email, birthday]
+    permissions: [email, user_birthday, user_location]
 
 knp_paginator:
     page_range: 5                      # default page range used in pagination control

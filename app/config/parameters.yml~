@@ -12,3 +12,7 @@ parameters:
     locale: en
     secret: 5752285f725644bdc2a4a70b0cb90068a400778b
     database_path: null
+		api_facebook_id:      281453298642270 # ID de l’application/
+    api_facebook_secret:  1626a167ab9e1ed4cc5e41e897beeebc
+    api_facebook_name:    qiiss_test
+    api_facebook_server:  http://localhost/Qiiss/web/app_dev.php

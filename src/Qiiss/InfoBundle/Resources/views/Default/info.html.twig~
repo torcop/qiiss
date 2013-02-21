@@ -1,1 +1,3 @@
-{{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
+{% for item in facebookInfo %}
+	{{ facebookInfo.item }}
+{% endfor %}
